@@ -1,6 +1,4 @@
 *.DS_Store
-src/lib/.DS_Store
-src/lib/pyhmy/.DS_Store
 /TransactionHistory/*
 /CSV Outputs/*
 
