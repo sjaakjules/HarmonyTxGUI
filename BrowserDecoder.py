@@ -171,9 +171,15 @@ class FunctionSelector(tk.Toplevel):
         self.allTransactions = TransactionList
         self.oneAddress = oneAddress
 
-        self.txFnList = list(TransactionList.keys())
+        self.txFnList = []
+        for code in TransactionList:
+            if code in self.fnList:
+                self.txFnList.append(f"{self.fnList[code]['name']} | {code}")
+            else:
+                self.txFnList.append(f'Unknown | {code}')
+        #self.txFnList = list(TransactionList.keys())
 
-        self.fnCode = self.txFnList[0]
+        self.fnCode = self.txFnList[0].split(' | ', 1)[1]
         self.fnTxs = self.allTransactions[self.fnCode]
 
         # List
@@ -367,12 +373,34 @@ class FunctionSelector(tk.Toplevel):
             print('Already in list you numpty')
 
     def SaveFunctionListFile(self):
-        print(self.fnList[self.FunctionSelector.get()])
+        print(self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]])
         # with open(Const.FUNCTIONLISTPATH, 'w', encoding='utf-8') as f:
         #    json.dump(self.fnList, f, ensure_ascii=False, indent=4)
 
+    def removeLabeled(self):
+        for func in self.FunctionSelector['values']:
+            if func.split(' | ', 1)[1] in self.fnList and self.oneAddress in self.fnList[func.split(' | ', 1)[1]]:
+                if self.fnList[func.split(' | ', 1)[1]][self.oneAddress]['functionLabel'] != None:
+                    self.FunctionSelector['values'].remove(func)
+
+        if self.FunctionSelector.get() not in self.FunctionSelector['values']:
+            self.FunctionSelector.set(self.FunctionSelector['values'][0])
+
+        self.updateFunction(None)
+        funcCode = self.FunctionSelector.get().split(' | ', 1)[1]
+        for Addr in self.AddrSelector['values']:
+            if funcCode in self.fnList and self.oneAddress in self.fnList[funcCode]:
+                if self.AddrSelector.get() in self.fnList[funcCode][self.oneAddress]['addressLabels']:
+                    self.FunctionSelector['values'].remove(func)
+
+        self.AddrSelector['values'] = self.uniqueAddr
+        self.AddrSelector.set(self.AddrSelector['values'][0])
+
+        self.TxSelector['values'] = self.addrGroupedTransactions[self.AddrSelector.get()]
+        self.TxSelector.set(self.TxSelector['values'][0])
+
     def updateFunction(self, event):
-        self.fnCode = self.FunctionSelector.get()
+        self.fnCode = self.FunctionSelector.get().split(' | ', 1)[1]
         self.fnTxs = self.allTransactions[self.fnCode]
 
         self.txList = self.digestTxs(self.fnTxs, self.oneAddress)
@@ -415,8 +443,9 @@ class FunctionSelector(tk.Toplevel):
         self.functionLabelStr.set('No Label')
         self.addressLabelStr.set('No Label')
         self.transactionLabelStr.set('No Label')
-        if self.oneAddress in self.fnList[self.FunctionSelector.get()]:
-            labels = self.fnList[self.FunctionSelector.get()][self.oneAddress]
+        if self.oneAddress in self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]]:
+            labels = self.fnList[self.FunctionSelector.get().split(' | ', 1)[
+                1]][self.oneAddress]
             if labels['functionLabel'] is not None:
                 self.functionLabelStr.set(labels['functionLabel'])
             if self.AddrSelector.get() in labels['addressLabels']:
@@ -425,8 +454,9 @@ class FunctionSelector(tk.Toplevel):
             if self.TxSelector.get() in labels['transactionLabels']:
                 self.transactionLabelStr.set(
                     labels['transactionLabels'][self.TxSelector.get()])
-        elif 'default' in self.fnList[self.FunctionSelector.get()]:
-            labels = self.fnList[self.FunctionSelector.get()]['default']
+        elif 'default' in self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]]:
+            labels = self.fnList[self.FunctionSelector.get().split(' | ', 1)[
+                1]]['default']
             if labels['functionLabel'] is not None:
                 self.functionLabelStr.set('(default) ' +
                                           labels['functionLabel'])
@@ -438,63 +468,63 @@ class FunctionSelector(tk.Toplevel):
                                              labels['transactionLabels'][self.TxSelector.get()])
 
     def setFunctionLabel(self):
-        if self.FunctionSelector.get() not in self.fnList:
-            self.fnList[self.FunctionSelector.get()] = {
+        if self.FunctionSelector.get().split(' | ', 1)[1] not in self.fnList:
+            self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]] = {
                 'name': Const.UNKNOWNFUNCTION}
 
-        if 'default' not in self.fnList[self.FunctionSelector.get()]:
-            self.fnList[self.FunctionSelector.get()]['default'] = {
+        if 'default' not in self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]]:
+            self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]]['default'] = {
                 'functionLabel': self.labelSelector.get(), 'addressLabels': {}, 'transactionLabels': {}}
         else:
-            self.fnList[self.FunctionSelector.get(
-            )]['default']['functionLabel'] = self.labelSelector.get()
+            self.fnList[self.FunctionSelector.get().split(
+                ' | ', 1)[1]]['default']['functionLabel'] = self.labelSelector.get()
 
-        if self.oneAddress not in self.fnList[self.FunctionSelector.get()]:
-            self.fnList[self.FunctionSelector.get()][self.oneAddress] = {
+        if self.oneAddress not in self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]]:
+            self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]][self.oneAddress] = {
                 'functionLabel': self.labelSelector.get(), 'addressLabels': {}, 'transactionLabels': {}}
         else:
-            self.fnList[self.FunctionSelector.get(
-            )][self.oneAddress]['functionLabel'] = self.labelSelector.get()
+            self.fnList[self.FunctionSelector.get().split(
+                ' | ', 1)[1]][self.oneAddress]['functionLabel'] = self.labelSelector.get()
         self.updateFunctionLabelDisplays()
 
     def setAddressLabel(self):
-        if self.FunctionSelector.get() not in self.fnList:
-            self.fnList[self.FunctionSelector.get()] = {
+        if self.FunctionSelector.get().split(' | ', 1)[1] not in self.fnList:
+            self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]] = {
                 'name': Const.UNKNOWNFUNCTION}
 
-        if 'default' not in self.fnList[self.FunctionSelector.get()]:
-            self.fnList[self.FunctionSelector.get()]['default'] = {
+        if 'default' not in self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]]:
+            self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]]['default'] = {
                 'functionLabel': None, 'addressLabels': {self.AddrSelector.get(): self.labelSelector.get()}, 'transactionLabels': {}}
         else:
-            self.fnList[self.FunctionSelector.get(
-            )]['default']['addressLabels'][self.AddrSelector.get()] = self.labelSelector.get()
+            self.fnList[self.FunctionSelector.get().split(' | ', 1)[
+                1]]['default']['addressLabels'][self.AddrSelector.get()] = self.labelSelector.get()
 
-        if self.oneAddress not in self.fnList[self.FunctionSelector.get()]:
-            self.fnList[self.FunctionSelector.get()][self.oneAddress] = {
+        if self.oneAddress not in self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]]:
+            self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]][self.oneAddress] = {
                 'functionLabel': None, 'addressLabels': {self.AddrSelector.get(): self.labelSelector.get()}, 'transactionLabels': {}}
         else:
-            self.fnList[self.FunctionSelector.get(
-            )][self.oneAddress]['addressLabels'][self.AddrSelector.get()] = self.labelSelector.get()
+            self.fnList[self.FunctionSelector.get().split(' | ', 1)[
+                1]][self.oneAddress]['addressLabels'][self.AddrSelector.get()] = self.labelSelector.get()
         self.updateFunctionLabelDisplays()
 
     def setTransactionLabel(self):
-        if self.FunctionSelector.get() not in self.fnList:
-            self.fnList[self.FunctionSelector.get()] = {
+        if self.FunctionSelector.get().split(' | ', 1)[1] not in self.fnList:
+            self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]] = {
                 'name': Const.UNKNOWNFUNCTION}
 
-        if 'default' not in self.fnList[self.FunctionSelector.get()]:
-            self.fnList[self.FunctionSelector.get()]['default'] = {
+        if 'default' not in self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]]:
+            self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]]['default'] = {
                 'functionLabel': '', 'addressLabels': {}, 'transactionLabels': {self.TxSelector.get(): self.labelSelector.get()}}
         else:
-            self.fnList[self.FunctionSelector.get(
-            )]['default']['transactionLabels'][self.TxSelector.get()] = self.labelSelector.get()
+            self.fnList[self.FunctionSelector.get().split(' | ', 1)[
+                1]]['default']['transactionLabels'][self.TxSelector.get()] = self.labelSelector.get()
 
-        if self.oneAddress not in self.fnList[self.FunctionSelector.get()]:
-            self.fnList[self.FunctionSelector.get()][self.oneAddress] = {
+        if self.oneAddress not in self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]]:
+            self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]][self.oneAddress] = {
                 'functionLabel': '', 'addressLabels': {}, 'transactionLabels': {self.TxSelector.get(): self.labelSelector.get()}}
         else:
-            self.fnList[self.FunctionSelector.get(
-            )][self.oneAddress]['transactionLabels'][self.TxSelector.get()] = self.labelSelector.get()
+            self.fnList[self.FunctionSelector.get().split(' | ', 1)[
+                1]][self.oneAddress]['transactionLabels'][self.TxSelector.get()] = self.labelSelector.get()
         self.updateFunctionLabelDisplays()
 
 

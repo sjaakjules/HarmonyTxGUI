@@ -32,3 +32,71 @@ Saved 10171 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuq
 Now Processing!
 
 All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10161     10161      0        0      10161            0    10161
+HRC20 Txs          3610      3610      0        0       3610            0     3610
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10171          0    10171
+Decoded       0          0      10171    10171
+Function      0      10171          0    10171
+Web           0          0      10171    10171
+
+
+
+Saved 10171 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10161     10161      0        0      10161            0    10161
+HRC20 Txs          3610      3610      0        0       3610            0     3610
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10171          0    10171
+Decoded       0          0      10171    10171
+Function      0      10171          0    10171
+Web           0          0      10171    10171
+
+
+
+Saved 10171 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
