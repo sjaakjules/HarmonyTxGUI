@@ -1,0 +1,1284 @@
+{
+    "labels": [
+        "gift",
+        "lost",
+        "cost",
+        "margin fee",
+        "realized gain",
+        "stake",
+        "airdrop",
+        "fork",
+        "mining",
+        "reward",
+        "income (for other income)",
+        "loan interest",
+        "realized gain",
+        "unstake",
+        "swap",
+        "liquidity in",
+        "liquidity out"
+    ],
+    "0x02751cec": {
+        "name": "Remove Liquidity E T H",
+        "params": [
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0x095ea7b3": {
+        "name": "Approve",
+        "altNames": [
+            "Approve"
+        ],
+        "params": [
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0x096c5e1a": {
+        "name": "Sell Item",
+        "params": [
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0x0ad58d2f": {
+        "name": "Withdraw",
+        "params": [
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "address"
+            }
+        ]
+    },
+    "0x106f46e4": {
+        "name": "Consume Item",
+        "params": [
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0x18cbafe5": {
+        "name": "Swap Exact Tokens For E T H",
+        "params": [
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "address[]"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0x1efedbe5": {
+        "name": "Send Hero",
+        "params": [
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0x2e0703dc": {
+        "name": "Clean Quests",
+        "params": []
+    },
+    "0x2e1a7d4d": {
+        "name": "Withdraw",
+        "params": [
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0x379607f5": {
+        "name": "Claim",
+        "params": [
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0x38ed1739": {
+        "name": "Swap Exact Tokens For Tokens",
+        "params": [
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "address[]"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0x441a3e70": {
+        "name": "Withdraw",
+        "params": [
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0x4a25d94a": {
+        "name": "Swap Tokens For Exact E T H",
+        "params": [
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "address[]"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0x4a517a55": {
+        "name": "Swap And Redeem",
+        "params": [
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint8"
+            },
+            {
+                "type": "uint8"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0x4ea8a311": {
+        "name": "Summon Crystal",
+        "params": [
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint16"
+            },
+            {
+                "type": "uint16"
+            },
+            {
+                "type": "address"
+            }
+        ]
+    },
+    "0x4ee42914": {
+        "name": "Create Auction",
+        "params": [
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint128"
+            },
+            {
+                "type": "uint128"
+            },
+            {
+                "type": "uint64"
+            },
+            {
+                "type": "address"
+            }
+        ]
+    },
+    "0x528be0a9": {
+        "name": "Complete Quest",
+        "params": [
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0x598647f8": {
+        "name": "Bid",
+        "params": [
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0x5eac6239": {
+        "name": "Claim Rewards",
+        "params": [
+            {
+                "type": "uint256[]"
+            }
+        ]
+    },
+    "0x67dfd4c9": {
+        "name": "Leave",
+        "params": [
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0x690e7c09": {
+        "name": "Open",
+        "params": [
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0x6e278cf1": {
+        "name": "DFK Style update"
+    },
+    "0x702e409d": {
+        "name": "DFK Unknown hero hire related"
+    },
+    "0x756fcd69": {
+        "name": "Complete Meditation",
+        "params": [
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0x7ff36ab5": {
+        "name": "Swap Exact E T H For Tokens",
+        "params": [
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "address[]"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0x839ed90a": {
+        "name": "Redeem And Swap",
+        "params": [
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint8"
+            },
+            {
+                "type": "uint8"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0x8803dbee": {
+        "name": "Swap Tokens For Exact Tokens",
+        "params": [
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "address[]"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0x8a2da17b": {
+        "name": "Start Quest",
+        "params": [
+            {
+                "type": "uint256[]"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint8"
+            },
+            {
+                "type": "uint8"
+            }
+        ]
+    },
+    "0x8b924f06": {
+        "name": "DFK unknown hero related"
+    },
+    "0x8dbdbe6d": {
+        "name": "Deposit",
+        "params": [
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "address"
+            }
+        ]
+    },
+    "0x8ed955b9": {
+        "name": "Harvest All",
+        "params": []
+    },
+    "0x90d25074": {
+        "name": "Deposit",
+        "params": [
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0x9f37092a": {
+        "name": "Buy Item",
+        "params": [
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0xa22cb465": {
+        "name": "Set Approval For All",
+        "params": [
+            {
+                "type": "address"
+            },
+            {
+                "type": "bool"
+            }
+        ]
+    },
+    "0xa28beda3": {
+        "name": "Create Potion",
+        "params": [
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0xa59f3e0c": {
+        "name": "Enter",
+        "params": [
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0xa9fd8c57": {
+        "name": "Deposit E T H And Swap",
+        "params": [
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint8"
+            },
+            {
+                "type": "uint8"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0xae169a50": {
+        "name": "Claim Reward",
+        "params": [
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0xb6b55f25": {
+        "name": "Deposit",
+        "params": [
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0xbaa2abde": {
+        "name": "Remove Liquidity",
+        "params": [
+            {
+                "type": "address"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0xbcf64e05": {
+        "name": "Burn",
+        "params": [
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "bytes32"
+            }
+        ]
+    },
+    "0xc2b40631": {
+        "name": "Summon Crystal With Auction Old",
+        "params": [
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint16"
+            },
+            {
+                "type": "uint16"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "address"
+            }
+        ]
+    },
+    "0xc7fef99b": {
+        "name": "Airdrop"
+    },
+    "0xc855dea3": {
+        "name": "Start Quest",
+        "params": [
+            {
+                "type": "uint256[]"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint8"
+            }
+        ]
+    },
+    "0xce0b63ce": {
+        "name": "Deposit E T H",
+        "params": [
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0xe2bbb158": {
+        "name": "Deposit",
+        "params": [
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0xe30d4440": {
+        "name": "Claim Airdrop",
+        "params": [
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0xe8e33700": {
+        "name": "Add Liquidity",
+        "params": [
+            {
+                "type": "address"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0xf305d719": {
+        "name": "Add Liquidity E T H",
+        "params": [
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0xf3f094a1": {
+        "name": "Redeem",
+        "params": [
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0xf51333f5": {
+        "name": "Start Quest With Data",
+        "params": [
+            {
+                "type": "uint256[]"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint8"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "int256"
+            },
+            {
+                "type": "int256"
+            },
+            {
+                "type": "string"
+            },
+            {
+                "type": "string"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "address"
+            }
+        ]
+    },
+    "0xfa863736": {
+        "name": "Start Meditation",
+        "params": [
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint8"
+            },
+            {
+                "type": "uint8"
+            },
+            {
+                "type": "uint8"
+            },
+            {
+                "type": "address"
+            }
+        ]
+    },
+    "0xfb3bdb41": {
+        "name": "Swap E T H For Exact Tokens",
+        "params": [
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "address[]"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0xfe90ff7d": {
+        "name": "Cancel Quest",
+        "params": [
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0x": {
+        "name": "Burn"
+    },
+    "0x1feed31f": {
+        "name": "Redeem"
+    },
+    "0x9ebea88c": {
+        "name": "Unstake",
+        "altNames": [
+            "Unstake"
+        ],
+        "params": [
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "bool"
+            }
+        ]
+    },
+    "0x7acb7757": {
+        "name": "Stake",
+        "altNames": [
+            "Stake"
+        ],
+        "params": [
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "address"
+            }
+        ]
+    },
+    "0xbd3eaa6f": {
+        "name": "DFK Create Profile"
+    },
+    "0xa9059cbb": {
+        "name": "Transfer"
+    },
+    "0x025e7c27": {
+        "name": "Undefined"
+    },
+    "0x96b5a755": {
+        "name": "DFK cancelAuction",
+        "altNames": [
+            "Cancel Auction"
+        ],
+        "params": [
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0x68ce0b56": {
+        "name": "Start Quest",
+        "altNames": [
+            "Start Quest"
+        ],
+        "params": [
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint8"
+            }
+        ]
+    },
+    "0x303e6aa4": {
+        "name": "DFK Convert Multiple",
+        "altNames": [
+            "Convert Multiple"
+        ],
+        "params": [
+            {
+                "type": "address[]"
+            },
+            {
+                "type": "address[]"
+            }
+        ]
+    },
+    "0xa0e3d1a0": {
+        "name": "WAGMI Burn token",
+        "altNames": [
+            "Burn Token"
+        ],
+        "params": [
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "address"
+            }
+        ]
+    },
+    "0xea598cb0": {
+        "name": "WAGMI wrap token"
+    },
+    "0x5d444f91": {
+        "name": "Recharge Crystal"
+    },
+    "0xde0e9a3e": {
+        "name": "WAGMI unwrap token"
+    },
+    "0x23b872dd": {
+        "name": "transferFrom"
+    },
+    "0x1cf5f07f": {
+        "name": "Undefined"
+    },
+    "0x17357892": {
+        "name": "DFK MAYBE Mint and Swap"
+    },
+    "0xa69df4b5": {
+        "name": "VIPER MAGIC Unlock",
+        "altNames": [
+            "Unlock"
+        ],
+        "params": []
+    },
+    "0x1249c58b": {
+        "name": "Tranquil Mint",
+        "altNames": [
+            "Mint"
+        ],
+        "params": []
+    },
+    "0xd0e30db0": {
+        "name": "Deposit"
+    },
+    "0x18fccc76": {
+        "name": "Sushi Harvest",
+        "altNames": [
+            "Harvest"
+        ],
+        "params": [
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "address"
+            }
+        ]
+    },
+    "0x791ac947": {
+        "name": "Cosmic coins LootLP swapExactTokensForETHSupportingFeeOnTransferTokens"
+    },
+    "0x6ea6d76d": {
+        "name": "Game Init"
+    },
+    "0x3a4231b6": {
+        "name": "Tranquil Transfer CryptoPigs"
+    },
+    "0xaf2979eb": {
+        "name": "Cosmic coins LootLP removeLiquidityETHSupportingFeeOnTransferTokens"
+    },
+    "0xb948348c": {
+        "name": "SONIC purchaseTicket"
+    },
+    "0xefef39a1": {
+        "name": "DFK Purchase MAYBE Summon"
+    },
+    "0x92642744": {
+        "name": "The Frey Mint NFT"
+    },
+    "0xc2998238": {
+        "name": "Tranquil Enter Markets"
+    },
+    "0xc5ebeaec": {
+        "name": "Tranquil Borrow",
+        "altNames": [
+            "Borrow"
+        ],
+        "params": [
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0x0e752702": {
+        "name": "Repay Borrow",
+        "altNames": [
+            "Repay Borrow"
+        ],
+        "params": [
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0x0952c563": {
+        "name": "Claim Rewards",
+        "altNames": [
+            "Claim Reward"
+        ],
+        "params": [
+            {
+                "type": "uint8"
+            },
+            {
+                "type": "address"
+            }
+        ]
+    },
+    "0x4e4d9fea": {
+        "name": "Tranquil Accrue interest repay borrow",
+        "altNames": [
+            "Repay Borrow"
+        ],
+        "params": []
+    },
+    "0xdb006a75": {
+        "name": "Tranquil Redeem",
+        "altNames": [
+            "Redeem"
+        ],
+        "params": [
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0x372500ab": {
+        "name": "Tranquil Claim",
+        "altNames": [
+            "Claim Rewards"
+        ],
+        "params": []
+    },
+    "0x3df02124": {
+        "name": "Curve Fi Exchange",
+        "altNames": [
+            "Exchange"
+        ],
+        "params": [
+            {
+                "type": "int128"
+            },
+            {
+                "type": "int128"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0xce177878": {
+        "name": "One KITTIES Mint with punk"
+    },
+    "0x3fda5389": {
+        "name": "DFK Fill",
+        "altNames": [
+            "Fill"
+        ],
+        "params": [
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0xdef4061f": {
+        "name": "DFK MAYBE Hero auction"
+    },
+    "0x71a6acf2": {
+        "name": "DFK Donate tokens"
+    },
+    "0x82731903": {
+        "name": "DFK MAYBE Burn Gia tears"
+    },
+    "0x474cf53d": {
+        "name": "Deposit E T H",
+        "params": [
+            {
+                "type": "address"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint16"
+            }
+        ]
+    },
+    "0x4faa8a26": {
+        "name": "Deposit Ether For",
+        "params": [
+            {
+                "type": "address"
+            }
+        ]
+    },
+    "0x617ba037": {
+        "name": "Supply",
+        "params": [
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint16"
+            }
+        ]
+    },
+    "0x66514c97": {
+        "name": "Borrow E T H",
+        "params": [
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint16"
+            }
+        ]
+    },
+    "0x676528d1": {
+        "name": "Swap Exact Tokens For A V A X",
+        "params": [
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "address[]"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0x8b9e4f93": {
+        "name": "Deposit E R C20 For User",
+        "params": [
+            {
+                "type": "address"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0x96842242": {
+        "name": "Summon Crystal With Auction",
+        "params": [
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint16"
+            },
+            {
+                "type": "uint16"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "address"
+            }
+        ]
+    },
+    "0xa0712d68": {
+        "name": "Mint",
+        "params": [
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0xa2a1623d": {
+        "name": "Swap Exact A V A X For Tokens",
+        "params": [
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "address[]"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0xa6417ed6": {
+        "name": "Exchange_underlying",
+        "params": [
+            {
+                "type": "int128"
+            },
+            {
+                "type": "int128"
+            },
+            {
+                "type": "uint256"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0xb0ea6a1b": {
+        "name": "Crack",
+        "params": [
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0xc04a8a10": {
+        "name": "Approve Delegation",
+        "params": [
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0xe3dec8fb": {
+        "name": "Deposit For",
+        "params": [
+            {
+                "type": "address"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "bytes"
+            }
+        ]
+    },
+    "0xa5e56571": {
+        "name": "Any Swap Out Native",
+        "params": [
+            {
+                "type": "address"
+            },
+            {
+                "type": "address"
+            },
+            {
+                "type": "uint256"
+            }
+        ]
+    },
+    "0x4c7f588f":{
+        "name": "DFK Egg Incubation"
+    },
+    "0xa389f510":{
+        "name": "DFK Hero Update"
+    }
+}
