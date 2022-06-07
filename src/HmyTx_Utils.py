@@ -6,6 +6,7 @@ import time
 from datetime import datetime
 from functools import lru_cache
 from tokenize import Number
+from unittest.mock import NonCallableMagicMock
 
 import requests
 from bech32 import bech32_decode, bech32_encode
@@ -41,6 +42,8 @@ ChainHarmonyKey = '0x63564c40'
 ChainDFKKey = '0xd2af'
 """
 HRC20Tokens = {}
+
+functionList = {}
 
 
 def check_if_in_list_of_dict(sample_dict, key, value):
@@ -108,7 +111,7 @@ def updateFunctionList(outputFile, allTxs) -> dict:
         if len(tx['input']) >= 10:
             if tx['input'][0:10] not in functionsOut:
                 functionsOut[tx['input'][0:10]] = {
-                    "name": Const.UNDEFINEDFUNCTION}
+                    "name": Const.FUNC_UNDEFINED}
             # else:
                 # print('input is in list.')
         elif tx['input'] == '0x':
@@ -141,39 +144,318 @@ def getHRC20(oneAddy, pageIndex, pageSize) -> list:
     return hrc20Ts
 
 
-def getBaseInfo(tx, oneAddress):
+def getBaseInfoDisplay(tx, oneAddress):
     '''
-    Output keys: {'time','name','code','gas','to','from'}
+    Output keys: {'time','name','code','gas','to','from','label'}
     '''
-    timestamp = datetime.fromtimestamp(tx[Const.TX_KEY]['timestamp'])
+    timestamp = datetime.fromtimestamp(tx[Const.T_TX_KEY]['timestamp'])
     timestr = timestamp.strftime("%Y-%m-%d %H:%M:%S")
-    fnName = tx[Const.FUNCTION_KEY]['function']
-    fnCode = tx[Const.FUNCTION_KEY]['code']
-    gasFee = tx[Const.TX_KEY]['gasPrice'] * \
-        tx[Const.RECEIPT_KEY]['gasUsed'] / (10 ** 18)
+    fnName = tx[Const.T_FUNCTION_KEY]['function']
+    fnCode = tx[Const.T_FUNCTION_KEY]['code']
+    gasFee = tx[Const.T_TX_KEY]['gasPrice'] * \
+        tx[Const.T_RECEIPT_KEY]['gasUsed'] / (10 ** 18)
 
-    fromAddr = tx[Const.TX_KEY]['from']
-    toAddr = tx[Const.TX_KEY]['to']
+    fromAddr = tx[Const.T_TX_KEY]['from']
+    toAddr = tx[Const.T_TX_KEY]['to']
 
+    label = ''
+    if Const.T_FUNCTION_KEY in tx and Const.TF_FUNCLABEL in tx[Const.T_FUNCTION_KEY]:
+        label = tx[Const.T_FUNCTION_KEY][Const.TF_FUNCLABEL]
+    theirAddr = toAddr
     if fromAddr == oneAddress:
         fromAddr = fromAddr + ' (me)'
         toAddr = toAddr + ' (them)'
     elif toAddr == oneAddress:
         toAddr = toAddr + ' (me)'
         fromAddr = fromAddr + ' (them)'
+        theirAddr = fromAddr
     else:
-        print('Error not in to or from!')
+        ('Error not in to or from!')
 
     return {
-        'time': timestr,
-        'name': fnName,
-        'code': fnCode,
-        'gas': gasFee,
-        'to': toAddr,
-        'from': fromAddr}
+        Const.TF_TIME: timestr,
+        Const.TF_FUNCNAME: fnName,
+        Const.TF_FUNCCODE: fnCode,
+        Const.TF_GAS: gasFee,
+        Const.TF_TO: toAddr,
+        Const.TF_FROM: fromAddr,
+        Const.TF_THEIR: theirAddr,
+        Const.TF_FUNCLABEL: label}
 
 
-def getTransferInfo(tx, oneAddress):
+def getTransferInfo(tx, oneAddress) -> dict:
+    '''
+    Output keys: {'time','name','code','gas','to','from','trades','unknownTrades','label'}
+    trades keys: {'from','to','sentAmount','sentToken','receivedAmount','receivedToken','topic'}
+    '''
+    global HRC20Tokens
+    if len(list(HRC20Tokens.keys())) == 0:
+        HRC20Tokens = writeAllTokensToFile(Const.HRC20LISTPATH)
+
+    baseInfo = getBaseInfoDisplay(tx, oneAddress)  # will get label from tx
+    baseInfo[Const.TF_TO] = baseInfo[Const.TF_TO].split(' ', 1)[0]
+    baseInfo[Const.TF_FROM] = baseInfo[Const.TF_FROM].split(' ', 1)[0]
+
+    label = baseInfo[Const.TF_FUNCLABEL]
+
+    hexAddr = convert_one_to_hex(oneAddress)
+    myhexBase = hexAddr[2:].lower()
+    fromHexBase = convert_one_to_hex(tx[Const.T_TX_KEY]['from'])[2:].lower()
+    toHexBase = convert_one_to_hex(tx[Const.T_TX_KEY]['to'])[2:].lower()
+
+    isSent = True
+    theirHexBase = toHexBase
+    if toHexBase == myhexBase:
+        theirHexBase = fromHexBase
+        isSent = False
+
+    transactionsOut = []
+    unknownTxOut = []
+
+    value = tx[Const.T_TX_KEY]['value'] / (10 ** 18)
+
+    if value != 0:
+        if isSent:
+            transactionsOut.append({
+                Const.TFT_FROM: baseInfo[Const.TF_FROM],
+                Const.TFT_TO: baseInfo[Const.TF_TO],
+                Const.TFT_THEIR: convert_hex_to_one('0x'+theirHexBase),
+                Const.TFT_SENTAMOOUNT: value,
+                Const.TFT_SENTTOKEN: 'ONE',
+                Const.TFT_RECAMOUNT: '',
+                Const.TFT_RECTOKEN: '',
+                Const.TFT_TOPIC: 'baseTX',
+                Const.TFT_CSVLABEL: label})
+        else:
+            transactionsOut.append({
+                Const.TFT_FROM: baseInfo[Const.TF_FROM],
+                Const.TFT_TO: baseInfo[Const.TF_TO],
+                Const.TFT_THEIR: convert_hex_to_one('0x'+theirHexBase),
+                Const.TFT_SENTAMOOUNT: '',
+                Const.TFT_SENTTOKEN: '',
+                Const.TFT_RECAMOUNT: value,
+                Const.TFT_RECTOKEN: 'ONE',
+                Const.TFT_TOPIC: 'baseTX',
+                Const.TFT_CSVLABEL: label})
+
+    if len(tx[Const.T_RECEIPT_KEY]['logs']) > 0:
+        'has logs! will check if log topics are transfers.'
+
+        for log in tx[Const.T_RECEIPT_KEY]['logs']:
+            'For each log within each transaction'
+            isTransfer = False
+            tokenSym = log['address']
+            value = 0
+
+            if len(log['data']) == 66:
+                try:
+                    if log['data'][:4] != '0xff':
+                        data = int(log['data'], 16)
+                    else:
+                        data = re.sub(r'([f])\1+', r'\1', log['data'])
+                except:
+                    data = log['data']
+            else:
+                data = log['data']
+
+            if log['address'] in HRC20Tokens:
+                tokenSym = HRC20Tokens[log['address']]['symbol']
+                if type(data) == float:
+                    data = data / \
+                        (10 ** HRC20Tokens[log['address']]['decimals'])
+                elif type(data) == int:
+                    data = float(data) / (10 **
+                                          HRC20Tokens[log['address']]['decimals'])
+            else:
+                'Log is not regestered HRC20 token'
+                #tokenSym = tokenSym[-4:]
+
+            myLog = 0
+            for i, topic in enumerate(log['topics']):
+                if (topic[-40:]).lower() == myhexBase:
+                    myLog = i
+
+            toStr = '0x' + toHexBase
+            fromStr = '0x' + fromHexBase
+            theirStr = '0x' + theirHexBase
+
+            isSent = True
+            isUnknownTX = False
+            if myLog > 0:
+                'Is a log for me!'
+                isUnknownTX = True
+                match log['topics'][0]:
+                    case '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef':
+                        isTransfer = True
+                        isUnknownTX = False
+                        topicName = 'Transfer'
+                        fromStr = '0x' + log["topics"][1][-40:]
+                        toStr = '0x' + log["topics"][2][-40:]
+                        theirStr = '0x' + log["topics"][2][-40:]
+
+                        if log["topics"][2][-40:] == myhexBase:
+                            isSent = False
+                            theirStr = '0x' + log["topics"][1][-40:]
+                    case '0x1fec6dc81f140574bf43f6b1e420ae1dd47928b9d57db8cbd7b8611063b85ae5':
+                        print('Wagmi for me!')
+                        isTransfer = True
+                        isUnknownTX = False
+                        topicName = 'WAGMI swap'
+                        isSent = False
+                        toStr = '0x' + myhexBase
+                        fromStr = '0x' + theirHexBase  # f'(their addr)'
+                        tokenSym = 'sWAGMI'
+                        data = int(log['topics'][1], 16) / (10**9)
+                    case '0x7fcf532c15f0a6db0bd6d0e038bea71d30d808c7d98cb3bf7268a95bf5081b65':
+                        #print('Withdrawl for me!')
+                        isTransfer = True
+                        isSent = False
+                        isUnknownTX = False
+                        topicName = 'Withdrawal'
+                        toStr = '0x' + myhexBase
+                        fromStr = '0x' + theirHexBase
+                    case _:
+                        topicName = log['topics'][0]
+            else:
+                match log['topics'][0]:
+                    case '0x7fcf532c15f0a6db0bd6d0e038bea71d30d808c7d98cb3bf7268a95bf5081b65':
+                        # print('Withdrawl!')
+                        isTransfer = True
+                        topicName = 'Withdrawal'
+                        toStr = '0x' + myhexBase
+                        fromStr = '0x' + theirHexBase
+                    case '0x1fec6dc81f140574bf43f6b1e420ae1dd47928b9d57db8cbd7b8611063b85ae5':
+                        isTransfer = True
+                        isSent = False
+                        topicName = 'WAGMI swap'
+                        toStr = '0x' + myhexBase
+                        fromStr = '0x' + theirHexBase  # f'(their addr)'
+                        tokenSym = 'sWAGMI'
+                        data = int(log['topics'][1], 16) / (10**9)
+            if isSent:
+                if isTransfer:
+                    transactionsOut.append({
+                        Const.TFT_FROM: fromStr,
+                        Const.TFT_TO: toStr,
+                        Const.TFT_THEIR: convert_hex_to_one(theirStr),
+                        Const.TFT_SENTAMOOUNT: data,
+                        Const.TFT_SENTTOKEN: tokenSym,
+                        Const.TFT_RECAMOUNT: '',
+                        Const.TFT_RECTOKEN: '',
+                        Const.TFT_TOPIC: topicName,
+                        Const.TFT_CSVLABEL: label})
+                elif isUnknownTX:
+                    unknownTxOut.append({
+                        Const.TFT_FROM: fromStr,
+                        Const.TFT_TO: toStr,
+                        Const.TFT_THEIR: convert_hex_to_one(theirStr),
+                        Const.TFT_SENTAMOOUNT: data,
+                        Const.TFT_SENTTOKEN: tokenSym,
+                        Const.TFT_RECAMOUNT: '',
+                        Const.TFT_RECTOKEN: '',
+                        Const.TFT_TOPIC: topicName,
+                        Const.TFT_CSVLABEL: label})
+            else:
+                if isTransfer:
+                    transactionsOut.append({
+                        Const.TFT_FROM: fromStr,
+                        Const.TFT_TO: toStr,
+                        Const.TFT_THEIR: convert_hex_to_one(theirStr),
+                        Const.TFT_SENTAMOOUNT: '',
+                        Const.TFT_SENTTOKEN: '',
+                        Const.TFT_RECAMOUNT: data,
+                        Const.TFT_RECTOKEN: tokenSym,
+                        Const.TFT_TOPIC: topicName,
+                        Const.TFT_CSVLABEL: label})
+                elif isUnknownTX:
+                    unknownTxOut.append({
+                        Const.TFT_FROM: fromStr,
+                        Const.TFT_TO: toStr,
+                        Const.TFT_THEIR: convert_hex_to_one(theirStr),
+                        Const.TFT_SENTAMOOUNT: '',
+                        Const.TFT_SENTTOKEN: '',
+                        Const.TFT_RECAMOUNT: data,
+                        Const.TFT_RECTOKEN: tokenSym,
+                        Const.TFT_TOPIC: topicName,
+                        Const.TFT_CSVLABEL: label})
+    baseInfo['trades'] = transactionsOut
+    baseInfo['unknownTrades'] = unknownTxOut
+
+    return baseInfo
+
+
+def getFunctions() -> dict:
+    global functionList
+    if len(list(functionList.keys())) == 0:
+        if os.path.exists(Const.FUNCTIONLISTPATH):
+            with open(Const.FUNCTIONLISTPATH, 'r') as f:
+                functionList = json.loads(f.read())
+            return functionList
+    else:
+        return functionList
+    return None
+
+
+def updateFunctions(newFunctions):
+    global functionList
+    with open(Const.FUNCTIONLISTPATH, 'w', encoding='utf-8') as f:
+        json.dump(newFunctions, f, ensure_ascii=False, indent=4)
+
+    with open(Const.FUNCTIONLISTPATH, 'r') as f:
+        functionList = json.loads(f.read())
+    return functionList
+
+
+def getLabel(tx, oneAddress):
+    if getFunctions() == None:
+        print("No functionlist found!!!")
+    else:
+        if Const.T_FUNCTION_KEY in tx:
+            if 'code' in tx[Const.T_FUNCTION_KEY]:
+                'then i have code, name and somwhere to add label.'
+                'in function list i need oneAddress and this tx code, to address and hash'
+                code = tx[Const.T_FUNCTION_KEY]['code']
+                if code in functionList:
+                    if oneAddress in functionList[code]:
+                        'have label'
+                        toAddr = tx[Const.T_TX_KEY]['to']
+                        txHash = tx[Const.T_TX_KEY]['ethHash']
+                        if tx[Const.T_TX_KEY]['to'] == oneAddress:
+                            toAddr = tx[Const.T_TX_KEY]['from']
+                        if txHash in functionList[code][oneAddress]['transactionLabels']:
+                            return functionList[code][oneAddress]['transactionLabels'][txHash]
+                        elif toAddr in functionList[code][oneAddress]['addressLabels']:
+                            return functionList[code][oneAddress]['addressLabels'][toAddr]
+                        elif functionList[code][oneAddress]['functionLabel'] != None:
+                            return functionList[code][oneAddress]['functionLabel']
+                        else:
+                            return None
+                    elif 'default' in functionList[code]:
+                        toAddr = tx[Const.T_TX_KEY]['to']
+                        txHash = tx[Const.T_TX_KEY]['ethHash']
+                        if tx[Const.T_TX_KEY]['to'] == oneAddress:
+                            toAddr = tx[Const.T_TX_KEY]['from']
+                        if txHash in functionList[code]['default']['transactionLabels']:
+                            return functionList[code]['default']['transactionLabels'][txHash]
+                        elif toAddr in functionList[code]['default']['addressLabels']:
+                            return functionList[code]['default']['addressLabels'][toAddr]
+                        elif functionList[code]['default']['functionLabel'] != None:
+                            return functionList[code]['default']['functionLabel']
+                        else:
+                            return None
+                    else:
+                        print(f"no oneAddress or default label.")
+                else:
+                    print(f"no code {code} in fucntionlist")
+            else:
+                print(f"no 'code' key in transaction['Function']")
+        else:
+            print(f"no'Function' key in transaction")
+
+    return None
+
+
+def getTransferInfoDisplay(tx, oneAddress):
     '''
     Output keys: {'from','amount','token','to','topic'}
     '''
@@ -182,25 +464,26 @@ def getTransferInfo(tx, oneAddress):
         HRC20Tokens = writeAllTokensToFile(Const.HRC20LISTPATH)
     hexAddr = convert_one_to_hex(oneAddress)
     topicAddr = hexAddr[2:].lower()
-    fromAddr = convert_one_to_hex(tx[Const.TX_KEY]['from'])[2:].lower()
-    toAddr = convert_one_to_hex(tx[Const.TX_KEY]['to'])[2:].lower()
+    fromAddr = convert_one_to_hex(tx[Const.T_TX_KEY]['from'])[2:].lower()
+    toAddr = convert_one_to_hex(tx[Const.T_TX_KEY]['to'])[2:].lower()
     transactionsOut = []
     unknownTxOut = []
 
-    value = tx[Const.TX_KEY]['value'] / (10 ** 18)
+    value = tx[Const.T_TX_KEY]['value'] / (10 ** 18)
 
     toStr = f'({toAddr[:4]}-{toAddr[-4:]})'
     fromStr = f'({fromAddr[:4]}-{fromAddr[-4:]})'
+    theirAddr = toAddr
     if fromAddr == topicAddr:
-        fromStr = f'(me  -{fromAddr[-4:]})'
-        toStr = f'(them-{toAddr[-4:]})'
+        fromStr = f'( my addr )'
+        toStr = f'(their addr)'
         theirAddr = toAddr
     elif toAddr == topicAddr:
-        toStr = f'(me  -{toAddr[-4:]})'
-        fromStr = f'(them-{fromAddr[-4:]})'
+        toStr = f'( my addr )'
+        fromStr = f'(their addr)'
         theirAddr = fromStr
     else:
-        print('Error! not either to or from!')
+        ('Error! not either to or from!')
     if value != 0:
         transactionsOut.append({
             'from': fromStr,
@@ -209,10 +492,10 @@ def getTransferInfo(tx, oneAddress):
             'to': toStr,
             'topic': 'baseTX'})
 
-    if len(tx[Const.RECEIPT_KEY]['logs']) > 0:
+    if len(tx[Const.T_RECEIPT_KEY]['logs']) > 0:
         'has logs! will check if log topics are transfers.'
 
-        for log in tx[Const.RECEIPT_KEY]['logs']:
+        for log in tx[Const.T_RECEIPT_KEY]['logs']:
             'For each log within each transaction'
             isTransfer = False
             tokenSym = log['address']
@@ -261,17 +544,28 @@ def getTransferInfo(tx, oneAddress):
                         toStr = f'({log["topics"][2][-40:-36]}-{log["topics"][2][-4:]})'
 
                         if myLog == 1:
-                            fromStr = f'(me  -{topicAddr[-4:]})'
+                            fromStr = f'( my addr )'
                         elif myLog == 2:
-                            toStr = f'(me  -{topicAddr[-4:]})'
+                            toStr = f'( my addr )'
                         else:
                             print('Error, should have topic 1 or 2.')
 
                         if theirLog == 1:
-                            fromStr = f'(them-{theirAddr[-4:]})'
+                            fromStr = f'(their addr)'
                         elif theirLog == 2:
-                            toStr = f'(them-{theirAddr[-4:]})'
-
+                            toStr = f'(their addr)'
+                    case '0x1fec6dc81f140574bf43f6b1e420ae1dd47928b9d57db8cbd7b8611063b85ae5':
+                        isTransfer = True
+                        topicName = 'WAGMI swap'
+                        toStr = f'( my addr )'
+                        fromStr = f'(their addr)'
+                        tokenSym = 'WAGMI'
+                        data = int(log['topics'][1], 16) / (10**9)
+                    case '0x7fcf532c15f0a6db0bd6d0e038bea71d30d808c7d98cb3bf7268a95bf5081b65':
+                        isTransfer = True
+                        topicName = 'Withdrawal'
+                        toStr = f'( my addr )'
+                        fromStr = f'(their addr)'
                     case '0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925':
                         topicName = 'Approval'
                     case '0x4c209b5fc8ad50758f13e2e1088ba56a560dff690a1c6fef26394f4c03821c4f':
@@ -281,7 +575,7 @@ def getTransferInfo(tx, oneAddress):
                     case '0x71bab65ced2e5750775a0613be067df48ef06cf92a496ebf7663ae0660924954':
                         topicName = 'Harvest'
                     case '0x8b3e96f2b889fa771c53c981b40daf005f63f637f1869f707052d15a3dd97140':
-                        topicName = 'Toekn Exchange'
+                        topicName = 'Token Exchange'
                     case '0x1a2a22cb034d26d1854bdc6666a5b91fe25efbbb5dcad3b0355478d6f5c362a1':
                         topicName = 'Repay Borrow'
                     case '0x13ed6866d4e1ee6da46f845c46d7e54120883d75c5ea9a2dacc1c4ca8984ab80':
@@ -292,6 +586,7 @@ def getTransferInfo(tx, oneAddress):
                         topicName = 'Redeem'
                     case _:
                         topicName = log['topics'][0][-4:]
+
                 if isTransfer:
                     transactionsOut.append({
                         'from': fromStr,
@@ -306,9 +601,24 @@ def getTransferInfo(tx, oneAddress):
                         'token': tokenSym,
                         'to': toStr,
                         'topic': topicName})
+            else:
+                match log['topics'][0]:
+                    case '0x7fcf532c15f0a6db0bd6d0e038bea71d30d808c7d98cb3bf7268a95bf5081b65':
+                        isTransfer = True
+                        topicName = 'Withdrawal'
+                        toStr = f'( my addr )'
+                        fromStr = f'(their addr)'
+
+                if isTransfer:
+                    transactionsOut.append({
+                        'from': fromStr,
+                        'amount': data,
+                        'token': tokenSym,
+                        'to': toStr,
+                        'topic': topicName})
 
     # transactionsOut.extend(unknownTxOut)
-    return transactionsOut
+    return (transactionsOut, unknownTxOut)
 
 
 def getHRC20Count(oneAddy) -> int:
@@ -363,13 +673,13 @@ def MakeFunctionList(outputFile, MetaMAskLogs):
     for log in MetaMAskLogs['metamask']['knownMethodData']:
         if log not in TxOut:
             if 'name' not in MetaMAskLogs['metamask']['knownMethodData'][log]:
-                TxOut[log] = {"name": Const.UNDEFINEDFUNCTION}
+                TxOut[log] = {"name": Const.FUNC_UNDEFINED}
             else:
                 TxOut[log] = MetaMAskLogs['metamask']['knownMethodData'][log]
         else:
             # is in TxOut. Do not overwrite entry.
             if 'name' not in TxOut[log]:
-                TxOut[log] = {"name": Const.UNDEFINEDFUNCTION}
+                TxOut[log] = {"name": Const.FUNC_UNDEFINED}
 
     with open(outputFile, 'w', encoding='utf-8') as f:
         f.write(json.dumps(TxOut, ensure_ascii=False, indent=4))
@@ -378,12 +688,12 @@ def MakeFunctionList(outputFile, MetaMAskLogs):
 
 
 def getFunctionName(FunctionList, tx):
-    if len(tx['input']) >= 10 and tx['input'][0:10] in FunctionList and Const.NAMEKEY in FunctionList[tx['input'][0:10]]:
-        return FunctionList[tx['input'][0:10]][Const.NAMEKEY]
-    elif tx['input'] in FunctionList and Const.NAMEKEY in FunctionList[tx['input']]:
-        return FunctionList[tx['input']][Const.NAMEKEY]
+    if len(tx['input']) >= 10 and tx['input'][0:10] in FunctionList and Const.F_NAME_KEY in FunctionList[tx['input'][0:10]]:
+        return FunctionList[tx['input'][0:10]][Const.F_NAME_KEY]
+    elif tx['input'] in FunctionList and Const.F_NAME_KEY in FunctionList[tx['input']]:
+        return FunctionList[tx['input']][Const.F_NAME_KEY]
     else:
-        return Const.UNKNOWNFUNCTION
+        return Const.FUNC_UNKNOWN
 
 
 @Timer(name="Got all HRC20 tokens in {:.2f} seconds")
@@ -494,7 +804,7 @@ def webScrape(ethHash, driver) -> str:
     DFKsendGardener = '//*[@id="scrollBody"]/div[2]/div[1]/div/div[2]/div/div/div[2]/div[1]/table/tbody/tr[16]/td/div/div/div/div[1]'
     nullXcode = '//*[@id="scrollBody"]/div[2]/div[1]/div/div[2]/div/div/div[2]/div[1]/table/tbody/tr[16]/td/div/div/div/div/div/span'
 
-    outputText = Const.UNKNOWNFUNCTION
+    outputText = Const.FUNC_UNKNOWN
     try:
         url = txStemSite+ethHash
         driver.get(url)
@@ -523,7 +833,7 @@ def webScrape(ethHash, driver) -> str:
 
     except:
         # print(f"Error with ethHAsh: {ethHash}")
-        functionName = Const.UNKNOWNFUNCTION
+        functionName = Const.FUNC_UNKNOWN
         with open('log.txt', 'a') as f:
             f.write(f"Tx {ethHash}: Error, could not access XCODE")
             f.write('\n')

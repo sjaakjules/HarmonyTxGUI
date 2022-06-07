@@ -16,7 +16,16 @@
         "unstake",
         "swap",
         "liquidity in",
-        "liquidity out"
+        "liquidity out",
+        "DFK",
+        "Transfer",
+        "WAGMI Transfer",
+        "DFK Stake",
+        "DFK Transfer",
+        "WAGMI Burn",
+        "Trade",
+        "LP Swap",
+        "WAGMI"
     ],
     "0x02751cec": {
         "name": "Remove Liquidity E T H",
@@ -39,7 +48,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "liquidity out",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "liquidity out",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x095ea7b3": {
         "name": "Approve",
@@ -53,7 +72,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x096c5e1a": {
         "name": "Sell Item",
@@ -64,7 +93,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x0ad58d2f": {
         "name": "Withdraw",
@@ -78,7 +117,17 @@
             {
                 "type": "address"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "LP Swap",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "LP Swap",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x106f46e4": {
         "name": "Consume Item",
@@ -89,7 +138,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x18cbafe5": {
         "name": "Swap Exact Tokens For E T H",
@@ -109,7 +168,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "Trade",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "Trade",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x1efedbe5": {
         "name": "Send Hero",
@@ -120,11 +189,31 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x2e0703dc": {
         "name": "Clean Quests",
-        "params": []
+        "params": [],
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x2e1a7d4d": {
         "name": "Withdraw",
@@ -132,7 +221,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "Transfer",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "Transfer",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x379607f5": {
         "name": "Claim",
@@ -160,7 +259,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "Trade",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "Trade",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x441a3e70": {
         "name": "Withdraw",
@@ -171,7 +280,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "LP Swap",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "LP Swap",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x4a25d94a": {
         "name": "Swap Tokens For Exact E T H",
@@ -191,7 +310,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "Trade",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "Trade",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x4a517a55": {
         "name": "Swap And Redeem",
@@ -220,7 +349,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "DFK Stake",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK Stake",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x4ea8a311": {
         "name": "Summon Crystal",
@@ -240,7 +379,17 @@
             {
                 "type": "address"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x4ee42914": {
         "name": "Create Auction",
@@ -260,7 +409,17 @@
             {
                 "type": "address"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x528be0a9": {
         "name": "Complete Quest",
@@ -268,7 +427,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x598647f8": {
         "name": "Bid",
@@ -279,7 +448,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x5eac6239": {
         "name": "Claim Rewards",
@@ -287,7 +466,17 @@
             {
                 "type": "uint256[]"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "reward",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "reward",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x67dfd4c9": {
         "name": "Leave",
@@ -295,7 +484,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "DFK Stake",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK Stake",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x690e7c09": {
         "name": "Open",
@@ -303,13 +502,43 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x6e278cf1": {
-        "name": "DFK Style update"
+        "name": "DFK Style update",
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x702e409d": {
-        "name": "DFK Unknown hero hire related"
+        "name": "DFK Unknown hero hire related",
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x756fcd69": {
         "name": "Complete Meditation",
@@ -317,7 +546,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x7ff36ab5": {
         "name": "Swap Exact E T H For Tokens",
@@ -334,7 +573,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "Trade",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "Trade",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x839ed90a": {
         "name": "Redeem And Swap",
@@ -383,7 +632,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "Trade",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "Trade",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x8a2da17b": {
         "name": "Start Quest",
@@ -400,10 +659,30 @@
             {
                 "type": "uint8"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x8b924f06": {
-        "name": "DFK unknown hero related"
+        "name": "DFK unknown hero related",
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x8dbdbe6d": {
         "name": "Deposit",
@@ -417,11 +696,41 @@
             {
                 "type": "address"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": null,
+            "addressLabels": {
+                "one1mvcxg0r34j0zzgk2qdq76a7sn40en7fy7lytq4": "LP Swap",
+                "one1yqk9nr5n76wmuwj72urdlwzmm3vchvt0usdf3n": "WAGMI",
+                "one17su3rjze2vhr3jtfacd4nmk28hjkxrlrudf2e6": "WAGMI",
+                "one1t737eqp76mhwvjjjcyqlf75km5dsjwk8xseyhx": "WAGMI"
+            },
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": null,
+            "addressLabels": {
+                "one1mvcxg0r34j0zzgk2qdq76a7sn40en7fy7lytq4": "LP Swap",
+                "one1yqk9nr5n76wmuwj72urdlwzmm3vchvt0usdf3n": "WAGMI",
+                "one17su3rjze2vhr3jtfacd4nmk28hjkxrlrudf2e6": "WAGMI",
+                "one1t737eqp76mhwvjjjcyqlf75km5dsjwk8xseyhx": "WAGMI"
+            },
+            "transactionLabels": {}
+        }
     },
     "0x8ed955b9": {
         "name": "Harvest All",
-        "params": []
+        "params": [],
+        "default": {
+            "functionLabel": "reward",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "reward",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x90d25074": {
         "name": "Deposit",
@@ -438,7 +747,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "DFK Stake",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK Stake",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x9f37092a": {
         "name": "Buy Item",
@@ -460,7 +779,17 @@
             {
                 "type": "bool"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xa28beda3": {
         "name": "Create Potion",
@@ -471,7 +800,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xa59f3e0c": {
         "name": "Enter",
@@ -479,7 +818,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "DFK Stake",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK Stake",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xa9fd8c57": {
         "name": "Deposit E T H And Swap",
@@ -513,7 +862,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "reward",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "reward",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xb6b55f25": {
         "name": "Deposit",
@@ -521,7 +880,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "Transfer",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "Transfer",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xbaa2abde": {
         "name": "Remove Liquidity",
@@ -547,7 +916,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "liquidity out",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "liquidity out",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xbcf64e05": {
         "name": "Burn",
@@ -558,7 +937,17 @@
             {
                 "type": "bytes32"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "Transfer",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "Transfer",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xc2b40631": {
         "name": "Summon Crystal With Auction Old",
@@ -581,10 +970,30 @@
             {
                 "type": "address"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xc7fef99b": {
-        "name": "Airdrop"
+        "name": "Airdrop",
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xc855dea3": {
         "name": "Start Quest",
@@ -598,7 +1007,17 @@
             {
                 "type": "uint8"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xce0b63ce": {
         "name": "Deposit E T H",
@@ -623,7 +1042,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "LP Swap",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "LP Swap",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xe30d4440": {
         "name": "Claim Airdrop",
@@ -631,7 +1060,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xe8e33700": {
         "name": "Add Liquidity",
@@ -660,7 +1099,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "liquidity in",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "liquidity in",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xf305d719": {
         "name": "Add Liquidity E T H",
@@ -683,7 +1132,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "liquidity in",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "liquidity in",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xf3f094a1": {
         "name": "Redeem",
@@ -750,7 +1209,17 @@
             {
                 "type": "address"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xfa863736": {
         "name": "Start Meditation",
@@ -770,7 +1239,17 @@
             {
                 "type": "address"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xfb3bdb41": {
         "name": "Swap E T H For Exact Tokens",
@@ -787,7 +1266,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "Trade",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "Trade",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xfe90ff7d": {
         "name": "Cancel Quest",
@@ -795,13 +1284,43 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x": {
-        "name": "Burn"
+        "name": "Burn",
+        "default": {
+            "functionLabel": "Transfer",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "Transfer",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x1feed31f": {
-        "name": "Redeem"
+        "name": "Redeem",
+        "default": {
+            "functionLabel": "WAGMI",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "WAGMI",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x9ebea88c": {
         "name": "Unstake",
@@ -815,7 +1334,17 @@
             {
                 "type": "bool"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "WAGMI",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "WAGMI",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x7acb7757": {
         "name": "Stake",
@@ -829,13 +1358,43 @@
             {
                 "type": "address"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "WAGMI",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "WAGMI",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xbd3eaa6f": {
-        "name": "DFK Create Profile"
+        "name": "DFK Create Profile",
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xa9059cbb": {
-        "name": "Transfer"
+        "name": "Transfer",
+        "default": {
+            "functionLabel": "Transfer",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "Transfer",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x025e7c27": {
         "name": "Undefined"
@@ -849,7 +1408,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x68ce0b56": {
         "name": "Start Quest",
@@ -863,7 +1432,17 @@
             {
                 "type": "uint8"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x303e6aa4": {
         "name": "DFK Convert Multiple",
@@ -877,7 +1456,17 @@
             {
                 "type": "address[]"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xa0e3d1a0": {
         "name": "WAGMI Burn token",
@@ -894,25 +1483,95 @@
             {
                 "type": "address"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "WAGMI",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "WAGMI",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xea598cb0": {
-        "name": "WAGMI wrap token"
+        "name": "WAGMI wrap token",
+        "default": {
+            "functionLabel": "WAGMI",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "WAGMI",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x5d444f91": {
-        "name": "Recharge Crystal"
+        "name": "Recharge Crystal",
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xde0e9a3e": {
-        "name": "WAGMI unwrap token"
+        "name": "WAGMI unwrap token",
+        "default": {
+            "functionLabel": "WAGMI",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "WAGMI",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x23b872dd": {
-        "name": "transferFrom"
+        "name": "transferFrom",
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x1cf5f07f": {
-        "name": "Undefined"
+        "name": "Undefined",
+        "default": {
+            "functionLabel": "DFK Stake",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK Stake",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x17357892": {
-        "name": "DFK MAYBE Mint and Swap"
+        "name": "DFK MAYBE Mint and Swap",
+        "default": {
+            "functionLabel": "DFK Stake",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK Stake",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xa69df4b5": {
         "name": "VIPER MAGIC Unlock",
@@ -1234,7 +1893,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xc04a8a10": {
         "name": "Approve Delegation",
@@ -1275,10 +1944,20 @@
             }
         ]
     },
-    "0x4c7f588f":{
-        "name": "DFK Egg Incubation"
+    "0x4c7f588f": {
+        "name": "DFK Egg Incubation",
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
-    "0xa389f510":{
+    "0xa389f510": {
         "name": "DFK Hero Update"
     }
 }

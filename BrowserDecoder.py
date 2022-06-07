@@ -28,6 +28,26 @@ metamaskFunctions = 'TokenInfo/MetaMaskFunctions.json'
 
 outputDirectory = f'./TransactionHistory/'
 
+needsFixing = {'0x18cbafe5': 'Not getting wONE. look in input string',
+               '0x4a25d94a': 'Not getting wONE. look in input string',
+               '0x02751cec': 'remove liquidity but ONE not found. input not correct amount, see logs...',
+               '0x2e1a7d4d': 'Withdrawal topic. 0x7fcf532c15f0a6db0bd6d0e038bea71d30d808c7d98cb3bf7268a95bf5081b65',
+               '0xae169a50': 'Claim has locked transfers, must receive difference...',
+               '0x4a517a55': 'Swap and redeeme only jewel from... why?',
+
+               '0x1cf5f07f': 'Withdraw of jewelX but no to/from address. check HRC20!',
+               '0x17357892': 'Mint and swap, unsure whats happeneing, JEWEL n something...',
+
+               '0xbcf64e05': 'wagmi burn ',
+               '0xa0e3d1a0': 'wagmi burn ',
+
+               '0x23b872dd': 'transfer with 4 inputs. small amoutn unknown...',
+               '0x303e6aa4': 'Not sure what is converted. multiple tokens small ammounts...',
+               '0x8dbdbe6d': 'WAGMI deposits of stable coins AND DFK working',
+               '0xb6b55f25': 'deposit of ONE, think working, simple transfer',
+               '0x690e7c09': 'DFK hero open? sell? no small transfers'
+               }
+
 
 class MainWindow(tk.Tk):
 
@@ -39,7 +59,7 @@ class MainWindow(tk.Tk):
     isLoading = False
 
     def __init__(self):
-        #self.master = master
+        # self.master = master
         super().__init__()
         self.geometry("1080x640")
         self.title("Harmony Transaction Exporter")
@@ -52,7 +72,7 @@ class MainWindow(tk.Tk):
         self.oneAddress = tk.StringVar()
         self.oneAddress.set('Enter harmony address here.')
         self.addrEntry = ttk.Entry(
-            self.frame, textvariable=self.oneAddress, width=75)
+            self.frame, textvariable=self.oneAddress, width=35)
         self.addrEntry.grid(column=0, row=1, columnspan=1, padx=5, pady=5)
         self.addrEntry.bind('<KeyRelease>', self.CheckAddress)
 
@@ -93,8 +113,14 @@ class MainWindow(tk.Tk):
         self.ProcessButton = ttk.Button(
             self.frame, text="Organise Transactions", command=self.processData)
         self.ProcessButton.grid(
-            column=0, row=4, columnspan=4, ipadx=10, ipady=10)
+            column=0, row=4, columnspan=1, ipadx=10, ipady=10)
         self.ProcessButton.grid_forget()
+
+        self.PrintButton = ttk.Button(
+            self.frame, text="Print Transactions", command=self.printData)
+        self.PrintButton.grid(
+            column=1, row=4, columnspan=1, ipadx=10, ipady=10)
+        self.PrintButton.grid_forget()
 
         # Text Widget
         self.scrollx = tk.Scrollbar(self.frame, orient=tk.HORIZONTAL)
@@ -141,7 +167,15 @@ class MainWindow(tk.Tk):
             '\n------------------------------------------------\nNow Processing!\n')
         self.transactionsController.ManualFunctionLabeler()
 
-        self.addToText('All done! check CSVs')
+        self.addToText('All done!')
+
+    def printData(self):
+        self.addToText(
+            '\n------------------------------------------------\nNow Printing!\n')
+        self.transactionsController.PrintLabeled()
+
+        self.addToText('All done!')
+        showinfo("All printed", "Printed all transactions to CSV.")
 
 
 class FunctionSelector(tk.Toplevel):
@@ -153,6 +187,10 @@ class FunctionSelector(tk.Toplevel):
     allTransactions = {}
     addrGroupedTransactions = {}
 
+    isShowingAll = True
+    hasDirtyLists = False
+    haveLabeledAll = False
+
     # The lists for combo boxes
     txFnList = []
     uniqueAddr = []
@@ -161,23 +199,19 @@ class FunctionSelector(tk.Toplevel):
     def __init__(self, TransactionList, oneAddress):
         super().__init__()
 
-        if os.path.exists(Const.FUNCTIONLISTPATH):
-            with open(Const.FUNCTIONLISTPATH, 'r') as f:
-                self.fnList = json.loads(f.read())
-        else:
-            print(
-                f'Error finding function list. add to "{Const.FUNCTIONLISTPATH}"')
+        self.fnList = HmyUtil.getFunctions()
 
         self.allTransactions = TransactionList
         self.oneAddress = oneAddress
 
         self.txFnList = []
-        for code in TransactionList:
+        for code in self.allTransactions:
             if code in self.fnList:
                 self.txFnList.append(f"{self.fnList[code]['name']} | {code}")
             else:
                 self.txFnList.append(f'Unknown | {code}')
-        #self.txFnList = list(TransactionList.keys())
+                self.fnList[code] = {"name": Const.FUNC_UNDEFINED}
+        # self.txFnList = list(TransactionList.keys())
 
         self.fnCode = self.txFnList[0].split(' | ', 1)[1]
         self.fnTxs = self.allTransactions[self.fnCode]
@@ -281,16 +315,24 @@ class FunctionSelector(tk.Toplevel):
                    text='Label From Default',
                    command=self.LabelFromDefault).grid(
                        column=0, row=4, columnspan=1, padx=5, pady=5)
-        self.showOnlyNoLabels = ttk.Button(self.frame,
-                                           text='Show Unlabeled Only',
-                                           command=self.ShowUnlabeled)
-        self.showOnlyNoLabels.grid(
+        self.b_showOnlyNoLabels = ttk.Button(self.frame,
+                                             text='Show Unlabeled Only',
+                                             command=self.ShowUnlabeled)
+        self.b_showOnlyNoLabels.grid(
             column=1, row=4, columnspan=1, padx=5, pady=5)
-        self.showAll = ttk.Button(self.frame,
-                                  text='Show All',
-                                  command=self.ShowAll)
-        self.showAll.grid(column=1, row=4, columnspan=1, padx=5, pady=5)
-        self.showAll.grid_forget()
+
+        self.b_applyLabels = ttk.Button(self.frame,
+                                        text='Apply Labels to Txs',
+                                        command=self.ApplyLabelToTransactions)
+        self.b_applyLabels.grid(
+            column=1, row=4, columnspan=1, padx=5, pady=5)
+        self.b_applyLabels.grid_forget()
+
+        self.b_showAll = ttk.Button(self.frame,
+                                    text='Show All',
+                                    command=self.ShowAll)
+        self.b_showAll.grid(column=1, row=4, columnspan=1, padx=5, pady=5)
+        self.b_showAll.grid_forget()
         ttk.Button(self.frame,
                    text='Save Function Labels',
                    command=self.SaveFunctionListFile).grid(
@@ -307,30 +349,83 @@ class FunctionSelector(tk.Toplevel):
                             undo=True, xscrollcommand=self.scrollx.set)
         self.text.grid(column=0, row=5, columnspan=4, ipadx=100, padx=10)
         self.scrollx.config(command=self.text.xview)
-
+        self.ShowUnlabeled()
+        self.ShowAll()
         self.updateAddr(None)
 
+    def ApplyLabelToTransactions(self):
+        print('Applying labels to all transactions!')
+        txPath = Const.TXOUTPATH + self.oneAddress + '.json'
+        if os.path.exists(txPath):
+            with open(txPath, 'r') as f:
+                rawTXs = json.loads(f.read())
+            count = 0
+            txCount = 0
+            if Const.TRANSACTIONS_KEY in rawTXs:
+                for txHash in rawTXs[Const.TRANSACTIONS_KEY]:
+                    tx = rawTXs[Const.TRANSACTIONS_KEY][txHash]
+                    txCount += 1
+                    label = HmyUtil.getLabel(tx, self.oneAddress)
+
+                    # add label if its got a name.
+                    if label != None:
+                        count += 1
+
+                        if Const.T_FUNCTION_KEY in tx:
+                            tx[Const.T_FUNCTION_KEY][Const.TF_FUNCLABEL] = label
+                        else:
+                            tx[Const.T_FUNCTION_KEY] = {
+                                Const.TF_FUNCLABEL: label}
+
+                    # add trade info
+                    tr = HmyUtil.getTransferInfo(
+                        tx, self.oneAddress)  # This gets label from tx...
+                    if Const.T_FUNCTION_KEY in tx:
+                        tx[Const.T_FUNCTION_KEY].update(tr)
+                    else:
+                        tx[Const.T_FUNCTION_KEY] = tr
+
+            with open(txPath, 'w', encoding='utf-8') as f:
+                json.dump(rawTXs, f, ensure_ascii=False, indent=4)
+
+            alldoneMSG = showinfo("Labeling Complete",
+                                  f'Labeled {count}/{txCount} transactions.\nWill now close manual labeler')
+            self.destroy()
+
     def LabelFromDefault(self):
-        ''
+        print("Label from default value!(does nothing atm)")
 
     def ShowUnlabeled(self):
-        ''
-        self.showOnlyNoLabels.grid_forget()
-        self.showAll.grid(column=1, row=4, columnspan=1, padx=5, pady=5)
+        print("Showing Unlabeled Only!")
+        self.isShowingAll = False
+        self.hasDirtyLists = True
+        self.b_showOnlyNoLabels.grid_forget()
+        self.b_applyLabels.grid_forget()
+        self.b_showAll.grid(column=1, row=4, columnspan=1, padx=5, pady=5)
+        self.fixShownLabels()
 
     def ShowAll(self):
-        ''
-        self.showAll.grid_forget()
-        self.showOnlyNoLabels.grid(
-            column=1, row=4, columnspan=1, padx=5, pady=5)
+        print("Showing all transactions!")
+        self.isShowingAll = True
+        self.hasDirtyLists = True
+        self.b_showAll.grid_forget()
+        self.fixShownLabels()
+        if self.haveLabeledAll:
+            self.b_showOnlyNoLabels.grid_forget()
+            self.b_applyLabels.grid(
+                column=1, row=4, columnspan=1, padx=5, pady=5)
+        else:
+            self.b_applyLabels.grid_forget()
+            self.b_showOnlyNoLabels.grid(
+                column=1, row=4, columnspan=1, padx=5, pady=5)
 
     def digestTxs(self, Transactions, oneAddress):
         self.addrGroupedTransactions = {}
         for i, hash in enumerate(Transactions):
-            if Transactions[hash][Const.RECEIPT_KEY]['status'] != 0:
+            if 'status' in Transactions[hash][Const.T_RECEIPT_KEY] and Transactions[hash][Const.T_RECEIPT_KEY]['status'] != 0:
                 try:
-                    fromAddr = Transactions[hash][Const.TX_KEY]['from']
-                    toAddr = Transactions[hash][Const.TX_KEY]['to']
+                    fromAddr = Transactions[hash][Const.T_TX_KEY]['from']
+                    toAddr = Transactions[hash][Const.T_TX_KEY]['to']
                     if oneAddress == fromAddr:
                         'one address is from'
                         if toAddr not in self.addrGroupedTransactions:
@@ -348,12 +443,18 @@ class FunctionSelector(tk.Toplevel):
                             'add tx hash to existing address'
                             self.addrGroupedTransactions[fromAddr].append(hash)
                     else:
-                        print('Error, oneAddress not found to or from.')
+                        (f'Error, oneAddress not found to or from. {hash}')
+                        if toAddr not in self.addrGroupedTransactions:
+                            'add new address and tx hash.'
+                            self.addrGroupedTransactions[toAddr] = [hash]
+                        else:
+                            'add tx hash to existing address'
+                            self.addrGroupedTransactions[toAddr].append(hash)
                 except:
                     print(Transactions[hash])
                     break
             else:
-                'Transaction did not function.'
+                'Transaction did not get function or receipt for TX: {hash}'
         self.uniqueAddr = list(self.addrGroupedTransactions.keys())
         return self.addrGroupedTransactions[self.uniqueAddr[0]]
 
@@ -373,31 +474,91 @@ class FunctionSelector(tk.Toplevel):
             print('Already in list you numpty')
 
     def SaveFunctionListFile(self):
-        print(self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]])
-        # with open(Const.FUNCTIONLISTPATH, 'w', encoding='utf-8') as f:
-        #    json.dump(self.fnList, f, ensure_ascii=False, indent=4)
+        print("Updating functions list!")
+        self.fnList = HmyUtil.updateFunctions(self.fnList)
+        showinfo("Update Complete", f'Function list updated!')
 
-    def removeLabeled(self):
-        for func in self.FunctionSelector['values']:
-            if func.split(' | ', 1)[1] in self.fnList and self.oneAddress in self.fnList[func.split(' | ', 1)[1]]:
-                if self.fnList[func.split(' | ', 1)[1]][self.oneAddress]['functionLabel'] != None:
-                    self.FunctionSelector['values'].remove(func)
+    def fixShownLabels(self):
+        if self.hasDirtyLists:
+            if not self.isShowingAll:
+                print('Cleaning Lists')
+                self.hasDirtyLists = False
 
-        if self.FunctionSelector.get() not in self.FunctionSelector['values']:
-            self.FunctionSelector.set(self.FunctionSelector['values'][0])
+                for func in self.FunctionSelector['values']:
+                    if func.split(' | ', 1)[1] in self.fnList and self.oneAddress in self.fnList[func.split(' | ', 1)[1]]:
+                        if self.fnList[func.split(' | ', 1)[1]][self.oneAddress]['functionLabel'] != None:
+                            options = list(self.FunctionSelector['values'])
+                            options.remove(func)
+                            self.FunctionSelector['values'] = options
+                            # print(f'Removed {func}')
 
-        self.updateFunction(None)
-        funcCode = self.FunctionSelector.get().split(' | ', 1)[1]
-        for Addr in self.AddrSelector['values']:
-            if funcCode in self.fnList and self.oneAddress in self.fnList[funcCode]:
-                if self.AddrSelector.get() in self.fnList[funcCode][self.oneAddress]['addressLabels']:
-                    self.FunctionSelector['values'].remove(func)
+                for func in self.FunctionSelector['values']:
 
-        self.AddrSelector['values'] = self.uniqueAddr
-        self.AddrSelector.set(self.AddrSelector['values'][0])
+                    self.FunctionSelector.set(func)
+                    self.updateFunction(None)
 
-        self.TxSelector['values'] = self.addrGroupedTransactions[self.AddrSelector.get()]
-        self.TxSelector.set(self.TxSelector['values'][0])
+                    funcCode = func.split(' | ', 1)[1]
+                    for Addr in self.AddrSelector['values']:
+                        if funcCode in self.fnList and self.oneAddress in self.fnList[funcCode]:
+                            if Addr in self.fnList[funcCode][self.oneAddress]['addressLabels']:
+                                options = list(self.AddrSelector['values'])
+                                options.remove(Addr)
+                                self.AddrSelector['values'] = options
+                                # print(f'Removed {Addr}')
+                    if len(list(self.AddrSelector['values'])) == 0:
+                        options = list(self.FunctionSelector['values'])
+                        options.remove(func)
+                        self.FunctionSelector['values'] = options
+                        # print(f'Removed {func}')
+                    else:
+                        break
+
+                if len(list(self.FunctionSelector['values'])) == 0:
+                    print('All functions labeled!!')
+                    self.haveLabeledAll = True
+                    self.FunctionSelector['values'] = []
+                    self.AddrSelector['values'] = []
+                    self.TxSelector['values'] = []
+                    self.FunctionSelector.set('')
+                    self.AddrSelector.set('')
+                    self.TxSelector.set('')
+                    self.updateDisplay(None)
+                else:
+                    """if self.FunctionSelector.get() not in self.FunctionSelector['values']:
+                        self.FunctionSelector.set(
+                            self.FunctionSelector['values'][0])
+
+                    self.updateFunction(None)"""
+
+                    if self.AddrSelector.get() not in self.AddrSelector['values']:
+                        self.AddrSelector.set(self.AddrSelector['values'][0])
+
+                    """if len(list(self.AddrSelector['values'])) == 0:
+                        options = list(self.FunctionSelector['values'])
+                        options.remove(self.FunctionSelector.get())
+                        if len(options) != 0:
+                            self.FunctionSelector['values'] = options"""
+
+                    self.updateAddr(None)
+
+                    for tx in self.TxSelector['values']:
+                        if funcCode in self.fnList and self.oneAddress in self.fnList[funcCode]:
+                            if tx in self.fnList[funcCode][self.oneAddress]['transactionLabels']:
+                                options = list(self.TxSelector['values'])
+                                options.remove(tx)
+                                self.TxSelector['values'] = options
+                                print(f'Removed {tx}')
+
+                    if self.TxSelector.get() not in self.TxSelector['values']:
+                        self.TxSelector.set(self.TxSelector['values'][0])
+
+            else:
+                self.hasDirtyLists = False
+                self.FunctionSelector['values'] = self.txFnList
+                self.FunctionSelector.set(self.FunctionSelector['values'][0])
+                self.updateFunction(None)
+        else:
+            'Lists not dirty'
 
     def updateFunction(self, event):
         self.fnCode = self.FunctionSelector.get().split(' | ', 1)[1]
@@ -418,59 +579,74 @@ class FunctionSelector(tk.Toplevel):
         self.updateDisplay(self.TxSelector.get())
 
     def updateDisplay(self, transactionHash):
-        ''
-        selectedTx = self.fnTxs[transactionHash]
-        displayText = f'Function: {self.fnList[self.fnCode]["name"]} | {self.fnCode}\n'
-        '''
-        Date:   24-04-14 02:04:14
-        from:   one1sdff (me)
-        to:     one1asgr (them)
-                from (me  -1jd3) to (1sG3-19k4) - 204.214 ONE 
-                from (them-1jd3) to (1sG3-19k4) - 204.214 ONE 
-        '''
-        baseInfo = HmyUtil.getBaseInfo(selectedTx, self.oneAddress)
-        displayText += f'\nDate:\t{baseInfo["time"]}'
-        displayText += f'\nfrom:\t{baseInfo["from"]}'
-        displayText += f'\nto:\t{baseInfo["to"]}'
-        for txInfo in HmyUtil.getTransferInfo(selectedTx, self.oneAddress):
-            displayText += f'\n  {txInfo["topic"]}\tfrom {txInfo["from"]} to {txInfo["to"]} - {txInfo["amount"]} {txInfo["token"]}'
+        displayText = f'My Harmony address: {self.oneAddress}\n\n'
+        if transactionHash in self.fnTxs:
+            selectedTx = self.fnTxs[transactionHash]
+            displayText += f'Function: {self.fnList[self.fnCode]["name"]} | {self.fnCode}\n'
+            '''
+            Date:   24-04-14 02:04:14
+            from:   one1sdff (me)
+            to:     one1asgr (them)
+                    from (me  -1jd3) to (1sG3-19k4) - 204.214 ONE
+                    from (them-1jd3) to (1sG3-19k4) - 204.214 ONE
+            '''
+            baseInfo = HmyUtil.getBaseInfoDisplay(selectedTx, self.oneAddress)
+            displayText += f'\nDate:\t{baseInfo["time"]}'
+            displayText += f'\nfrom:\t{baseInfo["from"]}'
+            displayText += f'\nto:\t{baseInfo["to"]}'
+            (knownInfo, UnknownInfo) = HmyUtil.getTransferInfoDisplay(
+                selectedTx, self.oneAddress)
+            for txInfo in knownInfo:
+                displayText += f'\n  {txInfo["topic"]}\tfrom {txInfo["from"]} to {txInfo["to"]} - {txInfo["amount"]} {txInfo["token"]}'
+            displayText += "\n----------------------------------------------------------------------\n"
+            for txInfo in UnknownInfo:
+                displayText += f'\n  {txInfo["topic"]}\tfrom {txInfo["from"]} to {txInfo["to"]} - {txInfo["amount"]} {txInfo["token"]}'
 
+        if self.haveLabeledAll:
+            displayText = '----------------------------------------------------------------------\n\t\tHAVE LABELED ALL TRANSACTIONS\n----------------------------------------------------------------------\n' + displayText
         self.text.delete('1.0', 'end')
         self.text.insert('1.0', displayText)
         self.updateFunctionLabelDisplays()
 
     def updateFunctionLabelDisplays(self):
-        self.functionLabelStr.set('No Label')
-        self.addressLabelStr.set('No Label')
-        self.transactionLabelStr.set('No Label')
-        if self.oneAddress in self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]]:
-            labels = self.fnList[self.FunctionSelector.get().split(' | ', 1)[
-                1]][self.oneAddress]
-            if labels['functionLabel'] is not None:
-                self.functionLabelStr.set(labels['functionLabel'])
-            if self.AddrSelector.get() in labels['addressLabels']:
-                self.addressLabelStr.set(
-                    labels['addressLabels'][self.AddrSelector.get()])
-            if self.TxSelector.get() in labels['transactionLabels']:
-                self.transactionLabelStr.set(
-                    labels['transactionLabels'][self.TxSelector.get()])
-        elif 'default' in self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]]:
-            labels = self.fnList[self.FunctionSelector.get().split(' | ', 1)[
-                1]]['default']
-            if labels['functionLabel'] is not None:
-                self.functionLabelStr.set('(default) ' +
-                                          labels['functionLabel'])
-            if self.AddrSelector.get() in labels['addressLabels']:
-                self.addressLabelStr.set('(default) ' +
-                                         labels['addressLabels'][self.AddrSelector.get()])
-            if self.TxSelector.get() in labels['transactionLabels']:
-                self.transactionLabelStr.set('(default) ' +
-                                             labels['transactionLabels'][self.TxSelector.get()])
+        self.fixShownLabels()
+        if self.haveLabeledAll and not self.isShowingAll:
+            self.functionLabelStr.set('No Tx')
+            self.addressLabelStr.set('No Tx')
+            self.transactionLabelStr.set('No Tx')
+        else:
+            self.functionLabelStr.set('No Label')
+            self.addressLabelStr.set('No Label')
+            self.transactionLabelStr.set('No Label')
+
+            if self.oneAddress in self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]]:
+                labels = self.fnList[self.FunctionSelector.get().split(' | ', 1)[
+                    1]][self.oneAddress]
+                if labels['functionLabel'] is not None:
+                    self.functionLabelStr.set(labels['functionLabel'])
+                if self.AddrSelector.get() in labels['addressLabels']:
+                    self.addressLabelStr.set(
+                        labels['addressLabels'][self.AddrSelector.get()])
+                if self.TxSelector.get() in labels['transactionLabels']:
+                    self.transactionLabelStr.set(
+                        labels['transactionLabels'][self.TxSelector.get()])
+            elif 'default' in self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]]:
+                labels = self.fnList[self.FunctionSelector.get().split(' | ', 1)[
+                    1]]['default']
+                if labels['functionLabel'] is not None:
+                    self.functionLabelStr.set('(default) ' +
+                                              labels['functionLabel'])
+                if self.AddrSelector.get() in labels['addressLabels']:
+                    self.addressLabelStr.set('(default) ' +
+                                             labels['addressLabels'][self.AddrSelector.get()])
+                if self.TxSelector.get() in labels['transactionLabels']:
+                    self.transactionLabelStr.set('(default) ' +
+                                                 labels['transactionLabels'][self.TxSelector.get()])
 
     def setFunctionLabel(self):
         if self.FunctionSelector.get().split(' | ', 1)[1] not in self.fnList:
             self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]] = {
-                'name': Const.UNKNOWNFUNCTION}
+                'name': Const.FUNC_UNKNOWN}
 
         if 'default' not in self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]]:
             self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]]['default'] = {
@@ -485,12 +661,14 @@ class FunctionSelector(tk.Toplevel):
         else:
             self.fnList[self.FunctionSelector.get().split(
                 ' | ', 1)[1]][self.oneAddress]['functionLabel'] = self.labelSelector.get()
+        if not self.isShowingAll:
+            self.hasDirtyLists = True
         self.updateFunctionLabelDisplays()
 
     def setAddressLabel(self):
         if self.FunctionSelector.get().split(' | ', 1)[1] not in self.fnList:
             self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]] = {
-                'name': Const.UNKNOWNFUNCTION}
+                'name': Const.FUNC_UNKNOWN}
 
         if 'default' not in self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]]:
             self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]]['default'] = {
@@ -505,26 +683,30 @@ class FunctionSelector(tk.Toplevel):
         else:
             self.fnList[self.FunctionSelector.get().split(' | ', 1)[
                 1]][self.oneAddress]['addressLabels'][self.AddrSelector.get()] = self.labelSelector.get()
+        if not self.isShowingAll:
+            self.hasDirtyLists = True
         self.updateFunctionLabelDisplays()
 
     def setTransactionLabel(self):
         if self.FunctionSelector.get().split(' | ', 1)[1] not in self.fnList:
             self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]] = {
-                'name': Const.UNKNOWNFUNCTION}
+                'name': Const.FUNC_UNKNOWN}
 
         if 'default' not in self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]]:
             self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]]['default'] = {
-                'functionLabel': '', 'addressLabels': {}, 'transactionLabels': {self.TxSelector.get(): self.labelSelector.get()}}
+                'functionLabel': None, 'addressLabels': {}, 'transactionLabels': {self.TxSelector.get(): self.labelSelector.get()}}
         else:
             self.fnList[self.FunctionSelector.get().split(' | ', 1)[
                 1]]['default']['transactionLabels'][self.TxSelector.get()] = self.labelSelector.get()
 
         if self.oneAddress not in self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]]:
             self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]][self.oneAddress] = {
-                'functionLabel': '', 'addressLabels': {}, 'transactionLabels': {self.TxSelector.get(): self.labelSelector.get()}}
+                'functionLabel': None, 'addressLabels': {}, 'transactionLabels': {self.TxSelector.get(): self.labelSelector.get()}}
         else:
             self.fnList[self.FunctionSelector.get().split(' | ', 1)[
                 1]][self.oneAddress]['transactionLabels'][self.TxSelector.get()] = self.labelSelector.get()
+        if not self.isShowingAll:
+            self.hasDirtyLists = True
         self.updateFunctionLabelDisplays()
 
 
@@ -558,9 +740,7 @@ class transactionDownloader:
         threading.Thread(target=self.setupJSON).start()
 
     def setupJSON(self):
-        if os.path.exists(Const.FUNCTIONLISTPATH):
-            with open(Const.FUNCTIONLISTPATH, 'r') as f:
-                self.functionList = json.loads(f.read())
+        self.functionList = HmyUtil.getFunctions()
 
         self.GUI.addToText(
             '------------------------------------------------\nDownloading all HRC20 tokens from harmony database.\n')
@@ -583,14 +763,9 @@ class transactionDownloader:
         self.GUI.isLoading = False
         self.GUI.progressBar2.grid_forget()
         self.GUI.ProcessButton.grid(
-            column=0, row=4, columnspan=4, ipadx=10, ipady=10)
-
-    def OrganiseTransactions(self):
-        self.GUI.addToText(
-            '\n------------------------------------------------\nNow Processing!\n')
-        self.ManualFunctionLabeler()
-
-        self.GUI.addToText('All done! check CSVs')
+            column=0, row=4, columnspan=1, ipadx=10, ipady=10)
+        self.GUI.PrintButton.grid(
+            column=1, row=4, columnspan=1, ipadx=10, ipady=10)
 
     def SetupTransactions(self) -> dict:
         '''
@@ -616,27 +791,33 @@ class transactionDownloader:
             transactions:{'ethHash':{Tx,HRC20,Function,Receipt,Decode,Web}
         }
         '''
-        pageSize = 100
-        expectedTXs = 1
-        expectedHRC20s = 1
-        try:
-            expectedTXs = (account.get_transactions_count(
-                self.oneAddress, tx_type='ALL', endpoint=Const.MAINNET0))
-            expectedHRC20s = HmyUtil.getHRC20Count(self.oneAddress)
-        except BaseException as err:
-            self.GUI.addToText(
-                f"Writing Log Unexpected {err=}, {type(err)=}\n\t{err.with_traceback}")
 
         onfileTXCount = 0
         onfileHRC20Count = 0
         fileTxs = {}
-        if Const.COUNTSKEY in accountInfoOut:
-            onfileTXCount = accountInfoOut[Const.COUNTSKEY][Const.TX_KEY]
-            onfileHRC20Count = accountInfoOut[Const.COUNTSKEY][Const.HRC20_KEY]
-            fileTxs = accountInfoOut[Const.TRANSACTIONSKEY]
+        if Const.COUNTS_KEY in accountInfoOut:
+            onfileTXCount = accountInfoOut[Const.COUNTS_KEY][Const.T_TX_KEY]
+            onfileHRC20Count = accountInfoOut[Const.COUNTS_KEY][Const.T_HRC20_KEY]
+            fileTxs = accountInfoOut[Const.TRANSACTIONS_KEY]
         else:
-            accountInfoOut = {Const.COUNTSKEY: {
-                Const.TX_KEY: 0, Const.HRC20_KEY: 0, Const.FUNCTION_KEY: [0, 0, 0], Const.RECEIPT_KEY: [0, 0, 0], Const.DECODED_KEY: [0, 0, 0], Const.WEB_KEY: [0, 0, 0]}}
+            accountInfoOut = {Const.COUNTS_KEY: {
+                Const.T_TX_KEY: 0, Const.T_HRC20_KEY: 0, Const.T_FUNCTION_KEY: [0, 0, 0], Const.T_RECEIPT_KEY: [0, 0, 0], Const.T_DECODED_KEY: [0, 0, 0], Const.T_WEB_KEY: [0, 0, 0]}}
+
+        nAttempts = 10
+        pageSize = 100
+        expectedTXs = 1
+        expectedHRC20s = 1
+        count = 0
+        noOnline = True
+        while count < nAttempts and noOnline:
+            try:
+                expectedTXs = (account.get_transactions_count(
+                    self.oneAddress, tx_type='ALL', endpoint=Const.MAINNET0))
+                expectedHRC20s = HmyUtil.getHRC20Count(self.oneAddress)
+                noOnline = False
+            except BaseException as err:
+                self.GUI.addToText(
+                    f"Writing Log Unexpected {err=}, {type(err)=}\n\t{err.with_traceback}")
 
         onFileHash = list(fileTxs.keys())
 
@@ -660,7 +841,7 @@ class transactionDownloader:
         newHRC20Count = 0
         skipptedHRC20Count = 0
 
-        if remainingTxCount == 0:
+        if remainingTxCount == 0 or noOnline:
             'Have all transactions downloaded! can skip'
             skippedTxCount = onfileTXCount
             onFileHash = []
@@ -691,7 +872,7 @@ class transactionDownloader:
 
                         for i, tx in enumerate(newTxs):
                             if tx['ethHash'] not in fileTxs:
-                                fileTxs[tx['ethHash']] = {Const.TX_KEY: tx}
+                                fileTxs[tx['ethHash']] = {Const.T_TX_KEY: tx}
                                 newTxCount += 1
                             elif tx['ethHash'] in onFileHash:
                                 'Transaction in file. remove from fileList'
@@ -762,13 +943,13 @@ class transactionDownloader:
                                     hrc20["transactionHash"], endpoint=Const.MAINNET0)
                                 fileTxs[hrc20['transactionHash']] = {}
                                 fileTxs[hrc20['transactionHash']
-                                        ][Const.TX_KEY] = tempTX
+                                        ][Const.T_TX_KEY] = tempTX
                                 fileTxs[hrc20['transactionHash']
-                                        ][Const.HRC20_KEY] = hrc20
+                                        ][Const.T_HRC20_KEY] = hrc20
                                 newHRC20Count += 1
-                            elif Const.HRC20_KEY not in fileTxs[hrc20['transactionHash']]:
+                            elif Const.T_HRC20_KEY not in fileTxs[hrc20['transactionHash']]:
                                 fileTxs[hrc20['transactionHash']
-                                        ][Const.HRC20_KEY] = hrc20
+                                        ][Const.T_HRC20_KEY] = hrc20
                                 newHRC20Count += 1
                             else:
                                 'HRC20 in file.'
@@ -793,11 +974,11 @@ class transactionDownloader:
             # self.GUI.addToText(
             #    f"\nHRC20 transactions:\n\tDownloaded {HRC20Count}/{expectedHRC20s} HRC20 tokens.\n\tAdded {newHRC20Count}/{remainingHRC20Count} HRC20 tokens.\n\tTotal {skipptedHRC20Count + newHRC20Count}/{expectedHRC20s} HRC20 tokens.\nAll HRC20s Done!\n")
 
-        accountInfoOut[Const.COUNTSKEY][Const.TX_KEY] = (
+        accountInfoOut[Const.COUNTS_KEY][Const.T_TX_KEY] = (
             len(onFileHash) + skippedTxCount+newTxCount)
-        accountInfoOut[Const.COUNTSKEY][Const.HRC20_KEY] = (
+        accountInfoOut[Const.COUNTS_KEY][Const.T_HRC20_KEY] = (
             skipptedHRC20Count+newHRC20Count)
-        accountInfoOut[Const.TRANSACTIONSKEY] = fileTxs
+        accountInfoOut[Const.TRANSACTIONS_KEY] = fileTxs
 
         with open(self.outputJSONFile, 'w', encoding='utf-8') as f:
             json.dump(accountInfoOut, f, ensure_ascii=False, indent=4)
@@ -808,7 +989,7 @@ class transactionDownloader:
                           ['HRC20 Txs', onfileHRC20Count, expectedHRC20s, remainingHRC20Count, newHRC20Count, skipptedHRC20Count, expectedHRC20s-(skipptedHRC20Count+newHRC20Count), skipptedHRC20Count+newHRC20Count]]
         self.GUI.addToText(
             '\n'+tabulate(counterDisplay, headers=headers)+'\n')
-        """   
+        """
         self.GUI.addToText(
             f"\n{len(fileTxs)} Transactions saved to file.")
         self.GUI.addToText(
@@ -856,12 +1037,113 @@ class transactionDownloader:
         orderedFunctions = self.getfunctionSorted(
             allTransactions=allTransactions)
 
-        functionCodes = list(orderedFunctions.keys())
         func = FunctionSelector(orderedFunctions, self.oneAddress)
         # func.grab_set()
         print('DONE!!!')
 
-    def PrintTransfersToCSV(self):
+    def CleanFunctions(self) -> dict:
+        '''
+        Description:
+        BeAware:
+        Inputs:
+        Outputs:
+        Notes:
+        ToDo:
+        '''
+        hexAddr = HmyUtil.convert_one_to_hex(self.oneAddress)
+        topicAddr = hexAddr[2:].lower()
+
+        allTransactions = {}
+        if os.path.exists(self.outputJSONFile):
+            with open(self.outputJSONFile, 'r') as f:
+                allTransactions = json.loads(f.read())
+
+        cleanedTXs = {}
+
+        for i, txHash in enumerate(allTransactions[Const.TRANSACTIONS_KEY]):
+            tx = allTransactions[Const.TRANSACTIONS_KEY][txHash]
+
+            if Const.T_RECEIPT_KEY in tx and 'status' in tx[Const.T_RECEIPT_KEY] and tx[Const.T_RECEIPT_KEY]['status'] != 0:
+                #  transactionInfo = {'time','name','code','gas','to','from','label','trades'[],'unknownTrades'[]}
+                #       Trade keys = {'from','to','sentAmount','sentToken','receivedAmount','receivedToken','topic'}
+                tr = HmyUtil.getTransferInfo(tx, self.oneAddress)
+                if Const.T_FUNCTION_KEY in tx:
+                    tx[Const.T_FUNCTION_KEY].update(tr)
+                match tr['label']:
+                    case "reward":
+                        ''
+                    case "liquidity in" | "liquidity out":
+                        ''
+                    case "DFK":
+                        ''
+                    case  "Transfer":
+                        ''
+                    case  "WAGMI Transfer":
+                        ''
+                    case  "DFK Stake":
+                        ''
+                    case  "Trade":
+                        ''
+                    case  "LP Swap":
+                        ''
+                    case  "WAGMI":
+                        ''
+                    case _:
+                        ''
+
+                for trade in tr['trades']:
+                    if trade['sentToken'] != '':
+                        'is sent'
+                    elif trade['receivedToken'] != '':
+                        'is received'
+
+    def PrintLabeled(self):
+        '''
+        Description:
+        BeAware:
+        Inputs:
+        Outputs:
+        Notes:
+        ToDo:
+        '''
+        hexAddr = HmyUtil.convert_one_to_hex(self.oneAddress)
+        topicAddr = hexAddr[2:].lower()
+        allTransactions = {}
+        if os.path.exists(self.outputJSONFile):
+            with open(self.outputJSONFile, 'r') as f:
+                allTransactions = json.loads(f.read())
+
+        cleanedTXs = {}
+
+        unknownCsvOut = dfkOut = csvOut = 'Date,Sent Amount,Sent Currency,Received Amount,Received Currency,Fee Amount,Fee Currency,Net Worth Amount,Net Worth Currency,Label,Description,Their Addr,TxHash\n'
+
+        for i, txHash in enumerate(allTransactions[Const.TRANSACTIONS_KEY]):
+            tx = allTransactions[Const.TRANSACTIONS_KEY][txHash]
+
+            if 'Receipt' in tx and 'status' in tx['Receipt'] and tx['Receipt']['status'] != 0:
+                #  transactionInfo = {'time','name','code','gas','to','from','trades','unknownTrades'}
+                #       Trade keys = {'from','to','sentAmount','sentToken','receivedAmount','receivedToken','topic','label'}
+                tr = HmyUtil.getTransferInfo(tx, self.oneAddress)
+
+                for trade in tr['trades']:
+                    if trade['label'] == 'DFK':
+                        dfkOut += f"{tr['time']},{trade['sentAmount']},{trade['sentToken']},{trade['receivedAmount']},{trade['receivedToken']},{tr['gas']},ONE,,,{trade['label']},{trade['topic']},{trade[Const.TFT_THEIR]},{tx[Const.T_TX_KEY]['ethHash']}\n"
+                    else:
+                        csvOut += f"{tr['time']},{trade['sentAmount']},{trade['sentToken']},{trade['receivedAmount']},{trade['receivedToken']},{tr['gas']},ONE,,,{trade['label']},{trade['topic']},{trade[Const.TFT_THEIR]},{tx[Const.T_TX_KEY]['ethHash']}\n"
+
+                for trade in tr['unknownTrades']:
+                    unknownCsvOut += f"{tr['time']},{trade['sentAmount']},{trade['sentToken']},{trade['receivedAmount']},{trade['receivedToken']},{tr['gas']},ONE,,,{trade['label']},{trade['topic']},{trade[Const.TFT_THEIR]},{tx[Const.T_TX_KEY]['ethHash']}\n"
+
+        with open(f'./CSV Outputs/test_{self.oneAddress}.csv', 'w') as f:
+            f.write(csvOut)
+
+        with open(f'./CSV Outputs/test_{self.oneAddress}_DFK.csv', 'w') as f:
+            f.write(dfkOut)
+
+        with open(f'./CSV Outputs/test_{self.oneAddress}_unkown.csv', 'w') as f:
+            f.write(unknownCsvOut)
+
+    def RAWPrintTransfersToCSV(self):
         '''
         Description:
         BeAware:
@@ -879,29 +1161,29 @@ class transactionDownloader:
 
         unknownCsvOut = csvOut = 'date,function,code,type,token,amount,direction,gas,ethHash'
 
-        for i, txHash in enumerate(allTransactions[Const.TRANSACTIONSKEY]):
-            tx = allTransactions[Const.TRANSACTIONSKEY][txHash]
-            timestamp = datetime.fromtimestamp(tx[Const.TX_KEY]['timestamp'])
+        for i, txHash in enumerate(allTransactions[Const.TRANSACTIONS_KEY]):
+            tx = allTransactions[Const.TRANSACTIONS_KEY][txHash]
+            timestamp = datetime.fromtimestamp(tx[Const.T_TX_KEY]['timestamp'])
             timestr = timestamp.strftime("%Y-%m-%d %H:%M:%S")
-            typeName = tx[Const.FUNCTION_KEY]['function']
-            typeCode = tx[Const.FUNCTION_KEY]['code']
-            gasFee = tx[Const.TX_KEY]['gasPrice'] * \
-                tx[Const.RECEIPT_KEY]['gasUsed'] / (10 ** 18)
+            typeName = tx[Const.T_FUNCTION_KEY]['function']
+            typeCode = tx[Const.T_FUNCTION_KEY]['code']
+            gasFee = tx[Const.T_TX_KEY]['gasPrice'] * \
+                tx[Const.T_RECEIPT_KEY]['gasUsed'] / (10 ** 18)
 
-            value = tx[Const.TX_KEY]['value'] / (10 ** 18)
+            value = tx[Const.T_TX_KEY]['value'] / (10 ** 18)
             fromInfo = []
             toInfo = []
             unknownInfo = []
             if value != 0:
-                if tx[Const.TX_KEY]['from'] == self.oneAddress:
+                if tx[Const.T_TX_KEY]['from'] == self.oneAddress:
                     fromInfo.append({'amount': value,
                                      'token': 'ONE', 'topic': 'baseTX'})
-                elif tx[Const.TX_KEY]['to'] == self.oneAddress:
+                elif tx[Const.T_TX_KEY]['to'] == self.oneAddress:
                     toInfo.append({'amount': value,
                                    'token': 'ONE', 'topic': 'baseTX'})
 
-            if len(tx[Const.RECEIPT_KEY]['logs']) > 0:
-                for log in tx[Const.RECEIPT_KEY]['logs']:
+            if len(tx[Const.T_RECEIPT_KEY]['logs']) > 0:
+                for log in tx[Const.T_RECEIPT_KEY]['logs']:
                     'For each log within each transaction'
                     tokenSym = log['address']
                     data = log['data']
@@ -974,11 +1256,11 @@ class transactionDownloader:
                                     {'amount': data, 'token': tokenSym, 'topic': log['topics'][0]})
 
             for t in fromInfo:
-                csvOut += f'\n{timestr},{typeName},{typeCode},{t["topic"]},{t["token"]},{t["amount"]},from,{gasFee},{tx[Const.TX_KEY]["ethHash"]}'
+                csvOut += f'\n{timestr},{typeName},{typeCode},{t["topic"]},{t["token"]},{t["amount"]},from,{gasFee},{tx[Const.T_TX_KEY]["ethHash"]}'
             for t in toInfo:
-                csvOut += f'\n{timestr},{typeName},{typeCode},{t["topic"]},{t["token"]},{t["amount"]},to,{gasFee},{tx[Const.TX_KEY]["ethHash"]}'
+                csvOut += f'\n{timestr},{typeName},{typeCode},{t["topic"]},{t["token"]},{t["amount"]},to,{gasFee},{tx[Const.T_TX_KEY]["ethHash"]}'
             for t in unknownInfo:
-                unknownCsvOut += f'\n{timestr},{typeName},{typeCode},{t["topic"]},{t["token"]},{t["amount"]},unknown,{gasFee},{tx[Const.TX_KEY]["ethHash"]}'
+                unknownCsvOut += f'\n{timestr},{typeName},{typeCode},{t["topic"]},{t["token"]},{t["amount"]},unknown,{gasFee},{tx[Const.T_TX_KEY]["ethHash"]}'
 
         with open(f'./CSV Outputs/test_{self.oneAddress}.csv', 'w') as f:
             f.write(csvOut)
@@ -987,13 +1269,14 @@ class transactionDownloader:
 
     def getfunctionSorted(self, allTransactions) -> dict:
         transactionsOut = {}
-        for i, txHash in enumerate(allTransactions[Const.TRANSACTIONSKEY]):
-            tx = allTransactions[Const.TRANSACTIONSKEY][txHash]
-            typeCode = tx[Const.FUNCTION_KEY]['code']
-            if typeCode not in transactionsOut:
-                transactionsOut[typeCode] = {txHash: tx}
-            else:
-                transactionsOut[typeCode][txHash] = tx
+        for i, txHash in enumerate(allTransactions[Const.TRANSACTIONS_KEY]):
+            tx = allTransactions[Const.TRANSACTIONS_KEY][txHash]
+            if 'Receipt' in tx and 'status' in tx['Receipt'] and tx['Receipt']['status'] != 0:
+                typeCode = tx[Const.T_FUNCTION_KEY]['code']
+                if typeCode not in transactionsOut:
+                    transactionsOut[typeCode] = {txHash: tx}
+                else:
+                    transactionsOut[typeCode][txHash] = tx
         return transactionsOut
 
     def DecodeTransactions(self, accountDetails, functionList, ABIs) -> dict:
@@ -1021,39 +1304,43 @@ class transactionDownloader:
         #   Counters are an array [decoded,skipped,unknown]
 
         # This is when decoding website doesnt work. Not really used atm.
-        maxAttempts = 5
+        maxAttempts = 15
 
         timeLast = time.perf_counter()
         lastAmount = 0
         '''[New,Skipped,Unknown]'''
-        counters = {Const.RECEIPT_KEY: [0, 0, 0],
-                    Const.DECODED_KEY: [0, 0, 0],
-                    Const.FUNCTION_KEY: [0, 0, 0],
-                    Const.WEB_KEY: [0, 0, 0]}
+        counters = {Const.T_RECEIPT_KEY: [0, 0, 0],
+                    Const.T_DECODED_KEY: [0, 0, 0],
+                    Const.T_FUNCTION_KEY: [0, 0, 0],
+                    Const.T_WEB_KEY: [0, 0, 0]}
         hasNew = False
-        for i, (hash) in enumerate(accountDetails[Const.TRANSACTIONSKEY]):
-            txInfo = accountDetails[Const.TRANSACTIONSKEY][hash]
+        for i, (hash) in enumerate(accountDetails[Const.TRANSACTIONS_KEY]):
+            txInfo = accountDetails[Const.TRANSACTIONS_KEY][hash]
             # Per transaction
             willUpdateTx = {}
-            if Const.TRANSACTIONSKEY in accountOut and hash in accountOut[Const.TRANSACTIONSKEY]:
+            if Const.TRANSACTIONS_KEY in accountOut and hash in accountOut[Const.TRANSACTIONS_KEY]:
                 'The item is in TxOut'
-                if Const.COUNTSKEY not in accountOut[Const.TRANSACTIONSKEY][hash]:
-                    accountOut[Const.TRANSACTIONSKEY][hash][Const.COUNTSKEY] = {
-                        Const.RECEIPT_KEY: 0, Const.DECODED_KEY: 0, Const.FUNCTION_KEY: 0, Const.WEB_KEY: 0}
+                if Const.COUNTS_KEY not in accountOut[Const.TRANSACTIONS_KEY][hash]:
+                    accountOut[Const.TRANSACTIONS_KEY][hash][Const.COUNTS_KEY] = {
+                        Const.T_RECEIPT_KEY: 0, Const.T_DECODED_KEY: 0, Const.T_FUNCTION_KEY: 0, Const.T_WEB_KEY: 0}
             # if the ethHash is not in 'TxOut' (previousely compleated) then add web info
                 for (decodeKey) in counters:
                     countValues = counters[decodeKey]
                     willUpdateTx[decodeKey] = False
-                    if decodeKey in accountOut[Const.TRANSACTIONSKEY][hash]:
+                    if decodeKey in accountOut[Const.TRANSACTIONS_KEY][hash]:
                         'has decoded info'
-                        if Const.NOVALUE in accountOut[Const.TRANSACTIONSKEY][hash][decodeKey]:
+                        if Const.FUNC_NOVALUE in accountOut[Const.TRANSACTIONS_KEY][hash][decodeKey]:
                             'There is no value'
-                            accountOut[Const.TRANSACTIONSKEY][hash][decodeKey][Const.NOVALUE] += 1
-                            if accountOut[Const.TRANSACTIONSKEY][hash][decodeKey][Const.NOVALUE] < maxAttempts:
+                            accountOut[Const.TRANSACTIONS_KEY][hash][decodeKey][Const.FUNC_NOVALUE] += 1
+                            if accountOut[Const.TRANSACTIONS_KEY][hash][decodeKey][Const.FUNC_NOVALUE] < maxAttempts:
                                 willUpdateTx[decodeKey] = True
+                            elif 'function' in accountOut[Const.TRANSACTIONS_KEY][hash][decodeKey] and Const.FUNC_ERROR == accountOut[Const.TRANSACTIONS_KEY][hash][decodeKey]['function']:
+                                willUpdateTx[decodeKey] = True
+                                #print('We got an error! will fix..')
                             else:
                                 countValues[2] += 1
-                        elif Const.UNKNOWNFUNCTION in accountOut[Const.TRANSACTIONSKEY][hash][decodeKey]:
+
+                        elif Const.FUNC_UNKNOWN in accountOut[Const.TRANSACTIONS_KEY][hash][decodeKey]:
                             countValues[2] += 1
                         else:
                             'Has previous entry'
@@ -1064,72 +1351,72 @@ class transactionDownloader:
             else:
                 'The item is not in accountOut'
                 willUpdateTx = {
-                    Const.RECEIPT_KEY: True, Const.DECODED_KEY: True, Const.FUNCTION_KEY: True, Const.WEB_KEY: True}
-                accountOut[Const.TRANSACTIONSKEY][hash] = txInfo
+                    Const.T_RECEIPT_KEY: True, Const.T_DECODED_KEY: True, Const.T_FUNCTION_KEY: True, Const.T_WEB_KEY: True}
+                accountOut[Const.TRANSACTIONS_KEY][hash] = txInfo
 
             for (deKey) in willUpdateTx:
                 willUpdate = willUpdateTx[deKey]
                 if willUpdate:
                     hasNew = True
-                    if len(accountOut[Const.TRANSACTIONSKEY][hash][Const.TX_KEY]['input']) >= 10:
-                        functionCode = accountOut[Const.TRANSACTIONSKEY][hash][Const.TX_KEY]['input'][0:10]
+                    if len(accountOut[Const.TRANSACTIONS_KEY][hash][Const.T_TX_KEY]['input']) >= 10:
+                        functionCode = accountOut[Const.TRANSACTIONS_KEY][hash][Const.T_TX_KEY]['input'][0:10]
                     else:
-                        functionCode = accountOut[Const.TRANSACTIONSKEY][hash][Const.TX_KEY]['input']
+                        functionCode = accountOut[Const.TRANSACTIONS_KEY][hash][Const.T_TX_KEY]['input']
                     match deKey:
-                        case Const.RECEIPT_KEY:
+                        case Const.T_RECEIPT_KEY:
                             'will update receipt'
                             try:
                                 recpt = transaction.get_transaction_receipt(
-                                    txInfo[Const.TX_KEY]['ethHash'].lower(), Const.MAINNET0)
+                                    txInfo[Const.T_TX_KEY]['ethHash'].lower(), Const.MAINNET0)
                                 counters[deKey][0] += 1
                             except BaseException as err:
                                 recpt = {
-                                    Const.NOVALUE: maxAttempts, 'function': Const.ERRORFUNCTION, 'data': f'Unexpected {err=}, {type(err)=}'}
+                                    Const.FUNC_NOVALUE: maxAttempts, 'function': Const.FUNC_ERROR, 'data': f'Unexpected {err=}, {type(err)=}'}
                                 counters[deKey][2] += 1
 
-                            accountOut[Const.TRANSACTIONSKEY][hash][deKey] = recpt
-                        case Const.DECODED_KEY:
+                            accountOut[Const.TRANSACTIONS_KEY][hash][deKey] = recpt
+                        case Const.T_DECODED_KEY:
                             'decode vairable'
                             if ABIs == None:
-                                accountOut[Const.TRANSACTIONSKEY][hash][deKey] = {
-                                    Const.UNKNOWNFUNCTION: maxAttempts, "function": Const.UNKNOWNFUNCTION, 'code': functionCode}
+                                accountOut[Const.TRANSACTIONS_KEY][hash][deKey] = {
+                                    Const.FUNC_UNKNOWN: maxAttempts, "function": Const.FUNC_UNKNOWN, 'code': functionCode}
                                 counters[deKey][2] += 1
                             else:
                                 try:
                                     for tempABI in ABIs:
                                         decoded = HmyUtil.decode_tx(
-                                            HmyUtil.convert_one_to_hex(txInfo[Const.TX_KEY]['to']), txInfo[Const.TX_KEY]['input'], tempABI)
+                                            HmyUtil.convert_one_to_hex(txInfo[Const.T_TX_KEY]['to']), txInfo[Const.T_TX_KEY]['input'], tempABI)
 
                                         if decoded[2] is not None:
-                                            accountOut[Const.TRANSACTIONSKEY][hash][deKey] = {
+                                            accountOut[Const.TRANSACTIONS_KEY][hash][deKey] = {
                                                 "function": decoded[0], "data": json.loads(decoded[1])}
                                             counters[deKey][0] += 1
                                             break
                                     if decoded[2] is None:
-                                        accountOut[Const.TRANSACTIONSKEY][hash][deKey] = {
-                                            Const.NOVALUE: maxAttempts, 'function': Const.NOVALUE}
+                                        accountOut[Const.TRANSACTIONS_KEY][hash][deKey] = {
+                                            Const.FUNC_NOVALUE: maxAttempts, 'function': Const.FUNC_NOVALUE}
                                         counters[deKey][2] += 1
 
                                 except BaseException as err:
-                                    accountOut[Const.TRANSACTIONSKEY][hash][deKey] = {
-                                        Const.NOVALUE: maxAttempts, 'function': Const.ERRORFUNCTION, 'data': f'Unexpected {err=}, {type(err)=}'}
+                                    accountOut[Const.TRANSACTIONS_KEY][hash][deKey] = {
+                                        Const.FUNC_NOVALUE: maxAttempts, 'function': Const.FUNC_ERROR, 'data': f'Unexpected {err=}, {type(err)=}'}
                                     counters[deKey][2] += 1
-                        case Const.FUNCTION_KEY:
+                        case Const.T_FUNCTION_KEY:
                             'add function'
                             functionName = HmyUtil.getFunctionName(
-                                functionList, accountOut[Const.TRANSACTIONSKEY][hash][Const.TX_KEY])
-                            if(functionName != Const.UNKNOWNFUNCTION):
+                                functionList, accountOut[Const.TRANSACTIONS_KEY][hash][Const.T_TX_KEY])
+                            if(functionName != Const.FUNC_UNKNOWN):
                                 "Decoded function"
                                 counters[deKey][0] += 1
                             else:
                                 "Unknown function"
                                 counters[deKey][2] += 1
-                            accountOut[Const.TRANSACTIONSKEY][hash][deKey] = {
+                            accountOut[Const.TRANSACTIONS_KEY][hash][deKey] = {
                                 "function": functionName, 'code': functionCode}
-                        case Const.WEB_KEY:
+                        case Const.T_WEB_KEY:
                             'add web'
-                            accountOut[Const.TRANSACTIONSKEY][hash][deKey] = {
-                                Const.UNKNOWNFUNCTION: maxAttempts, "function": Const.UNKNOWNFUNCTION, 'code': functionCode}
+                            accountOut[Const.TRANSACTIONS_KEY][hash][deKey] = {
+                                Const.FUNC_UNKNOWN: maxAttempts, "function": Const.FUNC_UNKNOWN, 'code': functionCode}
                             counters[deKey][2] += 1
                         case _:
                             print(f'Error, No catch for key {deKey}')
@@ -1139,7 +1426,7 @@ class transactionDownloader:
                                             f"Tx {i}/{len(accountDetails[oneAddy][Const.TRANSACTIONSKEY])}: {counters}")'''
             counterDisplay = []
             for key in counters:
-                accountOut[Const.COUNTSKEY][key] = counters[key]
+                accountOut[Const.COUNTS_KEY][key] = counters[key]
                 counterDisplay.append(
                     [key, *counters[key], sum(counters[key])])
             if hasNew and i % 250 == 0:
@@ -1147,11 +1434,11 @@ class transactionDownloader:
                 with open(self.outputJSONFile, 'w', encoding='utf-8') as f:
                     json.dump(accountOut, f, ensure_ascii=False, indent=4)
 
-            (timeLast, lastAmount) = self.simpleLoadingUpdate(timeLast, lastAmount, len(accountDetails[Const.TRANSACTIONSKEY]), i,
-                                                              f"Tx {i}/{len(accountDetails[Const.TRANSACTIONSKEY])}")
+            (timeLast, lastAmount) = self.simpleLoadingUpdate(timeLast, lastAmount, len(accountDetails[Const.TRANSACTIONS_KEY]), i,
+                                                              f"Tx {i}/{len(accountDetails[Const.TRANSACTIONS_KEY])}")
         counterDisplay = []
         for key in counters:
-            accountOut[Const.COUNTSKEY][key] = counters[key]
+            accountOut[Const.COUNTS_KEY][key] = counters[key]
             counterDisplay.append([key, *counters[key], sum(counters[key])])
 
         self.GUI.addToText(
@@ -1160,7 +1447,7 @@ class transactionDownloader:
         with open(self.outputJSONFile, 'w', encoding='utf-8') as f:
             json.dump(accountOut, f, ensure_ascii=False, indent=4)
             self.GUI.addToText(
-                f"\n\nSaved {len(accountOut[Const.TRANSACTIONSKEY])} transactions to {self.outputJSONFile}\n")
+                f"\n\nSaved {len(accountOut[Const.TRANSACTIONS_KEY])} transactions to {self.outputJSONFile}\n")
 
         return accountOut
 

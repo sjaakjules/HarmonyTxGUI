@@ -100,3 +100,2986 @@ Saved 10171 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuq
 Now Processing!
 
 All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10161     10161      0        0      10161            0    10161
+HRC20 Txs          3610      3610      0        0       3610            0     3610
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10171          0    10171
+Decoded       0          0      10171    10171
+Function      0      10171          0    10171
+Web           0          0      10171    10171
+
+
+
+Saved 10171 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      11238     11391       153
+HRC20 Tokens          0         0         0
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      11238     11391    153      153      11238            0    11391
+HRC20 Txs             0         0      0        0          0            0        0
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt     153      11238          0    11391
+Decoded       0          0      11391    11391
+Function    153      11238          0    11391
+Web           0          0      11391    11391
+
+
+
+Saved 11391 transactions to ./TransactionHistory/one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10161     10161      0        0      10161            0    10161
+HRC20 Txs          3610      3610      0        0       3610            0     3610
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10171          0    10171
+Decoded       0          0      10171    10171
+Function      0      10171          0    10171
+Web           0          0      10171    10171
+
+
+
+Saved 10171 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10161     10161      0        0      10161            0    10161
+HRC20 Txs          3610      3610      0        0       3610            0     3610
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10171          0    10171
+Decoded       0          0      10171    10171
+Function      0      10171          0    10171
+Web           0          0      10171    10171
+
+
+
+Saved 10171 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10161     10161      0        0      10161            0    10161
+HRC20 Txs          3610      3610      0        0       3610            0     3610
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10171          0    10171
+Decoded       0          0      10171    10171
+Function      0      10171          0    10171
+Web           0          0      10171    10171
+
+
+
+Saved 10171 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10161     10161      0        0      10161            0    10161
+HRC20 Txs          3610      3610      0        0       3610            0     3610
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10171          0    10171
+Decoded       0          0      10171    10171
+Function      0      10171          0    10171
+Web           0          0      10171    10171
+
+
+
+Saved 10171 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10161     10161      0        0      10161            0    10161
+HRC20 Txs          3610      3610      0        0       3610            0     3610
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10171          0    10171
+Decoded       0          0      10171    10171
+Function      0      10171          0    10171
+Web           0          0      10171    10171
+
+
+
+Saved 10171 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10161     10161      0        0      10161            0    10161
+HRC20 Txs          3610      3610      0        0       3610            0     3610
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10171          0    10171
+Decoded       0          0      10171    10171
+Function      0      10171          0    10171
+Web           0          0      10171    10171
+
+
+
+Saved 10171 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10161     10161      0        0      10161            0    10161
+HRC20 Txs          3610      3610      0        0       3610            0     3610
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10171          0    10171
+Decoded       0          0      10171    10171
+Function      0      10171          0    10171
+Web           0          0      10171    10171
+
+
+
+Saved 10171 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10161     10161      0        0      10161            0    10161
+HRC20 Txs          3610      3610      0        0       3610            0     3610
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10171          0    10171
+Decoded       0          0      10171    10171
+Function      0      10171          0    10171
+Web           0          0      10171    10171
+
+
+
+Saved 10171 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10161     10161      0        0      10161            0    10161
+HRC20 Txs          3610      3610      0        0       3610            0     3610
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10171          0    10171
+Decoded       0          0      10171    10171
+Function      0      10171          0    10171
+Web           0          0      10171    10171
+
+
+
+Saved 10171 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10161     10161      0        0      10161            0    10161
+HRC20 Txs          3610      3610      0        0       3610            0     3610
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10171          0    10171
+Decoded       0          0      10171    10171
+Function      0      10171          0    10171
+Web           0          0      10171    10171
+
+
+
+Saved 10171 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10161     10161      0        0      10161            0    10161
+HRC20 Txs          3610      3610      0        0       3610            0     3610
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10171          0    10171
+Decoded       0          0      10171    10171
+Function      0      10171          0    10171
+Web           0          0      10171    10171
+
+
+
+Saved 10171 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10161     10215        54
+HRC20 Tokens       3610      3632        22
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10161     10215     54       54      10161            0    10215
+HRC20 Txs          3610      3632     22       13       3619            0     3632
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt      52      10171          2    10225
+Decoded       0          0      10225    10225
+Function     54      10171          0    10225
+Web           0          0      10225    10225
+
+
+
+Saved 10225 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10215     10215      0        0      10215            0    10215
+HRC20 Txs          3632      3632      0        0       3632            0     3632
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10223          2    10225
+Decoded       0          0      10225    10225
+Function      0      10225          0    10225
+Web           0          0      10225    10225
+
+
+
+Saved 10225 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10215     10215      0        0      10215            0    10215
+HRC20 Txs          3632      3632      0        0       3632            0     3632
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10223          2    10225
+Decoded       0          0      10225    10225
+Function      0      10225          0    10225
+Web           0          0      10225    10225
+
+
+
+Saved 10225 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10215     10215      0        0      10215            0    10215
+HRC20 Txs          3632      3632      0        0       3632            0     3632
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10223          2    10225
+Decoded       0          0      10225    10225
+Function      0      10225          0    10225
+Web           0          0      10225    10225
+
+
+
+Saved 10225 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10215     10215      0        0      10215            0    10215
+HRC20 Txs          3632      3632      0        0       3632            0     3632
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       2      10223          0    10225
+Decoded       0          0      10225    10225
+Function      0      10225          0    10225
+Web           0          0      10225    10225
+
+
+
+Saved 10225 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10215     10215      0        0      10215            0    10215
+HRC20 Txs          3632      3632      0        0       3632            0     3632
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10225          0    10225
+Decoded       0          0      10225    10225
+Function      0      10225          0    10225
+Web           0          0      10225    10225
+
+
+
+Saved 10225 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10215     10215      0        0      10215            0    10215
+HRC20 Txs          3632      3632      0        0       3632            0     3632
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10225          0    10225
+Decoded       0          0      10225    10225
+Function      0      10225          0    10225
+Web           0          0      10225    10225
+
+
+
+Saved 10225 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10215     10215      0        0      10215            0    10215
+HRC20 Txs          3632      3632      0        0       3632            0     3632
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10225          0    10225
+Decoded       0          0      10225    10225
+Function      0      10225          0    10225
+Web           0          0      10225    10225
+
+
+
+Saved 10225 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10215     10215      0        0      10215            0    10215
+HRC20 Txs          3632      3632      0        0       3632            0     3632
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10225          0    10225
+Decoded       0          0      10225    10225
+Function      0      10225          0    10225
+Web           0          0      10225    10225
+
+
+
+Saved 10225 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10215     10215      0        0      10215            0    10215
+HRC20 Txs          3632      3632      0        0       3632            0     3632
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10225          0    10225
+Decoded       0          0      10225    10225
+Function      0      10225          0    10225
+Web           0          0      10225    10225
+
+
+
+Saved 10225 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10215     10215      0        0      10215            0    10215
+HRC20 Txs          3632      3632      0        0       3632            0     3632
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10225          0    10225
+Decoded       0          0      10225    10225
+Function      0      10225          0    10225
+Web           0          0      10225    10225
+
+
+
+Saved 10225 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10215     10217         2
+HRC20 Tokens       3632      3632         0
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10215     10217      2        2      10215            0    10217
+HRC20 Txs          3632      3632      0        0       3632            0     3632
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       2      10225          0    10227
+Decoded       0          0      10227    10227
+Function      2      10225          0    10227
+Web           0          0      10227    10227
+
+
+
+Saved 10227 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10217     10265        48
+HRC20 Tokens       3632      3657        25
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10217     10265     48       48      10217            0    10265
+HRC20 Txs          3632      3657     25       14       3643            0     3657
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt      43      10227          5    10275
+Decoded       0          0      10275    10275
+Function     48      10227          0    10275
+Web           0          0      10275    10275
+
+
+
+Saved 10275 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10265     10265      0        0      10265            0    10265
+HRC20 Txs          3657      3657      0        0       3657            0     3657
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       5      10270          0    10275
+Decoded       0          0      10275    10275
+Function      0      10275          0    10275
+Web           0          0      10275    10275
+
+
+
+Saved 10275 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10265     10265      0        0      10265            0    10265
+HRC20 Txs          3657      3657      0        0       3657            0     3657
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10275          0    10275
+Decoded       0          0      10275    10275
+Function      0      10275          0    10275
+Web           0          0      10275    10275
+
+
+
+Saved 10275 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10265     10265      0        0      10265            0    10265
+HRC20 Txs          3657      3657      0        0       3657            0     3657
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10275          0    10275
+Decoded       0          0      10275    10275
+Function      0      10275          0    10275
+Web           0          0      10275    10275
+
+
+
+Saved 10275 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10265     10265      0        0      10265            0    10265
+HRC20 Txs          3657      3657      0        0       3657            0     3657
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10275          0    10275
+Decoded       0          0      10275    10275
+Function      0      10275          0    10275
+Web           0          0      10275    10275
+
+
+
+Saved 10275 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one14rwynx83sr075dht94qpw3k7pml9eupuuegm7a.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions          3         3      0        0          3            0        3
+HRC20 Txs             0         0      0        0          0            0        0
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one14rwynx83sr075dht94qpw3k7pml9eupuuegm7a.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0          3          0        3
+Decoded       0          0          3        3
+Function      0          3          0        3
+Web           0          0          3        3
+
+
+
+Saved 3 transactions to ./TransactionHistory/one14rwynx83sr075dht94qpw3k7pml9eupuuegm7a.json
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      11391     11407        16
+HRC20 Tokens          0         0         0
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      11391     11407     16       16      11391            0    11407
+HRC20 Txs             0         0      0        0          0            0        0
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt      13      11391          3    11407
+Decoded       0          0      11407    11407
+Function     16      11391          0    11407
+Web           0          0      11407    11407
+
+
+
+Saved 11407 transactions to ./TransactionHistory/one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      11407     11407      0        0      11407            0    11407
+HRC20 Txs             0         0      0        0          0            0        0
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       3      11404          0    11407
+Decoded       0          0      11407    11407
+Function      0      11407          0    11407
+Web           0          0      11407    11407
+
+
+
+Saved 11407 transactions to ./TransactionHistory/one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      11407     11407      0        0      11407            0    11407
+HRC20 Txs             0         0      0        0          0            0        0
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      11407          0    11407
+Decoded       0          0      11407    11407
+Function      0      11407          0    11407
+Web           0          0      11407    11407
+
+
+
+Saved 11407 transactions to ./TransactionHistory/one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      11407     11407      0        0      11407            0    11407
+HRC20 Txs             0         0      0        0          0            0        0
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      11407          0    11407
+Decoded       0          0      11407    11407
+Function      0      11407          0    11407
+Web           0          0      11407    11407
+
+
+
+Saved 11407 transactions to ./TransactionHistory/one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      11407     11407      0        0      11407            0    11407
+HRC20 Txs             0         0      0        0          0            0        0
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      11407          0    11407
+Decoded       0          0      11407    11407
+Function      0      11407          0    11407
+Web           0          0      11407    11407
+
+
+
+Saved 11407 transactions to ./TransactionHistory/one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10265     10265      0        0      10265            0    10265
+HRC20 Txs          3657      3657      0        0       3657            0     3657
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10275          0    10275
+Decoded       0          0      10275    10275
+Function      0      10275          0    10275
+Web           0          0      10275    10275
+
+
+
+Saved 10275 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      11407     11407      0        0      11407            0    11407
+HRC20 Txs             0         0      0        0          0            0        0
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      11407          0    11407
+Decoded       0          0      11407    11407
+Function      0      11407          0    11407
+Web           0          0      11407    11407
+
+
+
+Saved 11407 transactions to ./TransactionHistory/one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10265     10265      0        0      10265            0    10265
+HRC20 Txs          3657      3657      0        0       3657            0     3657
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10275          0    10275
+Decoded       0          0      10275    10275
+Function      0      10275          0    10275
+Web           0          0      10275    10275
+
+
+
+Saved 10275 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done! check CSVs
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10265     10271         6
+HRC20 Tokens       3657      3660         3
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10265     10271      6        6      10265            0    10271
+HRC20 Txs          3657      3660      3        2       3658            0     3660
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       6      10275          0    10281
+Decoded       0          0      10281    10281
+Function      6      10275          0    10281
+Web           0          0      10281    10281
+
+
+
+Saved 10281 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10271     10271      0        0      10271            0    10271
+HRC20 Txs          3660      3660      0        0       3660            0     3660
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10281          0    10281
+Decoded       0          0      10281    10281
+Function      0      10281          0    10281
+Web           0          0      10281    10281
+
+
+
+Saved 10281 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done!
+
+------------------------------------------------
+Now Processing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+Writing Log Unexpected err=RPCError("Error in reply from https://rpc.s0.t.hmny.io: hmyv2_getTransactionsCount returned b'<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n'"), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RPCError'>
+	<built-in method with_traceback of RPCError object at 0x7fb031385420>
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10271         1    -10270
+HRC20 Tokens       3660         1     -3659
+
+Error while getting transactions. Writing Log Unexpected err=RPCError("Error in reply from https://rpc.s0.t.hmny.io: hmyv2_getTransactionsHistory returned b'<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n'"), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RPCError'>
+
+                On File    Online     New    Added    Skipped    Remaining    Total
+------------  ---------  --------  ------  -------  ---------  -----------  -------
+Transactions      10271         1  -10270        0      10281       -10181    10281
+HRC20 Txs          3660         1   -3659        0        100          -99      100
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10281          0    10281
+Decoded       0          0      10281    10281
+Function      0      10281          0    10281
+Web           0          0      10281    10281
+
+
+
+Saved 10281 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10281     10271       -10
+HRC20 Tokens        100      3660      3560
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10281     10271    -10        0      10281          -10    10281
+HRC20 Txs           100      3660   3560        0       3660            0     3660
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10281          0    10281
+Decoded       0          0      10281    10281
+Function      0      10281          0    10281
+Web           0          0      10281    10281
+
+
+
+Saved 10281 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10281     10271       -10
+HRC20 Tokens       3660      3660         0
+
+Error while getting transactions. Writing Log Unexpected err=RPCError("Error in reply from https://rpc.s0.t.hmny.io: hmyv2_getTransactionsHistory returned b'<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n'"), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RPCError'>
+Error while getting transactions. Writing Log Unexpected err=RPCError("Error in reply from https://rpc.s0.t.hmny.io: hmyv2_getTransactionsHistory returned b'<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n'"), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RPCError'>
+Error while getting transactions. Writing Log Unexpected err=RPCError("Error in reply from https://rpc.s0.t.hmny.io: hmyv2_getTransactionsHistory returned b'<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n'"), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RPCError'>
+Error while getting transactions. Writing Log Unexpected err=RPCError("Error in reply from https://rpc.s0.t.hmny.io: hmyv2_getTransactionsHistory returned b'<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n'"), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RPCError'>
+Error while getting transactions. Writing Log Unexpected err=RPCError("Error in reply from https://rpc.s0.t.hmny.io: hmyv2_getTransactionsHistory returned b'<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n'"), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RPCError'>
+Error while getting transactions. Writing Log Unexpected err=RPCError("Error in reply from https://rpc.s0.t.hmny.io: hmyv2_getTransactionsHistory returned b'<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n'"), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RPCError'>
+Error while getting transactions. Writing Log Unexpected err=RPCError("Error in reply from https://rpc.s0.t.hmny.io: hmyv2_getTransactionsHistory returned b'<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n'"), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RPCError'>
+Error while getting transactions. Writing Log Unexpected err=RPCError("Error in reply from https://rpc.s0.t.hmny.io: hmyv2_getTransactionsHistory returned b'<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n'"), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RPCError'>
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10281     10271    -10        0      10281          -10    10281
+HRC20 Txs          3660      3660      0        0       3660            0     3660
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10281          0    10281
+Decoded       0          0      10281    10281
+Function      0      10281          0    10281
+Web           0          0      10281    10281
+
+
+
+Saved 10281 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10271     10271      0        0      10271            0    10271
+HRC20 Txs          3660      3660      0        0       3660            0     3660
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10281          0    10281
+Decoded       0          0      10281    10281
+Function      0      10281          0    10281
+Web           0          0      10281    10281
+
+
+
+Saved 10281 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10271     10271      0        0      10271            0    10271
+HRC20 Txs          3660      3660      0        0       3660            0     3660
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10281          0    10281
+Decoded       0          0      10281    10281
+Function      0      10281          0    10281
+Web           0          0      10281    10281
+
+
+
+Saved 10281 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10271     10309        38
+HRC20 Tokens       3660      3669         9
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10271     10309     38       38      10271            0    10309
+HRC20 Txs          3660      3669      9        6       3663            0     3669
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt      38      10281          0    10319
+Decoded       0          0      10319    10319
+Function     38      10281          0    10319
+Web           0          0      10319    10319
+
+
+
+Saved 10319 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10309     10309      0        0      10309            0    10309
+HRC20 Txs          3669      3669      0        0       3669            0     3669
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10319          0    10319
+Decoded       0          0      10319    10319
+Function      0      10319          0    10319
+Web           0          0      10319    10319
+
+
+
+Saved 10319 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10309     10309      0        0      10309            0    10309
+HRC20 Txs          3669      3669      0        0       3669            0     3669
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10319          0    10319
+Decoded       0          0      10319    10319
+Function      0      10319          0    10319
+Web           0          0      10319    10319
+
+
+
+Saved 10319 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+Writing Log Unexpected err=RPCError("Error in reply from https://rpc.s0.t.hmny.io: hmyv2_getTransactionsCount returned b'<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n'"), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RPCError'>
+	<built-in method with_traceback of RPCError object at 0x7f95853173a0>
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10309         1    -10308
+HRC20 Tokens       3669         1     -3668
+
+
+                On File    Online     New    Added    Skipped    Remaining    Total
+------------  ---------  --------  ------  -------  ---------  -----------  -------
+Transactions      10309         1  -10308        0      10319       -10219    10319
+HRC20 Txs          3669         1   -3668        0        100          -99      100
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10319          0    10319
+Decoded       0          0      10319    10319
+Function      0      10319          0    10319
+Web           0          0      10319    10319
+
+
+
+Saved 10319 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10319     10309       -10
+HRC20 Tokens       3669      3669         0
+
+Error while getting transactions. Writing Log Unexpected err=RPCError("Error in reply from https://rpc.s0.t.hmny.io: hmyv2_getTransactionsHistory returned b'<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n'"), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RPCError'>
+Error while getting transactions. Writing Log Unexpected err=RPCError("Error in reply from https://rpc.s0.t.hmny.io: hmyv2_getTransactionsHistory returned b'<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n'"), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RPCError'>
+Error while getting transactions. Writing Log Unexpected err=RPCError("Error in reply from https://rpc.s0.t.hmny.io: hmyv2_getTransactionsHistory returned b'<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n'"), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RPCError'>
+Error while getting transactions. Writing Log Unexpected err=RPCError("Error in reply from https://rpc.s0.t.hmny.io: hmyv2_getTransactionsHistory returned b'<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n'"), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RPCError'>
+Error while getting transactions. Writing Log Unexpected err=RPCError("Error in reply from https://rpc.s0.t.hmny.io: hmyv2_getTransactionsHistory returned b'<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n'"), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RPCError'>
+Error while getting transactions. Writing Log Unexpected err=RPCError("Error in reply from https://rpc.s0.t.hmny.io: hmyv2_getTransactionsHistory returned b'<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n'"), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RPCError'>
+Error while getting transactions. Writing Log Unexpected err=RPCError("Error in reply from https://rpc.s0.t.hmny.io: hmyv2_getTransactionsHistory returned b'<html>\\r\\n<head><title>502 Bad Gateway</title></head>\\r\\n<body>\\r\\n<center><h1>502 Bad Gateway</h1></center>\\r\\n<hr><center>nginx</center>\\r\\n</body>\\r\\n</html>\\r\\n'"), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RPCError'>
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10319     10309    -10        0      10319          -10    10319
+HRC20 Txs          3669      3669      0        0       3669            0     3669
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10319          0    10319
+Decoded       0          0      10319    10319
+Function      0      10319          0    10319
+Web           0          0      10319    10319
+
+
+
+Saved 10319 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10309     10309      0        0      10309            0    10309
+HRC20 Txs          3669      3669      0        0       3669            0     3669
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10319          0    10319
+Decoded       0          0      10319    10319
+Function      0      10319          0    10319
+Web           0          0      10319    10319
+
+
+
+Saved 10319 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done!
+
+------------------------------------------------
+Now Printing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10309     10309      0        0      10309            0    10309
+HRC20 Txs          3669      3669      0        0       3669            0     3669
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10319          0    10319
+Decoded       0          0      10319    10319
+Function      0      10319          0    10319
+Web           0          0      10319    10319
+
+
+
+Saved 10319 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10309     10309      0        0      10309            0    10309
+HRC20 Txs          3669      3669      0        0       3669            0     3669
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10319          0    10319
+Decoded       0          0      10319    10319
+Function      0      10319          0    10319
+Web           0          0      10319    10319
+
+
+
+Saved 10319 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10309     10309      0        0      10309            0    10309
+HRC20 Txs          3669      3669      0        0       3669            0     3669
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10319          0    10319
+Decoded       0          0      10319    10319
+Function      0      10319          0    10319
+Web           0          0      10319    10319
+
+
+
+Saved 10319 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10309     10309      0        0      10309            0    10309
+HRC20 Txs          3669      3669      0        0       3669            0     3669
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10319          0    10319
+Decoded       0          0      10319    10319
+Function      0      10319          0    10319
+Web           0          0      10319    10319
+
+
+
+Saved 10319 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10309     10309      0        0      10309            0    10309
+HRC20 Txs          3669      3669      0        0       3669            0     3669
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10319          0    10319
+Decoded       0          0      10319    10319
+Function      0      10319          0    10319
+Web           0          0      10319    10319
+
+
+
+Saved 10319 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+
+------------------------------------------------
+Now Processing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10309     10309      0        0      10309            0    10309
+HRC20 Txs          3669      3669      0        0       3669            0     3669
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10319          0    10319
+Decoded       0          0      10319    10319
+Function      0      10319          0    10319
+Web           0          0      10319    10319
+
+
+
+Saved 10319 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10309     10309      0        0      10309            0    10309
+HRC20 Txs          3669      3669      0        0       3669            0     3669
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10319          0    10319
+Decoded       0          0      10319    10319
+Function      0      10319          0    10319
+Web           0          0      10319    10319
+
+
+
+Saved 10319 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10309     10309      0        0      10309            0    10309
+HRC20 Txs          3669      3669      0        0       3669            0     3669
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10319          0    10319
+Decoded       0          0      10319    10319
+Function      0      10319          0    10319
+Web           0          0      10319    10319
+
+
+
+Saved 10319 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10309     10309      0        0      10309            0    10309
+HRC20 Txs          3669      3669      0        0       3669            0     3669
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10319          0    10319
+Decoded       0          0      10319    10319
+Function      0      10319          0    10319
+Web           0          0      10319    10319
+
+
+
+Saved 10319 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10309     10309      0        0      10309            0    10309
+HRC20 Txs          3669      3669      0        0       3669            0     3669
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10319          0    10319
+Decoded       0          0      10319    10319
+Function      0      10319          0    10319
+Web           0          0      10319    10319
+
+
+
+Saved 10319 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10309     10309      0        0      10309            0    10309
+HRC20 Txs          3669      3669      0        0       3669            0     3669
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10319          0    10319
+Decoded       0          0      10319    10319
+Function      0      10319          0    10319
+Web           0          0      10319    10319
+
+
+
+Saved 10319 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10309     10309      0        0      10309            0    10309
+HRC20 Txs          3669      3669      0        0       3669            0     3669
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10319          0    10319
+Decoded       0          0      10319    10319
+Function      0      10319          0    10319
+Web           0          0      10319    10319
+
+
+
+Saved 10319 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10309     10309      0        0      10309            0    10309
+HRC20 Txs          3669      3669      0        0       3669            0     3669
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10319          0    10319
+Decoded       0          0      10319    10319
+Function      0      10319          0    10319
+Web           0          0      10319    10319
+
+
+
+Saved 10319 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10309     10322        13
+HRC20 Tokens       3669      3683        14
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10309     10322     13       13      10309            0    10322
+HRC20 Txs          3669      3683     14        9       3674            0     3683
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt      13      10319          0    10332
+Decoded       0          0      10332    10332
+Function     13      10319          0    10332
+Web           0          0      10332    10332
+
+
+
+Saved 10332 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10322     10467       145
+HRC20 Tokens       3683      3758        75
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10322     10467    145      145      10322            0    10467
+HRC20 Txs          3683      3758     75       43       3715            0     3758
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt     145      10332          0    10477
+Decoded       0          0      10477    10477
+Function    145      10332          0    10477
+Web           0          0      10477    10477
+
+
+
+Saved 10477 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7febe2511240>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7febe25110c0>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7febe25117c0>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7febe2511640>
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f9a993a12c0>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f9a993a1840>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f9a993a16c0>
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10467     10520        53
+HRC20 Tokens       3758      3793        35
+
+Error while getting transactions. Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+Error while getting transactions. Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+Error while getting transactions. Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+Error while getting transactions. Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10467     10520     53       53      10467            0    10520
+HRC20 Txs          3758      3793     35       14       3779            0     3793
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       5      10477         48    10530
+Decoded       0          0      10530    10530
+Function     53      10477          0    10530
+Web           0          0      10530    10530
+
+
+
+Saved 10530 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f9adf7a8fc0>
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10520     10520      0        0      10520            0    10520
+HRC20 Txs          3793      3793      0        0       3793            0     3793
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       6      10482         42    10530
+Decoded       0          0      10530    10530
+Function      0      10530          0    10530
+Web           0          0      10530    10530
+
+
+
+Saved 10530 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f9b8b627440>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f9b8b6272c0>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f9b8b627140>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f9b8b6279c0>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f9b8b627840>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f9b8b627740>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f9b8b6275c0>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f9b8b627f40>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f9b8b627dc0>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f9b8b627cc0>
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10520     10520      0        0      10520            0    10520
+HRC20 Txs          3793      3793      0        0       3793            0     3793
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       6      10488         36    10530
+Decoded       0          0      10530    10530
+Function      0      10530          0    10530
+Web           0          0      10530    10530
+
+
+
+Saved 10530 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f89d3fdf9c0>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f89d3fdf840>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f89d3fdf6c0>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f89d3fdf540>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f89d3fdff40>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f89d3fdfdc0>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f89d3fdfcc0>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f89d3fdfb40>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f89d3fec540>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f89d3fecac0>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f89d3fec940>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f89d3fec840>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f89d3fdf2c0>
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10520     10520      0        0      10520            0    10520
+HRC20 Txs          3793      3793      0        0       3793            0     3793
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       4      10494         32    10530
+Decoded       0          0      10530    10530
+Function      0      10530          0    10530
+Web           0          0      10530    10530
+
+
+
+Saved 10530 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10520     10520      0        0      10520            0    10520
+HRC20 Txs          3793      3793      0        0       3793            0     3793
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       4      10498         28    10530
+Decoded       0          0      10530    10530
+Function      0      10530          0    10530
+Web           0          0      10530    10530
+
+
+
+Saved 10530 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f8903133140>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f8903132fc0>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f8903132e40>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f89031336c0>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f8903133540>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f8903133cc0>
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10520     10520      0        0      10520            0    10520
+HRC20 Txs          3793      3793      0        0       3793            0     3793
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       4      10502         24    10530
+Decoded       0          0      10530    10530
+Function      0      10530          0    10530
+Web           0          0      10530    10530
+
+
+
+Saved 10530 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f88a2aefdc0>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f88a2aefc40>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f88a2aefac0>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f88a2b003c0>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f88a2b00240>
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10520     10520      0        0      10520            0    10520
+HRC20 Txs          3793      3793      0        0       3793            0     3793
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       2      10506         22    10530
+Decoded       0          0      10530    10530
+Function      0      10530          0    10530
+Web           0          0      10530    10530
+
+
+
+Saved 10530 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10520     10520      0        0      10520            0    10520
+HRC20 Txs          3793      3793      0        0       3793            0     3793
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt      15      10508          7    10530
+Decoded       0          0      10530    10530
+Function      0      10530          0    10530
+Web           0          0      10530    10530
+
+
+
+Saved 10530 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7f85b22565c0>
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10520     10520      0        0      10520            0    10520
+HRC20 Txs          3793      3793      0        0       3793            0     3793
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       1      10523          6    10530
+Decoded       0          0      10530    10530
+Function      0      10530          0    10530
+Web           0          0      10530    10530
+
+
+
+Saved 10530 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10520     10520      0        0      10520            0    10520
+HRC20 Txs          3793      3793      0        0       3793            0     3793
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       5      10524          1    10530
+Decoded       0          0      10530    10530
+Function      0      10530          0    10530
+Web           0          0      10530    10530
+
+
+
+Saved 10530 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10520     10520      0        0      10520            0    10520
+HRC20 Txs          3793      3793      0        0       3793            0     3793
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       1      10529          0    10530
+Decoded       0          0      10530    10530
+Function      0      10530          0    10530
+Web           0          0      10530    10530
+
+
+
+Saved 10530 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7fcbc6697f40>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7fcbc6697dc0>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7fcbc6697c40>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7fcbc6697ac0>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7fcbc66979c0>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7fcbc66978c0>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7fcbc66a0540>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7fcbc66a03c0>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7fcbc66a02c0>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7fcbc66a0140>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7fcbc66a0440>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7fcbc66a01c0>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7fcbc66a00c0>
+Writing Log Unexpected err=RequestsError('Error connecting to https://rpc.s0.t.hmny.io'), type(err)=<class 'src.lib.pyhmy.pyhmy.rpc.exceptions.RequestsError'>
+	<built-in method with_traceback of RequestsError object at 0x7fcbc66a04c0>
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10520     10520      0        0      10520            0    10520
+HRC20 Txs          3793      3793      0        0       3793            0     3793
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10530          0    10530
+Decoded       0          0      10530    10530
+Function      0      10530          0    10530
+Web           0          0      10530    10530
+
+
+
+Saved 10530 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10520     10521         1
+HRC20 Tokens       3793      3793         0
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10520     10521      1        1      10520            0    10521
+HRC20 Txs          3793      3793      0        0       3793            0     3793
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       1      10530          0    10531
+Decoded       0          0      10531    10531
+Function      1      10530          0    10531
+Web           0          0      10531    10531
+
+
+
+Saved 10531 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10521     10522         1
+HRC20 Tokens       3793      3793         0
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10521     10522      1        1      10521            0    10522
+HRC20 Txs          3793      3793      0        0       3793            0     3793
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       1      10531          0    10532
+Decoded       0          0      10532    10532
+Function      1      10531          0    10532
+Web           0          0      10532    10532
+
+
+
+Saved 10532 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done!
+
+------------------------------------------------
+Now Printing!
+
+All done!

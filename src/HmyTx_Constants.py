@@ -2,24 +2,56 @@
 LOGPATH = 'log.txt'
 FUNCTIONLISTPATH = './TokenInfo/FunctionList.json'
 HRC20LISTPATH = './TokenInfo/HRC20Tokens.json'
+TXOUTPATH = './TransactionHistory/'
 
-TRANSACTIONSKEY = 'transactions'
-COUNTSKEY = 'counts'
+TRANSACTIONS_KEY = 'transactions'
+COUNTS_KEY = 'counts'
 
-TX_KEY = 'Txs'
-HRC20_KEY = 'HRC20'
-FUNCTION_KEY = 'Function'
-RECEIPT_KEY = 'Receipt'
-DECODED_KEY = 'Decoded'
-WEB_KEY = 'Web'
+T_TX_KEY = 'Txs'
+T_HRC20_KEY = 'HRC20'
+T_FUNCTION_KEY = 'Function'
+T_RECEIPT_KEY = 'Receipt'
+T_DECODED_KEY = 'Decoded'
+T_WEB_KEY = 'Web'
 
-ADRESSESKEY = 'addresses'
-NAMEKEY = 'name'
+F_DEFAULT_KEY = 'default'
+F_CODE_KEY = 'code'
+F_NAME_KEY = 'name'
 
-NOVALUE = 'NoValue'
-UNKNOWNFUNCTION = 'Unknown'
-UNDEFINEDFUNCTION = 'Undefined'
-ERRORFUNCTION = 'ErrorOut'
+#'''Used for each transaction within Tx[TRANSACTIONS_KEY][T_FUNCTION_KEY]'''
+TF_FROM = 'from'
+TF_TO = 'to'
+TF_THEIR = 'their'
+TF_TIME = 'time'
+TF_FUNCNAME = 'name'
+TF_FUNCCODE = 'code'
+TF_GAS = 'gas'
+TF_TRADES = 'trades'
+TF_UKTRADES = 'unknownTrades'
+TF_FUNCLABEL = 'label'
+
+#'''Used for each trade within Tx[TRANSACTIONS_KEY][T_FUNCTION_KEY][TF_TRADES]'''
+TFT_FROM = 'from'
+TFT_TO = 'to'
+TFT_THEIR = 'their'
+TFT_SENTAMOOUNT = 'sentAmount'
+TFT_SENTTOKEN = 'sentToken'
+TFT_RECAMOUNT = 'receivedAmount'
+TFT_RECTOKEN = 'receivedToken'
+TFT_TOPIC = 'topic'
+TFT_CSVLABEL = 'label'
+TFT_NOTES = 'notes'
+
+FUNC_NOVALUE = 'NoValue'        # There is no function name or value.
+# There is a function name or value but was not able to resolve entry.
+FUNC_UNKNOWN = 'Unknown'
+FUNC_UNDEFINED = 'Undefined'    # There might or might not be a name or value.
+FUNC_ERROR = 'ErrorOut'         # There was an error resolving name or value.
+
+
+BSC_ID = '0x38'
+HARMONY_ID = '0x63564c40'
+DFK_ID = '0xd2af'
 
 TESTNET0 = 'https://api.s0.b.hmny.io'				# this is shard 0
 TESTNET1 = 'https://api.s1.b.hmny.io'
