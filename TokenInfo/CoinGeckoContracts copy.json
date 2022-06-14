@@ -1,0 +1,447 @@
+{
+    "0x72cb10c6bfa5624dd07ef608027e366bd690048f": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x72cb10c6bfa5624dd07ef608027e366bd690048f",
+        "name": "JEWEL",
+        "inCoinGecko": true
+    },
+    "0xfbdd194376de19a88118e84e279b977f165d01b8": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x301259f392b551ca8c592c9f676fcd2f9a0a84c5",
+        "name": "WMATIC",
+        "inCoinGecko": true
+    },
+    "0xe176ebe47d621b984a73036b9da5d834411ef734": {
+        "chainID": "harmony-shard-0",
+        "contract": "0xe176ebe47d621b984a73036b9da5d834411ef734",
+        "name": "BUSD",
+        "inCoinGecko": true
+    },
+    "0xa9ce83507d872c5e1273e745abcfda849daa654f": {
+        "chainID": "harmony-shard-0",
+        "contract": "0xa9ce83507d872c5e1273e745abcfda849daa654f",
+        "name": "xJEWEL",
+        "inCoinGecko": false
+    },
+    "0xcf664087a5bb0237a0bad6742852ec6c8d69a27a": {
+        "chainID": "harmony-shard-0",
+        "contract": "0xcf664087a5bb0237a0bad6742852ec6c8d69a27a",
+        "name": "ONE",
+        "inCoinGecko": true
+    },
+    "0x6983d1e6def3690c4d616b13597a09e6193ea013": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x6983d1e6def3690c4d616b13597a09e6193ea013",
+        "name": "1ETH",
+        "inCoinGecko": true
+    },
+    "0x0ab43550a6915f9f67d0c454c2e90385e6497eaa": {
+        "chainID": "harmony-shard-0",
+        "contract": "0xe176ebe47d621b984a73036b9da5d834411ef734",
+        "name": "bscBUSD",
+        "inCoinGecko": true
+    },
+    "0xb1f6e61e1e113625593a22fa6aa94f8052bc39e0": {
+        "geckoID":"binancecoin",
+        "chainID": "harmony-shard-0",
+        "contract": "0xb1f6e61e1e113625593a22fa6aa94f8052bc39e0",
+        "name": "bscBNB",
+        "inCoinGecko": true
+    },
+    "0x985458e523db3d53125813ed68c274899e9dfab4": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x985458e523db3d53125813ed68c274899e9dfab4",
+        "name": "1USDC",
+        "inCoinGecko": true
+    },
+    "0x0dc78c79b4eb080ead5c1d16559225a46b580694": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x0dc78c79b4eb080ead5c1d16559225a46b580694",
+        "name": "WAGMI",
+        "inCoinGecko": true
+    },
+    "0xf38593388079f7f5130d605e38abf6090d981ec2": {
+        "chainID": "harmony-shard-0",
+        "contract": "0xf38593388079f7f5130d605e38abf6090d981ec2",
+        "name": "sWAGMI",
+        "inCoinGecko": false
+    },
+    "0x44ced87b9f1492bf2dcf5c16004832569f7f6cba": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x985458e523db3d53125813ed68c274899e9dfab4",
+        "name": "bscUSDC",
+        "inCoinGecko": true
+    },
+    "0xbb948620fa9cd554ef9a331b13edea9b181f9d45": {
+        "chainID": "harmony-shard-0",
+        "contract": "0xbb948620fa9cd554ef9a331b13edea9b181f9d45",
+        "name": "wsWAGMI",
+        "inCoinGecko": false
+    },
+    "0x8d760497554eecc3b9036fb0364156ef2f0d02bc": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x8d760497554eecc3b9036fb0364156ef2f0d02bc",
+        "name": "HLY",
+        "inCoinGecko": true
+    },
+    "0xb12c13e66ade1f72f71834f2fc5082db8c091358": {
+        "chainID": "harmony-shard-0",
+        "contract": "one14tvk6p8spdcch8k58cuahrnnmesua79he3xzld",
+        "name": "AVAX",
+        "inCoinGecko": true
+    },
+    "0x224e64ec1bdce3870a6a6c777edd450454068fec": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x224e64ec1bdce3870a6a6c777edd450454068fec",
+        "name": "UST",
+        "inCoinGecko": true
+    },
+    "0x95ce547d730519a90def30d647f37d9e5359b6ae": {
+        "chainID": "fantom",
+        "contract": "0x95dd59343a893637be1c3228060ee6afbf6f0730",
+        "name": "LUNA",
+        "inCoinGecko": true
+    },
+    "0x24ea0d436d3c2602fbfefbe6a16bbc304c963d04": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x24ea0d436d3c2602fbfefbe6a16bbc304c963d04",
+        "name": "DFKTEARS",
+        "inCoinGecko": true
+    },
+    "0x78aed65a2cc40c7d8b0df1554da60b38ad351432": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x78aed65a2cc40c7d8b0df1554da60b38ad351432",
+        "name": "DFKBLOATER",
+        "inCoinGecko": false
+    },
+    "0xe4cfee5bf05cef3418da74cfb89727d8e4fee9fa": {
+        "chainID": "harmony-shard-0",
+        "contract": "0xe4cfee5bf05cef3418da74cfb89727d8e4fee9fa",
+        "name": "0xe4cfee5bf05cef3418da74cfb89727d8e4fee9fa",
+        "inCoinGecko": false
+    },
+    "0xb80a07e13240c31ec6dc0b5d72af79d461da3a70": {
+        "chainID": "harmony-shard-0",
+        "contract": "0xb80a07e13240c31ec6dc0b5d72af79d461da3a70",
+        "name": "0xb80a07e13240c31ec6dc0b5d72af79d461da3a70",
+        "inCoinGecko": false
+    },
+    "0x19b9f05cde7a61ab7aae5b0ed91aa62ff51cf881": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x19b9f05cde7a61ab7aae5b0ed91aa62ff51cf881",
+        "name": "0x19b9f05cde7a61ab7aae5b0ed91aa62ff51cf881",
+        "inCoinGecko": false
+    },
+    "0xc0214b37fcd01511e6283af5423cf24c96bb9808": {
+        "chainID": "harmony-shard-0",
+        "contract": "0xc0214b37fcd01511e6283af5423cf24c96bb9808",
+        "name": "0xc0214b37fcd01511e6283af5423cf24c96bb9808",
+        "inCoinGecko": false
+    },
+    "0x68ea4640c5ce6cc0c9a1f17b7b882cb1cbeaccd7": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x68ea4640c5ce6cc0c9a1f17b7b882cb1cbeaccd7",
+        "name": "DFKDRKWD",
+        "inCoinGecko": false
+    },
+    "0x043f9bd9bb17dfc90de3d416422695dd8fa44486": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x043f9bd9bb17dfc90de3d416422695dd8fa44486",
+        "name": "DFKRGWD",
+        "inCoinGecko": false
+    },
+    "0x094243dfabfbb3e6f71814618ace53f07362a84c": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x094243dfabfbb3e6f71814618ace53f07362a84c",
+        "name": "DFKRDLF",
+        "inCoinGecko": false
+    },
+    "0x6e1bc01cc52d165b357c42042cf608159a2b81c1": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x6e1bc01cc52d165b357c42042cf608159a2b81c1",
+        "name": "DFKAMBRTFY",
+        "inCoinGecko": false
+    },
+    "0x6b10ad6e3b99090de20bf9f95f960addc35ef3e2": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x6b10ad6e3b99090de20bf9f95f960addc35ef3e2",
+        "name": "DFKRCKRT",
+        "inCoinGecko": false
+    },
+    "0x66f5bfd910cd83d3766c4b39d13730c911b2d286": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x66f5bfd910cd83d3766c4b39d13730c911b2d286",
+        "name": "DFKSHVAS",
+        "inCoinGecko": false
+    },
+    "0xac5c49ff7e813de1947dc74bbb1720c353079ac9": {
+        "chainID": "harmony-shard-0",
+        "contract": "0xac5c49ff7e813de1947dc74bbb1720c353079ac9",
+        "name": "0xac5c49ff7e813de1947dc74bbb1720c353079ac9",
+        "inCoinGecko": false
+    },
+    "0x3e81154912e5e2cc9b10ad123bf14aeb93ae5318": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x3e81154912e5e2cc9b10ad123bf14aeb93ae5318",
+        "name": "JEWEL-LP",
+        "inCoinGecko": false
+    },
+    "0x8bf4a0888451c6b5412bcad3d9da3dcf5c6ca7be": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x8bf4a0888451c6b5412bcad3d9da3dcf5c6ca7be",
+        "name": "0x8bf4a0888451c6b5412bcad3d9da3dcf5c6ca7be",
+        "inCoinGecko": false
+    },
+    "0xc5891912718ccffcc9732d1942ccd98d5934c2e1": {
+        "chainID": "harmony-shard-0",
+        "contract": "0xc5891912718ccffcc9732d1942ccd98d5934c2e1",
+        "name": "0xc5891912718ccffcc9732d1942ccd98d5934c2e1",
+        "inCoinGecko": false
+    },
+    "0x3a4edcf3312f44ef027acfd8c21382a5259936e7": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x3a4edcf3312f44ef027acfd8c21382a5259936e7",
+        "name": "DFKGOLD",
+        "inCoinGecko": false
+    },
+    "0x2493cfdacc0f9c07240b5b1c4be08c62b8eeff69": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x2493cfdacc0f9c07240b5b1c4be08c62b8eeff69",
+        "name": "0x2493cfdacc0f9c07240b5b1c4be08c62b8eeff69",
+        "inCoinGecko": false
+    },
+    "0xcdffe898e687e941b124dfb7d24983266492ef1d": {
+        "chainID": "harmony-shard-0",
+        "contract": "0xcdffe898e687e941b124dfb7d24983266492ef1d",
+        "name": "DFKSWFTHSL",
+        "inCoinGecko": false
+    },
+    "0x600541ad6ce0a8b5dae68f086d46361534d20e80": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x600541ad6ce0a8b5dae68f086d46361534d20e80",
+        "name": "DFKGLDVN",
+        "inCoinGecko": false
+    },
+    "0xe01502db14929b7733e7112e173c3bcf566f996e": {
+        "chainID": "harmony-shard-0",
+        "contract": "0xe01502db14929b7733e7112e173c3bcf566f996e",
+        "name": "JEWEL-LP",
+        "inCoinGecko": false
+    },
+    "0x5122fad3ce16ba5f5be7202357e724e2eabc91de": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x5122fad3ce16ba5f5be7202357e724e2eabc91de",
+        "name": "JEWEL-LP",
+        "inCoinGecko": false
+    },
+    "0xeb579ddcd49a7beb3f205c9ff6006bb6390f138f": {
+        "chainID": "harmony-shard-0",
+        "contract": "0xeb579ddcd49a7beb3f205c9ff6006bb6390f138f",
+        "name": "JEWEL-LP",
+        "inCoinGecko": false
+    },
+    "0xe7d0116dd1dbbba2efbad58f097d1ffbbedc4923": {
+        "chainID": "harmony-shard-0",
+        "contract": "0xe7d0116dd1dbbba2efbad58f097d1ffbbedc4923",
+        "name": "JEWEL-LP",
+        "inCoinGecko": false
+    },
+    "0x5f753dcdf9b1ad9aabc1346614d1f4746fd6ce5c": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x5f753dcdf9b1ad9aabc1346614d1f4746fd6ce5c",
+        "name": "0x5f753dcdf9b1ad9aabc1346614d1f4746fd6ce5c",
+        "inCoinGecko": false
+    },
+    "0x372caf681353758f985597a35266f7b330a2a44d": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x372caf681353758f985597a35266f7b330a2a44d",
+        "name": "0x372caf681353758f985597a35266f7b330a2a44d",
+        "inCoinGecko": false
+    },
+    "0x093956649d43f23fe4e7144fb1c3ad01586ccf1e": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x093956649d43f23fe4e7144fb1c3ad01586ccf1e",
+        "name": "JEWEL-LP",
+        "inCoinGecko": false
+    },
+    "0x6d605303e9ac53c59a3da1ece36c9660c7a71da5": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x6d605303e9ac53c59a3da1ece36c9660c7a71da5",
+        "name": "0x6d605303e9ac53c59a3da1ece36c9660c7a71da5",
+        "inCoinGecko": false
+    },
+    "0xb91a0dfa0178500fedc526f26a89803c387772e8": {
+        "chainID": "harmony-shard-0",
+        "contract": "0xb91a0dfa0178500fedc526f26a89803c387772e8",
+        "name": "JEWEL-LP",
+        "inCoinGecko": false
+    },
+    "0xb6e9754b90b338ccb2a74fa31de48ad89f65ec5e": {
+        "chainID": "harmony-shard-0",
+        "contract": "0xb6e9754b90b338ccb2a74fa31de48ad89f65ec5e",
+        "name": "JEWEL-LP",
+        "inCoinGecko": false
+    },
+    "0x959ba19508827d1ed2333b1b503bd5ab006c710e": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x959ba19508827d1ed2333b1b503bd5ab006c710e",
+        "name": "0x959ba19508827d1ed2333b1b503bd5ab006c710e",
+        "inCoinGecko": false
+    },
+    "0x1f3f655079b70190cb79ce5bc5ae5f19daf2a6cf": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x1f3f655079b70190cb79ce5bc5ae5f19daf2a6cf",
+        "name": "0x1f3f655079b70190cb79ce5bc5ae5f19daf2a6cf",
+        "inCoinGecko": false
+    },
+    "0x7b886d19e5ee9e3188eb29037de21dce944ae0ef": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x7b886d19e5ee9e3188eb29037de21dce944ae0ef",
+        "name": "JEWEL-LP",
+        "inCoinGecko": false
+    },
+    "0x3e478ed607f79a50f286a5a6ce52a049897291b2": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x3e478ed607f79a50f286a5a6ce52a049897291b2",
+        "name": "JEWEL-LP",
+        "inCoinGecko": false
+    },
+    "0x387d00b1c74e60e7627b7048818372b1b4ec2e3f": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x387d00b1c74e60e7627b7048818372b1b4ec2e3f",
+        "name": "JEWEL-LP",
+        "inCoinGecko": false
+    },
+    "0x95d02c1dc58f05a015275eb49e107137d9ee81dc": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x95d02c1dc58f05a015275eb49e107137d9ee81dc",
+        "name": "DFKGREGG",
+        "inCoinGecko": false
+    },
+    "0x9678518e04fe02fb30b55e2d0e554e26306d0892": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x9678518e04fe02fb30b55e2d0e554e26306d0892",
+        "name": "DFKBLUEEGG",
+        "inCoinGecko": false
+    },
+    "0xd9a8abc0ce1adc23f1c1813986c9a9c21c9e7510": {
+        "chainID": "harmony-shard-0",
+        "contract": "0xd9a8abc0ce1adc23f1c1813986c9a9c21c9e7510",
+        "name": "0xd9a8abc0ce1adc23f1c1813986c9a9c21c9e7510",
+        "inCoinGecko": false
+    },
+    "0xf5c26f2f34e9245c3a9ea0b0e7ea7b33e6404da0": {
+        "chainID": "harmony-shard-0",
+        "contract": "0xf5c26f2f34e9245c3a9ea0b0e7ea7b33e6404da0",
+        "name": "0xf5c26f2f34e9245c3a9ea0b0e7ea7b33e6404da0",
+        "inCoinGecko": false
+    },
+    "0x762b98b3758d0a5eb95b3e4a1e2914ce0a80d99c": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x762b98b3758d0a5eb95b3e4a1e2914ce0a80d99c",
+        "name": "0x762b98b3758d0a5eb95b3e4a1e2914ce0a80d99c",
+        "inCoinGecko": false
+    },
+    "0xc63b76f710e9973b8989678eb16234cfadc8d9db": {
+        "chainID": "harmony-shard-0",
+        "contract": "0xc63b76f710e9973b8989678eb16234cfadc8d9db",
+        "name": "0xc63b76f710e9973b8989678eb16234cfadc8d9db",
+        "inCoinGecko": false
+    },
+    "0xe4e7c0c693d8a7fc159776a993495378705464a7": {
+        "chainID": "harmony-shard-0",
+        "contract": "0xe4e7c0c693d8a7fc159776a993495378705464a7",
+        "name": "0xe4e7c0c693d8a7fc159776a993495378705464a7",
+        "inCoinGecko": false
+    },
+    "0xab464901afbc61bac440a97fa568ac42885da58b": {
+        "chainID": "harmony-shard-0",
+        "contract": "0xab464901afbc61bac440a97fa568ac42885da58b",
+        "name": "0xab464901afbc61bac440a97fa568ac42885da58b",
+        "inCoinGecko": false
+    },
+    "0x4ff7a020ec1100d36d5c81f3d4815f2e9c704b59": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x4ff7a020ec1100d36d5c81f3d4815f2e9c704b59",
+        "name": "0x4ff7a020ec1100d36d5c81f3d4815f2e9c704b59",
+        "inCoinGecko": false
+    },
+    "0x17ff2016c9eccfbf4fc4da6ef95fe646d2c9104f": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x17ff2016c9eccfbf4fc4da6ef95fe646d2c9104f",
+        "name": "0x17ff2016c9eccfbf4fc4da6ef95fe646d2c9104f",
+        "inCoinGecko": false
+    },
+    "0x8f655142104478724bbc72664042ea09ebbf7b38": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x8f655142104478724bbc72664042ea09ebbf7b38",
+        "name": "DFKMOKSHA",
+        "inCoinGecko": false
+    },
+    "0xb00cbf5cd5e7b321436c2d3d8078773522d2f073": {
+        "chainID": "harmony-shard-0",
+        "contract": "0xb00cbf5cd5e7b321436c2d3d8078773522d2f073",
+        "name": "0xb00cbf5cd5e7b321436c2d3d8078773522d2f073",
+        "inCoinGecko": false
+    },
+    "0x0d8403e47445db9e316e36f476dacd5827220bdd": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x0d8403e47445db9e316e36f476dacd5827220bdd",
+        "name": "0x0d8403e47445db9e316e36f476dacd5827220bdd",
+        "inCoinGecko": false
+    },
+    "0xbb5614d466b77d50dded994892dfe6f0aca4eebb": {
+        "chainID": "harmony-shard-0",
+        "contract": "0xbb5614d466b77d50dded994892dfe6f0aca4eebb",
+        "name": "0xbb5614d466b77d50dded994892dfe6f0aca4eebb",
+        "inCoinGecko": false
+    },
+    "0x39927a2cee5580d63a163bc402946c7600300373": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x39927a2cee5580d63a163bc402946c7600300373",
+        "name": "0x39927a2cee5580d63a163bc402946c7600300373",
+        "inCoinGecko": false
+    },
+    "0x6d6ea1d2dc1df6eaa2153f212d25cf92d13be628": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x6d6ea1d2dc1df6eaa2153f212d25cf92d13be628",
+        "name": "0x6d6ea1d2dc1df6eaa2153f212d25cf92d13be628",
+        "inCoinGecko": false
+    },
+    "0x13af184aea970fe79e3bb7a1b0b156b195fb1f40": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x13af184aea970fe79e3bb7a1b0b156b195fb1f40",
+        "name": "0x13af184aea970fe79e3bb7a1b0b156b195fb1f40",
+        "inCoinGecko": false
+    },
+    "0x7e120334d9affc0982719a4eacc045f78bf41c68": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x7e120334d9affc0982719a4eacc045f78bf41c68",
+        "name": "0x7e120334d9affc0982719a4eacc045f78bf41c68",
+        "inCoinGecko": false
+    },
+    "0xfb03c364969a0bb572ce62b8cd616a7ddeb4c09a": {
+        "chainID": "harmony-shard-0",
+        "contract": "0xfb03c364969a0bb572ce62b8cd616a7ddeb4c09a",
+        "name": "0xfb03c364969a0bb572ce62b8cd616a7ddeb4c09a",
+        "inCoinGecko": false
+    },
+    "0x872dd1595544ce22ad1e0174449c7ece6f0bb01b": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x872dd1595544ce22ad1e0174449c7ece6f0bb01b",
+        "name": "0x872dd1595544ce22ad1e0174449c7ece6f0bb01b",
+        "inCoinGecko": false
+    },
+    "0x3db1fd0ad479a46216919758144fd15a21c3e93c": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x3db1fd0ad479a46216919758144fd15a21c3e93c",
+        "name": "0x3db1fd0ad479a46216919758144fd15a21c3e93c",
+        "inCoinGecko": false
+    },
+    "0xac9afb5900c8a27b766bcad3a37423dc0f4c22d3": {
+        "chainID": "harmony-shard-0",
+        "contract": "0xac9afb5900c8a27b766bcad3a37423dc0f4c22d3",
+        "name": "0xac9afb5900c8a27b766bcad3a37423dc0f4c22d3",
+        "inCoinGecko": false
+    }
+}

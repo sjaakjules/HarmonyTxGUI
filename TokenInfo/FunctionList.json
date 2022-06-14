@@ -25,7 +25,32 @@
         "WAGMI Burn",
         "Trade",
         "LP Swap",
-        "WAGMI"
+        "WAGMI",
+        "Claim",
+        "Frey",
+        "Sonic",
+        "Tranquil",
+        "Cosmic",
+        "Kitties"
+    ],
+    "Koinly Labels": [
+        "gift",
+        "lost",
+        "cost",
+        "margin fee",
+        "realized gain",
+        "stake",
+        "airdrop",
+        "fork",
+        "mining",
+        "reward",
+        "income (for other income)",
+        "loan interest",
+        "realized gain",
+        "unstake",
+        "swap",
+        "liquidity in",
+        "liquidity out"
     ],
     "0x02751cec": {
         "name": "Remove Liquidity E T H",
@@ -58,6 +83,11 @@
             "functionLabel": "liquidity out",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "liquidity out",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0x095ea7b3": {
@@ -79,6 +109,11 @@
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
@@ -127,6 +162,11 @@
             "functionLabel": "LP Swap",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "LP Swap",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0x106f46e4": {
@@ -145,6 +185,11 @@
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
@@ -178,6 +223,11 @@
             "functionLabel": "Trade",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "Trade",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0x1efedbe5": {
@@ -199,6 +249,11 @@
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0x2e0703dc": {
@@ -210,6 +265,11 @@
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
@@ -228,6 +288,11 @@
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "Transfer",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
             "functionLabel": "Transfer",
             "addressLabels": {},
             "transactionLabels": {}
@@ -269,6 +334,11 @@
             "functionLabel": "Trade",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "Trade",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0x441a3e70": {
@@ -287,6 +357,11 @@
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "LP Swap",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
             "functionLabel": "LP Swap",
             "addressLabels": {},
             "transactionLabels": {}
@@ -317,6 +392,11 @@
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "Trade",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
             "functionLabel": "Trade",
             "addressLabels": {},
             "transactionLabels": {}
@@ -359,6 +439,11 @@
             "functionLabel": "DFK Stake",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK Stake",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0x4ea8a311": {
@@ -386,6 +471,11 @@
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
@@ -419,6 +509,11 @@
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0x528be0a9": {
@@ -434,6 +529,11 @@
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
@@ -458,6 +558,11 @@
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0x5eac6239": {
@@ -468,12 +573,17 @@
             }
         ],
         "default": {
-            "functionLabel": "reward",
+            "functionLabel": "Claim",
             "addressLabels": {},
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
-            "functionLabel": "reward",
+            "functionLabel": "Claim",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "Claim",
             "addressLabels": {},
             "transactionLabels": {}
         }
@@ -491,6 +601,11 @@
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK Stake",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
             "functionLabel": "DFK Stake",
             "addressLabels": {},
             "transactionLabels": {}
@@ -512,6 +627,11 @@
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0x6e278cf1": {
@@ -525,6 +645,11 @@
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0x702e409d": {
@@ -535,6 +660,11 @@
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
@@ -553,6 +683,11 @@
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
@@ -580,6 +715,11 @@
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "Trade",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
             "functionLabel": "Trade",
             "addressLabels": {},
             "transactionLabels": {}
@@ -642,6 +782,11 @@
             "functionLabel": "Trade",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "Trade",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0x8a2da17b": {
@@ -669,6 +814,11 @@
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0x8b924f06": {
@@ -679,6 +829,11 @@
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
@@ -703,7 +858,13 @@
                 "one1mvcxg0r34j0zzgk2qdq76a7sn40en7fy7lytq4": "LP Swap",
                 "one1yqk9nr5n76wmuwj72urdlwzmm3vchvt0usdf3n": "WAGMI",
                 "one17su3rjze2vhr3jtfacd4nmk28hjkxrlrudf2e6": "WAGMI",
-                "one1t737eqp76mhwvjjjcyqlf75km5dsjwk8xseyhx": "WAGMI"
+                "one1t737eqp76mhwvjjjcyqlf75km5dsjwk8xseyhx": "WAGMI",
+                "one1ztwxrar8rrwsp6vnmfuxtks4ar9hzvy5spxrfg": "LP Swap",
+                "one1vkl7a3hqv70ttyfmy5rr42ez3n9tgvtpan8t5e": "LP Swap",
+                "one1027x0jx5kfy28zcdc46kxqrrqyyvkj95qpu6ms": "LP Swap",
+                "one1vld97tl6mhlsv74e6hczt7ypqc6dss5870za8w": "LP Swap",
+                "one172n4j7cu2ava9rax5c0wn4k3snwgvymdafdnfa": "LP Swap",
+                "one19nkser56j9xd53atcmlld70vhrwq34gpr72wp9": "LP Swap"
             },
             "transactionLabels": {}
         },
@@ -716,18 +877,34 @@
                 "one1t737eqp76mhwvjjjcyqlf75km5dsjwk8xseyhx": "WAGMI"
             },
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": null,
+            "addressLabels": {
+                "one1mvcxg0r34j0zzgk2qdq76a7sn40en7fy7lytq4": "LP Swap",
+                "one1yqk9nr5n76wmuwj72urdlwzmm3vchvt0usdf3n": "WAGMI",
+                "one17su3rjze2vhr3jtfacd4nmk28hjkxrlrudf2e6": "WAGMI",
+                "one1t737eqp76mhwvjjjcyqlf75km5dsjwk8xseyhx": "WAGMI",
+                "one1ztwxrar8rrwsp6vnmfuxtks4ar9hzvy5spxrfg": "LP Swap",
+                "one1vkl7a3hqv70ttyfmy5rr42ez3n9tgvtpan8t5e": "LP Swap",
+                "one1027x0jx5kfy28zcdc46kxqrrqyyvkj95qpu6ms": "LP Swap",
+                "one1vld97tl6mhlsv74e6hczt7ypqc6dss5870za8w": "LP Swap",
+                "one172n4j7cu2ava9rax5c0wn4k3snwgvymdafdnfa": "LP Swap",
+                "one19nkser56j9xd53atcmlld70vhrwq34gpr72wp9": "LP Swap"
+            },
+            "transactionLabels": {}
         }
     },
     "0x8ed955b9": {
         "name": "Harvest All",
         "params": [],
         "default": {
-            "functionLabel": "reward",
+            "functionLabel": "Claim",
             "addressLabels": {},
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
-            "functionLabel": "reward",
+            "functionLabel": "Claim",
             "addressLabels": {},
             "transactionLabels": {}
         }
@@ -757,6 +934,11 @@
             "functionLabel": "DFK Stake",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK Stake",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0x9f37092a": {
@@ -768,7 +950,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xa22cb465": {
         "name": "Set Approval For All",
@@ -786,6 +978,11 @@
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
@@ -810,6 +1007,11 @@
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0xa59f3e0c": {
@@ -825,6 +1027,11 @@
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK Stake",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
             "functionLabel": "DFK Stake",
             "addressLabels": {},
             "transactionLabels": {}
@@ -864,12 +1071,17 @@
             }
         ],
         "default": {
-            "functionLabel": "reward",
+            "functionLabel": "Claim",
             "addressLabels": {},
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
-            "functionLabel": "reward",
+            "functionLabel": "Claim",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "Claim",
             "addressLabels": {},
             "transactionLabels": {}
         }
@@ -887,6 +1099,11 @@
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "Transfer",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
             "functionLabel": "Transfer",
             "addressLabels": {},
             "transactionLabels": {}
@@ -926,6 +1143,11 @@
             "functionLabel": "liquidity out",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "liquidity out",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0xbcf64e05": {
@@ -944,6 +1166,11 @@
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "Transfer",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
             "functionLabel": "Transfer",
             "addressLabels": {},
             "transactionLabels": {}
@@ -980,6 +1207,11 @@
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0xc7fef99b": {
@@ -990,6 +1222,11 @@
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
@@ -1014,6 +1251,11 @@
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
@@ -1052,6 +1294,11 @@
             "functionLabel": "LP Swap",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "LP Swap",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0xe30d4440": {
@@ -1067,6 +1314,11 @@
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
@@ -1109,6 +1361,11 @@
             "functionLabel": "liquidity in",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "liquidity in",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0xf305d719": {
@@ -1139,6 +1396,11 @@
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "liquidity in",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
             "functionLabel": "liquidity in",
             "addressLabels": {},
             "transactionLabels": {}
@@ -1219,6 +1481,11 @@
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0xfa863736": {
@@ -1249,6 +1516,11 @@
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0xfb3bdb41": {
@@ -1276,6 +1548,11 @@
             "functionLabel": "Trade",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "Trade",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0xfe90ff7d": {
@@ -1294,6 +1571,11 @@
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0x": {
@@ -1304,6 +1586,11 @@
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "Transfer",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
             "functionLabel": "Transfer",
             "addressLabels": {},
             "transactionLabels": {}
@@ -1344,6 +1631,11 @@
             "functionLabel": "WAGMI",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "WAGMI",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0x7acb7757": {
@@ -1368,6 +1660,11 @@
             "functionLabel": "WAGMI",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "WAGMI",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0xbd3eaa6f": {
@@ -1381,6 +1678,11 @@
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0xa9059cbb": {
@@ -1391,6 +1693,11 @@
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "Transfer",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
             "functionLabel": "Transfer",
             "addressLabels": {},
             "transactionLabels": {}
@@ -1418,6 +1725,11 @@
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0x68ce0b56": {
@@ -1439,6 +1751,11 @@
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
@@ -1466,6 +1783,11 @@
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0xa0e3d1a0": {
@@ -1490,6 +1812,11 @@
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "WAGMI",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
             "functionLabel": "WAGMI",
             "addressLabels": {},
             "transactionLabels": {}
@@ -1545,6 +1872,11 @@
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0x1cf5f07f": {
@@ -1578,17 +1910,47 @@
         "altNames": [
             "Unlock"
         ],
-        "params": []
+        "params": [],
+        "default": {
+            "functionLabel": "Claim",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "Claim",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x1249c58b": {
         "name": "Tranquil Mint",
         "altNames": [
             "Mint"
         ],
-        "params": []
+        "params": [],
+        "default": {
+            "functionLabel": "Tranquil",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "Tranquil",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xd0e30db0": {
-        "name": "Deposit"
+        "name": "Deposit",
+        "default": {
+            "functionLabel": "Transfer",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "Transfer",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x18fccc76": {
         "name": "Sushi Harvest",
@@ -1602,31 +1964,121 @@
             {
                 "type": "address"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "Claim",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "Claim",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x791ac947": {
-        "name": "Cosmic coins LootLP swapExactTokensForETHSupportingFeeOnTransferTokens"
+        "name": "Cosmic coins LootLP swapExactTokensForETHSupportingFeeOnTransferTokens",
+        "default": {
+            "functionLabel": "Cosmic",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "Cosmic",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x6ea6d76d": {
-        "name": "Game Init"
+        "name": "Game Init",
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x3a4231b6": {
-        "name": "Tranquil Transfer CryptoPigs"
+        "name": "Tranquil Transfer CryptoPigs",
+        "default": {
+            "functionLabel": "Tranquil",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "Tranquil",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xaf2979eb": {
-        "name": "Cosmic coins LootLP removeLiquidityETHSupportingFeeOnTransferTokens"
+        "name": "Cosmic coins LootLP removeLiquidityETHSupportingFeeOnTransferTokens",
+        "default": {
+            "functionLabel": "Cosmic",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "Cosmic",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xb948348c": {
-        "name": "SONIC purchaseTicket"
+        "name": "SONIC purchaseTicket",
+        "default": {
+            "functionLabel": "Sonic",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "Sonic",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xefef39a1": {
-        "name": "DFK Purchase MAYBE Summon"
+        "name": "DFK Purchase MAYBE Summon",
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x92642744": {
-        "name": "The Frey Mint NFT"
+        "name": "The Frey Mint NFT",
+        "default": {
+            "functionLabel": "Frey",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "Frey",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xc2998238": {
-        "name": "Tranquil Enter Markets"
+        "name": "Tranquil Enter Markets",
+        "default": {
+            "functionLabel": "Tranquil",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "Tranquil",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xc5ebeaec": {
         "name": "Tranquil Borrow",
@@ -1637,7 +2089,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "Tranquil",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "Tranquil",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x0e752702": {
         "name": "Repay Borrow",
@@ -1648,7 +2110,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "Tranquil",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "Tranquil",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x0952c563": {
         "name": "Claim Rewards",
@@ -1662,14 +2134,34 @@
             {
                 "type": "address"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "Claim",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "Claim",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x4e4d9fea": {
         "name": "Tranquil Accrue interest repay borrow",
         "altNames": [
             "Repay Borrow"
         ],
-        "params": []
+        "params": [],
+        "default": {
+            "functionLabel": "Tranquil",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "Tranquil",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xdb006a75": {
         "name": "Tranquil Redeem",
@@ -1680,14 +2172,34 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "Tranquil",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "Tranquil",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x372500ab": {
         "name": "Tranquil Claim",
         "altNames": [
             "Claim Rewards"
         ],
-        "params": []
+        "params": [],
+        "default": {
+            "functionLabel": "Claim",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "Claim",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x3df02124": {
         "name": "Curve Fi Exchange",
@@ -1707,10 +2219,30 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "Trade",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "Trade",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xce177878": {
-        "name": "One KITTIES Mint with punk"
+        "name": "One KITTIES Mint with punk",
+        "default": {
+            "functionLabel": "Kitties",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "Kitties",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x3fda5389": {
         "name": "DFK Fill",
@@ -1721,16 +2253,56 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xdef4061f": {
-        "name": "DFK MAYBE Hero auction"
+        "name": "DFK MAYBE Hero auction",
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x71a6acf2": {
-        "name": "DFK Donate tokens"
+        "name": "DFK Donate tokens",
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x82731903": {
-        "name": "DFK MAYBE Burn Gia tears"
+        "name": "DFK MAYBE Burn Gia tears",
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x474cf53d": {
         "name": "Deposit E T H",
@@ -1851,7 +2423,17 @@
             {
                 "type": "uint256"
             }
-        ]
+        ],
+        "default": {
+            "functionLabel": "Tranquil",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "Tranquil",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0xa2a1623d": {
         "name": "Swap Exact A V A X For Tokens",
@@ -1900,6 +2482,11 @@
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
@@ -1955,9 +2542,37 @@
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0xa389f510": {
-        "name": "DFK Hero Update"
+        "name": "DFK Hero Update",
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
+    },
+    "0x8743ddce": {
+        "name": "Undefined",
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     }
 }

@@ -18,6 +18,19 @@ F_DEFAULT_KEY = 'default'
 F_CODE_KEY = 'code'
 F_NAME_KEY = 'name'
 
+CG_CONTRACTPATH = './TokenInfo/CoinGeckoContracts.json'
+CG_ID = "geckoID"
+CG_CHAINID = "chainID"
+CG_CONTRACT = "contract"
+CG_NAME = "name"
+CG_ISONLINE = "inCoinGecko"
+
+C_INFO = "CoinInfo"
+C_COARSE_USD = "CoarseUSD"
+C_COARSE_AUD = "CoarseAUD"
+C_FINE_USD = "FineUSD"
+C_FINE_AUD = "FineAUD"
+
 #'''Used for each transaction within Tx[TRANSACTIONS_KEY][T_FUNCTION_KEY]'''
 TF_FROM = 'from'
 TF_TO = 'to'
@@ -41,6 +54,7 @@ TFT_RECTOKEN = 'receivedToken'
 TFT_TOPIC = 'topic'
 TFT_CSVLABEL = 'label'
 TFT_NOTES = 'notes'
+TFT_TCONT = 'TokenContract'
 
 FUNC_NOVALUE = 'NoValue'        # There is no function name or value.
 # There is a function name or value but was not able to resolve entry.

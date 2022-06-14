@@ -1,14 +1,16 @@
 import json
 import os
+import sys
 import threading
 import time
 import tkinter as tk
 import webbrowser
-from datetime import datetime
+from datetime import datetime, timezone
 from tkinter import *
 from tkinter import filedialog, simpledialog, ttk
 from tkinter.messagebox import showinfo
 
+from pycoingecko import CoinGeckoAPI
 from tabulate import tabulate
 
 import src.HmyTx_Constants as Const
@@ -172,7 +174,7 @@ class MainWindow(tk.Tk):
     def printData(self):
         self.addToText(
             '\n------------------------------------------------\nNow Printing!\n')
-        self.transactionsController.PrintLabeled()
+        self.transactionsController.GetDFKrewards()
 
         self.addToText('All done!')
         showinfo("All printed", "Printed all transactions to CSV.")
@@ -393,7 +395,14 @@ class FunctionSelector(tk.Toplevel):
             self.destroy()
 
     def LabelFromDefault(self):
-        print("Label from default value!(does nothing atm)")
+        print("Label from default value!")
+        for code in self.allTransactions:
+            'if code in function list, has defult but not this oneAddress'
+            if code in self.fnList and Const.F_DEFAULT_KEY in self.fnList[code] and self.oneAddress not in self.fnList[code]:
+                self.fnList[code][self.oneAddress] = self.fnList[code][Const.F_DEFAULT_KEY]
+            else:
+                print(f'{code} not found')
+        self.SaveFunctionListFile()
 
     def ShowUnlabeled(self):
         print("Showing Unlabeled Only!")
@@ -1041,6 +1050,133 @@ class transactionDownloader:
         # func.grab_set()
         print('DONE!!!')
 
+    def updateTokenList(self):
+        '''
+        Description:
+            updates a list of tokens found in the transactions.
+        BeAware:
+        Inputs:
+        Outputs:
+        Notes:
+        ToDo:
+        '''
+        hexAddr = HmyUtil.convert_one_to_hex(self.oneAddress)
+        topicAddr = hexAddr[2:].lower()
+        allTransactions = {}
+        if os.path.exists(self.outputJSONFile):
+            with open(self.outputJSONFile, 'r') as f:
+                allTransactions = json.loads(f.read())
+
+        tokenBook = {}
+        addressPath = f'./TokenInfo/CoinGeckoContracts.json'
+
+        if os.path.exists(addressPath):
+            with open(addressPath, 'r') as f:
+                tokenBook = json.loads(f.read())
+
+        for i, txHash in enumerate(allTransactions[Const.TRANSACTIONS_KEY]):
+            tx = allTransactions[Const.TRANSACTIONS_KEY][txHash]
+
+            if 'Receipt' in tx and 'status' in tx['Receipt'] and tx['Receipt']['status'] != 0:
+                #  transactionInfo = {'time','name','code','gas','to','from','trades','unknownTrades','label'}
+                #       Trade keys = {'from','to','sentAmount','sentToken','receivedAmount','receivedToken','topic','label'}
+                tr = HmyUtil.getTransferInfo(tx, self.oneAddress)
+
+                for trade in tr[Const.TF_TRADES]:
+                    'add to token list'
+                    tokenName = trade[Const.TFT_RECTOKEN]
+                    if trade[Const.TFT_SENTTOKEN] != '':
+                        tokenName = trade[Const.TFT_SENTTOKEN]
+
+                    if trade[Const.TFT_TCONT] not in tokenBook:
+                        tokenBook[trade[Const.TFT_TCONT]] = {
+                            Const.CG_CHAINID: "harmony-shard-0",
+                            Const.CG_CONTRACT: trade[Const.TFT_TCONT],
+                            Const.CG_NAME: tokenName,
+                            Const.CG_ISONLINE: True}
+
+        with open(addressPath, 'w', encoding='utf-8') as f:
+            json.dump(tokenBook, f, ensure_ascii=False, indent=4)
+
+    def GetDFKrewards(self):
+        '''
+        Description:
+            outputs list of reward (income) events for DFK.
+        BeAware:
+        Inputs:
+        Outputs:
+        Notes:
+        ToDo:
+        '''
+        self.updateTokenList()
+
+        hexAddr = HmyUtil.convert_one_to_hex(self.oneAddress)
+        topicAddr = hexAddr[2:].lower()
+        allTransactions = {}
+        if os.path.exists(self.outputJSONFile):
+            with open(self.outputJSONFile, 'r') as f:
+                allTransactions = json.loads(f.read())
+
+        csvOut = 'Date,Amount,Coin,Timestamp,Matched Timestamp,US Price,US Value,AUD Price, AUD Value,Label,Contract,Their Addr,TxHash\n'
+
+        PathBase = './HistoryData/'
+        historyTokenPaths = os.listdir(PathBase)
+
+        marketData = {}
+        for Path in historyTokenPaths:
+            with open(PathBase+Path, 'r') as f:
+                marketData.update({Path[:-5]: json.loads(f.read())})
+
+        for i, txHash in enumerate(allTransactions[Const.TRANSACTIONS_KEY]):
+            tx = allTransactions[Const.TRANSACTIONS_KEY][txHash]
+
+            if 'Receipt' in tx and 'status' in tx['Receipt'] and tx['Receipt']['status'] != 0:
+                #  transactionInfo = {'time','name','code','gas','to','from','trades','unknownTrades','label'}
+                #       Trade keys = {'from','to','sentAmount','sentToken','receivedAmount','receivedToken','topic','label'}
+                tr = HmyUtil.getTransferInfo(tx, self.oneAddress)
+
+                if tr[Const.TF_FUNCLABEL] == 'LP Swap' or tr[Const.TF_FUNCLABEL] == 'Claim':
+
+                    rewards = {}
+                    for trade in tr[Const.TF_TRADES]:
+                        'get the name, get the amount'
+
+                        price = self.getPrice(
+                            marketData, trade[Const.TFT_TCONT], tx[Const.T_TX_KEY]['timestamp']*1000)
+
+                        name = trade[Const.TFT_RECTOKEN]
+                        amount = trade[Const.TFT_RECAMOUNT]
+                        if trade[Const.TFT_SENTTOKEN] != '':
+                            name = trade[Const.TFT_SENTTOKEN]
+                            amount = -trade[Const.TFT_SENTAMOOUNT]
+                        if 'LP' not in name:
+                            if name not in rewards:
+                                rewards.update({name: {
+                                                'amount': amount,
+                                                Const.TFT_TCONT: trade[Const.TFT_TCONT],
+                                                'price': price}})
+                            else:
+                                rewards[name]['amount'] += amount
+                    for name in rewards:
+                        'Date,Amount,Coin,Timestamp,Matched Timestamp,US Price,US Value,AUD Price, AUD Value,Label,Contract,Their Addr,TxHash\n'
+                        csvOut += f"{tr[Const.TF_TIME]},{rewards[name]['amount']},{name},{tx[Const.T_TX_KEY]['timestamp']},{rewards[name]['price'][2]},{rewards[name]['price'][0]},{rewards[name]['amount']*rewards[name]['price'][0]},{rewards[name]['price'][1]},{rewards[name]['amount']*rewards[name]['price'][1]},{tr[Const.TF_FUNCLABEL]},{rewards[name][Const.TFT_TCONT]},{tr[Const.TF_THEIR]},{txHash}\n"
+
+        with open(f'./CSV Outputs/testRewards_{self.oneAddress}.csv', 'w') as f:
+            f.write(csvOut)
+
+    def getPrice(self, historyData, contract, timestamp):
+        if contract in historyData:
+            matchedTime = 0
+            for i, timest in enumerate(historyData[contract]['FineUSD']['prices']):
+                if timestamp < timest[0]:
+                    matchedTime = historyData[contract]['FineUSD']['prices'][i][0]
+                    USprice = historyData[contract]['FineUSD']['prices'][i][1]
+                    AUprice = historyData[contract]['FineAUD']['prices'][i][1]
+                    break
+            return (USprice, AUprice, matchedTime)
+        else:
+            return(0, 0, timestamp)
+
     def CleanFunctions(self) -> dict:
         '''
         Description:
@@ -1115,7 +1251,7 @@ class transactionDownloader:
 
         cleanedTXs = {}
 
-        unknownCsvOut = dfkOut = csvOut = 'Date,Sent Amount,Sent Currency,Received Amount,Received Currency,Fee Amount,Fee Currency,Net Worth Amount,Net Worth Currency,Label,Description,Their Addr,TxHash\n'
+        unknownCsvOut = dfkOut = csvOut = 'Date,Sent Amount,Sent Currency,Received Amount,Received Currency,Fee Amount,Fee Currency,Net Worth Amount,Net Worth Currency,Label,Description,Code,Their Addr,TxHash\n'
 
         for i, txHash in enumerate(allTransactions[Const.TRANSACTIONS_KEY]):
             tx = allTransactions[Const.TRANSACTIONS_KEY][txHash]
@@ -1127,12 +1263,12 @@ class transactionDownloader:
 
                 for trade in tr['trades']:
                     if trade['label'] == 'DFK':
-                        dfkOut += f"{tr['time']},{trade['sentAmount']},{trade['sentToken']},{trade['receivedAmount']},{trade['receivedToken']},{tr['gas']},ONE,,,{trade['label']},{trade['topic']},{trade[Const.TFT_THEIR]},{tx[Const.T_TX_KEY]['ethHash']}\n"
+                        dfkOut += f"{tr['time']},{trade['sentAmount']},{trade['sentToken']},{trade['receivedAmount']},{trade['receivedToken']},{tr['gas']},ONE,,,{trade['label']},{trade['topic']},{tr[Const.TF_FUNCCODE]},{trade[Const.TFT_THEIR]},{tx[Const.T_TX_KEY]['ethHash']}\n"
                     else:
-                        csvOut += f"{tr['time']},{trade['sentAmount']},{trade['sentToken']},{trade['receivedAmount']},{trade['receivedToken']},{tr['gas']},ONE,,,{trade['label']},{trade['topic']},{trade[Const.TFT_THEIR]},{tx[Const.T_TX_KEY]['ethHash']}\n"
+                        csvOut += f"{tr['time']},{trade['sentAmount']},{trade['sentToken']},{trade['receivedAmount']},{trade['receivedToken']},{tr['gas']},ONE,,,{trade['label']},{trade['topic']},{tr[Const.TF_FUNCCODE]},{trade[Const.TFT_THEIR]},{tx[Const.T_TX_KEY]['ethHash']}\n"
 
                 for trade in tr['unknownTrades']:
-                    unknownCsvOut += f"{tr['time']},{trade['sentAmount']},{trade['sentToken']},{trade['receivedAmount']},{trade['receivedToken']},{tr['gas']},ONE,,,{trade['label']},{trade['topic']},{trade[Const.TFT_THEIR]},{tx[Const.T_TX_KEY]['ethHash']}\n"
+                    unknownCsvOut += f"{tr['time']},{trade['sentAmount']},{trade['sentToken']},{trade['receivedAmount']},{trade['receivedToken']},{tr['gas']},ONE,,,{trade['label']},{trade['topic']},{tr[Const.TF_FUNCCODE]},{trade[Const.TFT_THEIR]},{tx[Const.T_TX_KEY]['ethHash']}\n"
 
         with open(f'./CSV Outputs/test_{self.oneAddress}.csv', 'w') as f:
             f.write(csvOut)
@@ -1336,7 +1472,7 @@ class transactionDownloader:
                                 willUpdateTx[decodeKey] = True
                             elif 'function' in accountOut[Const.TRANSACTIONS_KEY][hash][decodeKey] and Const.FUNC_ERROR == accountOut[Const.TRANSACTIONS_KEY][hash][decodeKey]['function']:
                                 willUpdateTx[decodeKey] = True
-                                #print('We got an error! will fix..')
+                                # print('We got an error! will fix..')
                             else:
                                 countValues[2] += 1
 
@@ -1450,6 +1586,230 @@ class transactionDownloader:
                 f"\n\nSaved {len(accountOut[Const.TRANSACTIONS_KEY])} transactions to {self.outputJSONFile}\n")
 
         return accountOut
+
+
+def getCoinGeckoHistory():
+    cg = CoinGeckoAPI()
+    tokenBook = {}
+
+    timestampNow = int(time.time())
+    timestamp = datetime(2021, 1, 1).replace(
+        tzinfo=timezone.utc).timestamp()
+    timestampStart = int(timestamp)
+
+    # Const.TXOUTPATH + f'TokenContracts_{oneAddress}.json'
+
+    if os.path.exists(Const.CG_CONTRACTPATH):
+        with open(Const.CG_CONTRACTPATH, 'r') as f:
+            tokenBook = json.loads(f.read())
+
+    for contract in tokenBook:
+        try:
+            coinBase = f'./HistoryData/{contract}'
+            coinPath = coinBase + '.json'
+            hasInAPI = True
+            if Const.CG_ISONLINE not in tokenBook[contract]:
+                print(
+                    f'Updating {tokenBook[contract][Const.CG_NAME]} : {contract}')
+                print('No data for contract. Will make new.')
+                tokenBook[contract] = {
+                    Const.CG_CHAINID: "harmony-shard-0",
+                    Const.CG_CONTRACT: contract,
+                    Const.CG_NAME: tokenBook[contract],
+                    Const.CG_ISONLINE: hasInAPI}
+
+            if Const.CG_ISONLINE not in tokenBook[contract] or (Const.CG_ISONLINE in tokenBook[contract] and tokenBook[contract][Const.CG_ISONLINE]):
+                'Check api to update info.'
+                print(
+                    f'Updating {tokenBook[contract][Const.CG_NAME]} : {contract}')
+                if Const.CG_ID in tokenBook[contract]:
+                    "use the gecko id not id/contract info."
+                    if(not os.path.exists(coinPath)):
+                        print('Have not downloaded info. Will do it now.')
+
+                        time.sleep(2)
+                        coins = (cg.get_coin_by_id(
+                            id=tokenBook[contract][Const.CG_ID]))
+
+                        time.sleep(2)
+                        AllhistoryDataUS = cg.get_coin_market_chart_range_by_id(
+                            tokenBook[contract][Const.CG_ID], 'usd', str(timestampStart), str(timestampNow))
+
+                        time.sleep(2)
+                        AllhistoryDataAU = cg.get_coin_market_chart_range_by_id(
+                            tokenBook[contract][Const.CG_ID],  'aud', str(timestampStart), str(timestampNow))
+
+                        tsFin = timestampNow
+                        tsStart = timestampNow - 89*24*60*60
+
+                        time.sleep(2)
+                        FinehistoryDataUS = cg.get_coin_market_chart_range_by_id(
+                            tokenBook[contract][Const.CG_ID],  'usd', str(tsStart), str(tsFin))
+
+                        time.sleep(2)
+                        FinehistoryDataAU = cg.get_coin_market_chart_range_by_id(
+                            tokenBook[contract][Const.CG_ID],  'aud', str(tsStart), str(tsFin))
+
+                        tsFin = tsStart
+                        tsStart = tsFin - 89*24*60*60
+
+                        while tsStart > timestampStart:
+                            time.sleep(2)
+                            FinehistoryDataUS_new = cg.get_coin_market_chart_range_by_id(
+                                tokenBook[contract][Const.CG_ID],  'usd', str(tsStart), str(tsFin))
+
+                            FinehistoryDataUS["prices"].extend(
+                                FinehistoryDataUS_new["prices"])
+                            FinehistoryDataUS["market_caps"].extend(
+                                FinehistoryDataUS_new["market_caps"])
+                            FinehistoryDataUS["total_volumes"].extend(
+                                FinehistoryDataUS_new["total_volumes"])
+
+                            time.sleep(2)
+                            FinehistoryDataAU_new = cg.get_coin_market_chart_range_by_id(
+                                tokenBook[contract][Const.CG_ID],  'aud', str(tsStart), str(tsFin))
+
+                            FinehistoryDataAU["prices"].extend(
+                                FinehistoryDataAU_new["prices"])
+                            FinehistoryDataAU["market_caps"].extend(
+                                FinehistoryDataAU_new["market_caps"])
+                            FinehistoryDataAU["total_volumes"].extend(
+                                FinehistoryDataAU_new["total_volumes"])
+
+                            tsFin = tsStart
+                            tsStart = tsFin - 89*24*60*60
+
+                        FinehistoryDataUS["prices"] = sorted(
+                            FinehistoryDataUS["prices"])
+                        FinehistoryDataUS["market_caps"] = sorted(
+                            FinehistoryDataUS["market_caps"])
+                        FinehistoryDataUS["total_volumes"] = sorted(
+                            FinehistoryDataUS["total_volumes"])
+
+                        FinehistoryDataAU["prices"] = sorted(
+                            FinehistoryDataAU["prices"])
+                        FinehistoryDataAU["market_caps"] = sorted(
+                            FinehistoryDataAU["market_caps"])
+                        FinehistoryDataAU["total_volumes"] = sorted(
+                            FinehistoryDataAU["total_volumes"])
+
+                        coinsInfo = {
+                            Const.C_INFO: coins,
+                            Const.C_COARSE_USD: AllhistoryDataUS,
+                            Const.C_COARSE_AUD: AllhistoryDataAU,
+                            Const.C_FINE_USD: FinehistoryDataUS,
+                            Const.C_FINE_AUD: FinehistoryDataAU}
+
+                        with open(coinPath, 'w') as f:
+                            json.dump(coinsInfo, f,
+                                      ensure_ascii=False, indent=4)
+                else:
+                    'use id/contract info'
+                    if(not os.path.exists(coinPath)):
+                        print('Have not downloaded info. Will do it now.')
+
+                        time.sleep(2)
+                        coins = (cg.get_coin_info_from_contract_address_by_id(
+                            id=tokenBook[contract][Const.CG_CHAINID], contract_address=tokenBook[contract][Const.CG_CONTRACT]))
+
+                        time.sleep(2)
+                        AllhistoryDataUS = cg.get_coin_market_chart_range_from_contract_address_by_id(
+                            tokenBook[contract][Const.CG_CHAINID], tokenBook[contract][Const.CG_CONTRACT], 'usd', str(timestampStart), str(timestampNow))
+
+                        time.sleep(2)
+                        AllhistoryDataAU = cg.get_coin_market_chart_range_from_contract_address_by_id(
+                            tokenBook[contract][Const.CG_CHAINID], tokenBook[contract][Const.CG_CONTRACT], 'aud', str(timestampStart), str(timestampNow))
+
+                        tsFin = timestampNow
+                        tsStart = timestampNow - 89*24*60*60
+
+                        time.sleep(2)
+                        FinehistoryDataUS = cg.get_coin_market_chart_range_from_contract_address_by_id(
+                            tokenBook[contract][Const.CG_CHAINID], tokenBook[contract][Const.CG_CONTRACT], 'usd', str(tsStart), str(tsFin))
+
+                        time.sleep(2)
+                        FinehistoryDataAU = cg.get_coin_market_chart_range_from_contract_address_by_id(
+                            tokenBook[contract][Const.CG_CHAINID], tokenBook[contract][Const.CG_CONTRACT], 'aud', str(tsStart), str(tsFin))
+
+                        tsFin = tsStart
+                        tsStart = tsFin - 89*24*60*60
+
+                        while tsStart > timestampStart:
+                            time.sleep(2)
+                            FinehistoryDataUS_new = cg.get_coin_market_chart_range_from_contract_address_by_id(
+                                tokenBook[contract][Const.CG_CHAINID], tokenBook[contract][Const.CG_CONTRACT], 'usd', str(tsStart), str(tsFin))
+
+                            FinehistoryDataUS["prices"].extend(
+                                FinehistoryDataUS_new["prices"])
+                            FinehistoryDataUS["market_caps"].extend(
+                                FinehistoryDataUS_new["market_caps"])
+                            FinehistoryDataUS["total_volumes"].extend(
+                                FinehistoryDataUS_new["total_volumes"])
+
+                            time.sleep(2)
+                            FinehistoryDataAU_new = cg.get_coin_market_chart_range_from_contract_address_by_id(
+                                tokenBook[contract][Const.CG_CHAINID], tokenBook[contract][Const.CG_CONTRACT], 'aud', str(tsStart), str(tsFin))
+
+                            FinehistoryDataAU["prices"].extend(
+                                FinehistoryDataAU_new["prices"])
+                            FinehistoryDataAU["market_caps"].extend(
+                                FinehistoryDataAU_new["market_caps"])
+                            FinehistoryDataAU["total_volumes"].extend(
+                                FinehistoryDataAU_new["total_volumes"])
+
+                            tsFin = tsStart
+                            tsStart = tsFin - 89*24*60*60
+
+                        FinehistoryDataUS["prices"] = sorted(
+                            FinehistoryDataUS["prices"])
+                        FinehistoryDataUS["market_caps"] = sorted(
+                            FinehistoryDataUS["market_caps"])
+                        FinehistoryDataUS["total_volumes"] = sorted(
+                            FinehistoryDataUS["total_volumes"])
+
+                        FinehistoryDataAU["prices"] = sorted(
+                            FinehistoryDataAU["prices"])
+                        FinehistoryDataAU["market_caps"] = sorted(
+                            FinehistoryDataAU["market_caps"])
+                        FinehistoryDataAU["total_volumes"] = sorted(
+                            FinehistoryDataAU["total_volumes"])
+
+                        coinsInfo = {
+                            Const.C_INFO: coins,
+                            Const.C_COARSE_USD: AllhistoryDataUS,
+                            Const.C_COARSE_AUD: AllhistoryDataAU,
+                            Const.C_FINE_USD: FinehistoryDataUS,
+                            Const.C_FINE_AUD: FinehistoryDataAU}
+
+                        with open(coinPath, 'w') as f:
+                            json.dump(coinsInfo, f,
+                                      ensure_ascii=False, indent=4)
+            else:
+                (f'{contract} not in CoinGecko')
+
+        except Exception as e:
+            if e.__context__ is not None and '429' in e.__str__():
+                print('Too many request!')
+                time.sleep(2)
+            elif '404' in e.__context__.__str__():
+                print('Could not find in CoinGecko API')
+                if tokenBook[contract][Const.CG_ISONLINE]:
+                    tokenBook[contract][Const.CG_ISONLINE] = False
+            else:
+                print('Type" ', sys.exc_info()[0])
+                print('Context: ', e.__context__)
+                print('Value" ', sys.exc_info()[1])
+                print('Trace" ', sys.exc_info()[2])
+
+    with open(Const.CG_CONTRACTPATH, 'w') as f:
+        json.dump(tokenBook, f, ensure_ascii=False, indent=4)
+    cg.session.close()
+
+
+getCoinGeckoHistory()
+# getMarketHistory(coingeckoCoins)
+# sortMarketHistory(coingeckoCoins)
+# getCourseMarketHistory(coingeckoCoins)
 
 
 TransactionOrganiser = MainWindow()

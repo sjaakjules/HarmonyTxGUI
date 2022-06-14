@@ -186,7 +186,7 @@ def getBaseInfoDisplay(tx, oneAddress):
 def getTransferInfo(tx, oneAddress) -> dict:
     '''
     Output keys: {'time','name','code','gas','to','from','trades','unknownTrades','label'}
-    trades keys: {'from','to','sentAmount','sentToken','receivedAmount','receivedToken','topic'}
+    trades keys: {'from','to','sentAmount','sentToken','receivedAmount','receivedToken','topic','TokenContract'}
     '''
     global HRC20Tokens
     if len(list(HRC20Tokens.keys())) == 0:
@@ -225,6 +225,7 @@ def getTransferInfo(tx, oneAddress) -> dict:
                 Const.TFT_RECAMOUNT: '',
                 Const.TFT_RECTOKEN: '',
                 Const.TFT_TOPIC: 'baseTX',
+                Const.TFT_TCONT: '0xcf664087a5bb0237a0bad6742852ec6c8d69a27a',
                 Const.TFT_CSVLABEL: label})
         else:
             transactionsOut.append({
@@ -236,6 +237,7 @@ def getTransferInfo(tx, oneAddress) -> dict:
                 Const.TFT_RECAMOUNT: value,
                 Const.TFT_RECTOKEN: 'ONE',
                 Const.TFT_TOPIC: 'baseTX',
+                Const.TFT_TCONT: '0xcf664087a5bb0237a0bad6742852ec6c8d69a27a',
                 Const.TFT_CSVLABEL: label})
 
     if len(tx[Const.T_RECEIPT_KEY]['logs']) > 0:
@@ -245,6 +247,7 @@ def getTransferInfo(tx, oneAddress) -> dict:
             'For each log within each transaction'
             isTransfer = False
             tokenSym = log['address']
+            tokenCont = log['address']
             value = 0
 
             if len(log['data']) == 66:
@@ -296,16 +299,6 @@ def getTransferInfo(tx, oneAddress) -> dict:
                         if log["topics"][2][-40:] == myhexBase:
                             isSent = False
                             theirStr = '0x' + log["topics"][1][-40:]
-                    case '0x1fec6dc81f140574bf43f6b1e420ae1dd47928b9d57db8cbd7b8611063b85ae5':
-                        print('Wagmi for me!')
-                        isTransfer = True
-                        isUnknownTX = False
-                        topicName = 'WAGMI swap'
-                        isSent = False
-                        toStr = '0x' + myhexBase
-                        fromStr = '0x' + theirHexBase  # f'(their addr)'
-                        tokenSym = 'sWAGMI'
-                        data = int(log['topics'][1], 16) / (10**9)
                     case '0x7fcf532c15f0a6db0bd6d0e038bea71d30d808c7d98cb3bf7268a95bf5081b65':
                         #print('Withdrawl for me!')
                         isTransfer = True
@@ -321,17 +314,10 @@ def getTransferInfo(tx, oneAddress) -> dict:
                     case '0x7fcf532c15f0a6db0bd6d0e038bea71d30d808c7d98cb3bf7268a95bf5081b65':
                         # print('Withdrawl!')
                         isTransfer = True
+                        isSent = False
                         topicName = 'Withdrawal'
                         toStr = '0x' + myhexBase
                         fromStr = '0x' + theirHexBase
-                    case '0x1fec6dc81f140574bf43f6b1e420ae1dd47928b9d57db8cbd7b8611063b85ae5':
-                        isTransfer = True
-                        isSent = False
-                        topicName = 'WAGMI swap'
-                        toStr = '0x' + myhexBase
-                        fromStr = '0x' + theirHexBase  # f'(their addr)'
-                        tokenSym = 'sWAGMI'
-                        data = int(log['topics'][1], 16) / (10**9)
             if isSent:
                 if isTransfer:
                     transactionsOut.append({
@@ -343,6 +329,7 @@ def getTransferInfo(tx, oneAddress) -> dict:
                         Const.TFT_RECAMOUNT: '',
                         Const.TFT_RECTOKEN: '',
                         Const.TFT_TOPIC: topicName,
+                        Const.TFT_TCONT: tokenCont,
                         Const.TFT_CSVLABEL: label})
                 elif isUnknownTX:
                     unknownTxOut.append({
@@ -354,6 +341,7 @@ def getTransferInfo(tx, oneAddress) -> dict:
                         Const.TFT_RECAMOUNT: '',
                         Const.TFT_RECTOKEN: '',
                         Const.TFT_TOPIC: topicName,
+                        Const.TFT_TCONT: tokenCont,
                         Const.TFT_CSVLABEL: label})
             else:
                 if isTransfer:
@@ -366,6 +354,7 @@ def getTransferInfo(tx, oneAddress) -> dict:
                         Const.TFT_RECAMOUNT: data,
                         Const.TFT_RECTOKEN: tokenSym,
                         Const.TFT_TOPIC: topicName,
+                        Const.TFT_TCONT: tokenCont,
                         Const.TFT_CSVLABEL: label})
                 elif isUnknownTX:
                     unknownTxOut.append({
@@ -377,6 +366,7 @@ def getTransferInfo(tx, oneAddress) -> dict:
                         Const.TFT_RECAMOUNT: data,
                         Const.TFT_RECTOKEN: tokenSym,
                         Const.TFT_TOPIC: topicName,
+                        Const.TFT_TCONT: tokenCont,
                         Const.TFT_CSVLABEL: label})
     baseInfo['trades'] = transactionsOut
     baseInfo['unknownTrades'] = unknownTxOut
