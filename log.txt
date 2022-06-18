@@ -4530,3 +4530,1263 @@ Saved 11569 transactions to ./TransactionHistory/one1ly6ces9j52u0yrdpah2a8p0z6kd
 Now Printing!
 
 All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      11569     11570         1
+HRC20 Tokens          0         0         0
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      11569     11570      1        1      11569            0    11570
+HRC20 Txs             0         0      0        0          0            0        0
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       1      11569          0    11570
+Decoded       0          0      11570    11570
+Function      1      11569          0    11570
+Web           0          0      11570    11570
+
+
+
+Saved 11570 transactions to ./TransactionHistory/one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10739     10717       -22
+HRC20 Tokens       3914      3914         0
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10739     10717    -22        0      10739          -22    10739
+HRC20 Txs          3914      3914      0        0       3914            0     3914
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10739          0    10739
+Decoded       0          0      10739    10739
+Function      0      10739          0    10739
+Web           0          0      10739    10739
+
+
+
+Saved 10739 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10739     10758        19
+HRC20 Tokens       3914      3914         0
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10739     10758     19        0      10739          -22    10739
+HRC20 Txs          3914      3914      0        0       3914            0     3914
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10739          0    10739
+Decoded       0          0      10739    10739
+Function      0      10739          0    10739
+Web           0          0      10739    10739
+
+
+
+Saved 10739 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10739     10758        19
+HRC20 Tokens       3914      3914         0
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10739     10758     19        0      10739          -22    10739
+HRC20 Txs          3914      3914      0        0       3914            0     3914
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10739          0    10739
+Decoded       0          0      10739    10739
+Function      0      10739          0    10739
+Web           0          0      10739    10739
+
+
+
+Saved 10739 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10739     10758        19
+HRC20 Tokens       3914      3914         0
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10739     10758     19        0      10739          -22    10739
+HRC20 Txs          3914      3914      0        0       3914            0     3914
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10739          0    10739
+Decoded       0          0      10739    10739
+Function      0      10739          0    10739
+Web           0          0      10739    10739
+
+
+
+Saved 10739 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10739     10758        19
+HRC20 Tokens       3914      3914         0
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10739     10758     19        0      10739          -22    10739
+HRC20 Txs          3914      3914      0        0       3914            0     3914
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10739          0    10739
+Decoded       0          0      10739    10739
+Function      0      10739          0    10739
+Web           0          0      10739    10739
+
+
+
+Saved 10739 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10739     10758        19
+HRC20 Tokens       3914      3914         0
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10739     10758     19        0      10739           19    10739
+HRC20 Txs          3914      3914      0        0       3914            0     3914
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10739          0    10739
+Decoded       0          0      10739    10739
+Function      0      10739          0    10739
+Web           0          0      10739    10739
+
+
+
+Saved 10739 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10739     10717       -22
+HRC20 Tokens       3914      3915         1
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10739     10717    -22        0      10739          -22    10739
+HRC20 Txs          3914      3915      1        1       3914            0     3915
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       1      10739          0    10740
+Decoded       0          0      10740    10740
+Function      1      10739          0    10740
+Web           0          0      10740    10740
+
+
+
+Saved 10740 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10739     10717       -22
+HRC20 Tokens       3915      3915         0
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10739     10717    -22        0      10740           18    10740
+HRC20 Txs          3915      3915      0        0       3915            0     3915
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10740          0    10740
+Decoded       0          0      10740    10740
+Function      0      10740          0    10740
+Web           0          0      10740    10740
+
+
+
+Saved 10740 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10740     10717       -23
+HRC20 Tokens       3915      3915         0
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10740     10717    -23        0      10740          -23    10740
+HRC20 Txs          3915      3915      0        0       3915            0     3915
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10740          0    10740
+Decoded       0          0      10740    10740
+Function      0      10740          0    10740
+Web           0          0      10740    10740
+
+
+
+Saved 10740 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10740     10758        18
+HRC20 Tokens       3915      3915         0
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10740     10758     18        0      10740           18    10740
+HRC20 Txs          3915      3915      0        0       3915            0     3915
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10740          0    10740
+Decoded       0          0      10740    10740
+Function      0      10740          0    10740
+Web           0          0      10740    10740
+
+
+
+Saved 10740 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10740     10758        18
+HRC20 Tokens       3915      3915         0
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10740     10758     18        0      10740           18    10740
+HRC20 Txs          3915      3915      0        0       3915            0     3915
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10740          0    10740
+Decoded       0          0      10740    10740
+Function      0      10740          0    10740
+Web           0          0      10740    10740
+
+
+
+Saved 10740 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10740     10717       -23
+HRC20 Tokens       3915      3915         0
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10740     10717    -23        0      10740          -23    10740
+HRC20 Txs          3915      3915      0        0       3915            0     3915
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10740          0    10740
+Decoded       0          0      10740    10740
+Function      0      10740          0    10740
+Web           0          0      10740    10740
+
+
+
+Saved 10740 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10717     10758        41
+HRC20 Tokens       3915      3915         0
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10717     10758     41        0      10740          -23    10740
+HRC20 Txs          3915      3915      0        0       3915            0     3915
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10740          0    10740
+Decoded       0          0      10740    10740
+Function      0      10740          0    10740
+Web           0          0      10740    10740
+
+
+
+Saved 10740 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10740     10717    -23        0      10740            0    10740
+HRC20 Txs          3915      3915      0        0       3915            0     3915
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10740          0    10740
+Decoded       0          0      10740    10740
+Function      0      10740          0    10740
+Web           0          0      10740    10740
+
+
+
+Saved 10740 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+
+------------------------------------------------
+Now Printing!
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10740     10758        18
+HRC20 Tokens       3915      3915         0
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10740     10758     18        0      10740          -23    10740
+HRC20 Txs          3915      3915      0        0       3915            0     3915
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10740          0    10740
+Decoded       0          0      10740    10740
+Function      0      10740          0    10740
+Web           0          0      10740    10740
+
+
+
+Saved 10740 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10740     10717    -23        0      10740            0    10740
+HRC20 Txs          3915      3915      0        0       3915            0     3915
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10740          0    10740
+Decoded       0          0      10740    10740
+Function      0      10740          0    10740
+Web           0          0      10740    10740
+
+
+
+Saved 10740 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10740     10758        18
+HRC20 Tokens       3915      3915         0
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10740     10758     18        0      10740          -23    10740
+HRC20 Txs          3915      3915      0        0       3915            0     3915
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10740          0    10740
+Decoded       0          0      10740    10740
+Function      0      10740          0    10740
+Web           0          0      10740    10740
+
+
+
+Saved 10740 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10740     10717    -23        0      10740            0    10740
+HRC20 Txs          3915      3915      0        0       3915            0     3915
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10740          0    10740
+Decoded       0          0      10740    10740
+Function      0      10740          0    10740
+Web           0          0      10740    10740
+
+
+
+Saved 10740 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+All done!
+
+------------------------------------------------
+Now Processing!
+
+All done!
+
+------------------------------------------------
+Now Printing!
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10740     10717    -23        0      10740            0    10740
+HRC20 Txs          3915      3915      0        0       3915            0     3915
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10740          0    10740
+Decoded       0          0      10740    10740
+Function      0      10740          0    10740
+Web           0          0      10740    10740
+
+
+
+Saved 10740 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10740     10758        18
+HRC20 Tokens       3915      3915         0
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10740     10758     18        0      10740           18    10740
+HRC20 Txs          3915      3915      0        0       3915            0     3915
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10740          0    10740
+Decoded       0          0      10740    10740
+Function      0      10740          0    10740
+Web           0          0      10740    10740
+
+
+
+Saved 10740 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10740     10717    -23        0      10740            0    10740
+HRC20 Txs          3915      3915      0        0       3915            0     3915
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10740          0    10740
+Decoded       0          0      10740    10740
+Function      0      10740          0    10740
+Web           0          0      10740    10740
+
+
+
+Saved 10740 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10740     10717    -23        0      10740            0    10740
+HRC20 Txs          3915      3915      0        0       3915            0     3915
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10740          0    10740
+Decoded       0          0      10740    10740
+Function      0      10740          0    10740
+Web           0          0      10740    10740
+
+
+
+Saved 10740 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10740     10758        18
+HRC20 Tokens       3915      3915         0
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10740     10758     18        0      10740          -23    10740
+HRC20 Txs          3915      3915      0        0       3915            0     3915
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10740          0    10740
+Decoded       0          0      10740    10740
+Function      0      10740          0    10740
+Web           0          0      10740    10740
+
+
+
+Saved 10740 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10740     10717    -23        0      10740            0    10740
+HRC20 Txs          3915      3915      0        0       3915            0     3915
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10740          0    10740
+Decoded       0          0      10740    10740
+Function      0      10740          0    10740
+Web           0          0      10740    10740
+
+
+
+Saved 10740 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10740     10717    -23        0      10740            0    10740
+HRC20 Txs          3915      3915      0        0       3915            0     3915
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10740          0    10740
+Decoded       0          0      10740    10740
+Function      0      10740          0    10740
+Web           0          0      10740    10740
+
+
+
+Saved 10740 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10740     10717    -23        0      10740            0    10740
+HRC20 Txs          3915      3915      0        0       3915            0     3915
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10740          0    10740
+Decoded       0          0      10740    10740
+Function      0      10740          0    10740
+Web           0          0      10740    10740
+
+
+
+Saved 10740 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      10740     10758        18
+HRC20 Tokens       3915      3915         0
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      10740     10758     18        0      10740          -23    10740
+HRC20 Txs          3915      3915      0        0       3915            0     3915
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      10740          0    10740
+Decoded       0          0      10740    10740
+Function      0      10740          0    10740
+Web           0          0      10740    10740
+
+
+
+Saved 10740 transactions to ./TransactionHistory/one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3.json
+
+
+------------------------------------------------
+Now Printing!
+
+All done!
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      11570     11570      0        0      11570            0    11570
+HRC20 Txs             0         0      0        0          0            0        0
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      11570          0    11570
+Decoded       0          0      11570    11570
+Function      0      11570          0    11570
+Web           0          0      11570    11570
+
+
+
+Saved 11570 transactions to ./TransactionHistory/one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.json
+
+
+------------------------------------------------
+Now Processing!
+
+All done!
+
+------------------------------------------------
+Now Printing!
+
+All done!
+
+------------------------------------------------
+Now Processing!
+
+All done!
+
+------------------------------------------------
+Now Printing!
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      11570     11570      0        0      11570            0    11570
+HRC20 Txs             0         0      0        0          0            0        0
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       0      11570          0    11570
+Decoded       0          0      11570    11570
+Function      0      11570          0    11570
+Web           0          0      11570    11570
+
+
+
+Saved 11570 transactions to ./TransactionHistory/one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.json
+
+
+------------------------------------------------
+Now Printing!
+
+------------------------------------------------
+Downloading all HRC20 tokens from harmony database.
+
+
+------------------------------------------------
+Downloading all transactions for one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.
+
+
+New transactions found!
+
+                On File    Online    To Add
+------------  ---------  --------  --------
+Transactions      11570     11606        36
+HRC20 Tokens          0         0         0
+
+
+                On File    Online    New    Added    Skipped    Remaining    Total
+------------  ---------  --------  -----  -------  ---------  -----------  -------
+Transactions      11570     11606     36        6      11570            1    11576
+HRC20 Txs             0         0      0        0          0            0        0
+
+
+------------------------------------------------
+Downloading receipts for each transaction within one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.
+
+
+            New    Skipped    Unknown    Total
+--------  -----  ---------  ---------  -------
+Receipt       6      11570          0    11576
+Decoded       0          0      11576    11576
+Function      4      11570          2    11576
+Web           0          0      11576    11576
+
+
+
+Saved 11576 transactions to ./TransactionHistory/one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw.json
+
+
+------------------------------------------------
+Now Printing!
+
+All done!
+
+------------------------------------------------
+Now Processing!
+
+All done!
+
+------------------------------------------------
+Now Printing!
+
+All done!
+
+------------------------------------------------
+Now Processing!
+
+All done!
+
+------------------------------------------------
+Now Printing!
+
+All done!

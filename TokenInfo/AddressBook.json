@@ -7,22 +7,26 @@
     "one12yqt6vdcygm3zz9q7c7uldjefwv3n6h5trltq4": {
         "one": "one12yqt6vdcygm3zz9q7c7uldjefwv3n6h5trltq4",
         "hex": "0x5100Bd31b822371108A0f63DCFb6594b9919Eaf4",
-        "name": "DFK_LongQuest"
+        "name": "DFK_LongQuest",
+        "labels": []
     },
     "one1qk2ds6efyvrk5gckat4yu89zsmd2zskpwyytuq": {
         "one": "one1qk2ds6efyvrk5gckat4yu89zsmd2zskpwyytuq",
         "hex": "0x0594D86b2923076a2316EaEA4E1Ca286dAA142C1",
-        "name": "DFK_HeroLevelUp"
+        "name": "DFK_HeroLevelUp",
+        "labels": []
     },
     "one1mvcxg0r34j0zzgk2qdq76a7sn40en7fy7lytq4": {
         "one": "one1mvcxg0r34j0zzgk2qdq76a7sn40en7fy7lytq4",
         "hex": "0xDB30643c71aC9e2122cA0341ED77d09D5f99F924",
-        "name": "DFK_Gardener"
+        "name": "DFK_Gardener",
+        "labels": []
     },
     "one1zwn9h8uq883vqv4uqgshrhq9kvxr72yjjjz9la": {
         "one": "one1zwn9h8uq883vqv4uqgshrhq9kvxr72yjjjz9la",
         "hex": "0x13a65B9F8039E2c032Bc022171Dc05B30c3f2892",
-        "name": "DFK_TavernSeller"
+        "name": "DFK_TavernSeller",
+        "labels": []
     },
     "one186q32jgjuh3vexcs45frhu22awf6u5ccz6sj84": {
         "one": "one186q32jgjuh3vexcs45frhu22awf6u5ccz6sj84",
@@ -32,17 +36,20 @@
     "one1yjkky5pdr3jje3mggzq3d8gy394vyresl69pgt": {
         "one": "one1yjkky5pdr3jje3mggzq3d8gy394vyresl69pgt",
         "hex": "0x24ad62502d1C652Cc7684081169D04896aC20f30",
-        "name": "DFK_Transfer"
+        "name": "DFK_Transfer",
+        "labels": []
     },
     "one13uww6w46dzf7vh09j3fvge4jewmu66gtxls4t0": {
         "one": "one13uww6w46dzf7vh09j3fvge4jewmu66gtxls4t0",
         "hex": "0x8f1CeD3ABa6893E65DE59452C466B2CBb7Cd690b",
-        "name": "DFK_Stylist"
+        "name": "DFK_Stylist",
+        "labels": []
     },
     "one1488gx5rasuk9uynnuaz6hn76sjw65e206pmljg": {
         "one": "one1488gx5rasuk9uynnuaz6hn76sjw65e206pmljg",
         "hex": "0xA9cE83507D872C5e1273E745aBcfDa849DAA654F",
-        "name": "DFK_Jeweler"
+        "name": "DFK_Jeweler",
+        "labels": []
     },
     "one1gpry0j8tlfe42qhx3upyun40vlj4t392htwjnp": {
         "one": "one1gpry0j8tlfe42qhx3upyun40vlj4t392htwjnp",
@@ -77,7 +84,8 @@
     "one1wt93p34l543ym5r77cyqyl3kd0tfqpy0eyd6n0": {
         "one": "one1wt93p34l543ym5r77cyqyl3kd0tfqpy0eyd6n0",
         "hex": "0x72Cb10C6bfA5624dD07Ef608027E366bd690048F",
-        "name": "Unknown"
+        "name": "DFK Approve jewel egg",
+        "labels": []
     },
     "one17hlkna9vf2z3wvrx3wflcsytc8zfaaxw5rgfth": {
         "one": "one17hlkna9vf2z3wvrx3wflcsytc8zfaaxw5rgfth",
@@ -117,7 +125,8 @@
     "one1syua2783zcuv0rskdp0t9qzv9g6ystjpnfcfr5": {
         "one": "one1syua2783zcuv0rskdp0t9qzv9g6ystjpnfcfr5",
         "hex": "0x8139d578f11638C78E16685EB2804c2a34482E41",
-        "name": "Unknown"
+        "name": "Bridge_ONE_ETH",
+        "labels": []
     },
     "one1ph5wwr5573mpm3d67kpn6rcnaw0ajd3qsfdlyh": {
         "one": "one1ph5wwr5573mpm3d67kpn6rcnaw0ajd3qsfdlyh",
@@ -152,7 +161,8 @@
     "one1vh02j0mm3pkr8fuvzq6rye7a89e8w7xzvel70f": {
         "one": "one1vh02j0mm3pkr8fuvzq6rye7a89e8w7xzvel70f",
         "hex": "0x65DEA93f7b886c33A78c10343267DD39727778c2",
-        "name": "DFK_HeroHire"
+        "name": "DFK_HeroHire",
+        "labels": []
     },
     "one1ta6nmn0ekxke427px3npf505w3hadnjuhlh7vv": {
         "one": "one1ta6nmn0ekxke427px3npf505w3hadnjuhlh7vv",
@@ -172,7 +182,8 @@
     "one1a3kqhq6pp3ej43q7aqu3uddyljcde3uerd0jlg": {
         "one": "one1a3kqhq6pp3ej43q7aqu3uddyljcde3uerd0jlg",
         "hex": "0xEc6c0B83410c732Ac41Ee8391e35A4fcb0dcc799",
-        "name": "Unknown"
+        "name": "WAGMI Staker",
+        "labels": []
     },
     "one1np293efrmv74xyjcz0kk3sn53x0fm745f2hsuc": {
         "one": "one1np293efrmv74xyjcz0kk3sn53x0fm745f2hsuc",
@@ -182,7 +193,8 @@
     "one1yqk9nr5n76wmuwj72urdlwzmm3vchvt0usdf3n": {
         "one": "one1yqk9nr5n76wmuwj72urdlwzmm3vchvt0usdf3n",
         "hex": "0x202c598E93F69dbe3a5e5706DfB85bdc598bb16F",
-        "name": "Unknown"
+        "name": "WAGMI mint USDc",
+        "labels": []
     },
     "one1l0w3jsmkmcv63qgcap8z0xuh0ut96qdcqsnnxk": {
         "one": "one1l0w3jsmkmcv63qgcap8z0xuh0ut96qdcqsnnxk",
@@ -202,7 +214,8 @@
     "one1j5rxqfd0grml0qe0v9pzsqkdrcfuyd6nqdh4ur": {
         "one": "one1j5rxqfd0grml0qe0v9pzsqkdrcfuyd6nqdh4ur",
         "hex": "0x95066025af40F7f7832f61422802cD1e13C23753",
-        "name": "Unknown"
+        "name": "WAGMI Unstaker",
+        "labels": []
     },
     "one17su3rjze2vhr3jtfacd4nmk28hjkxrlrudf2e6": {
         "one": "one17su3rjze2vhr3jtfacd4nmk28hjkxrlrudf2e6",
@@ -219,17 +232,17 @@
         "hex": "0x609c766e590fd38924ee7a5BFb2f4856B2BAae55",
         "name": "Julian Account 3"
     },
-    "one14rwynx83sr075dht94qpw3k7pml9eupuuegm7a":{
+    "one14rwynx83sr075dht94qpw3k7pml9eupuuegm7a": {
         "one": "one14rwynx83sr075dht94qpw3k7pml9eupuuegm7a",
         "hex": "0xa8dc4998f180dfea36eb2d401746de0efe5cf03c",
         "name": "Lucas Account 1"
     },
-    "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw":{
+    "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
         "one": "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw",
         "hex": "0xf9358cc0b2a2b8f20da1edd5d385e2d59a5370e3",
         "name": "Lucas Account 2"
     },
-    "one1kf8e9az3w9m0ynu7s9n73thae5htladc8hny20":{
+    "one1kf8e9az3w9m0ynu7s9n73thae5htladc8hny20": {
         "one": "one1kf8e9az3w9m0ynu7s9n73thae5htladc8hny20",
         "hex": "0xb24f92f4517176f24f9e8167e8aefdcd2ebff5b8",
         "name": "Lucas Account 3"
@@ -237,12 +250,14 @@
     "one1t737eqp76mhwvjjjcyqlf75km5dsjwk8xseyhx": {
         "one": "one1t737eqp76mhwvjjjcyqlf75km5dsjwk8xseyhx",
         "hex": "0x5fa3eC803Ed6EeE64A52C101F4FA96dd1B093ac7",
-        "name": "Unknown"
+        "name": "WAGMI Mint BUSD",
+        "labels": []
     },
     "one134uum4exq57qcaxfjk8k5n4xe86r5463d7809v": {
         "one": "one134uum4exq57qcaxfjk8k5n4xe86r5463d7809v",
         "hex": "0x8d79cdd726053c0C74c9958f6A4eA6c9f43A5751",
-        "name": "Unknown"
+        "name": "Unknown",
+        "labels": []
     },
     "one1jeeswv3tchvcfggtgwzmvk397u476luwmzzvdl": {
         "one": "one1jeeswv3tchvcfggtgwzmvk397u476luwmzzvdl",
@@ -252,7 +267,8 @@
     "one1hw2gvg86nn24fmu6xvd38m02nvvpl829gfxawd": {
         "one": "one1hw2gvg86nn24fmu6xvd38m02nvvpl829gfxawd",
         "hex": "0xBb948620Fa9cD554eF9A331B13eDeA9B181F9D45",
-        "name": "Unknown"
+        "name": "WAGMI Wrapper",
+        "labels": []
     },
     "one1a4jxklncwxxglq600hcs4hkyp969ey7lpqtq0h": {
         "one": "one1a4jxklncwxxglq600hcs4hkyp969ey7lpqtq0h",
@@ -267,7 +283,8 @@
     "one1u5al0rutnxmdx4he8aq6lwv4z95vegkxj3wh82": {
         "one": "one1u5al0rutnxmdx4he8aq6lwv4z95vegkxj3wh82",
         "hex": "0xe53BF78F8b99B6d356F93F41aFB9951168cca2c6",
-        "name": "DFK_ItemSeller"
+        "name": "DFK_ItemSeller",
+        "labels": []
     },
     "one1zm5pp07w2202048e4cqyuvun33nqa3ldflq7a7": {
         "one": "one1zm5pp07w2202048e4cqyuvun33nqa3ldflq7a7",
@@ -362,7 +379,8 @@
     "one1sl9637vclyp09llejrhl583xru6extjh07rr2c": {
         "one": "one1sl9637vclyp09llejrhl583xru6extjh07rr2c",
         "hex": "0x87CBa8F998F902f2fff990efFa1E261F35932e57",
-        "name": "DFK_Craft"
+        "name": "DFK_Craft",
+        "labels": []
     },
     "one1jkd6r9ggsf73a53n8vd4qw744vqxcugw6jltrq": {
         "one": "one1jkd6r9ggsf73a53n8vd4qw744vqxcugw6jltrq",
@@ -417,7 +435,8 @@
     "one17nf6ugpvntj3daltrk66luvm76v6tc648l0sva": {
         "one": "one17nf6ugpvntj3daltrk66luvm76v6tc648l0sva",
         "hex": "0xf4d3aE202c9Ae516f7eb1DB5afF19Bf699A5E355",
-        "name": "DFK_HeroSummon"
+        "name": "DFK_HeroSummon",
+        "labels": []
     },
     "one1aykm8wmwfvs63wgj8ela4hvgwyeuvjahuvve2s": {
         "one": "one1aykm8wmwfvs63wgj8ela4hvgwyeuvjahuvve2s",
@@ -437,17 +456,20 @@
     "one1kqp7whm7pdfkt6q5xqse96vmfmsgcr0drj29l9": {
         "one": "one1kqp7whm7pdfkt6q5xqse96vmfmsgcr0drj29l9",
         "hex": "0xB003e75f7E0B5365e814302192E99b4EE08c0DEd",
-        "name": "Unknown"
+        "name": "Synapse Avax bridge",
+        "labels": []
     },
     "one142dz388q2e0y6e2gucayg8nupp8xk5hk62auhh": {
         "one": "one142dz388q2e0y6e2gucayg8nupp8xk5hk62auhh",
         "hex": "0xAa9a289ce0565E4D6548e63a441e7C084E6B52F6",
-        "name": "DFK_ShortQuest"
+        "name": "DFK_ShortQuest",
+        "labels": []
     },
     "one13062pzyy28rt2sftetfank3aeawxefa7y4ma8u": {
         "one": "one13062pzyy28rt2sftetfank3aeawxefa7y4ma8u",
         "hex": "0x8Bf4A0888451C6b5412bCaD3D9dA3DCf5c6CA7BE",
-        "name": "Unknown"
+        "name": "DFK Approve items eggs",
+        "labels": []
     },
     "one143wynlm7sy77r9raca9mk9eqcdfs0xkf9zaq2l": {
         "one": "one143wynlm7sy77r9raca9mk9eqcdfs0xkf9zaq2l",
@@ -462,7 +484,8 @@
     "one1un87uklstnhngxx6wn8m39e8mrj0a606xkqp8d": {
         "one": "one1un87uklstnhngxx6wn8m39e8mrj0a606xkqp8d",
         "hex": "0xe4Cfee5bF05CeF3418DA74CFB89727D8E4fEE9FA",
-        "name": "Unknown"
+        "name": "DFK Approve egg",
+        "labels": []
     },
     "one10cfqxdxe4l7qnqn3nf82esz9779lg8rgymapw6": {
         "one": "one10cfqxdxe4l7qnqn3nf82esz9779lg8rgymapw6",
@@ -518,5 +541,53 @@
         "one": "one1decctpetehel0fkth6qn2mjsmtlmqqkjzdt6zx",
         "hex": "0x6E7185872BCDf3F7a6cBbE81356e50DAFFB002d2",
         "name": "DFC_Jeweler"
+    },
+    "one1z9fmyvc8dm3zdgd58at2nm249yaxsvlwunj76a": {
+        "hex": "0x1153b233076ee226A1b43f56a9eD55293a6833ee",
+        "one": "one1z9fmyvc8dm3zdgd58at2nm249yaxsvlwunj76a",
+        "name": "WAGMI mint ONE",
+        "labels": []
+    },
+    "one12akzvpgnyppe9u8vp0yx23ggwgp9evw2jxn648": {
+        "hex": "0x576C260513204392F0eC0bc865450872025CB1cA",
+        "one": "one12akzvpgnyppe9u8vp0yx23ggwgp9evw2jxn648",
+        "name": "DFK Pet Hatch",
+        "labels": []
+    },
+    "one1jhgzc8w93uz6q9f8t66fuyr3xlv7aqwufwkmqs": {
+        "hex": "0x95d02C1Dc58F05A015275eB49E107137D9Ee81Dc",
+        "one": "one1jhgzc8w93uz6q9f8t66fuyr3xlv7aqwufwkmqs",
+        "name": "DFK Approve egg items",
+        "labels": []
+    },
+    "one1jeu9rrsylcp0kv94tcksu42wyccx6zyj7xfvzm": {
+        "hex": "0x9678518e04Fe02FB30b55e2D0e554E26306d0892",
+        "one": "one1jeu9rrsylcp0kv94tcksu42wyccx6zyj7xfvzm",
+        "name": "DFK Approve egg items",
+        "labels": []
+    },
+    "one1x2p47rnc6wzl2hjz98yjwdwjfxz0xcevm0fzpk": {
+        "hex": "0x32835f0e78d385F55E4229C92735D24984f3632C",
+        "one": "one1x2p47rnc6wzl2hjz98yjwdwjfxz0xcevm0fzpk",
+        "name": "Unknown",
+        "labels": []
+    },
+    "one18t46aqde4lp3ky8uqhpl08mj5yvj443ahfxe67": {
+        "hex": "0x3aeBaE81b9afc31b10fc05C3F79f72A1192AD63d",
+        "one": "one18t46aqde4lp3ky8uqhpl08mj5yvj443ahfxe67",
+        "name": "Unknown",
+        "labels": []
+    },
+    "one1jv46qg5r0zpvacrte7l6rf7uhznay9snpsprlr": {
+        "hex": "0x932bA022837882cee06BCFBFa1a7dcb8a7d21613",
+        "one": "one1jv46qg5r0zpvacrte7l6rf7uhznay9snpsprlr",
+        "name": "Lukey'd One pile",
+        "labels": []
+    },
+    "one14dg7jhy5xam773h6nlkkeg74ddph5k4pegp6fc": {
+        "hex": "0xab51E95c943777ef46fa9fed6ca3d56b437A5aA1",
+        "one": "one14dg7jhy5xam773h6nlkkeg74ddph5k4pegp6fc",
+        "name": "Unknown",
+        "labels": []
     }
 }

@@ -13,8 +13,9 @@ from tkinter.messagebox import showinfo
 from pycoingecko import CoinGeckoAPI
 from tabulate import tabulate
 
-import src.HmyTx_Constants as Const
+import src.HmyTx_Constants as C
 import src.HmyTx_Utils as HmyUtil
+from Process import *
 from src.lib.pyhmy.pyhmy import account, transaction, util
 
 julianAddy1 = 'one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3'
@@ -133,7 +134,7 @@ class MainWindow(tk.Tk):
         self.scrollx.config(command=self.text.xview)
 
     def addToText(self, message):
-        with open(Const.LOGPATH, 'a') as f:
+        with open(C.LOGPATH, 'a') as f:
             f.write(message+'\n')
         print(message)
         self.textMessage += message
@@ -174,14 +175,15 @@ class MainWindow(tk.Tk):
     def printData(self):
         self.addToText(
             '\n------------------------------------------------\nNow Printing!\n')
-        self.transactionsController.GetDFKrewards()
+        KoinlyProcessor(HmyUtil.convert_hex_to_one(self.oneAddress.get()))
+        # self.transactionsController.GetDFKrewards()
 
         self.addToText('All done!')
         showinfo("All printed", "Printed all transactions to CSV.")
 
 
 class FunctionSelector(tk.Toplevel):
-
+    addressBook = {}
     fnList = {}
     fnCode = ''
     fnTxs = {}
@@ -203,6 +205,10 @@ class FunctionSelector(tk.Toplevel):
 
         self.fnList = HmyUtil.getFunctions()
 
+        if os.path.exists(C.ADDRESSBOOKPATH):
+            with open(C.ADDRESSBOOKPATH, 'r') as f:
+                self.addressBook = json.loads(f.read())
+
         self.allTransactions = TransactionList
         self.oneAddress = oneAddress
 
@@ -212,7 +218,7 @@ class FunctionSelector(tk.Toplevel):
                 self.txFnList.append(f"{self.fnList[code]['name']} | {code}")
             else:
                 self.txFnList.append(f'Unknown | {code}')
-                self.fnList[code] = {"name": Const.FUNC_UNDEFINED}
+                self.fnList[code] = {"name": C.FUNC_UNDEFINED}
         # self.txFnList = list(TransactionList.keys())
 
         self.fnCode = self.txFnList[0].split(' | ', 1)[1]
@@ -357,15 +363,15 @@ class FunctionSelector(tk.Toplevel):
 
     def ApplyLabelToTransactions(self):
         print('Applying labels to all transactions!')
-        txPath = Const.TXOUTPATH + self.oneAddress + '.json'
+        txPath = C.TXOUTPATH + self.oneAddress + '.json'
         if os.path.exists(txPath):
             with open(txPath, 'r') as f:
                 rawTXs = json.loads(f.read())
             count = 0
             txCount = 0
-            if Const.TRANSACTIONS_KEY in rawTXs:
-                for txHash in rawTXs[Const.TRANSACTIONS_KEY]:
-                    tx = rawTXs[Const.TRANSACTIONS_KEY][txHash]
+            if C.TRANSACTIONS_KEY in rawTXs:
+                for txHash in rawTXs[C.TRANSACTIONS_KEY]:
+                    tx = rawTXs[C.TRANSACTIONS_KEY][txHash]
                     txCount += 1
                     label = HmyUtil.getLabel(tx, self.oneAddress)
 
@@ -373,19 +379,19 @@ class FunctionSelector(tk.Toplevel):
                     if label != None:
                         count += 1
 
-                        if Const.T_FUNCTION_KEY in tx:
-                            tx[Const.T_FUNCTION_KEY][Const.TF_FUNCLABEL] = label
+                        if C.T_FUNCTION_KEY in tx:
+                            tx[C.T_FUNCTION_KEY][C.TF_FUNCLABEL] = label
                         else:
-                            tx[Const.T_FUNCTION_KEY] = {
-                                Const.TF_FUNCLABEL: label}
+                            tx[C.T_FUNCTION_KEY] = {
+                                C.TF_FUNCLABEL: label}
 
                     # add trade info
                     tr = HmyUtil.getTransferInfo(
                         tx, self.oneAddress)  # This gets label from tx...
-                    if Const.T_FUNCTION_KEY in tx:
-                        tx[Const.T_FUNCTION_KEY].update(tr)
+                    if C.T_FUNCTION_KEY in tx:
+                        tx[C.T_FUNCTION_KEY].update(tr)
                     else:
-                        tx[Const.T_FUNCTION_KEY] = tr
+                        tx[C.T_FUNCTION_KEY] = tr
 
             with open(txPath, 'w', encoding='utf-8') as f:
                 json.dump(rawTXs, f, ensure_ascii=False, indent=4)
@@ -398,8 +404,8 @@ class FunctionSelector(tk.Toplevel):
         print("Label from default value!")
         for code in self.allTransactions:
             'if code in function list, has defult but not this oneAddress'
-            if code in self.fnList and Const.F_DEFAULT_KEY in self.fnList[code] and self.oneAddress not in self.fnList[code]:
-                self.fnList[code][self.oneAddress] = self.fnList[code][Const.F_DEFAULT_KEY]
+            if code in self.fnList and C.F_DEFAULT_KEY in self.fnList[code] and self.oneAddress not in self.fnList[code]:
+                self.fnList[code][self.oneAddress] = self.fnList[code][C.F_DEFAULT_KEY]
             else:
                 print(f'{code} not found')
         self.SaveFunctionListFile()
@@ -431,10 +437,10 @@ class FunctionSelector(tk.Toplevel):
     def digestTxs(self, Transactions, oneAddress):
         self.addrGroupedTransactions = {}
         for i, hash in enumerate(Transactions):
-            if 'status' in Transactions[hash][Const.T_RECEIPT_KEY] and Transactions[hash][Const.T_RECEIPT_KEY]['status'] != 0:
+            if 'status' in Transactions[hash][C.T_RECEIPT_KEY] and Transactions[hash][C.T_RECEIPT_KEY]['status'] != 0:
                 try:
-                    fromAddr = Transactions[hash][Const.T_TX_KEY]['from']
-                    toAddr = Transactions[hash][Const.T_TX_KEY]['to']
+                    fromAddr = Transactions[hash][C.T_TX_KEY]['from']
+                    toAddr = Transactions[hash][C.T_TX_KEY]['to']
                     if oneAddress == fromAddr:
                         'one address is from'
                         if toAddr not in self.addrGroupedTransactions:
@@ -575,12 +581,21 @@ class FunctionSelector(tk.Toplevel):
 
         self.txList = self.digestTxs(self.fnTxs, self.oneAddress)
 
-        self.AddrSelector['values'] = self.uniqueAddr
+        labelList = []
+        for uniqueAddr in self.uniqueAddr:
+            if uniqueAddr in self.addressBook and self.addressBook[uniqueAddr][C.AB_NAME] != C.AB_UNKNOWN:
+                labelList.append(
+                    f'{self.addressBook[uniqueAddr][C.AB_NAME]}-{uniqueAddr}')
+            else:
+                labelList.append(uniqueAddr)
+
+        self.AddrSelector['values'] = labelList
         self.AddrSelector.set(self.AddrSelector['values'][0])
         self.updateAddr(None)
 
     def updateAddr(self, event):
-        self.TxSelector['values'] = self.addrGroupedTransactions[self.AddrSelector.get()]
+        self.TxSelector['values'] = self.addrGroupedTransactions[self.AddrSelector.get(
+        )[-42:]]
         self.TxSelector.set(self.TxSelector['values'][0])
         self.updateDisplay(self.TxSelector.get())
 
@@ -633,9 +648,9 @@ class FunctionSelector(tk.Toplevel):
                     1]][self.oneAddress]
                 if labels['functionLabel'] is not None:
                     self.functionLabelStr.set(labels['functionLabel'])
-                if self.AddrSelector.get() in labels['addressLabels']:
+                if self.AddrSelector.get()[-42:] in labels['addressLabels']:
                     self.addressLabelStr.set(
-                        labels['addressLabels'][self.AddrSelector.get()])
+                        labels['addressLabels'][self.AddrSelector.get()[-42:]])
                 if self.TxSelector.get() in labels['transactionLabels']:
                     self.transactionLabelStr.set(
                         labels['transactionLabels'][self.TxSelector.get()])
@@ -645,9 +660,9 @@ class FunctionSelector(tk.Toplevel):
                 if labels['functionLabel'] is not None:
                     self.functionLabelStr.set('(default) ' +
                                               labels['functionLabel'])
-                if self.AddrSelector.get() in labels['addressLabels']:
+                if self.AddrSelector.get()[-42:] in labels['addressLabels']:
                     self.addressLabelStr.set('(default) ' +
-                                             labels['addressLabels'][self.AddrSelector.get()])
+                                             labels['addressLabels'][self.AddrSelector.get()[-42:]])
                 if self.TxSelector.get() in labels['transactionLabels']:
                     self.transactionLabelStr.set('(default) ' +
                                                  labels['transactionLabels'][self.TxSelector.get()])
@@ -655,7 +670,7 @@ class FunctionSelector(tk.Toplevel):
     def setFunctionLabel(self):
         if self.FunctionSelector.get().split(' | ', 1)[1] not in self.fnList:
             self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]] = {
-                'name': Const.FUNC_UNKNOWN}
+                'name': C.FUNC_UNKNOWN}
 
         if 'default' not in self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]]:
             self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]]['default'] = {
@@ -677,21 +692,21 @@ class FunctionSelector(tk.Toplevel):
     def setAddressLabel(self):
         if self.FunctionSelector.get().split(' | ', 1)[1] not in self.fnList:
             self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]] = {
-                'name': Const.FUNC_UNKNOWN}
+                'name': C.FUNC_UNKNOWN}
 
         if 'default' not in self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]]:
             self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]]['default'] = {
-                'functionLabel': None, 'addressLabels': {self.AddrSelector.get(): self.labelSelector.get()}, 'transactionLabels': {}}
+                'functionLabel': None, 'addressLabels': {self.AddrSelector.get()[-42:]: self.labelSelector.get()}, 'transactionLabels': {}}
         else:
             self.fnList[self.FunctionSelector.get().split(' | ', 1)[
-                1]]['default']['addressLabels'][self.AddrSelector.get()] = self.labelSelector.get()
+                1]]['default']['addressLabels'][self.AddrSelector.get()[-42:]] = self.labelSelector.get()
 
         if self.oneAddress not in self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]]:
             self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]][self.oneAddress] = {
-                'functionLabel': None, 'addressLabels': {self.AddrSelector.get(): self.labelSelector.get()}, 'transactionLabels': {}}
+                'functionLabel': None, 'addressLabels': {self.AddrSelector.get()[-42:]: self.labelSelector.get()}, 'transactionLabels': {}}
         else:
             self.fnList[self.FunctionSelector.get().split(' | ', 1)[
-                1]][self.oneAddress]['addressLabels'][self.AddrSelector.get()] = self.labelSelector.get()
+                1]][self.oneAddress]['addressLabels'][self.AddrSelector.get()[-42:]] = self.labelSelector.get()
         if not self.isShowingAll:
             self.hasDirtyLists = True
         self.updateFunctionLabelDisplays()
@@ -699,7 +714,7 @@ class FunctionSelector(tk.Toplevel):
     def setTransactionLabel(self):
         if self.FunctionSelector.get().split(' | ', 1)[1] not in self.fnList:
             self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]] = {
-                'name': Const.FUNC_UNKNOWN}
+                'name': C.FUNC_UNKNOWN}
 
         if 'default' not in self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]]:
             self.fnList[self.FunctionSelector.get().split(' | ', 1)[1]]['default'] = {
@@ -753,7 +768,7 @@ class transactionDownloader:
 
         self.GUI.addToText(
             '------------------------------------------------\nDownloading all HRC20 tokens from harmony database.\n')
-        self.HRC20List = HmyUtil.writeAllTokensToFile(Const.HRC20LISTPATH)
+        self.HRC20List = HmyUtil.writeAllTokensToFile(C.HRC20LISTPATH)
 
         self.GUI.addToText(
             f'\n------------------------------------------------\nDownloading all transactions for {self.oneAddress}.\n')
@@ -804,13 +819,13 @@ class transactionDownloader:
         onfileTXCount = 0
         onfileHRC20Count = 0
         fileTxs = {}
-        if Const.COUNTS_KEY in accountInfoOut:
-            onfileTXCount = accountInfoOut[Const.COUNTS_KEY][Const.T_TX_KEY]
-            onfileHRC20Count = accountInfoOut[Const.COUNTS_KEY][Const.T_HRC20_KEY]
-            fileTxs = accountInfoOut[Const.TRANSACTIONS_KEY]
+        if C.COUNTS_KEY in accountInfoOut:
+            onfileTXCount = accountInfoOut[C.COUNTS_KEY][C.T_TX_KEY]
+            onfileHRC20Count = accountInfoOut[C.COUNTS_KEY][C.T_HRC20_KEY]
+            fileTxs = accountInfoOut[C.TRANSACTIONS_KEY]
         else:
-            accountInfoOut = {Const.COUNTS_KEY: {
-                Const.T_TX_KEY: 0, Const.T_HRC20_KEY: 0, Const.T_FUNCTION_KEY: [0, 0, 0], Const.T_RECEIPT_KEY: [0, 0, 0], Const.T_DECODED_KEY: [0, 0, 0], Const.T_WEB_KEY: [0, 0, 0]}}
+            accountInfoOut = {C.COUNTS_KEY: {
+                C.T_TX_KEY: 0, C.T_HRC20_KEY: 0, C.T_FUNCTION_KEY: [0, 0, 0], C.T_RECEIPT_KEY: [0, 0, 0], C.T_DECODED_KEY: [0, 0, 0], C.T_WEB_KEY: [0, 0, 0]}}
 
         nAttempts = 10
         pageSize = 100
@@ -821,7 +836,7 @@ class transactionDownloader:
         while count < nAttempts and noOnline:
             try:
                 expectedTXs = (account.get_transactions_count(
-                    self.oneAddress, tx_type='ALL', endpoint=Const.MAINNET0))
+                    self.oneAddress, tx_type='ALL', endpoint=C.MAINNET0))
                 expectedHRC20s = HmyUtil.getHRC20Count(self.oneAddress)
                 noOnline = False
             except BaseException as err:
@@ -850,7 +865,7 @@ class transactionDownloader:
         newHRC20Count = 0
         skipptedHRC20Count = 0
 
-        if remainingTxCount == 0 or noOnline:
+        if remainingTxCount <= 0 or noOnline:
             'Have all transactions downloaded! can skip'
             skippedTxCount = onfileTXCount
             onFileHash = []
@@ -877,11 +892,11 @@ class transactionDownloader:
                 try:
                     if txCount <= expectedTXs:
                         newTxs = account.get_transaction_history(
-                            self.oneAddress, page=pageCount, page_size=pageSize, include_full_tx=True, tx_type='ALL', order='DESC', endpoint=Const.MAINNET0)
+                            self.oneAddress, page=pageCount, page_size=pageSize, include_full_tx=True, tx_type='ALL', order='DESC', endpoint=C.MAINNET0)
 
                         for i, tx in enumerate(newTxs):
                             if tx['ethHash'] not in fileTxs:
-                                fileTxs[tx['ethHash']] = {Const.T_TX_KEY: tx}
+                                fileTxs[tx['ethHash']] = {C.T_TX_KEY: tx}
                                 newTxCount += 1
                             elif tx['ethHash'] in onFileHash:
                                 'Transaction in file. remove from fileList'
@@ -949,16 +964,16 @@ class transactionDownloader:
 
                             if hrc20['transactionHash'] not in fileTxs:
                                 tempTX = transaction.get_transaction_by_hash(
-                                    hrc20["transactionHash"], endpoint=Const.MAINNET0)
+                                    hrc20["transactionHash"], endpoint=C.MAINNET0)
                                 fileTxs[hrc20['transactionHash']] = {}
                                 fileTxs[hrc20['transactionHash']
-                                        ][Const.T_TX_KEY] = tempTX
+                                        ][C.T_TX_KEY] = tempTX
                                 fileTxs[hrc20['transactionHash']
-                                        ][Const.T_HRC20_KEY] = hrc20
+                                        ][C.T_HRC20_KEY] = hrc20
                                 newHRC20Count += 1
-                            elif Const.T_HRC20_KEY not in fileTxs[hrc20['transactionHash']]:
+                            elif C.T_HRC20_KEY not in fileTxs[hrc20['transactionHash']]:
                                 fileTxs[hrc20['transactionHash']
-                                        ][Const.T_HRC20_KEY] = hrc20
+                                        ][C.T_HRC20_KEY] = hrc20
                                 newHRC20Count += 1
                             else:
                                 'HRC20 in file.'
@@ -983,11 +998,11 @@ class transactionDownloader:
             # self.GUI.addToText(
             #    f"\nHRC20 transactions:\n\tDownloaded {HRC20Count}/{expectedHRC20s} HRC20 tokens.\n\tAdded {newHRC20Count}/{remainingHRC20Count} HRC20 tokens.\n\tTotal {skipptedHRC20Count + newHRC20Count}/{expectedHRC20s} HRC20 tokens.\nAll HRC20s Done!\n")
 
-        accountInfoOut[Const.COUNTS_KEY][Const.T_TX_KEY] = (
+        accountInfoOut[C.COUNTS_KEY][C.T_TX_KEY] = (
             len(onFileHash) + skippedTxCount+newTxCount)
-        accountInfoOut[Const.COUNTS_KEY][Const.T_HRC20_KEY] = (
+        accountInfoOut[C.COUNTS_KEY][C.T_HRC20_KEY] = (
             skipptedHRC20Count+newHRC20Count)
-        accountInfoOut[Const.TRANSACTIONS_KEY] = fileTxs
+        accountInfoOut[C.TRANSACTIONS_KEY] = fileTxs
 
         with open(self.outputJSONFile, 'w', encoding='utf-8') as f:
             json.dump(accountInfoOut, f, ensure_ascii=False, indent=4)
@@ -1074,26 +1089,26 @@ class transactionDownloader:
             with open(addressPath, 'r') as f:
                 tokenBook = json.loads(f.read())
 
-        for i, txHash in enumerate(allTransactions[Const.TRANSACTIONS_KEY]):
-            tx = allTransactions[Const.TRANSACTIONS_KEY][txHash]
+        for i, txHash in enumerate(allTransactions[C.TRANSACTIONS_KEY]):
+            tx = allTransactions[C.TRANSACTIONS_KEY][txHash]
 
             if 'Receipt' in tx and 'status' in tx['Receipt'] and tx['Receipt']['status'] != 0:
                 #  transactionInfo = {'time','name','code','gas','to','from','trades','unknownTrades','label'}
                 #       Trade keys = {'from','to','sentAmount','sentToken','receivedAmount','receivedToken','topic','label'}
                 tr = HmyUtil.getTransferInfo(tx, self.oneAddress)
 
-                for trade in tr[Const.TF_TRADES]:
+                for trade in tr[C.TF_TRADES]:
                     'add to token list'
-                    tokenName = trade[Const.TFT_RECTOKEN]
-                    if trade[Const.TFT_SENTTOKEN] != '':
-                        tokenName = trade[Const.TFT_SENTTOKEN]
+                    tokenName = trade[C.TFT_RECTOKEN]
+                    if trade[C.TFT_SENTTOKEN] != '':
+                        tokenName = trade[C.TFT_SENTTOKEN]
 
-                    if trade[Const.TFT_TCONT] not in tokenBook:
-                        tokenBook[trade[Const.TFT_TCONT]] = {
-                            Const.CG_CHAINID: "harmony-shard-0",
-                            Const.CG_CONTRACT: trade[Const.TFT_TCONT],
-                            Const.CG_NAME: tokenName,
-                            Const.CG_ISONLINE: True}
+                    if trade[C.TFT_TCONT] not in tokenBook:
+                        tokenBook[trade[C.TFT_TCONT]] = {
+                            C.CG_CHAINID: "harmony-shard-0",
+                            C.CG_CONTRACT: trade[C.TFT_TCONT],
+                            C.CG_NAME: tokenName,
+                            C.CG_ISONLINE: True}
 
         with open(addressPath, 'w', encoding='utf-8') as f:
             json.dump(tokenBook, f, ensure_ascii=False, indent=4)
@@ -1119,6 +1134,8 @@ class transactionDownloader:
 
         csvOut = 'Date,Amount,Coin,Timestamp,Matched Timestamp,US Price,US Value,AUD Price, AUD Value,Label,Contract,Their Addr,TxHash\n'
 
+        koinlyCSV = 'Date,Sent Amount,Sent Currency,Received Amount,Received Currency,Fee Amount,Fee Currency,Net Worth Amount,Net Worth Currency,Label,Description,TxHash\n'
+
         PathBase = './HistoryData/'
         historyTokenPaths = os.listdir(PathBase)
 
@@ -1127,46 +1144,83 @@ class transactionDownloader:
             with open(PathBase+Path, 'r') as f:
                 marketData.update({Path[:-5]: json.loads(f.read())})
 
-        for i, txHash in enumerate(allTransactions[Const.TRANSACTIONS_KEY]):
-            tx = allTransactions[Const.TRANSACTIONS_KEY][txHash]
+        for i, txHash in enumerate(allTransactions[C.TRANSACTIONS_KEY]):
+            tx = allTransactions[C.TRANSACTIONS_KEY][txHash]
 
             if 'Receipt' in tx and 'status' in tx['Receipt'] and tx['Receipt']['status'] != 0:
                 #  transactionInfo = {'time','name','code','gas','to','from','trades','unknownTrades','label'}
                 #       Trade keys = {'from','to','sentAmount','sentToken','receivedAmount','receivedToken','topic','label'}
                 tr = HmyUtil.getTransferInfo(tx, self.oneAddress)
 
-                if tr[Const.TF_FUNCLABEL] == 'LP Swap' or tr[Const.TF_FUNCLABEL] == 'Claim':
+                if tr[C.TF_FUNCLABEL] == 'LP Swap' or tr[C.TF_FUNCLABEL] == 'Claim':
 
                     rewards = {}
-                    for trade in tr[Const.TF_TRADES]:
+                    LPTokens = {}
+                    for trade in tr[C.TF_TRADES]:
                         'get the name, get the amount'
 
                         price = self.getPrice(
-                            marketData, trade[Const.TFT_TCONT], tx[Const.T_TX_KEY]['timestamp']*1000)
+                            marketData, trade[C.TFT_TCONT], tx[C.T_TX_KEY]['timestamp']*1000)
 
-                        name = trade[Const.TFT_RECTOKEN]
-                        amount = trade[Const.TFT_RECAMOUNT]
-                        if trade[Const.TFT_SENTTOKEN] != '':
-                            name = trade[Const.TFT_SENTTOKEN]
-                            amount = -trade[Const.TFT_SENTAMOOUNT]
+                        name = trade[C.TFT_RECTOKEN]
+                        amount = trade[C.TFT_RECAMOUNT]
+                        if trade[C.TFT_SENTTOKEN] != '':
+                            name = trade[C.TFT_SENTTOKEN]
+                            amount = -trade[C.TFT_SENTAMOOUNT]
                         if 'LP' not in name:
                             if name not in rewards:
                                 rewards.update({name: {
                                                 'amount': amount,
-                                                Const.TFT_TCONT: trade[Const.TFT_TCONT],
+                                                C.TFT_TCONT: trade[C.TFT_TCONT],
                                                 'price': price}})
                             else:
                                 rewards[name]['amount'] += amount
+                        else:
+                            'LP token'
+                            koinlyCSV += f'{tr[C.TF_TIME][:-3]} UTC,{trade[C.TFT_SENTAMOOUNT]},{trade[C.TFT_SENTTOKEN]},{trade[C.TFT_RECAMOUNT]},{trade[C.TFT_RECTOKEN]},{tr[C.TF_GAS]},ONE,,,swap,{tr[C.TF_FUNCLABEL]},{txHash}\n'
+
                     for name in rewards:
                         'Date,Amount,Coin,Timestamp,Matched Timestamp,US Price,US Value,AUD Price, AUD Value,Label,Contract,Their Addr,TxHash\n'
-                        csvOut += f"{tr[Const.TF_TIME]},{rewards[name]['amount']},{name},{tx[Const.T_TX_KEY]['timestamp']},{rewards[name]['price'][2]},{rewards[name]['price'][0]},{rewards[name]['amount']*rewards[name]['price'][0]},{rewards[name]['price'][1]},{rewards[name]['amount']*rewards[name]['price'][1]},{tr[Const.TF_FUNCLABEL]},{rewards[name][Const.TFT_TCONT]},{tr[Const.TF_THEIR]},{txHash}\n"
+                        csvOut += f"{tr[C.TF_TIME]},{rewards[name]['amount']},{name},{tx[C.T_TX_KEY]['timestamp']},{rewards[name]['price'][2]},{rewards[name]['price'][0]},{rewards[name]['amount']*rewards[name]['price'][0]},{rewards[name]['price'][1]},{rewards[name]['amount']*rewards[name]['price'][1]},{tr[C.TF_FUNCLABEL]},{rewards[name][C.TFT_TCONT]},{tr[C.TF_THEIR]},{txHash}\n"
+                        if rewards[name]['amount'] > 0:
+                            koinlyCSV += f"{tr[C.TF_TIME][:-3]} UTC,,,{rewards[name]['amount']},{name},,,{rewards[name]['amount']*rewards[name]['price'][0]},USD,airdrop,{tr[C.TF_FUNCLABEL]} {rewards[name][C.TFT_TCONT]} {tr[C.TF_THEIR]},{txHash}\n"
+                        else:
+                            koinlyCSV += f"{tr[C.TF_TIME][:-3]} UTC,{rewards[name]['amount']},{name},,,,,{-1*rewards[name]['amount']*rewards[name]['price'][0]},USD,airdrop,{tr[C.TF_FUNCLABEL]} {rewards[name][C.TFT_TCONT]} {tr[C.TF_THEIR]},{txHash}\n"
+
+                elif tr[C.TF_FUNCLABEL] == "liquidity in" or tr[C.TF_FUNCLABEL] == "liquidity out":
+                    for trade in tr[C.TF_TRADES]:
+                        price = self.getPrice(
+                            marketData, trade[C.TFT_TCONT], tx[C.T_TX_KEY]['timestamp']*1000)
+                        amount = trade[C.TFT_SENTAMOOUNT]
+                        if trade[C.TFT_RECAMOUNT] != "":
+                            amount = trade[C.TFT_RECAMOUNT]
+                        if price[0] == 0:
+                            koinlyCSV += f'{tr[C.TF_TIME][:-3]} UTC,{trade[C.TFT_SENTAMOOUNT]},{trade[C.TFT_SENTTOKEN]},{trade[C.TFT_RECAMOUNT]},{trade[C.TFT_RECTOKEN]},{tr[C.TF_GAS]},ONE,,,{tr[C.TF_FUNCLABEL]},{price[2]} {tr[C.TF_FUNCLABEL]} {tr[C.TF_THEIR]},{txHash}\n'
+                        else:
+                            koinlyCSV += f'{tr[C.TF_TIME][:-3]} UTC,{trade[C.TFT_SENTAMOOUNT]},{trade[C.TFT_SENTTOKEN]},{trade[C.TFT_RECAMOUNT]},{trade[C.TFT_RECTOKEN]},{tr[C.TF_GAS]},ONE,{amount*price[0]},USD,{tr[C.TF_FUNCLABEL]},{price[2]} {tr[C.TF_FUNCLABEL]} {tr[C.TF_THEIR]},{txHash}\n'
+
+                else:
+                    for trade in tr[C.TF_TRADES]:
+                        price = self.getPrice(
+                            marketData, trade[C.TFT_TCONT], tx[C.T_TX_KEY]['timestamp']*1000)
+                        amount = trade[C.TFT_SENTAMOOUNT]
+                        if trade[C.TFT_RECAMOUNT] != "":
+                            amount = trade[C.TFT_RECAMOUNT]
+                        if price[0] == 0:
+                            koinlyCSV += f'{tr[C.TF_TIME][:-3]} UTC,{trade[C.TFT_SENTAMOOUNT]},{trade[C.TFT_SENTTOKEN]},{trade[C.TFT_RECAMOUNT]},{trade[C.TFT_RECTOKEN]},{tr[C.TF_GAS]},ONE,,,,{price[2]} {tr[C.TF_FUNCLABEL]} {tr[C.TF_THEIR]},{txHash}\n'
+                        else:
+                            koinlyCSV += f'{tr[C.TF_TIME][:-3]} UTC,{trade[C.TFT_SENTAMOOUNT]},{trade[C.TFT_SENTTOKEN]},{trade[C.TFT_RECAMOUNT]},{trade[C.TFT_RECTOKEN]},{tr[C.TF_GAS]},ONE,{amount*price[0]},USD,,{price[2]} {tr[C.TF_FUNCLABEL]} {tr[C.TF_THEIR]},{txHash}\n'
 
         with open(f'./CSV Outputs/testRewards_{self.oneAddress}.csv', 'w') as f:
             f.write(csvOut)
 
+        with open(f'./CSV Outputs/testKoinly_{self.oneAddress}.csv', 'w') as f:
+            f.write(koinlyCSV)
+
     def getPrice(self, historyData, contract, timestamp):
         if contract in historyData:
             matchedTime = 0
+            USprice = AUprice = 0
             for i, timest in enumerate(historyData[contract]['FineUSD']['prices']):
                 if timestamp < timest[0]:
                     matchedTime = historyData[contract]['FineUSD']['prices'][i][0]
@@ -1196,15 +1250,15 @@ class transactionDownloader:
 
         cleanedTXs = {}
 
-        for i, txHash in enumerate(allTransactions[Const.TRANSACTIONS_KEY]):
-            tx = allTransactions[Const.TRANSACTIONS_KEY][txHash]
+        for i, txHash in enumerate(allTransactions[C.TRANSACTIONS_KEY]):
+            tx = allTransactions[C.TRANSACTIONS_KEY][txHash]
 
-            if Const.T_RECEIPT_KEY in tx and 'status' in tx[Const.T_RECEIPT_KEY] and tx[Const.T_RECEIPT_KEY]['status'] != 0:
+            if C.T_RECEIPT_KEY in tx and 'status' in tx[C.T_RECEIPT_KEY] and tx[C.T_RECEIPT_KEY]['status'] != 0:
                 #  transactionInfo = {'time','name','code','gas','to','from','label','trades'[],'unknownTrades'[]}
                 #       Trade keys = {'from','to','sentAmount','sentToken','receivedAmount','receivedToken','topic'}
                 tr = HmyUtil.getTransferInfo(tx, self.oneAddress)
-                if Const.T_FUNCTION_KEY in tx:
-                    tx[Const.T_FUNCTION_KEY].update(tr)
+                if C.T_FUNCTION_KEY in tx:
+                    tx[C.T_FUNCTION_KEY].update(tr)
                 match tr['label']:
                     case "reward":
                         ''
@@ -1253,8 +1307,8 @@ class transactionDownloader:
 
         unknownCsvOut = dfkOut = csvOut = 'Date,Sent Amount,Sent Currency,Received Amount,Received Currency,Fee Amount,Fee Currency,Net Worth Amount,Net Worth Currency,Label,Description,Code,Their Addr,TxHash\n'
 
-        for i, txHash in enumerate(allTransactions[Const.TRANSACTIONS_KEY]):
-            tx = allTransactions[Const.TRANSACTIONS_KEY][txHash]
+        for i, txHash in enumerate(allTransactions[C.TRANSACTIONS_KEY]):
+            tx = allTransactions[C.TRANSACTIONS_KEY][txHash]
 
             if 'Receipt' in tx and 'status' in tx['Receipt'] and tx['Receipt']['status'] != 0:
                 #  transactionInfo = {'time','name','code','gas','to','from','trades','unknownTrades'}
@@ -1263,12 +1317,12 @@ class transactionDownloader:
 
                 for trade in tr['trades']:
                     if trade['label'] == 'DFK':
-                        dfkOut += f"{tr['time']},{trade['sentAmount']},{trade['sentToken']},{trade['receivedAmount']},{trade['receivedToken']},{tr['gas']},ONE,,,{trade['label']},{trade['topic']},{tr[Const.TF_FUNCCODE]},{trade[Const.TFT_THEIR]},{tx[Const.T_TX_KEY]['ethHash']}\n"
+                        dfkOut += f"{tr['time']},{trade['sentAmount']},{trade['sentToken']},{trade['receivedAmount']},{trade['receivedToken']},{tr['gas']},ONE,,,{trade['label']},{trade['topic']},{tr[C.TF_FUNCCODE]},{trade[C.TFT_THEIR]},{tx[C.T_TX_KEY]['ethHash']}\n"
                     else:
-                        csvOut += f"{tr['time']},{trade['sentAmount']},{trade['sentToken']},{trade['receivedAmount']},{trade['receivedToken']},{tr['gas']},ONE,,,{trade['label']},{trade['topic']},{tr[Const.TF_FUNCCODE]},{trade[Const.TFT_THEIR]},{tx[Const.T_TX_KEY]['ethHash']}\n"
+                        csvOut += f"{tr['time']},{trade['sentAmount']},{trade['sentToken']},{trade['receivedAmount']},{trade['receivedToken']},{tr['gas']},ONE,,,{trade['label']},{trade['topic']},{tr[C.TF_FUNCCODE]},{trade[C.TFT_THEIR]},{tx[C.T_TX_KEY]['ethHash']}\n"
 
                 for trade in tr['unknownTrades']:
-                    unknownCsvOut += f"{tr['time']},{trade['sentAmount']},{trade['sentToken']},{trade['receivedAmount']},{trade['receivedToken']},{tr['gas']},ONE,,,{trade['label']},{trade['topic']},{tr[Const.TF_FUNCCODE]},{trade[Const.TFT_THEIR]},{tx[Const.T_TX_KEY]['ethHash']}\n"
+                    unknownCsvOut += f"{tr['time']},{trade['sentAmount']},{trade['sentToken']},{trade['receivedAmount']},{trade['receivedToken']},{tr['gas']},ONE,,,{trade['label']},{trade['topic']},{tr[C.TF_FUNCCODE]},{trade[C.TFT_THEIR]},{tx[C.T_TX_KEY]['ethHash']}\n"
 
         with open(f'./CSV Outputs/test_{self.oneAddress}.csv', 'w') as f:
             f.write(csvOut)
@@ -1297,29 +1351,29 @@ class transactionDownloader:
 
         unknownCsvOut = csvOut = 'date,function,code,type,token,amount,direction,gas,ethHash'
 
-        for i, txHash in enumerate(allTransactions[Const.TRANSACTIONS_KEY]):
-            tx = allTransactions[Const.TRANSACTIONS_KEY][txHash]
-            timestamp = datetime.fromtimestamp(tx[Const.T_TX_KEY]['timestamp'])
+        for i, txHash in enumerate(allTransactions[C.TRANSACTIONS_KEY]):
+            tx = allTransactions[C.TRANSACTIONS_KEY][txHash]
+            timestamp = datetime.fromtimestamp(tx[C.T_TX_KEY]['timestamp'])
             timestr = timestamp.strftime("%Y-%m-%d %H:%M:%S")
-            typeName = tx[Const.T_FUNCTION_KEY]['function']
-            typeCode = tx[Const.T_FUNCTION_KEY]['code']
-            gasFee = tx[Const.T_TX_KEY]['gasPrice'] * \
-                tx[Const.T_RECEIPT_KEY]['gasUsed'] / (10 ** 18)
+            typeName = tx[C.T_FUNCTION_KEY]['function']
+            typeCode = tx[C.T_FUNCTION_KEY]['code']
+            gasFee = tx[C.T_TX_KEY]['gasPrice'] * \
+                tx[C.T_RECEIPT_KEY]['gasUsed'] / (10 ** 18)
 
-            value = tx[Const.T_TX_KEY]['value'] / (10 ** 18)
+            value = tx[C.T_TX_KEY]['value'] / (10 ** 18)
             fromInfo = []
             toInfo = []
             unknownInfo = []
             if value != 0:
-                if tx[Const.T_TX_KEY]['from'] == self.oneAddress:
+                if tx[C.T_TX_KEY]['from'] == self.oneAddress:
                     fromInfo.append({'amount': value,
                                      'token': 'ONE', 'topic': 'baseTX'})
-                elif tx[Const.T_TX_KEY]['to'] == self.oneAddress:
+                elif tx[C.T_TX_KEY]['to'] == self.oneAddress:
                     toInfo.append({'amount': value,
                                    'token': 'ONE', 'topic': 'baseTX'})
 
-            if len(tx[Const.T_RECEIPT_KEY]['logs']) > 0:
-                for log in tx[Const.T_RECEIPT_KEY]['logs']:
+            if len(tx[C.T_RECEIPT_KEY]['logs']) > 0:
+                for log in tx[C.T_RECEIPT_KEY]['logs']:
                     'For each log within each transaction'
                     tokenSym = log['address']
                     data = log['data']
@@ -1392,11 +1446,11 @@ class transactionDownloader:
                                     {'amount': data, 'token': tokenSym, 'topic': log['topics'][0]})
 
             for t in fromInfo:
-                csvOut += f'\n{timestr},{typeName},{typeCode},{t["topic"]},{t["token"]},{t["amount"]},from,{gasFee},{tx[Const.T_TX_KEY]["ethHash"]}'
+                csvOut += f'\n{timestr},{typeName},{typeCode},{t["topic"]},{t["token"]},{t["amount"]},from,{gasFee},{tx[C.T_TX_KEY]["ethHash"]}'
             for t in toInfo:
-                csvOut += f'\n{timestr},{typeName},{typeCode},{t["topic"]},{t["token"]},{t["amount"]},to,{gasFee},{tx[Const.T_TX_KEY]["ethHash"]}'
+                csvOut += f'\n{timestr},{typeName},{typeCode},{t["topic"]},{t["token"]},{t["amount"]},to,{gasFee},{tx[C.T_TX_KEY]["ethHash"]}'
             for t in unknownInfo:
-                unknownCsvOut += f'\n{timestr},{typeName},{typeCode},{t["topic"]},{t["token"]},{t["amount"]},unknown,{gasFee},{tx[Const.T_TX_KEY]["ethHash"]}'
+                unknownCsvOut += f'\n{timestr},{typeName},{typeCode},{t["topic"]},{t["token"]},{t["amount"]},unknown,{gasFee},{tx[C.T_TX_KEY]["ethHash"]}'
 
         with open(f'./CSV Outputs/test_{self.oneAddress}.csv', 'w') as f:
             f.write(csvOut)
@@ -1405,10 +1459,10 @@ class transactionDownloader:
 
     def getfunctionSorted(self, allTransactions) -> dict:
         transactionsOut = {}
-        for i, txHash in enumerate(allTransactions[Const.TRANSACTIONS_KEY]):
-            tx = allTransactions[Const.TRANSACTIONS_KEY][txHash]
+        for i, txHash in enumerate(allTransactions[C.TRANSACTIONS_KEY]):
+            tx = allTransactions[C.TRANSACTIONS_KEY][txHash]
             if 'Receipt' in tx and 'status' in tx['Receipt'] and tx['Receipt']['status'] != 0:
-                typeCode = tx[Const.T_FUNCTION_KEY]['code']
+                typeCode = tx[C.T_FUNCTION_KEY]['code']
                 if typeCode not in transactionsOut:
                     transactionsOut[typeCode] = {txHash: tx}
                 else:
@@ -1445,38 +1499,38 @@ class transactionDownloader:
         timeLast = time.perf_counter()
         lastAmount = 0
         '''[New,Skipped,Unknown]'''
-        counters = {Const.T_RECEIPT_KEY: [0, 0, 0],
-                    Const.T_DECODED_KEY: [0, 0, 0],
-                    Const.T_FUNCTION_KEY: [0, 0, 0],
-                    Const.T_WEB_KEY: [0, 0, 0]}
+        counters = {C.T_RECEIPT_KEY: [0, 0, 0],
+                    C.T_DECODED_KEY: [0, 0, 0],
+                    C.T_FUNCTION_KEY: [0, 0, 0],
+                    C.T_WEB_KEY: [0, 0, 0]}
         hasNew = False
-        for i, (hash) in enumerate(accountDetails[Const.TRANSACTIONS_KEY]):
-            txInfo = accountDetails[Const.TRANSACTIONS_KEY][hash]
+        for i, (hash) in enumerate(accountDetails[C.TRANSACTIONS_KEY]):
+            txInfo = accountDetails[C.TRANSACTIONS_KEY][hash]
             # Per transaction
             willUpdateTx = {}
-            if Const.TRANSACTIONS_KEY in accountOut and hash in accountOut[Const.TRANSACTIONS_KEY]:
+            if C.TRANSACTIONS_KEY in accountOut and hash in accountOut[C.TRANSACTIONS_KEY]:
                 'The item is in TxOut'
-                if Const.COUNTS_KEY not in accountOut[Const.TRANSACTIONS_KEY][hash]:
-                    accountOut[Const.TRANSACTIONS_KEY][hash][Const.COUNTS_KEY] = {
-                        Const.T_RECEIPT_KEY: 0, Const.T_DECODED_KEY: 0, Const.T_FUNCTION_KEY: 0, Const.T_WEB_KEY: 0}
+                if C.COUNTS_KEY not in accountOut[C.TRANSACTIONS_KEY][hash]:
+                    accountOut[C.TRANSACTIONS_KEY][hash][C.COUNTS_KEY] = {
+                        C.T_RECEIPT_KEY: 0, C.T_DECODED_KEY: 0, C.T_FUNCTION_KEY: 0, C.T_WEB_KEY: 0}
             # if the ethHash is not in 'TxOut' (previousely compleated) then add web info
                 for (decodeKey) in counters:
                     countValues = counters[decodeKey]
                     willUpdateTx[decodeKey] = False
-                    if decodeKey in accountOut[Const.TRANSACTIONS_KEY][hash]:
+                    if decodeKey in accountOut[C.TRANSACTIONS_KEY][hash]:
                         'has decoded info'
-                        if Const.FUNC_NOVALUE in accountOut[Const.TRANSACTIONS_KEY][hash][decodeKey]:
+                        if C.FUNC_NOVALUE in accountOut[C.TRANSACTIONS_KEY][hash][decodeKey]:
                             'There is no value'
-                            accountOut[Const.TRANSACTIONS_KEY][hash][decodeKey][Const.FUNC_NOVALUE] += 1
-                            if accountOut[Const.TRANSACTIONS_KEY][hash][decodeKey][Const.FUNC_NOVALUE] < maxAttempts:
+                            accountOut[C.TRANSACTIONS_KEY][hash][decodeKey][C.FUNC_NOVALUE] += 1
+                            if accountOut[C.TRANSACTIONS_KEY][hash][decodeKey][C.FUNC_NOVALUE] < maxAttempts:
                                 willUpdateTx[decodeKey] = True
-                            elif 'function' in accountOut[Const.TRANSACTIONS_KEY][hash][decodeKey] and Const.FUNC_ERROR == accountOut[Const.TRANSACTIONS_KEY][hash][decodeKey]['function']:
+                            elif 'function' in accountOut[C.TRANSACTIONS_KEY][hash][decodeKey] and C.FUNC_ERROR == accountOut[C.TRANSACTIONS_KEY][hash][decodeKey]['function']:
                                 willUpdateTx[decodeKey] = True
                                 # print('We got an error! will fix..')
                             else:
                                 countValues[2] += 1
 
-                        elif Const.FUNC_UNKNOWN in accountOut[Const.TRANSACTIONS_KEY][hash][decodeKey]:
+                        elif C.FUNC_UNKNOWN in accountOut[C.TRANSACTIONS_KEY][hash][decodeKey]:
                             countValues[2] += 1
                         else:
                             'Has previous entry'
@@ -1487,72 +1541,72 @@ class transactionDownloader:
             else:
                 'The item is not in accountOut'
                 willUpdateTx = {
-                    Const.T_RECEIPT_KEY: True, Const.T_DECODED_KEY: True, Const.T_FUNCTION_KEY: True, Const.T_WEB_KEY: True}
-                accountOut[Const.TRANSACTIONS_KEY][hash] = txInfo
+                    C.T_RECEIPT_KEY: True, C.T_DECODED_KEY: True, C.T_FUNCTION_KEY: True, C.T_WEB_KEY: True}
+                accountOut[C.TRANSACTIONS_KEY][hash] = txInfo
 
             for (deKey) in willUpdateTx:
                 willUpdate = willUpdateTx[deKey]
                 if willUpdate:
                     hasNew = True
-                    if len(accountOut[Const.TRANSACTIONS_KEY][hash][Const.T_TX_KEY]['input']) >= 10:
-                        functionCode = accountOut[Const.TRANSACTIONS_KEY][hash][Const.T_TX_KEY]['input'][0:10]
+                    if len(accountOut[C.TRANSACTIONS_KEY][hash][C.T_TX_KEY]['input']) >= 10:
+                        functionCode = accountOut[C.TRANSACTIONS_KEY][hash][C.T_TX_KEY]['input'][0:10]
                     else:
-                        functionCode = accountOut[Const.TRANSACTIONS_KEY][hash][Const.T_TX_KEY]['input']
+                        functionCode = accountOut[C.TRANSACTIONS_KEY][hash][C.T_TX_KEY]['input']
                     match deKey:
-                        case Const.T_RECEIPT_KEY:
+                        case C.T_RECEIPT_KEY:
                             'will update receipt'
                             try:
                                 recpt = transaction.get_transaction_receipt(
-                                    txInfo[Const.T_TX_KEY]['ethHash'].lower(), Const.MAINNET0)
+                                    txInfo[C.T_TX_KEY]['ethHash'].lower(), C.MAINNET0)
                                 counters[deKey][0] += 1
                             except BaseException as err:
                                 recpt = {
-                                    Const.FUNC_NOVALUE: maxAttempts, 'function': Const.FUNC_ERROR, 'data': f'Unexpected {err=}, {type(err)=}'}
+                                    C.FUNC_NOVALUE: maxAttempts, 'function': C.FUNC_ERROR, 'data': f'Unexpected {err=}, {type(err)=}'}
                                 counters[deKey][2] += 1
 
-                            accountOut[Const.TRANSACTIONS_KEY][hash][deKey] = recpt
-                        case Const.T_DECODED_KEY:
+                            accountOut[C.TRANSACTIONS_KEY][hash][deKey] = recpt
+                        case C.T_DECODED_KEY:
                             'decode vairable'
                             if ABIs == None:
-                                accountOut[Const.TRANSACTIONS_KEY][hash][deKey] = {
-                                    Const.FUNC_UNKNOWN: maxAttempts, "function": Const.FUNC_UNKNOWN, 'code': functionCode}
+                                accountOut[C.TRANSACTIONS_KEY][hash][deKey] = {
+                                    C.FUNC_UNKNOWN: maxAttempts, "function": C.FUNC_UNKNOWN, 'code': functionCode}
                                 counters[deKey][2] += 1
                             else:
                                 try:
                                     for tempABI in ABIs:
                                         decoded = HmyUtil.decode_tx(
-                                            HmyUtil.convert_one_to_hex(txInfo[Const.T_TX_KEY]['to']), txInfo[Const.T_TX_KEY]['input'], tempABI)
+                                            HmyUtil.convert_one_to_hex(txInfo[C.T_TX_KEY]['to']), txInfo[C.T_TX_KEY]['input'], tempABI)
 
                                         if decoded[2] is not None:
-                                            accountOut[Const.TRANSACTIONS_KEY][hash][deKey] = {
+                                            accountOut[C.TRANSACTIONS_KEY][hash][deKey] = {
                                                 "function": decoded[0], "data": json.loads(decoded[1])}
                                             counters[deKey][0] += 1
                                             break
                                     if decoded[2] is None:
-                                        accountOut[Const.TRANSACTIONS_KEY][hash][deKey] = {
-                                            Const.FUNC_NOVALUE: maxAttempts, 'function': Const.FUNC_NOVALUE}
+                                        accountOut[C.TRANSACTIONS_KEY][hash][deKey] = {
+                                            C.FUNC_NOVALUE: maxAttempts, 'function': C.FUNC_NOVALUE}
                                         counters[deKey][2] += 1
 
                                 except BaseException as err:
-                                    accountOut[Const.TRANSACTIONS_KEY][hash][deKey] = {
-                                        Const.FUNC_NOVALUE: maxAttempts, 'function': Const.FUNC_ERROR, 'data': f'Unexpected {err=}, {type(err)=}'}
+                                    accountOut[C.TRANSACTIONS_KEY][hash][deKey] = {
+                                        C.FUNC_NOVALUE: maxAttempts, 'function': C.FUNC_ERROR, 'data': f'Unexpected {err=}, {type(err)=}'}
                                     counters[deKey][2] += 1
-                        case Const.T_FUNCTION_KEY:
+                        case C.T_FUNCTION_KEY:
                             'add function'
                             functionName = HmyUtil.getFunctionName(
-                                functionList, accountOut[Const.TRANSACTIONS_KEY][hash][Const.T_TX_KEY])
-                            if(functionName != Const.FUNC_UNKNOWN):
+                                functionList, accountOut[C.TRANSACTIONS_KEY][hash][C.T_TX_KEY])
+                            if(functionName != C.FUNC_UNKNOWN):
                                 "Decoded function"
                                 counters[deKey][0] += 1
                             else:
                                 "Unknown function"
                                 counters[deKey][2] += 1
-                            accountOut[Const.TRANSACTIONS_KEY][hash][deKey] = {
+                            accountOut[C.TRANSACTIONS_KEY][hash][deKey] = {
                                 "function": functionName, 'code': functionCode}
-                        case Const.T_WEB_KEY:
+                        case C.T_WEB_KEY:
                             'add web'
-                            accountOut[Const.TRANSACTIONS_KEY][hash][deKey] = {
-                                Const.FUNC_UNKNOWN: maxAttempts, "function": Const.FUNC_UNKNOWN, 'code': functionCode}
+                            accountOut[C.TRANSACTIONS_KEY][hash][deKey] = {
+                                C.FUNC_UNKNOWN: maxAttempts, "function": C.FUNC_UNKNOWN, 'code': functionCode}
                             counters[deKey][2] += 1
                         case _:
                             print(f'Error, No catch for key {deKey}')
@@ -1562,7 +1616,7 @@ class transactionDownloader:
                                             f"Tx {i}/{len(accountDetails[oneAddy][Const.TRANSACTIONSKEY])}: {counters}")'''
             counterDisplay = []
             for key in counters:
-                accountOut[Const.COUNTS_KEY][key] = counters[key]
+                accountOut[C.COUNTS_KEY][key] = counters[key]
                 counterDisplay.append(
                     [key, *counters[key], sum(counters[key])])
             if hasNew and i % 250 == 0:
@@ -1570,11 +1624,11 @@ class transactionDownloader:
                 with open(self.outputJSONFile, 'w', encoding='utf-8') as f:
                     json.dump(accountOut, f, ensure_ascii=False, indent=4)
 
-            (timeLast, lastAmount) = self.simpleLoadingUpdate(timeLast, lastAmount, len(accountDetails[Const.TRANSACTIONS_KEY]), i,
-                                                              f"Tx {i}/{len(accountDetails[Const.TRANSACTIONS_KEY])}")
+            (timeLast, lastAmount) = self.simpleLoadingUpdate(timeLast, lastAmount, len(accountDetails[C.TRANSACTIONS_KEY]), i,
+                                                              f"Tx {i}/{len(accountDetails[C.TRANSACTIONS_KEY])}")
         counterDisplay = []
         for key in counters:
-            accountOut[Const.COUNTS_KEY][key] = counters[key]
+            accountOut[C.COUNTS_KEY][key] = counters[key]
             counterDisplay.append([key, *counters[key], sum(counters[key])])
 
         self.GUI.addToText(
@@ -1583,7 +1637,7 @@ class transactionDownloader:
         with open(self.outputJSONFile, 'w', encoding='utf-8') as f:
             json.dump(accountOut, f, ensure_ascii=False, indent=4)
             self.GUI.addToText(
-                f"\n\nSaved {len(accountOut[Const.TRANSACTIONS_KEY])} transactions to {self.outputJSONFile}\n")
+                f"\n\nSaved {len(accountOut[C.TRANSACTIONS_KEY])} transactions to {self.outputJSONFile}\n")
 
         return accountOut
 
@@ -1599,8 +1653,8 @@ def getCoinGeckoHistory():
 
     # Const.TXOUTPATH + f'TokenContracts_{oneAddress}.json'
 
-    if os.path.exists(Const.CG_CONTRACTPATH):
-        with open(Const.CG_CONTRACTPATH, 'r') as f:
+    if os.path.exists(C.CG_CONTRACTPATH):
+        with open(C.CG_CONTRACTPATH, 'r') as f:
             tokenBook = json.loads(f.read())
 
     for contract in tokenBook:
@@ -1608,47 +1662,47 @@ def getCoinGeckoHistory():
             coinBase = f'./HistoryData/{contract}'
             coinPath = coinBase + '.json'
             hasInAPI = True
-            if Const.CG_ISONLINE not in tokenBook[contract]:
+            if C.CG_ISONLINE not in tokenBook[contract]:
                 print(
-                    f'Updating {tokenBook[contract][Const.CG_NAME]} : {contract}')
+                    f'Updating {tokenBook[contract][C.CG_NAME]} : {contract}')
                 print('No data for contract. Will make new.')
                 tokenBook[contract] = {
-                    Const.CG_CHAINID: "harmony-shard-0",
-                    Const.CG_CONTRACT: contract,
-                    Const.CG_NAME: tokenBook[contract],
-                    Const.CG_ISONLINE: hasInAPI}
+                    C.CG_CHAINID: "harmony-shard-0",
+                    C.CG_CONTRACT: contract,
+                    C.CG_NAME: tokenBook[contract],
+                    C.CG_ISONLINE: hasInAPI}
 
-            if Const.CG_ISONLINE not in tokenBook[contract] or (Const.CG_ISONLINE in tokenBook[contract] and tokenBook[contract][Const.CG_ISONLINE]):
+            if C.CG_ISONLINE not in tokenBook[contract] or (C.CG_ISONLINE in tokenBook[contract] and tokenBook[contract][C.CG_ISONLINE]):
                 'Check api to update info.'
                 print(
-                    f'Updating {tokenBook[contract][Const.CG_NAME]} : {contract}')
-                if Const.CG_ID in tokenBook[contract]:
+                    f'Updating {tokenBook[contract][C.CG_NAME]} : {contract}')
+                if C.CG_ID in tokenBook[contract]:
                     "use the gecko id not id/contract info."
                     if(not os.path.exists(coinPath)):
                         print('Have not downloaded info. Will do it now.')
 
                         time.sleep(2)
                         coins = (cg.get_coin_by_id(
-                            id=tokenBook[contract][Const.CG_ID]))
+                            id=tokenBook[contract][C.CG_ID]))
 
                         time.sleep(2)
                         AllhistoryDataUS = cg.get_coin_market_chart_range_by_id(
-                            tokenBook[contract][Const.CG_ID], 'usd', str(timestampStart), str(timestampNow))
+                            tokenBook[contract][C.CG_ID], 'usd', str(timestampStart), str(timestampNow))
 
                         time.sleep(2)
                         AllhistoryDataAU = cg.get_coin_market_chart_range_by_id(
-                            tokenBook[contract][Const.CG_ID],  'aud', str(timestampStart), str(timestampNow))
+                            tokenBook[contract][C.CG_ID],  'aud', str(timestampStart), str(timestampNow))
 
                         tsFin = timestampNow
                         tsStart = timestampNow - 89*24*60*60
 
                         time.sleep(2)
                         FinehistoryDataUS = cg.get_coin_market_chart_range_by_id(
-                            tokenBook[contract][Const.CG_ID],  'usd', str(tsStart), str(tsFin))
+                            tokenBook[contract][C.CG_ID],  'usd', str(tsStart), str(tsFin))
 
                         time.sleep(2)
                         FinehistoryDataAU = cg.get_coin_market_chart_range_by_id(
-                            tokenBook[contract][Const.CG_ID],  'aud', str(tsStart), str(tsFin))
+                            tokenBook[contract][C.CG_ID],  'aud', str(tsStart), str(tsFin))
 
                         tsFin = tsStart
                         tsStart = tsFin - 89*24*60*60
@@ -1656,7 +1710,7 @@ def getCoinGeckoHistory():
                         while tsStart > timestampStart:
                             time.sleep(2)
                             FinehistoryDataUS_new = cg.get_coin_market_chart_range_by_id(
-                                tokenBook[contract][Const.CG_ID],  'usd', str(tsStart), str(tsFin))
+                                tokenBook[contract][C.CG_ID],  'usd', str(tsStart), str(tsFin))
 
                             FinehistoryDataUS["prices"].extend(
                                 FinehistoryDataUS_new["prices"])
@@ -1667,7 +1721,7 @@ def getCoinGeckoHistory():
 
                             time.sleep(2)
                             FinehistoryDataAU_new = cg.get_coin_market_chart_range_by_id(
-                                tokenBook[contract][Const.CG_ID],  'aud', str(tsStart), str(tsFin))
+                                tokenBook[contract][C.CG_ID],  'aud', str(tsStart), str(tsFin))
 
                             FinehistoryDataAU["prices"].extend(
                                 FinehistoryDataAU_new["prices"])
@@ -1694,11 +1748,11 @@ def getCoinGeckoHistory():
                             FinehistoryDataAU["total_volumes"])
 
                         coinsInfo = {
-                            Const.C_INFO: coins,
-                            Const.C_COARSE_USD: AllhistoryDataUS,
-                            Const.C_COARSE_AUD: AllhistoryDataAU,
-                            Const.C_FINE_USD: FinehistoryDataUS,
-                            Const.C_FINE_AUD: FinehistoryDataAU}
+                            C.C_INFO: coins,
+                            C.C_COARSE_USD: AllhistoryDataUS,
+                            C.C_COARSE_AUD: AllhistoryDataAU,
+                            C.C_FINE_USD: FinehistoryDataUS,
+                            C.C_FINE_AUD: FinehistoryDataAU}
 
                         with open(coinPath, 'w') as f:
                             json.dump(coinsInfo, f,
@@ -1710,26 +1764,26 @@ def getCoinGeckoHistory():
 
                         time.sleep(2)
                         coins = (cg.get_coin_info_from_contract_address_by_id(
-                            id=tokenBook[contract][Const.CG_CHAINID], contract_address=tokenBook[contract][Const.CG_CONTRACT]))
+                            id=tokenBook[contract][C.CG_CHAINID], contract_address=tokenBook[contract][C.CG_CONTRACT]))
 
                         time.sleep(2)
                         AllhistoryDataUS = cg.get_coin_market_chart_range_from_contract_address_by_id(
-                            tokenBook[contract][Const.CG_CHAINID], tokenBook[contract][Const.CG_CONTRACT], 'usd', str(timestampStart), str(timestampNow))
+                            tokenBook[contract][C.CG_CHAINID], tokenBook[contract][C.CG_CONTRACT], 'usd', str(timestampStart), str(timestampNow))
 
                         time.sleep(2)
                         AllhistoryDataAU = cg.get_coin_market_chart_range_from_contract_address_by_id(
-                            tokenBook[contract][Const.CG_CHAINID], tokenBook[contract][Const.CG_CONTRACT], 'aud', str(timestampStart), str(timestampNow))
+                            tokenBook[contract][C.CG_CHAINID], tokenBook[contract][C.CG_CONTRACT], 'aud', str(timestampStart), str(timestampNow))
 
                         tsFin = timestampNow
                         tsStart = timestampNow - 89*24*60*60
 
                         time.sleep(2)
                         FinehistoryDataUS = cg.get_coin_market_chart_range_from_contract_address_by_id(
-                            tokenBook[contract][Const.CG_CHAINID], tokenBook[contract][Const.CG_CONTRACT], 'usd', str(tsStart), str(tsFin))
+                            tokenBook[contract][C.CG_CHAINID], tokenBook[contract][C.CG_CONTRACT], 'usd', str(tsStart), str(tsFin))
 
                         time.sleep(2)
                         FinehistoryDataAU = cg.get_coin_market_chart_range_from_contract_address_by_id(
-                            tokenBook[contract][Const.CG_CHAINID], tokenBook[contract][Const.CG_CONTRACT], 'aud', str(tsStart), str(tsFin))
+                            tokenBook[contract][C.CG_CHAINID], tokenBook[contract][C.CG_CONTRACT], 'aud', str(tsStart), str(tsFin))
 
                         tsFin = tsStart
                         tsStart = tsFin - 89*24*60*60
@@ -1737,7 +1791,7 @@ def getCoinGeckoHistory():
                         while tsStart > timestampStart:
                             time.sleep(2)
                             FinehistoryDataUS_new = cg.get_coin_market_chart_range_from_contract_address_by_id(
-                                tokenBook[contract][Const.CG_CHAINID], tokenBook[contract][Const.CG_CONTRACT], 'usd', str(tsStart), str(tsFin))
+                                tokenBook[contract][C.CG_CHAINID], tokenBook[contract][C.CG_CONTRACT], 'usd', str(tsStart), str(tsFin))
 
                             FinehistoryDataUS["prices"].extend(
                                 FinehistoryDataUS_new["prices"])
@@ -1748,7 +1802,7 @@ def getCoinGeckoHistory():
 
                             time.sleep(2)
                             FinehistoryDataAU_new = cg.get_coin_market_chart_range_from_contract_address_by_id(
-                                tokenBook[contract][Const.CG_CHAINID], tokenBook[contract][Const.CG_CONTRACT], 'aud', str(tsStart), str(tsFin))
+                                tokenBook[contract][C.CG_CHAINID], tokenBook[contract][C.CG_CONTRACT], 'aud', str(tsStart), str(tsFin))
 
                             FinehistoryDataAU["prices"].extend(
                                 FinehistoryDataAU_new["prices"])
@@ -1775,11 +1829,11 @@ def getCoinGeckoHistory():
                             FinehistoryDataAU["total_volumes"])
 
                         coinsInfo = {
-                            Const.C_INFO: coins,
-                            Const.C_COARSE_USD: AllhistoryDataUS,
-                            Const.C_COARSE_AUD: AllhistoryDataAU,
-                            Const.C_FINE_USD: FinehistoryDataUS,
-                            Const.C_FINE_AUD: FinehistoryDataAU}
+                            C.C_INFO: coins,
+                            C.C_COARSE_USD: AllhistoryDataUS,
+                            C.C_COARSE_AUD: AllhistoryDataAU,
+                            C.C_FINE_USD: FinehistoryDataUS,
+                            C.C_FINE_AUD: FinehistoryDataAU}
 
                         with open(coinPath, 'w') as f:
                             json.dump(coinsInfo, f,
@@ -1793,24 +1847,77 @@ def getCoinGeckoHistory():
                 time.sleep(2)
             elif '404' in e.__context__.__str__():
                 print('Could not find in CoinGecko API')
-                if tokenBook[contract][Const.CG_ISONLINE]:
-                    tokenBook[contract][Const.CG_ISONLINE] = False
+                if tokenBook[contract][C.CG_ISONLINE]:
+                    tokenBook[contract][C.CG_ISONLINE] = False
             else:
                 print('Type" ', sys.exc_info()[0])
                 print('Context: ', e.__context__)
                 print('Value" ', sys.exc_info()[1])
                 print('Trace" ', sys.exc_info()[2])
 
-    with open(Const.CG_CONTRACTPATH, 'w') as f:
+    with open(C.CG_CONTRACTPATH, 'w') as f:
         json.dump(tokenBook, f, ensure_ascii=False, indent=4)
     cg.session.close()
+
+
+def ImportAddress(metaMaskPaths):
+    '''    
+    "one186q32jgjuh3vexcs45frhu22awf6u5ccz6sj84": {
+            "one": "one186q32jgjuh3vexcs45frhu22awf6u5ccz6sj84",
+            "hex": "0x3E81154912E5E2Cc9B10Ad123BF14aeb93aE5318",
+            "name": "Unknown" }
+    '''
+    addressBook = {}
+    if os.path.exists(C.ADDRESSBOOKPATH):
+        with open(C.ADDRESSBOOKPATH, 'r') as f:
+            addressBook = json.loads(f.read())
+
+    for filePath in metaMaskPaths:
+        if os.path.exists(filePath):
+            with open(filePath, 'r') as f:
+                MetaMaskFile = json.loads(f.read())
+
+            newAddrs = MetaMaskFile[C.MM_BASE][C.MM_ADDR][C.MM_HARMONYCHAIN]
+            for addr in newAddrs:
+                name = newAddrs[addr][C.MMA_NAME]
+                if name == '':
+                    name = C.AB_UNKNOWN
+                contractAddr = newAddrs[addr][C.MMA_ADDR]
+                harmAddr = HmyUtil.convert_hex_to_one(contractAddr)
+
+                if harmAddr not in addressBook:
+                    addressBook.update({harmAddr: {
+                                       C.AB_HEX: contractAddr, C.AB_ONE: harmAddr, C.AB_NAME: name, C.AB_LABEL: []}})
+                else:
+                    if C.AB_LABEL not in addressBook[harmAddr]:
+                        addressBook[harmAddr].update({C.AB_LABEL: []})
+
+                    if C.AB_NAME in addressBook[harmAddr]:
+                        if addressBook[harmAddr][C.AB_NAME] == C.AB_UNKNOWN:
+                            addressBook[harmAddr][C.AB_NAME] = name
+                        elif addressBook[harmAddr][C.AB_NAME] != name:
+                            print(
+                                f'{harmAddr} Names different. Old: {addressBook[harmAddr][C.AB_NAME]} New {name}')
+                            addressBook[harmAddr][C.AB_NAME] = name
+                        else:
+                            'Same names. all good.'
+                    else:
+                        print(f'name key not in addressbook {harmAddr}.')
+                        addressBook.update({harmAddr: {
+                            C.AB_HEX: contractAddr, C.AB_ONE: harmAddr, C.AB_NAME: name, C.AB_LABEL: []}})
+
+    with open(C.ADDRESSBOOKPATH, 'w') as f:
+        json.dump(addressBook, f, ensure_ascii=False, indent=4)
 
 
 getCoinGeckoHistory()
 # getMarketHistory(coingeckoCoins)
 # sortMarketHistory(coingeckoCoins)
 # getCourseMarketHistory(coingeckoCoins)
+metaMaskPaths = ['./TransactionHistory/Julian MetaMask State Logs.json',
+                 './TransactionHistory/Lucas MetaMask State Logs.json']
 
+ImportAddress(metaMaskPaths)
 
 TransactionOrganiser = MainWindow()
 TransactionOrganiser.mainloop()

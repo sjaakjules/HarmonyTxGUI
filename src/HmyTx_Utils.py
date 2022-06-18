@@ -11,13 +11,13 @@ from unittest.mock import NonCallableMagicMock
 import requests
 from bech32 import bech32_decode, bech32_encode
 from codetiming import Timer
-from eth_utils import to_checksum_address, to_hex
+from eth_utils import is_number, to_checksum_address, to_hex
 # from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from web3 import Web3
 from web3.auto import w3
 
-import src.HmyTx_Constants as Const
+import src.HmyTx_Constants as C
 from src.lib.pyhmy.pyhmy import account, transaction, util
 
 # logFilePath = './log.txt'
@@ -61,7 +61,7 @@ def getBalance(oneAddy) -> float:
     while balance == 0:
         try:
             count = count+1
-            balance = account.get_balance(oneAddy, endpoint=Const.MAINNET0)
+            balance = account.get_balance(oneAddy, endpoint=C.MAINNET0)
             balance = balance/pow(10, 18)
 
             with open('log.txt', 'a') as f:
@@ -83,7 +83,7 @@ def getTransactionCount(oneAddy) -> float:
         oneAddy = convert_hex_to_one(oneAddy)
 
     expectedTXs = account.get_transactions_count(
-        oneAddy, tx_type='ALL', endpoint=Const.MAINNET0)
+        oneAddy, tx_type='ALL', endpoint=C.MAINNET0)
     return expectedTXs
 
 
@@ -111,7 +111,7 @@ def updateFunctionList(outputFile, allTxs) -> dict:
         if len(tx['input']) >= 10:
             if tx['input'][0:10] not in functionsOut:
                 functionsOut[tx['input'][0:10]] = {
-                    "name": Const.FUNC_UNDEFINED}
+                    "name": C.FUNC_UNDEFINED}
             # else:
                 # print('input is in list.')
         elif tx['input'] == '0x':
@@ -131,7 +131,7 @@ def updateFunctionList(outputFile, allTxs) -> dict:
 
 def getHRC20(oneAddy, pageIndex, pageSize) -> list:
     bucketSize = pageSize
-    url = f'{Const.ENDPOINT}shard/0/address/{convert_one_to_hex(oneAddy).lower()}/transactions/type/erc20?offset={pageIndex*bucketSize}&limit={bucketSize}'
+    url = f'{C.ENDPOINT}shard/0/address/{convert_one_to_hex(oneAddy).lower()}/transactions/type/erc20?offset={pageIndex*bucketSize}&limit={bucketSize}'
     response = requests.get(url)
     jsonResponse = json.loads(response.text)
     hrc20Ts = []
@@ -148,19 +148,19 @@ def getBaseInfoDisplay(tx, oneAddress):
     '''
     Output keys: {'time','name','code','gas','to','from','label'}
     '''
-    timestamp = datetime.fromtimestamp(tx[Const.T_TX_KEY]['timestamp'])
+    timestamp = datetime.fromtimestamp(tx[C.T_TX_KEY]['timestamp'])
     timestr = timestamp.strftime("%Y-%m-%d %H:%M:%S")
-    fnName = tx[Const.T_FUNCTION_KEY]['function']
-    fnCode = tx[Const.T_FUNCTION_KEY]['code']
-    gasFee = tx[Const.T_TX_KEY]['gasPrice'] * \
-        tx[Const.T_RECEIPT_KEY]['gasUsed'] / (10 ** 18)
+    fnName = tx[C.T_FUNCTION_KEY]['function']
+    fnCode = tx[C.T_FUNCTION_KEY]['code']
+    gasFee = tx[C.T_TX_KEY]['gasPrice'] * \
+        tx[C.T_RECEIPT_KEY]['gasUsed'] / (10 ** 18)
 
-    fromAddr = tx[Const.T_TX_KEY]['from']
-    toAddr = tx[Const.T_TX_KEY]['to']
+    fromAddr = tx[C.T_TX_KEY]['from']
+    toAddr = tx[C.T_TX_KEY]['to']
 
     label = ''
-    if Const.T_FUNCTION_KEY in tx and Const.TF_FUNCLABEL in tx[Const.T_FUNCTION_KEY]:
-        label = tx[Const.T_FUNCTION_KEY][Const.TF_FUNCLABEL]
+    if C.T_FUNCTION_KEY in tx and C.TF_FUNCLABEL in tx[C.T_FUNCTION_KEY]:
+        label = tx[C.T_FUNCTION_KEY][C.TF_FUNCLABEL]
     theirAddr = toAddr
     if fromAddr == oneAddress:
         fromAddr = fromAddr + ' (me)'
@@ -173,14 +173,14 @@ def getBaseInfoDisplay(tx, oneAddress):
         ('Error not in to or from!')
 
     return {
-        Const.TF_TIME: timestr,
-        Const.TF_FUNCNAME: fnName,
-        Const.TF_FUNCCODE: fnCode,
-        Const.TF_GAS: gasFee,
-        Const.TF_TO: toAddr,
-        Const.TF_FROM: fromAddr,
-        Const.TF_THEIR: theirAddr,
-        Const.TF_FUNCLABEL: label}
+        C.TF_TIME: timestr,
+        C.TF_FUNCNAME: fnName,
+        C.TF_FUNCCODE: fnCode,
+        C.TF_GAS: gasFee,
+        C.TF_TO: toAddr,
+        C.TF_FROM: fromAddr,
+        C.TF_THEIR: theirAddr,
+        C.TF_FUNCLABEL: label}
 
 
 def getTransferInfo(tx, oneAddress) -> dict:
@@ -190,18 +190,18 @@ def getTransferInfo(tx, oneAddress) -> dict:
     '''
     global HRC20Tokens
     if len(list(HRC20Tokens.keys())) == 0:
-        HRC20Tokens = writeAllTokensToFile(Const.HRC20LISTPATH)
+        HRC20Tokens = writeAllTokensToFile(C.HRC20LISTPATH)
 
     baseInfo = getBaseInfoDisplay(tx, oneAddress)  # will get label from tx
-    baseInfo[Const.TF_TO] = baseInfo[Const.TF_TO].split(' ', 1)[0]
-    baseInfo[Const.TF_FROM] = baseInfo[Const.TF_FROM].split(' ', 1)[0]
+    baseInfo[C.TF_TO] = baseInfo[C.TF_TO].split(' ', 1)[0]
+    baseInfo[C.TF_FROM] = baseInfo[C.TF_FROM].split(' ', 1)[0]
 
-    label = baseInfo[Const.TF_FUNCLABEL]
+    label = baseInfo[C.TF_FUNCLABEL]
 
     hexAddr = convert_one_to_hex(oneAddress)
     myhexBase = hexAddr[2:].lower()
-    fromHexBase = convert_one_to_hex(tx[Const.T_TX_KEY]['from'])[2:].lower()
-    toHexBase = convert_one_to_hex(tx[Const.T_TX_KEY]['to'])[2:].lower()
+    fromHexBase = convert_one_to_hex(tx[C.T_TX_KEY]['from'])[2:].lower()
+    toHexBase = convert_one_to_hex(tx[C.T_TX_KEY]['to'])[2:].lower()
 
     isSent = True
     theirHexBase = toHexBase
@@ -211,39 +211,46 @@ def getTransferInfo(tx, oneAddress) -> dict:
 
     transactionsOut = []
     unknownTxOut = []
-
-    value = tx[Const.T_TX_KEY]['value'] / (10 ** 18)
+    organsiedOut = {}
+    value = tx[C.T_TX_KEY]['value'] / (10 ** 18)
 
     if value != 0:
         if isSent:
-            transactionsOut.append({
-                Const.TFT_FROM: baseInfo[Const.TF_FROM],
-                Const.TFT_TO: baseInfo[Const.TF_TO],
-                Const.TFT_THEIR: convert_hex_to_one('0x'+theirHexBase),
-                Const.TFT_SENTAMOOUNT: value,
-                Const.TFT_SENTTOKEN: 'ONE',
-                Const.TFT_RECAMOUNT: '',
-                Const.TFT_RECTOKEN: '',
-                Const.TFT_TOPIC: 'baseTX',
-                Const.TFT_TCONT: '0xcf664087a5bb0237a0bad6742852ec6c8d69a27a',
-                Const.TFT_CSVLABEL: label})
+            newTrade = {C.TFT_FROM: baseInfo[C.TF_FROM],
+                        C.TFT_TO: baseInfo[C.TF_TO],
+                        C.TFT_THEIR: convert_hex_to_one('0x'+theirHexBase),
+                        C.TFT_SENTAMOOUNT: value,
+                        C.TFT_SENTTOKEN: 'ONE',
+                        C.TFT_RECAMOUNT: '',
+                        C.TFT_RECTOKEN: '',
+                        C.TFT_TOPIC: 'baseTX',
+                        C.TFT_TCONT: '0xcf664087a5bb0237a0bad6742852ec6c8d69a27a',
+                        C.TFT_TNAME: 'ONE',
+                        C.TFT_TAMOUNT: -value,
+                        C.TFT_CSVLABEL: label}
+            transactionsOut.append(newTrade)
+            organsiedOut.update({newTrade[C.TFT_TCONT]: newTrade})
         else:
-            transactionsOut.append({
-                Const.TFT_FROM: baseInfo[Const.TF_FROM],
-                Const.TFT_TO: baseInfo[Const.TF_TO],
-                Const.TFT_THEIR: convert_hex_to_one('0x'+theirHexBase),
-                Const.TFT_SENTAMOOUNT: '',
-                Const.TFT_SENTTOKEN: '',
-                Const.TFT_RECAMOUNT: value,
-                Const.TFT_RECTOKEN: 'ONE',
-                Const.TFT_TOPIC: 'baseTX',
-                Const.TFT_TCONT: '0xcf664087a5bb0237a0bad6742852ec6c8d69a27a',
-                Const.TFT_CSVLABEL: label})
+            newTrade = {
+                C.TFT_FROM: baseInfo[C.TF_FROM],
+                C.TFT_TO: baseInfo[C.TF_TO],
+                C.TFT_THEIR: convert_hex_to_one('0x'+theirHexBase),
+                C.TFT_SENTAMOOUNT: '',
+                C.TFT_SENTTOKEN: '',
+                C.TFT_RECAMOUNT: value,
+                C.TFT_RECTOKEN: 'ONE',
+                C.TFT_TOPIC: 'baseTX',
+                C.TFT_TCONT: '0xcf664087a5bb0237a0bad6742852ec6c8d69a27a',
+                C.TFT_TNAME: 'ONE',
+                C.TFT_TAMOUNT: value,
+                C.TFT_CSVLABEL: label}
+            transactionsOut.append(newTrade)
+            organsiedOut.update({newTrade[C.TFT_TCONT]: newTrade})
 
-    if len(tx[Const.T_RECEIPT_KEY]['logs']) > 0:
+    if len(tx[C.T_RECEIPT_KEY]['logs']) > 0:
         'has logs! will check if log topics are transfers.'
 
-        for log in tx[Const.T_RECEIPT_KEY]['logs']:
+        for log in tx[C.T_RECEIPT_KEY]['logs']:
             'For each log within each transaction'
             isTransfer = False
             tokenSym = log['address']
@@ -260,6 +267,9 @@ def getTransferInfo(tx, oneAddress) -> dict:
                     data = log['data']
             else:
                 data = log['data']
+
+            if data == '0x':
+                data = 0
 
             if log['address'] in HRC20Tokens:
                 tokenSym = HRC20Tokens[log['address']]['symbol']
@@ -281,7 +291,7 @@ def getTransferInfo(tx, oneAddress) -> dict:
             toStr = '0x' + toHexBase
             fromStr = '0x' + fromHexBase
             theirStr = '0x' + theirHexBase
-
+            topicName = C.FUNC_UNKNOWN
             isSent = True
             isUnknownTX = False
             if myLog > 0:
@@ -318,58 +328,56 @@ def getTransferInfo(tx, oneAddress) -> dict:
                         topicName = 'Withdrawal'
                         toStr = '0x' + myhexBase
                         fromStr = '0x' + theirHexBase
+
+            newTrade = {
+                C.TFT_FROM: fromStr,
+                C.TFT_TO: toStr,
+                C.TFT_THEIR: convert_hex_to_one(theirStr),
+                C.TFT_SENTAMOOUNT: '',
+                C.TFT_SENTTOKEN: '',
+                C.TFT_RECAMOUNT: '',
+                C.TFT_RECTOKEN: '',
+                C.TFT_TOPIC: topicName,
+                C.TFT_TCONT: tokenCont,
+                C.TFT_TNAME: tokenSym,
+                C.TFT_TAMOUNT: 0,
+                C.TFT_CSVLABEL: label}
             if isSent:
-                if isTransfer:
-                    transactionsOut.append({
-                        Const.TFT_FROM: fromStr,
-                        Const.TFT_TO: toStr,
-                        Const.TFT_THEIR: convert_hex_to_one(theirStr),
-                        Const.TFT_SENTAMOOUNT: data,
-                        Const.TFT_SENTTOKEN: tokenSym,
-                        Const.TFT_RECAMOUNT: '',
-                        Const.TFT_RECTOKEN: '',
-                        Const.TFT_TOPIC: topicName,
-                        Const.TFT_TCONT: tokenCont,
-                        Const.TFT_CSVLABEL: label})
-                elif isUnknownTX:
-                    unknownTxOut.append({
-                        Const.TFT_FROM: fromStr,
-                        Const.TFT_TO: toStr,
-                        Const.TFT_THEIR: convert_hex_to_one(theirStr),
-                        Const.TFT_SENTAMOOUNT: data,
-                        Const.TFT_SENTTOKEN: tokenSym,
-                        Const.TFT_RECAMOUNT: '',
-                        Const.TFT_RECTOKEN: '',
-                        Const.TFT_TOPIC: topicName,
-                        Const.TFT_TCONT: tokenCont,
-                        Const.TFT_CSVLABEL: label})
+                newTrade[C.TFT_SENTAMOOUNT] = data
+                newTrade[C.TFT_SENTTOKEN] = tokenSym
+                if type(data) == int or type(data) == float:
+                    newTrade[C.TFT_TAMOUNT] += (-data)
             else:
-                if isTransfer:
-                    transactionsOut.append({
-                        Const.TFT_FROM: fromStr,
-                        Const.TFT_TO: toStr,
-                        Const.TFT_THEIR: convert_hex_to_one(theirStr),
-                        Const.TFT_SENTAMOOUNT: '',
-                        Const.TFT_SENTTOKEN: '',
-                        Const.TFT_RECAMOUNT: data,
-                        Const.TFT_RECTOKEN: tokenSym,
-                        Const.TFT_TOPIC: topicName,
-                        Const.TFT_TCONT: tokenCont,
-                        Const.TFT_CSVLABEL: label})
-                elif isUnknownTX:
-                    unknownTxOut.append({
-                        Const.TFT_FROM: fromStr,
-                        Const.TFT_TO: toStr,
-                        Const.TFT_THEIR: convert_hex_to_one(theirStr),
-                        Const.TFT_SENTAMOOUNT: '',
-                        Const.TFT_SENTTOKEN: '',
-                        Const.TFT_RECAMOUNT: data,
-                        Const.TFT_RECTOKEN: tokenSym,
-                        Const.TFT_TOPIC: topicName,
-                        Const.TFT_TCONT: tokenCont,
-                        Const.TFT_CSVLABEL: label})
-    baseInfo['trades'] = transactionsOut
-    baseInfo['unknownTrades'] = unknownTxOut
+                newTrade[C.TFT_RECAMOUNT] = data
+                newTrade[C.TFT_RECTOKEN] = tokenSym
+                if type(data) == int or type(data) == float:
+                    newTrade[C.TFT_TAMOUNT] += (data)
+
+            if isTransfer:
+                transactionsOut.append(newTrade)
+                if newTrade[C.TFT_TCONT] in organsiedOut:
+                    organsiedOut[newTrade[C.TFT_TCONT]][C.TFT_TAMOUNT] += newTrade[C.TFT_TAMOUNT]
+                else:
+                    organsiedOut.update({newTrade[C.TFT_TCONT]: newTrade})
+            elif isUnknownTX:
+                unknownTxOut.append(newTrade)
+        keysToRemove = []
+        for key in organsiedOut:
+            if organsiedOut[key][C.TFT_TAMOUNT] > 0:
+                organsiedOut[key][C.TFT_RECAMOUNT] = organsiedOut[key][C.TFT_TAMOUNT]
+                organsiedOut[key][C.TFT_RECTOKEN] = organsiedOut[key][C.TFT_TNAME]
+                organsiedOut[key][C.TFT_SENTAMOOUNT] = organsiedOut[key][C.TFT_SENTTOKEN] = ''
+            elif organsiedOut[key][C.TFT_TAMOUNT] < 0:
+                organsiedOut[key][C.TFT_SENTAMOOUNT] = (-organsiedOut[key][C.TFT_TAMOUNT])
+                organsiedOut[key][C.TFT_SENTTOKEN] = organsiedOut[key][C.TFT_TNAME]
+                organsiedOut[key][C.TFT_RECTOKEN] = organsiedOut[key][C.TFT_RECAMOUNT] = ''
+            else:
+                keysToRemove.append(key)
+        for key in keysToRemove:
+            organsiedOut.pop(key)
+    baseInfo[C.TF_TRADES] = transactionsOut
+    baseInfo[C.TF_UKTRADES] = unknownTxOut
+    baseInfo[C.TF_SORTTRADES] = list(organsiedOut.values())
 
     return baseInfo
 
@@ -377,8 +385,8 @@ def getTransferInfo(tx, oneAddress) -> dict:
 def getFunctions() -> dict:
     global functionList
     if len(list(functionList.keys())) == 0:
-        if os.path.exists(Const.FUNCTIONLISTPATH):
-            with open(Const.FUNCTIONLISTPATH, 'r') as f:
+        if os.path.exists(C.FUNCTIONLISTPATH):
+            with open(C.FUNCTIONLISTPATH, 'r') as f:
                 functionList = json.loads(f.read())
             return functionList
     else:
@@ -388,10 +396,10 @@ def getFunctions() -> dict:
 
 def updateFunctions(newFunctions):
     global functionList
-    with open(Const.FUNCTIONLISTPATH, 'w', encoding='utf-8') as f:
+    with open(C.FUNCTIONLISTPATH, 'w', encoding='utf-8') as f:
         json.dump(newFunctions, f, ensure_ascii=False, indent=4)
 
-    with open(Const.FUNCTIONLISTPATH, 'r') as f:
+    with open(C.FUNCTIONLISTPATH, 'r') as f:
         functionList = json.loads(f.read())
     return functionList
 
@@ -400,18 +408,18 @@ def getLabel(tx, oneAddress):
     if getFunctions() == None:
         print("No functionlist found!!!")
     else:
-        if Const.T_FUNCTION_KEY in tx:
-            if 'code' in tx[Const.T_FUNCTION_KEY]:
+        if C.T_FUNCTION_KEY in tx:
+            if 'code' in tx[C.T_FUNCTION_KEY]:
                 'then i have code, name and somwhere to add label.'
                 'in function list i need oneAddress and this tx code, to address and hash'
-                code = tx[Const.T_FUNCTION_KEY]['code']
+                code = tx[C.T_FUNCTION_KEY]['code']
                 if code in functionList:
                     if oneAddress in functionList[code]:
                         'have label'
-                        toAddr = tx[Const.T_TX_KEY]['to']
-                        txHash = tx[Const.T_TX_KEY]['ethHash']
-                        if tx[Const.T_TX_KEY]['to'] == oneAddress:
-                            toAddr = tx[Const.T_TX_KEY]['from']
+                        toAddr = tx[C.T_TX_KEY]['to']
+                        txHash = tx[C.T_TX_KEY]['ethHash']
+                        if tx[C.T_TX_KEY]['to'] == oneAddress:
+                            toAddr = tx[C.T_TX_KEY]['from']
                         if txHash in functionList[code][oneAddress]['transactionLabels']:
                             return functionList[code][oneAddress]['transactionLabels'][txHash]
                         elif toAddr in functionList[code][oneAddress]['addressLabels']:
@@ -421,10 +429,10 @@ def getLabel(tx, oneAddress):
                         else:
                             return None
                     elif 'default' in functionList[code]:
-                        toAddr = tx[Const.T_TX_KEY]['to']
-                        txHash = tx[Const.T_TX_KEY]['ethHash']
-                        if tx[Const.T_TX_KEY]['to'] == oneAddress:
-                            toAddr = tx[Const.T_TX_KEY]['from']
+                        toAddr = tx[C.T_TX_KEY]['to']
+                        txHash = tx[C.T_TX_KEY]['ethHash']
+                        if tx[C.T_TX_KEY]['to'] == oneAddress:
+                            toAddr = tx[C.T_TX_KEY]['from']
                         if txHash in functionList[code]['default']['transactionLabels']:
                             return functionList[code]['default']['transactionLabels'][txHash]
                         elif toAddr in functionList[code]['default']['addressLabels']:
@@ -451,15 +459,15 @@ def getTransferInfoDisplay(tx, oneAddress):
     '''
     global HRC20Tokens
     if len(list(HRC20Tokens.keys())) == 0:
-        HRC20Tokens = writeAllTokensToFile(Const.HRC20LISTPATH)
+        HRC20Tokens = writeAllTokensToFile(C.HRC20LISTPATH)
     hexAddr = convert_one_to_hex(oneAddress)
     topicAddr = hexAddr[2:].lower()
-    fromAddr = convert_one_to_hex(tx[Const.T_TX_KEY]['from'])[2:].lower()
-    toAddr = convert_one_to_hex(tx[Const.T_TX_KEY]['to'])[2:].lower()
+    fromAddr = convert_one_to_hex(tx[C.T_TX_KEY]['from'])[2:].lower()
+    toAddr = convert_one_to_hex(tx[C.T_TX_KEY]['to'])[2:].lower()
     transactionsOut = []
     unknownTxOut = []
 
-    value = tx[Const.T_TX_KEY]['value'] / (10 ** 18)
+    value = tx[C.T_TX_KEY]['value'] / (10 ** 18)
 
     toStr = f'({toAddr[:4]}-{toAddr[-4:]})'
     fromStr = f'({fromAddr[:4]}-{fromAddr[-4:]})'
@@ -482,10 +490,10 @@ def getTransferInfoDisplay(tx, oneAddress):
             'to': toStr,
             'topic': 'baseTX'})
 
-    if len(tx[Const.T_RECEIPT_KEY]['logs']) > 0:
+    if len(tx[C.T_RECEIPT_KEY]['logs']) > 0:
         'has logs! will check if log topics are transfers.'
 
-        for log in tx[Const.T_RECEIPT_KEY]['logs']:
+        for log in tx[C.T_RECEIPT_KEY]['logs']:
             'For each log within each transaction'
             isTransfer = False
             tokenSym = log['address']
@@ -615,7 +623,7 @@ def getHRC20Count(oneAddy) -> int:
 
     try:
         HRC20Counter = []
-        url = Const.ENDPOINT + 'shard/0/address/' + convert_one_to_hex(
+        url = C.ENDPOINT + 'shard/0/address/' + convert_one_to_hex(
             oneAddy).lower() + '/transactions/type/erc20?offset=0&limit='+str(5000)
         response = requests.get(url)
         jsonResponse = json.loads(response.text)
@@ -627,7 +635,7 @@ def getHRC20Count(oneAddy) -> int:
 
         while (response.status_code == 200 and len(jsonResponse) == 5000):
             i += 1
-            url = Const.ENDPOINT + 'shard/0/address/' + convert_one_to_hex(
+            url = C.ENDPOINT + 'shard/0/address/' + convert_one_to_hex(
                 oneAddy).lower() + '/transactions/type/erc20?offset='+str(5000*i)+'&limit='+str(5000)
             response = requests.get(url)
             jsonResponse = json.loads(response.text)
@@ -663,13 +671,13 @@ def MakeFunctionList(outputFile, MetaMAskLogs):
     for log in MetaMAskLogs['metamask']['knownMethodData']:
         if log not in TxOut:
             if 'name' not in MetaMAskLogs['metamask']['knownMethodData'][log]:
-                TxOut[log] = {"name": Const.FUNC_UNDEFINED}
+                TxOut[log] = {"name": C.FUNC_UNDEFINED}
             else:
                 TxOut[log] = MetaMAskLogs['metamask']['knownMethodData'][log]
         else:
             # is in TxOut. Do not overwrite entry.
             if 'name' not in TxOut[log]:
-                TxOut[log] = {"name": Const.FUNC_UNDEFINED}
+                TxOut[log] = {"name": C.FUNC_UNDEFINED}
 
     with open(outputFile, 'w', encoding='utf-8') as f:
         f.write(json.dumps(TxOut, ensure_ascii=False, indent=4))
@@ -678,12 +686,12 @@ def MakeFunctionList(outputFile, MetaMAskLogs):
 
 
 def getFunctionName(FunctionList, tx):
-    if len(tx['input']) >= 10 and tx['input'][0:10] in FunctionList and Const.F_NAME_KEY in FunctionList[tx['input'][0:10]]:
-        return FunctionList[tx['input'][0:10]][Const.F_NAME_KEY]
-    elif tx['input'] in FunctionList and Const.F_NAME_KEY in FunctionList[tx['input']]:
-        return FunctionList[tx['input']][Const.F_NAME_KEY]
+    if len(tx['input']) >= 10 and tx['input'][0:10] in FunctionList and C.F_NAME_KEY in FunctionList[tx['input'][0:10]]:
+        return FunctionList[tx['input'][0:10]][C.F_NAME_KEY]
+    elif tx['input'] in FunctionList and C.F_NAME_KEY in FunctionList[tx['input']]:
+        return FunctionList[tx['input']][C.F_NAME_KEY]
     else:
-        return Const.FUNC_UNKNOWN
+        return C.FUNC_UNKNOWN
 
 
 @Timer(name="Got all HRC20 tokens in {:.2f} seconds")
@@ -706,7 +714,7 @@ def writeAllTokensToFile(filePath) -> dict:
     global HRC20Tokens
     print('\n')
     print('Updated Tokens to ./' + filePath)
-    url = Const.ENDPOINT + 'erc20/'
+    url = C.ENDPOINT + 'erc20/'
     response = requests.get(url)
     processedTokens = {}
     RawTokens = json.loads(response.text)
@@ -750,7 +758,7 @@ def printUpdate(timeStart, timeLast, updateFreq, percentage, message):
         else:
             secRem = (100 - percentage)/((percentage)/(timeLast - timeStart))
         print(f'{percentage:.1f}% | {int(secRem)}s remaining. {message}')
-        with open(Const.LOGPATH, 'a') as f:
+        with open(C.LOGPATH, 'a') as f:
             f.write(
                 f'\n\t{percentage:.1f}% - {int(secRem)}s remaining. {message}')
         return timeLast
@@ -794,7 +802,7 @@ def webScrape(ethHash, driver) -> str:
     DFKsendGardener = '//*[@id="scrollBody"]/div[2]/div[1]/div/div[2]/div/div/div[2]/div[1]/table/tbody/tr[16]/td/div/div/div/div[1]'
     nullXcode = '//*[@id="scrollBody"]/div[2]/div[1]/div/div[2]/div/div/div[2]/div[1]/table/tbody/tr[16]/td/div/div/div/div/div/span'
 
-    outputText = Const.FUNC_UNKNOWN
+    outputText = C.FUNC_UNKNOWN
     try:
         url = txStemSite+ethHash
         driver.get(url)
@@ -823,7 +831,7 @@ def webScrape(ethHash, driver) -> str:
 
     except:
         # print(f"Error with ethHAsh: {ethHash}")
-        functionName = Const.FUNC_UNKNOWN
+        functionName = C.FUNC_UNKNOWN
         with open('log.txt', 'a') as f:
             f.write(f"Tx {ethHash}: Error, could not access XCODE")
             f.write('\n')

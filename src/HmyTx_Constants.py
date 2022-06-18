@@ -7,16 +7,19 @@ TXOUTPATH = './TransactionHistory/'
 TRANSACTIONS_KEY = 'transactions'
 COUNTS_KEY = 'counts'
 
-T_TX_KEY = 'Txs'
-T_HRC20_KEY = 'HRC20'
-T_FUNCTION_KEY = 'Function'
-T_RECEIPT_KEY = 'Receipt'
-T_DECODED_KEY = 'Decoded'
-T_WEB_KEY = 'Web'
+ADDRESSBOOKPATH = './TokenInfo/AddressBook.json'
+AB_ONE = 'one'
+AB_HEX = 'hex'
+AB_NAME = 'name'
+AB_LABEL = 'labels'
+AB_UNKNOWN = 'Unknown'
 
-F_DEFAULT_KEY = 'default'
-F_CODE_KEY = 'code'
-F_NAME_KEY = 'name'
+MM_HARMONYCHAIN = '0x63564c40'
+MM_DFKCHAIN = '0xd2af'
+MM_BASE = 'metamask'
+MM_ADDR = 'addressBook'
+MMA_ADDR = 'address'
+MMA_NAME = 'name'
 
 CG_CONTRACTPATH = './TokenInfo/CoinGeckoContracts.json'
 CG_ID = "geckoID"
@@ -30,6 +33,32 @@ C_COARSE_USD = "CoarseUSD"
 C_COARSE_AUD = "CoarseAUD"
 C_FINE_USD = "FineUSD"
 C_FINE_AUD = "FineAUD"
+C_OLDTIME = "oldest"
+C_NEWTIME = "newest"
+
+K_TIME = 'time'
+K_SENT = 'sent'
+K_SCOIN = 'sentCoin'
+K_REC = 'received'
+K_RCOIN = 'receivedCoin'
+K_FEE = 'fee'
+K_FCOIN = 'feeCoin'
+K_VALUE = 'value'
+K_VCOIN = 'fiat'
+K_LABEL = 'label'
+K_NOTES = 'notes'
+K_HASH = 'hash'
+
+T_TX_KEY = 'Txs'
+T_HRC20_KEY = 'HRC20'
+T_FUNCTION_KEY = 'Function'
+T_RECEIPT_KEY = 'Receipt'
+T_DECODED_KEY = 'Decoded'
+T_WEB_KEY = 'Web'
+
+F_DEFAULT_KEY = 'default'
+F_CODE_KEY = 'code'
+F_NAME_KEY = 'name'
 
 #'''Used for each transaction within Tx[TRANSACTIONS_KEY][T_FUNCTION_KEY]'''
 TF_FROM = 'from'
@@ -40,6 +69,7 @@ TF_FUNCNAME = 'name'
 TF_FUNCCODE = 'code'
 TF_GAS = 'gas'
 TF_TRADES = 'trades'
+TF_SORTTRADES = 'trades'
 TF_UKTRADES = 'unknownTrades'
 TF_FUNCLABEL = 'label'
 
@@ -55,6 +85,8 @@ TFT_TOPIC = 'topic'
 TFT_CSVLABEL = 'label'
 TFT_NOTES = 'notes'
 TFT_TCONT = 'TokenContract'
+TFT_TAMOUNT = 'TotalAmount'
+TFT_TNAME = 'TokenName'
 
 FUNC_NOVALUE = 'NoValue'        # There is no function name or value.
 # There is a function name or value but was not able to resolve entry.
@@ -77,10 +109,6 @@ MAINNET2 = 'https://a.api.s0.t.hmny.io'
 ENDPOINT = 'https://explorer-v2-api.hmny.io/v0/'
 
 ONE = '0xcf664087a5bb0237a0bad6742852ec6c8d69a27a'
-
-
-HARMONYCHAIN = '0x63564c40'
-DFKCHAIN = '0xd2af'
 
 
 LOGTOPICS = {

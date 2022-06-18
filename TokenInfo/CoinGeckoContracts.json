@@ -24,6 +24,7 @@
         "inCoinGecko": false
     },
     "0xcf664087a5bb0237a0bad6742852ec6c8d69a27a": {
+        "geckoID": "harmony",
         "chainID": "harmony-shard-0",
         "contract": "0xcf664087a5bb0237a0bad6742852ec6c8d69a27a",
         "name": "ONE",
@@ -36,6 +37,7 @@
         "inCoinGecko": true
     },
     "0x0ab43550a6915f9f67d0c454c2e90385e6497eaa": {
+        "geckoID": "binance-usd",
         "chainID": "harmony-shard-0",
         "contract": "0xe176ebe47d621b984a73036b9da5d834411ef734",
         "name": "bscBUSD",
@@ -49,6 +51,7 @@
         "inCoinGecko": true
     },
     "0x985458e523db3d53125813ed68c274899e9dfab4": {
+        "geckoID": "usd-coin",
         "chainID": "harmony-shard-0",
         "contract": "0x985458e523db3d53125813ed68c274899e9dfab4",
         "name": "1USDC",
@@ -960,6 +963,12 @@
         "chainID": "harmony-shard-0",
         "contract": "0x2bc05bf05e273a2276f19a8bd6738e742a5685b3",
         "name": "0x2bc05bf05e273a2276f19a8bd6738e742a5685b3",
+        "inCoinGecko": false
+    },
+    "0x0405f1b828c7c9462877cc70a9f266887ff55ada": {
+        "chainID": "harmony-shard-0",
+        "contract": "0x0405f1b828c7c9462877cc70a9f266887ff55ada",
+        "name": "0x0405f1b828c7c9462877cc70a9f266887ff55ada",
         "inCoinGecko": false
     }
 }

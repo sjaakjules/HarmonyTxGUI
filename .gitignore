@@ -1,6 +1,7 @@
 *.DS_Store
 /TransactionHistory/*
 /CSV Outputs/*
+/HistoryData/*
 
 
 # Byte-compiled / optimized / DLL files

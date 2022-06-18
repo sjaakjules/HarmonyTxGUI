@@ -31,7 +31,10 @@
         "Sonic",
         "Tranquil",
         "Cosmic",
-        "Kitties"
+        "Kitties",
+        "LP Split",
+        "LP Join",
+        "Donation"
     ],
     "Koinly Labels": [
         "gift",
@@ -75,17 +78,17 @@
             }
         ],
         "default": {
-            "functionLabel": "liquidity out",
+            "functionLabel": "LP Split",
             "addressLabels": {},
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
-            "functionLabel": "liquidity out",
+            "functionLabel": "LP Split",
             "addressLabels": {},
             "transactionLabels": {}
         },
         "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
-            "functionLabel": "liquidity out",
+            "functionLabel": "LP Split",
             "addressLabels": {},
             "transactionLabels": {}
         }
@@ -853,7 +856,7 @@
             }
         ],
         "default": {
-            "functionLabel": null,
+            "functionLabel": "LP Swap",
             "addressLabels": {
                 "one1mvcxg0r34j0zzgk2qdq76a7sn40en7fy7lytq4": "LP Swap",
                 "one1yqk9nr5n76wmuwj72urdlwzmm3vchvt0usdf3n": "WAGMI",
@@ -879,7 +882,7 @@
             "transactionLabels": {}
         },
         "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
-            "functionLabel": null,
+            "functionLabel": "LP Swap",
             "addressLabels": {
                 "one1mvcxg0r34j0zzgk2qdq76a7sn40en7fy7lytq4": "LP Swap",
                 "one1yqk9nr5n76wmuwj72urdlwzmm3vchvt0usdf3n": "WAGMI",
@@ -1135,17 +1138,17 @@
             }
         ],
         "default": {
-            "functionLabel": "liquidity out",
+            "functionLabel": "LP Split",
             "addressLabels": {},
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
-            "functionLabel": "liquidity out",
+            "functionLabel": "LP Split",
             "addressLabels": {},
             "transactionLabels": {}
         },
         "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
-            "functionLabel": "liquidity out",
+            "functionLabel": "LP Split",
             "addressLabels": {},
             "transactionLabels": {}
         }
@@ -1353,17 +1356,17 @@
             }
         ],
         "default": {
-            "functionLabel": "liquidity in",
+            "functionLabel": "LP Join",
             "addressLabels": {},
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
-            "functionLabel": "liquidity in",
+            "functionLabel": "LP Join",
             "addressLabels": {},
             "transactionLabels": {}
         },
         "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
-            "functionLabel": "liquidity in",
+            "functionLabel": "LP Join",
             "addressLabels": {},
             "transactionLabels": {}
         }
@@ -1391,17 +1394,17 @@
             }
         ],
         "default": {
-            "functionLabel": "liquidity in",
+            "functionLabel": "LP Join",
             "addressLabels": {},
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
-            "functionLabel": "liquidity in",
+            "functionLabel": "LP Join",
             "addressLabels": {},
             "transactionLabels": {}
         },
         "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
-            "functionLabel": "liquidity in",
+            "functionLabel": "LP Join",
             "addressLabels": {},
             "transactionLabels": {}
         }
@@ -1689,12 +1692,18 @@
         "name": "Transfer",
         "default": {
             "functionLabel": "Transfer",
-            "addressLabels": {},
+            "addressLabels": {
+                "one1phrcc7d5avyqat2ur5t9ty395344sp55z47nzp": "WAGMI",
+                "one1wt93p34l543ym5r77cyqyl3kd0tfqpy0eyd6n0": "DFK"
+            },
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
             "functionLabel": "Transfer",
-            "addressLabels": {},
+            "addressLabels": {
+                "one1phrcc7d5avyqat2ur5t9ty395344sp55z47nzp": "WAGMI",
+                "one1wt93p34l543ym5r77cyqyl3kd0tfqpy0eyd6n0": "DFK"
+            },
             "transactionLabels": {}
         },
         "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
@@ -2281,12 +2290,12 @@
     "0x71a6acf2": {
         "name": "DFK Donate tokens",
         "default": {
-            "functionLabel": "DFK",
+            "functionLabel": "Donation",
             "addressLabels": {},
             "transactionLabels": {}
         },
         "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
-            "functionLabel": "DFK",
+            "functionLabel": "Donation",
             "addressLabels": {},
             "transactionLabels": {}
         }
@@ -2563,6 +2572,32 @@
         }
     },
     "0x8743ddce": {
+        "name": "Undefined",
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
+    },
+    "0x09152677": {
+        "name": "Undefined",
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
+    },
+    "0x7184c692": {
         "name": "Undefined",
         "default": {
             "functionLabel": "DFK",
