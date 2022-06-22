@@ -1,7 +1,7 @@
 *.DS_Store
 /TransactionHistory/*
 /CSV Outputs/*
-./HistoryData/*
+/HistoryData/*
 /CoinGeckoHistoryData/*
 
 # Byte-compiled / optimized / DLL files
