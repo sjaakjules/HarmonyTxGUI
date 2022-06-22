@@ -274,14 +274,14 @@ def getTransferInfo(tx, oneAddress) -> dict:
             if log['address'] in HRC20Tokens:
                 tokenSym = HRC20Tokens[log['address']]['symbol']
                 if type(data) == float:
-                    data = data / \
-                        (10 ** HRC20Tokens[log['address']]['decimals'])
+                    data = data / (10 ** HRC20Tokens[log['address']]['decimals'])
                 elif type(data) == int:
-                    data = float(data) / (10 **
-                                          HRC20Tokens[log['address']]['decimals'])
+                    data = float(data) / (10 ** HRC20Tokens[log['address']]['decimals'])
             else:
                 'Log is not regestered HRC20 token'
                 #tokenSym = tokenSym[-4:]
+
+        
 
             myLog = 0
             for i, topic in enumerate(log['topics']):
@@ -310,7 +310,7 @@ def getTransferInfo(tx, oneAddress) -> dict:
                             isSent = False
                             theirStr = '0x' + log["topics"][1][-40:]
                     case '0x7fcf532c15f0a6db0bd6d0e038bea71d30d808c7d98cb3bf7268a95bf5081b65':
-                        #print('Withdrawl for me!')
+                        #print(f'Withdraw Me: {tokenSym} : {data} : {tx[C.T_TX_KEY]["ethHash"]}')
                         isTransfer = True
                         isSent = False
                         isUnknownTX = False
@@ -328,6 +328,18 @@ def getTransferInfo(tx, oneAddress) -> dict:
                         topicName = 'Withdrawal'
                         toStr = '0x' + myhexBase
                         fromStr = '0x' + theirHexBase
+                        theirStr = '0x' + theirHexBase
+                    case '0x1fec6dc81f140574bf43f6b1e420ae1dd47928b9d57db8cbd7b8611063b85ae5':
+                        isTransfer = True
+                        isSent = False
+                        isUnknownTX = False
+                        topicName = 'WAGMI Deposit'
+                        toStr = '0x' + myhexBase
+                        fromStr = '0x' + theirHexBase
+                        theirStr = '0x' + theirHexBase
+                        tokenSym = 'WAGMI'
+                        data = int(log['topics'][1], 16) / (10**9)  # 9 decimals for WAGMI contract
+                        #print(f'WAGMI: {tokenSym} : {data} : {tx[C.T_TX_KEY]["ethHash"]}')
 
             newTrade = {
                 C.TFT_FROM: fromStr,

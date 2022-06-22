@@ -2,6 +2,7 @@
 /TransactionHistory/*
 /CSV Outputs/*
 /HistoryData/*
+/CoinGeckoHistoryData/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

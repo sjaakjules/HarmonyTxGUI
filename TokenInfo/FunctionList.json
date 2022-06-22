@@ -34,7 +34,9 @@
         "Kitties",
         "LP Split",
         "LP Join",
-        "Donation"
+        "Donation",
+        "WAGMI Deposit",
+        "WAGMI Claim"
     ],
     "Koinly Labels": [
         "gift",
@@ -859,9 +861,9 @@
             "functionLabel": "LP Swap",
             "addressLabels": {
                 "one1mvcxg0r34j0zzgk2qdq76a7sn40en7fy7lytq4": "LP Swap",
-                "one1yqk9nr5n76wmuwj72urdlwzmm3vchvt0usdf3n": "WAGMI",
-                "one17su3rjze2vhr3jtfacd4nmk28hjkxrlrudf2e6": "WAGMI",
-                "one1t737eqp76mhwvjjjcyqlf75km5dsjwk8xseyhx": "WAGMI",
+                "one1yqk9nr5n76wmuwj72urdlwzmm3vchvt0usdf3n": "WAGMI Deposit",
+                "one17su3rjze2vhr3jtfacd4nmk28hjkxrlrudf2e6": "WAGMI Deposit",
+                "one1t737eqp76mhwvjjjcyqlf75km5dsjwk8xseyhx": "WAGMI Deposit",
                 "one1ztwxrar8rrwsp6vnmfuxtks4ar9hzvy5spxrfg": "LP Swap",
                 "one1vkl7a3hqv70ttyfmy5rr42ez3n9tgvtpan8t5e": "LP Swap",
                 "one1027x0jx5kfy28zcdc46kxqrrqyyvkj95qpu6ms": "LP Swap",
@@ -872,12 +874,12 @@
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
-            "functionLabel": null,
+            "functionLabel": "LP Swap",
             "addressLabels": {
                 "one1mvcxg0r34j0zzgk2qdq76a7sn40en7fy7lytq4": "LP Swap",
-                "one1yqk9nr5n76wmuwj72urdlwzmm3vchvt0usdf3n": "WAGMI",
-                "one17su3rjze2vhr3jtfacd4nmk28hjkxrlrudf2e6": "WAGMI",
-                "one1t737eqp76mhwvjjjcyqlf75km5dsjwk8xseyhx": "WAGMI"
+                "one1yqk9nr5n76wmuwj72urdlwzmm3vchvt0usdf3n": "WAGMI Deposit",
+                "one17su3rjze2vhr3jtfacd4nmk28hjkxrlrudf2e6": "WAGMI Deposit",
+                "one1t737eqp76mhwvjjjcyqlf75km5dsjwk8xseyhx": "WAGMI Deposit"
             },
             "transactionLabels": {}
         },
@@ -1602,12 +1604,12 @@
     "0x1feed31f": {
         "name": "Redeem",
         "default": {
-            "functionLabel": "WAGMI",
+            "functionLabel": "WAGMI Claim",
             "addressLabels": {},
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
-            "functionLabel": "WAGMI",
+            "functionLabel": "WAGMI Claim",
             "addressLabels": {},
             "transactionLabels": {}
         }
@@ -1816,12 +1818,12 @@
             }
         ],
         "default": {
-            "functionLabel": "WAGMI",
+            "functionLabel": "Transfer",
             "addressLabels": {},
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
-            "functionLabel": "WAGMI",
+            "functionLabel": "Transfer",
             "addressLabels": {},
             "transactionLabels": {}
         },

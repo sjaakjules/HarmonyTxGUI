@@ -33,6 +33,8 @@ C_COARSE_USD = "CoarseUSD"
 C_COARSE_AUD = "CoarseAUD"
 C_FINE_USD = "FineUSD"
 C_FINE_AUD = "FineAUD"
+C_SFINE_USD = "SuperFineUSD"
+C_SFINE_AUD = "SuperFineAUD"
 C_OLDTIME = "oldest"
 C_NEWTIME = "newest"
 

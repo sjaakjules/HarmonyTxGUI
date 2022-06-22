@@ -31,6 +31,7 @@ class KoinlyTrade():
     '''
 
     time: str
+    timeStamp: int
     sent: float = 0
     sentCoin: str = ''
 
@@ -46,14 +47,33 @@ class KoinlyTrade():
     label: str = ''
     notes: str = ''
     txHash: str
+    lpTokenList = []
 
     def __init__(self, timestamp: int, txHash: str) -> None:
         dTime = datetime.fromtimestamp(timestamp)
+        self.timeStamp = timestamp
         self.time = dTime.strftime("%Y-%m-%d %H:%M") + ' UTC'
         self.txHash = txHash
 
+    def tidyTokenNAme(self, tokenSym) -> str:
+        if tokenSym[:3] == 'bsc':
+            tokenSym = tokenSym[3:]
+        if tokenSym[:4] == '1USD':
+            tokenSym = tokenSym[1:]
+        if tokenSym[:3] == 'DFK' or tokenSym[:2] == '0x':
+            if tokenSym not in self.lpTokenList:
+                self.lpTokenList.append(str(tokenSym))
+
+            for i, sym in enumerate(self.lpTokenList):
+                if tokenSym == sym:
+                    tokenSym = 'NULL' + str(i+1)
+                    break
+            #tokenSym = 'NULL' + str(count)
+
+        return tokenSym
+
     def UpdateTrade(self, trade):
-        'Updates sent / received and notes.'
+        'Updates sent / received and value.'
         if trade[C.TFT_SENTAMOOUNT] != '':
             self.sent = trade[C.TFT_SENTAMOOUNT]
             self.sentCoin = trade[C.TFT_SENTTOKEN]
@@ -63,7 +83,7 @@ class KoinlyTrade():
         else:
             self.value = trade[C.TFT_TAMOUNT]
             self.valueCoin = trade[C.TFT_TNAME]
-        self.notes += f'{trade[C.TFT_CSVLABEL]} {trade[C.TFT_TOPIC]} {trade[C.TFT_THEIR]}'
+        #self.notes += f'{trade[C.TFT_CSVLABEL]} {trade[C.TFT_TOPIC]} {trade[C.TFT_THEIR]}'
 
     def KoinlyString(self) -> str:
         'Date,Sent Amount,Sent Currency,Received Amount,Received Currency,Fee Amount,Fee Currency,Net Worth Amount,Net Worth Currency,Label,Description,TxHash\n'
@@ -73,12 +93,12 @@ class KoinlyTrade():
         else:
             msgOut = self.time + ','
             if self.sent != 0:
-                msgOut += f'{self.sent},{self.sentCoin},'
+                msgOut += f'{self.sent},{self.tidyTokenNAme(self.sentCoin)},'
             else:
                 msgOut += ',,'
 
             if self.received != 0:
-                msgOut += f'{self.received},{self.receivedCoin},'
+                msgOut += f'{self.received},{self.tidyTokenNAme(self.receivedCoin)},'
             else:
                 msgOut += ',,'
 
@@ -119,7 +139,50 @@ class KoinlyProcessor():
         self.marketData = self.getCoinGeckoHistory(self.tokenBook)
 
         self.ProcessTransactions()
-    
+
+    def getSuperFineGeckoID(self, cg, tokenBook, contract,timestampOldest,timestampNewest):
+        tsFin = timestampNewest
+        tsStart = timestampNewest - int(23.9*60*60)
+
+        time.sleep(2)
+        FinehistoryDataUS = cg.get_coin_market_chart_range_by_id(
+            tokenBook[contract][C.CG_ID],  'usd', str(tsStart), str(tsFin))
+
+        time.sleep(2)
+        FinehistoryDataAU = cg.get_coin_market_chart_range_by_id(
+            tokenBook[contract][C.CG_ID],  'aud', str(tsStart), str(tsFin))
+
+        tsFin = tsStart
+        tsStart = tsFin - int(23.9*60*60)
+
+        while tsFin > timestampOldest:
+            time.sleep(2)
+            FinehistoryDataUS_new = cg.get_coin_market_chart_range_by_id(
+                tokenBook[contract][C.CG_ID],  'usd', str(tsStart), str(tsFin))
+
+            FinehistoryDataUS["prices"].extend(
+                FinehistoryDataUS_new["prices"])
+            FinehistoryDataUS["market_caps"].extend(
+                FinehistoryDataUS_new["market_caps"])
+            FinehistoryDataUS["total_volumes"].extend(
+                FinehistoryDataUS_new["total_volumes"])
+
+            time.sleep(2)
+            FinehistoryDataAU_new = cg.get_coin_market_chart_range_by_id(
+                tokenBook[contract][C.CG_ID],  'aud', str(tsStart), str(tsFin))
+
+            FinehistoryDataAU["prices"].extend(
+                FinehistoryDataAU_new["prices"])
+            FinehistoryDataAU["market_caps"].extend(
+                FinehistoryDataAU_new["market_caps"])
+            FinehistoryDataAU["total_volumes"].extend(
+                FinehistoryDataAU_new["total_volumes"])
+
+            tsFin = tsStart
+            tsStart = tsFin - int(23.9*60*60)
+
+        return (FinehistoryDataUS,FinehistoryDataAU)
+
     def getFineGeckoID(self, cg, tokenBook, contract,timestampOldest,timestampNewest):
         tsFin = timestampNewest
         tsStart = timestampNewest - 89*24*60*60
@@ -200,6 +263,69 @@ class KoinlyProcessor():
 
         return (FinehistoryDataUS,FinehistoryDataAU)
 
+    def getSuperFineHistory(self, contract, tokenBook):
+        cg = CoinGeckoAPI()
+
+        timestampNow = int(time.time())
+        dateTimeStart = datetime(2021, 1, 1)
+        timestamp = dateTimeStart.replace(
+            tzinfo=timezone.utc).timestamp()
+        timestampStart = int(timestamp)
+        maxAttempts = 10
+        attempts = 0
+        while attempts < maxAttempts:
+            try:
+                coinBase = f'./HistoryData/{contract}'
+                coinPath = coinBase + '.json'
+                if (C.CG_ISONLINE in tokenBook[contract] and tokenBook[contract][C.CG_ISONLINE]):
+                    'Check api to update info.'
+                    print(f'{attempts}: Checking {tokenBook[contract][C.CG_NAME]} : {contract}')
+
+                    if(os.path.exists(coinPath)):
+                        print(f"\tHave data on file.")
+                        with open(coinPath, 'r') as f:
+                            CoinInfo = json.loads(f.read())
+
+                            if C.C_SFINE_USD not in CoinInfo:
+                                (FinehistoryDataUS_new,FinehistoryDataAU_new)= self.getSuperFineGeckoID(cg, tokenBook, contract,timestampStart,timestampNow)
+
+                                FinehistoryDataUS_new["prices"] = sorted(FinehistoryDataUS_new["prices"])
+                                FinehistoryDataUS_new["market_caps"] = sorted(FinehistoryDataUS_new["market_caps"])
+                                FinehistoryDataUS_new["total_volumes"] = sorted(FinehistoryDataUS_new["total_volumes"])
+
+                                FinehistoryDataAU_new["prices"] = sorted(FinehistoryDataAU_new["prices"])
+                                FinehistoryDataAU_new["market_caps"] = sorted(FinehistoryDataAU_new["market_caps"])
+                                FinehistoryDataAU_new["total_volumes"] = sorted(FinehistoryDataAU_new["total_volumes"])
+
+                                CoinInfo.update({C.C_SFINE_USD:FinehistoryDataUS_new})
+                                CoinInfo.update({C.C_SFINE_AUD:FinehistoryDataAU_new})
+
+                                with open(coinPath, 'w') as f:
+                                    json.dump(CoinInfo, f,ensure_ascii=False, indent=4)
+
+                                print("Added Superfine Data")
+                            else:
+                                'has Superfine data. update that shit!'
+                            
+            except Exception as e:
+                if e.__context__ is None and '429' in e.__str__():
+                    delay = 5
+                    print(f'Too many request! will pause for {delay} seconds.')
+                    attempts += 1
+                    time.sleep(delay)
+                elif '404' in e.__context__.__str__():
+                    print('Could not find in CoinGecko API')
+                    if tokenBook[contract][C.CG_ISONLINE]:
+                        tokenBook[contract][C.CG_ISONLINE] = False
+                    attempts = maxAttempts
+                else:
+                    print('String" ', e.__str__())
+                    print('Type" ', sys.exc_info()[0])
+                    print('Context: ', e.__context__)
+                    print('Value" ', sys.exc_info()[1])
+                    print('Trace" ', sys.exc_info()[2])
+
+
     def getCoinGeckoHistory(self, tokenBook) -> dict:
         cg = CoinGeckoAPI()
 
@@ -268,7 +394,7 @@ class KoinlyProcessor():
                                 marketData.update({coinBase: coinsInfo})
                             else:
                                 'Has market data file!'
-                                print(f"Have data on file.")
+                                print(f"\tHave data on file.")
                                 with open(coinPath, 'r') as f:
                                     marketData.update({coinBase: json.loads(f.read())})
                              
@@ -288,6 +414,7 @@ class KoinlyProcessor():
                                     marketData[coinBase][C.C_FINE_AUD]["prices"].extend(FinehistoryDataAU_new["prices"])
                                     marketData[coinBase][C.C_FINE_AUD]["market_caps"].extend(FinehistoryDataAU_new["market_caps"])
                                     marketData[coinBase][C.C_FINE_AUD]["total_volumes"].extend(FinehistoryDataAU_new["total_volumes"])
+                                    marketData[coinBase][C.C_NEWTIME] = timestampNow
                                     haveAdded = True
                                     print(f"\tCaught up to today. Added {timeTillNow/(60*60)} hrs.")
 
@@ -302,6 +429,7 @@ class KoinlyProcessor():
                                     marketData[coinBase][C.C_FINE_AUD]["prices"].extend(FinehistoryDataAU_new["prices"])
                                     marketData[coinBase][C.C_FINE_AUD]["market_caps"].extend(FinehistoryDataAU_new["market_caps"])
                                     marketData[coinBase][C.C_FINE_AUD]["total_volumes"].extend(FinehistoryDataAU_new["total_volumes"])
+                                    marketData[coinBase][C.C_OLDTIME] = timestampStart
                                     haveAdded = True
                                     print(f"\tCaught up to {dateTimeStart.strftime('%Y-%m-%d %H:%M:%s')}. Added {timeTillStart/(60*60)} hrs.")
 
@@ -375,7 +503,6 @@ class KoinlyProcessor():
                                     marketData[coinBase][C.C_FINE_AUD]["prices"].extend(FinehistoryDataAU_new["prices"])
                                     marketData[coinBase][C.C_FINE_AUD]["market_caps"].extend(FinehistoryDataAU_new["market_caps"])
                                     marketData[coinBase][C.C_FINE_AUD]["total_volumes"].extend(FinehistoryDataAU_new["total_volumes"])
-
                                     marketData[coinBase][C.C_NEWTIME] = timestampNow
                                     haveAdded = True
                                     print(f"\tCaught up to today. Added {timeTillNow/(60*60)} hrs.")
@@ -392,11 +519,9 @@ class KoinlyProcessor():
                                     marketData[coinBase][C.C_FINE_AUD]["prices"].extend(FinehistoryDataAU_new["prices"])
                                     marketData[coinBase][C.C_FINE_AUD]["market_caps"].extend(FinehistoryDataAU_new["market_caps"])
                                     marketData[coinBase][C.C_FINE_AUD]["total_volumes"].extend(FinehistoryDataAU_new["total_volumes"])
-                                    marketData[coinBase][C.C_OLDTIME] = timeTillStart
+                                    marketData[coinBase][C.C_OLDTIME] = timestampStart
                                     haveAdded = True
                                     print(f"\tCaught up to {dateTimeStart.strftime('%Y-%m-%d %H:%M')}. Added {timeTillStart/(60*60)} hrs.")
-
-
 
                         if C.C_OLDTIME not in marketData[coinBase]:
                             marketData[coinBase].update({C.C_OLDTIME : timestampStart})
@@ -444,6 +569,9 @@ class KoinlyProcessor():
                         print('Context: ', e.__context__)
                         print('Value" ', sys.exc_info()[1])
                         print('Trace" ', sys.exc_info()[2])
+
+            if contract == "0xcf664087a5bb0237a0bad6742852ec6c8d69a27a":
+                'self.getSuperFineHistory(contract, tokenBook)'
 
         with open(C.CG_CONTRACTPATH, 'w') as f:
             json.dump(tokenBook, f, ensure_ascii=False, indent=4)
@@ -505,7 +633,91 @@ class KoinlyProcessor():
 
         return tokenBook
 
-    def makeCSV(self, processedTxs):
+    def processWAGMI(self,tades: List[KoinlyTrade]):
+        newlist = sorted(tades, key=lambda d: d.timeStamp) 
+        runningWagmi = 0
+        newTrades = []
+        for trade in newlist:
+            if runningWagmi < (1 * (10 ** -9)):
+                runningWagmi = 0
+
+            if 'deposit' in trade.label:
+                runningWagmi += trade.received
+                trade.label = ''
+            elif 'reward' in trade.label:
+                if (runningWagmi + 1 * 10 ** -9) >= trade.received:
+                    trade.sent = trade.received
+                    trade.sentCoin = "WAGMI"
+                    trade.label = ''
+                    runningWagmi -= trade.received
+                        
+                elif runningWagmi != 0:
+                    trade.sent = runningWagmi
+                    trade.sentCoin = "WAGMI"
+                    newTrade = KoinlyTrade(trade.timeStamp,trade.txHash)
+                    newTrade.received = trade.received - runningWagmi
+                    newTrade.receivedCoin = trade.receivedCoin
+                    newTrade.label = 'reward'
+                    newTrades.append(newTrade)
+
+                    trade.received = runningWagmi
+                    trade.label = ''
+                    runningWagmi = 0
+
+            
+        
+        newlist.extend(newTrades)
+        return newlist
+
+    def getKoinlyTrade(self, tr, timestamp, txHash) -> KoinlyTrade:
+        if len(tr[C.TF_SORTTRADES]) == 1:
+            jTrade = tr[C.TF_SORTTRADES][0]
+            trade = KoinlyTrade(int(timestamp), txHash)
+            trade.UpdateTrade(jTrade)
+
+            
+            price = self.getPrice(self.marketData, jTrade[C.TFT_TCONT],self.tokenBook, timestamp*1000)
+
+            trade.notes += f"| ${price[1]*jTrade[C.TFT_TAMOUNT]} | Matched: {str(price[2])[:-3]} Real: {timestamp} "
+
+            if trade.value == 0:
+                if price[1] != 0:
+                    if jTrade[C.TFT_SENTAMOOUNT] != '':
+                        trade.value = price[1] * jTrade[C.TFT_SENTAMOOUNT]
+                    else:
+                        trade.value = price[1] * jTrade[C.TFT_RECAMOUNT]
+
+                    trade.valueCoin = 'AUD'
+
+            return trade
+        elif len(tr[C.TF_SORTTRADES]) == 2:
+            trade = KoinlyTrade(int(timestamp), txHash)
+            for jTrade in tr[C.TF_SORTTRADES]:
+                trade.UpdateTrade(jTrade)
+                trade.fee = tr[C.TF_GAS]
+                trade.feeCoin = "ONE"
+
+                price = self.getPrice(self.marketData, jTrade[C.TFT_TCONT],self.tokenBook, timestamp*1000)
+
+                trade.notes += f"{jTrade[C.TFT_TOPIC]}| ${price[1]*jTrade[C.TFT_TAMOUNT]} | Matched: {str(price[2])[:-3]} Real: {timestamp} "
+
+                if trade.value == 0:
+                    if price[1] != 0:
+                        if jTrade[C.TFT_SENTAMOOUNT] != '':
+                            trade.value = price[1] * jTrade[C.TFT_SENTAMOOUNT]
+                        else:
+                            trade.value = price[1] * jTrade[C.TFT_RECAMOUNT]
+
+                        trade.valueCoin = 'AUD'
+            return trade
+        else:
+            #print(f'Koinly {tr[C.TF_FUNCLABEL]}: Length {len(tr[C.TF_SORTTRADES])}. Tx: {txHash}')
+            for jTrade in tr[C.TF_SORTTRADES]:
+                print(f'\t{jTrade[C.TFT_RECAMOUNT]} {jTrade[C.TFT_SENTAMOOUNT]} {jTrade[C.TFT_TNAME]}')
+
+
+
+    def makeCSV(self, processedTxs,addon):
 
         koinlyCSV = 'Date,Sent Amount,Sent Currency,Received Amount,Received Currency,Fee Amount,Fee Currency,Net Worth Amount,Net Worth Currency,Label,Description,TxHash\n'
 
@@ -513,7 +725,7 @@ class KoinlyProcessor():
         for tx in processedTxs:
             koinlyCSV += tx.KoinlyString()
 
-        with open(f'./CSV Outputs/testKoinly_{self.oneAddress}.csv', 'w') as f:
+        with open(f'./CSV Outputs/testKoinly_{addon}{self.oneAddress}.csv', 'w') as f:
             f.write(koinlyCSV)
 
     def ProcessTransactions(self) -> list:
@@ -529,6 +741,7 @@ class KoinlyProcessor():
         '''
         unprocessedNotification = []
         transactionInfo: List[KoinlyTrade] = []
+        wagamiInfo: List[KoinlyTrade] = []
         for i, txHash in enumerate(self.allTransactions[C.TRANSACTIONS_KEY]):
             tx = self.allTransactions[C.TRANSACTIONS_KEY][txHash]
 
@@ -545,7 +758,7 @@ class KoinlyProcessor():
                         for rewardName in rewards:
                             trade = KoinlyTrade(
                                 int(tx[C.T_TX_KEY]['timestamp']), txHash)
-                            trade.label = 'airdrop'
+                            trade.label = 'realized gain'
                             trade.notes = f"{rewards[rewardName][C.TFT_TCONT]} {rewards[rewardName]['price'][2]}"
                             if rewards[rewardName]['price'][1] != 0:
                                 trade.value = rewards[rewardName]['price'][1]
@@ -570,8 +783,10 @@ class KoinlyProcessor():
                             trade.UpdateTrade(lp)
                             if trade.sent == 0:
                                 trade.receivedCoin = lp[C.TFT_TCONT]
+                                trade.label = 'unstake'   
                             else:
                                 trade.sentCoin = lp[C.TFT_TCONT]
+                                trade.label = 'stake'
                             transactionInfo.append(trade)
 
                     elif 'Split' in tr[C.TF_FUNCLABEL]:
@@ -591,9 +806,9 @@ class KoinlyProcessor():
                                     trades[count].fee = tr[C.TF_GAS]/2
                                     trades[count].feeCoin = "ONE"
 
-                                    price = self.getPrice(self.marketData, jTrade[C.TFT_TCONT], tx[C.T_TX_KEY]['timestamp']*1000)
+                                    price = self.getPrice(self.marketData, jTrade[C.TFT_TCONT], self.tokenBook,tx[C.T_TX_KEY]['timestamp']*1000)
 
-                                    trades[count].notes = f"${price[1]*jTrade[C.TFT_TAMOUNT]} ${price[1]} AUD at {price[2]/1000} at {tx[C.T_TX_KEY]['timestamp']}"
+                                    trades[count].notes = f"| ${price[1]*jTrade[C.TFT_TAMOUNT]} | Matched: {str(price[2])[:-3]} Real: {tx[C.T_TX_KEY]['timestamp']} "
 
                                     if trades[count].value == 0:
                                         if price[1] != 0:
@@ -604,7 +819,7 @@ class KoinlyProcessor():
                             transactionInfo.append(trades[0])
                             transactionInfo.append(trades[1])
                         else:    
-                            print(f'{tr[C.TF_FUNCLABEL]}: Length {len(tr[C.TF_SORTTRADES])}. Tx: {txHash}')
+                            print(f'Split {tr[C.TF_FUNCLABEL]}: Length {len(tr[C.TF_SORTTRADES])}. Tx: {txHash}')
                             for jTrade in tr[C.TF_SORTTRADES]:
                                 print(f'\t{jTrade[C.TFT_RECAMOUNT]} {jTrade[C.TFT_SENTAMOOUNT]} {jTrade[C.TFT_TNAME]}')
 
@@ -628,10 +843,9 @@ class KoinlyProcessor():
                                     trades[count].fee = tr[C.TF_GAS]/2
                                     trades[count].feeCoin = "ONE"
 
-                                    price = self.getPrice(
-                                        self.marketData, jTrade[C.TFT_TCONT], tx[C.T_TX_KEY]['timestamp']*1000)
+                                    price = self.getPrice(self.marketData, jTrade[C.TFT_TCONT],self.tokenBook, tx[C.T_TX_KEY]['timestamp']*1000)
 
-                                    trades[count].notes = f"${price[1]*jTrade[C.TFT_TAMOUNT]} ${price[1]} AUD at {price[2]/1000} at {tx[C.T_TX_KEY]['timestamp']}"
+                                    trades[count].notes = f"| ${price[1]*jTrade[C.TFT_TAMOUNT]} | Matched: {str(price[2])[:-3]} Real: {tx[C.T_TX_KEY]['timestamp']} "
 
                                     if trades[count].value == 0:
                                         if price[1] != 0:
@@ -642,7 +856,7 @@ class KoinlyProcessor():
                             transactionInfo.append(trades[0])
                             transactionInfo.append(trades[1])
                         else:
-                            print(f'{tr[C.TF_FUNCLABEL]}: Length {len(tr[C.TF_SORTTRADES])}. Tx: {txHash}')
+                            print(f'Join {tr[C.TF_FUNCLABEL]}: Length {len(tr[C.TF_SORTTRADES])}. Tx: {txHash}')
                             for jTrade in tr[C.TF_SORTTRADES]:
                                 print(f'\t{jTrade[C.TFT_RECAMOUNT]} {jTrade[C.TFT_SENTAMOOUNT]} {jTrade[C.TFT_TNAME]}')
                     else:
@@ -654,7 +868,7 @@ class KoinlyProcessor():
                     for rewardName in rewards:
                         trade = KoinlyTrade(
                             int(tx[C.T_TX_KEY]['timestamp']), txHash)
-                        trade.label = 'airdrop'
+                        trade.label = 'realized gain'
                         trade.notes = f"{rewards[rewardName][C.TFT_TCONT]} at {rewards[rewardName]['price'][2]/1000} at {tx[C.T_TX_KEY]['timestamp']}"
                         if rewards[rewardName]['price'][1] != 0:
                             trade.value = rewards[rewardName]['price'][1]
@@ -682,43 +896,50 @@ class KoinlyProcessor():
                         (f'{tr[C.TF_FUNCLABEL]} label not processed.')
 
                 elif 'WAGMI' in tr[C.TF_FUNCLABEL]:
-                    if tr[C.TF_FUNCLABEL] not in unprocessedNotification:
-                        print((f'{tr[C.TF_FUNCLABEL]} label not processed.'))
-                        unprocessedNotification.append(tr[C.TF_FUNCLABEL])
-
-                    if 'Stake' in tr[C.TF_FUNCLABEL]:
-                        (f'{tr[C.TF_FUNCLABEL]} label not processed.')
-                    else:
-                        (f'{tr[C.TF_FUNCLABEL]} label not processed.')
-
-                elif 'Transfer' == tr[C.TF_FUNCLABEL]:
-                    if len(tr[C.TF_SORTTRADES]) == 1:
-                        jTrade = tr[C.TF_SORTTRADES][0]
-                        trade = KoinlyTrade(int(tx[C.T_TX_KEY]['timestamp']), txHash)
-                        trade.notes = f"Transfer {jTrade[C.TFT_TCONT]}"
-                        trade.UpdateTrade(jTrade)
-
-                        price = self.getPrice(self.marketData, jTrade[C.TFT_TCONT], tx[C.T_TX_KEY]['timestamp']*1000)
-
-                        trade.notes += f"${price[1]*jTrade[C.TFT_TAMOUNT]} ${price[1]} AUD at {price[2]/1000} at {tx[C.T_TX_KEY]['timestamp']}"
-
-                        if trade.value == 0:
-                            if price[1] != 0:
-                                if jTrade[C.TFT_SENTAMOOUNT] != '':
-                                    trade.value = price[1] * jTrade[C.TFT_SENTAMOOUNT]
-                                else:
-                                    trade.value = price[1] * jTrade[C.TFT_RECAMOUNT]
-
-                                trade.valueCoin = 'AUD'
-
-                        transactionInfo.append(trade)
-                    else:
-                        print(f'{tr[C.TF_FUNCLABEL]}: Length {len(tr[C.TF_SORTTRADES])}. Tx: {txHash}')
-                        for jTrade in tr[C.TF_SORTTRADES]:
-                            print(f'\t{jTrade[C.TFT_RECAMOUNT]} {jTrade[C.TFT_SENTAMOOUNT]} {jTrade[C.TFT_TNAME]}')
-
+                    if 'Deposit' in tr[C.TF_FUNCLABEL]:
+                        tradeOut = self.getKoinlyTrade(tr, tx[C.T_TX_KEY]['timestamp'], txHash)
+                        tradeOut.label = 'deposit'
+                    if 'Claim' in tr[C.TF_FUNCLABEL]:
+                        tradeOut = self.getKoinlyTrade(tr, tx[C.T_TX_KEY]['timestamp'], txHash)
+                        tradeOut.label = 'reward'
+                    if tradeOut is not None:
+                        wagamiInfo.append(tradeOut)
+                elif 'Transfer' in tr[C.TF_FUNCLABEL]:
+                    tradeOut = self.getKoinlyTrade(tr, tx[C.T_TX_KEY]['timestamp'], txHash)
+                    if tradeOut is not None:
+                        transactionInfo.append(tradeOut)
+                    #print("Got Transfer")
+                elif 'Trade' in tr[C.TF_FUNCLABEL]:
+                    tradeOut = self.getKoinlyTrade(tr, tx[C.T_TX_KEY]['timestamp'], txHash)
+                    if trade is not None:
+                        transactionInfo.append(tradeOut)
+                    #print("Got Trade")
                 else:
                     match tr[C.TF_FUNCLABEL]:
+                        case 'Transfer':
+                            if len(tr[C.TF_SORTTRADES]) == 1:
+                                jTrade = tr[C.TF_SORTTRADES][0]
+                                trade = KoinlyTrade(int(tx[C.T_TX_KEY]['timestamp']), txHash)
+                                trade.UpdateTrade(jTrade)
+
+                                price = self.getPrice(self.marketData, jTrade[C.TFT_TCONT],self.tokenBook, tx[C.T_TX_KEY]['timestamp']*1000)
+
+                                trade.notes += f"| ${price[1]*jTrade[C.TFT_TAMOUNT]} | Matched: {str(price[2])[:-3]} Real: {tx[C.T_TX_KEY]['timestamp']} "
+
+                                if trade.value == 0:
+                                    if price[1] != 0:
+                                        if jTrade[C.TFT_SENTAMOOUNT] != '':
+                                            trade.value = price[1] * jTrade[C.TFT_SENTAMOOUNT]
+                                        else:
+                                            trade.value = price[1] * jTrade[C.TFT_RECAMOUNT]
+
+                                        trade.valueCoin = 'AUD'
+                                if trade is not None:
+                                    transactionInfo.append(trade)
+                            else:
+                                print(f'Transfer {tr[C.TF_FUNCLABEL]}: Length {len(tr[C.TF_SORTTRADES])}. Tx: {txHash}')
+                                for jTrade in tr[C.TF_SORTTRADES]:
+                                    print(f'\t{jTrade[C.TFT_RECAMOUNT]} {jTrade[C.TFT_SENTAMOOUNT]} {jTrade[C.TFT_TNAME]}')
                         case "Trade":
                             if len(tr[C.TF_SORTTRADES]) == 2:
                                 trade = KoinlyTrade(int(tx[C.T_TX_KEY]['timestamp']), txHash)
@@ -727,9 +948,9 @@ class KoinlyProcessor():
                                     trade.fee = tr[C.TF_GAS]
                                     trade.feeCoin = "ONE"
 
-                                    price = self.getPrice(self.marketData, jTrade[C.TFT_TCONT], tx[C.T_TX_KEY]['timestamp']*1000)
+                                    price = self.getPrice(self.marketData, jTrade[C.TFT_TCONT],self.tokenBook, tx[C.T_TX_KEY]['timestamp']*1000)
 
-                                    trade.notes += f"${price[1]*jTrade[C.TFT_TAMOUNT]} ${price[1]} AUD at {price[2]/1000} at {tx[C.T_TX_KEY]['timestamp']}"
+                                    trade.notes += f"| ${price[1]*jTrade[C.TFT_TAMOUNT]} | Matched: {str(price[2])[:-3]} Real: {tx[C.T_TX_KEY]['timestamp']} "
 
                                     if trade.value == 0:
                                         if price[1] != 0:
@@ -739,9 +960,10 @@ class KoinlyProcessor():
                                                 trade.value = price[1] * jTrade[C.TFT_RECAMOUNT]
 
                                             trade.valueCoin = 'AUD'
-                                transactionInfo.append(trade)
+                                if trade is not None:
+                                    transactionInfo.append(trade)
                             else:
-                                print(f'{tr[C.TF_FUNCLABEL]}: Length {len(tr[C.TF_SORTTRADES])}. Tx: {txHash}')
+                                print(f'Trade {tr[C.TF_FUNCLABEL]}: Length {len(tr[C.TF_SORTTRADES])}. Tx: {txHash}')
                                 for jTrade in tr[C.TF_SORTTRADES]:
                                     print(f'\t{jTrade[C.TFT_RECAMOUNT]} {jTrade[C.TFT_SENTAMOOUNT]} {jTrade[C.TFT_TNAME]}')
                         case "Donation":
@@ -752,7 +974,7 @@ class KoinlyProcessor():
                                 trade.label = 'gift'
                                 trade.UpdateTrade(jTrade)
 
-                                price = self.getPrice(self.marketData, jTrade[C.TFT_TCONT], tx[C.T_TX_KEY]['timestamp']*1000)
+                                price = self.getPrice(self.marketData, jTrade[C.TFT_TCONT],self.tokenBook, tx[C.T_TX_KEY]['timestamp']*1000)
 
                                 trade.notes += f"${price[1]} AUD at {price[2]/1000} at {tx[C.T_TX_KEY]['timestamp']}"
 
@@ -769,7 +991,7 @@ class KoinlyProcessor():
                             else:
                                 print(f'{tr[C.TF_FUNCLABEL]}: Length {len(tr[C.TF_SORTTRADES])}. Tx: {txHash}')
                                 for jTrade in tr[C.TF_SORTTRADES]:
-                                    print(f'\t{jTrade[C.TFT_RECAMOUNT]} {jTrade[C.TFT_SENTAMOOUNT]} {jTrade[C.TFT_TNAME]}')
+                                    print(f'Donation \t{jTrade[C.TFT_RECAMOUNT]} {jTrade[C.TFT_SENTAMOOUNT]} {jTrade[C.TFT_TNAME]}')
 
                         case "Frey":
                             if tr[C.TF_FUNCLABEL] not in unprocessedNotification:
@@ -802,7 +1024,10 @@ class KoinlyProcessor():
             dTime = datetime.fromtimestamp(float(it["timeStamp"])/1000)
             mTime = datetime.fromtimestamp(float(it["matched"])/1000)
             print(f'\tNeed {it["time"]/(1000*60*60):0.2f} hrs earlier -- {it["symbol"]} -- Have {mTime.strftime("%Y-%m-%d %H:%M")} not {dTime.strftime("%Y-%m-%d %H:%M")} : {it["contract"]}')
-        self.makeCSV(transactionInfo)
+
+        transactionInfo.extend(self.processWAGMI(wagamiInfo))
+        self.makeCSV(transactionInfo,'')
+        self.makeCSV(wagamiInfo,'WAGMI')
 
     def sumRewards(self, transactions, timestamp) -> tuple[dict, list]:
         rewards = {}
@@ -810,8 +1035,7 @@ class KoinlyProcessor():
         for trade in transactions:
             'get the name, get the amount'
 
-            price = self.getPrice(
-                self.marketData, trade[C.TFT_TCONT], timestamp)
+            price = self.getPrice(self.marketData, trade[C.TFT_TCONT],self.tokenBook, timestamp)
 
             name = trade[C.TFT_RECTOKEN]
             amount = trade[C.TFT_RECAMOUNT]
@@ -834,7 +1058,9 @@ class KoinlyProcessor():
 
         return (rewards, LPs)
 
-    def getPrice(self, historyData, contract, timestamp):
+    def getPrice(self, historyData, contract, contractBook, timestamp):
+        if contract in contractBook and contractBook[contract][C.CG_CONTRACT] != contract:
+            contract = contractBook[contract][C.CG_CONTRACT]
         if contract in historyData:
             matchedTime = historyData[contract]['FineUSD']['prices'][-1][0]
             USprice = historyData[contract]['FineUSD']['prices'][-1][1]
@@ -872,4 +1098,5 @@ class KoinlyProcessor():
             return(0, 0, timestamp)
 
 
-KoinlyProcessor('0xf9358cc0b2a2b8f20da1edd5d385e2d59a5370e3')
+#KoinlyProcessor('0xf9358cc0b2a2b8f20da1edd5d385e2d59a5370e3')
+KoinlyProcessor('one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3')
