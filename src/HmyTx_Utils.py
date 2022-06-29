@@ -325,6 +325,7 @@ def getTransferInfo(tx, oneAddress) -> dict:
                         # print('Withdrawl!')
                         isTransfer = True
                         isSent = False
+                        isUnknownTX = False
                         topicName = 'Withdrawal'
                         toStr = '0x' + myhexBase
                         fromStr = '0x' + theirHexBase
@@ -632,31 +633,39 @@ def getTransferInfoDisplay(tx, oneAddress):
 
 
 def getHRC20Count(oneAddy) -> int:
+    HRC20Counter = []
+    attempts = 10
+    count = 0
+    limit = 2500
+    offset = 0
+    while count < attempts:
+        try:
+            i = 0
+            while True:
+                i +=1
+                print(f'Attempt {i}')
+                url = f'{C.ENDPOINT}shard/0/address/{convert_one_to_hex(oneAddy).lower()}/transactions/type/erc20?offset={offset}&limit={limit}'
+                response = requests.get(url)
+                jsonResponse = []
+                if response.status_code == 200:
+                    jsonResponse = json.loads(response.text)
+                    HRC20Counter.extend(jsonResponse)
+                    offset += limit
+                else:
+                    print(f'Error. Status code: {response.status_code}')
+                    break
 
-    try:
-        HRC20Counter = []
-        url = C.ENDPOINT + 'shard/0/address/' + convert_one_to_hex(
-            oneAddy).lower() + '/transactions/type/erc20?offset=0&limit='+str(5000)
-        response = requests.get(url)
-        jsonResponse = json.loads(response.text)
-        if response.status_code == 200:
-            # print(f'Bucket {i}: Found {len(jsonResponse)} new transactions. Total {len(hrc20Ts)}')
-            HRC20Counter.extend(jsonResponse)
-        else:
+                if len(jsonResponse) != limit:
+                    count = attempts
+                    break
+
+        except BaseException as err:
             print(f'Error getting count. Status code: {response.status_code}')
+            print(f"{count}: Writing Log Unexpected {err=}, {type(err)=}\n\t{err.with_traceback}")
+        count += 1
 
-        while (response.status_code == 200 and len(jsonResponse) == 5000):
-            i += 1
-            url = C.ENDPOINT + 'shard/0/address/' + convert_one_to_hex(
-                oneAddy).lower() + '/transactions/type/erc20?offset='+str(5000*i)+'&limit='+str(5000)
-            response = requests.get(url)
-            jsonResponse = json.loads(response.text)
-            HRC20Counter.extend(jsonResponse)
-
-        print(f'Expecting {len(HRC20Counter)} HRC20 transactions.')
-        return len(HRC20Counter)
-    except:
-        return 0
+    print(f'Expecting {len(HRC20Counter)} HRC20 transactions.')
+    return len(HRC20Counter)
 
 
 def MakeFunctionList(outputFile, MetaMAskLogs):
@@ -729,16 +738,21 @@ def writeAllTokensToFile(filePath) -> dict:
     url = C.ENDPOINT + 'erc20/'
     response = requests.get(url)
     processedTokens = {}
-    RawTokens = json.loads(response.text)
-    for token in RawTokens:
-        processedTokens.update({token["address"]: token})
+    print(response.text)
+    if response.status_code == 200:
+        RawTokens = json.loads(response.text)
+        for token in RawTokens:
+            processedTokens.update({token["address"]: token})
 
-    with open(filePath, 'w', encoding='utf-8') as f:
-        f.write(json.dumps(processedTokens, ensure_ascii=False, indent=4))
+        with open(filePath, 'w', encoding='utf-8') as f:
+            f.write(json.dumps(processedTokens, ensure_ascii=False, indent=4))
 
+    else:
+        with open(filePath, 'r', encoding='utf-8') as f:
+            processedTokens = json.loads(f.read())
+        
     HRC20Tokens = processedTokens
     return processedTokens
-
 
 def LoadABI(filePath) -> str:
     '''

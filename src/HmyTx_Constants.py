@@ -6,6 +6,7 @@ TXOUTPATH = './TransactionHistory/'
 
 TRANSACTIONS_KEY = 'transactions'
 COUNTS_KEY = 'counts'
+TXLIST = 'txList'
 
 ADDRESSBOOKPATH = './TokenInfo/AddressBook.json'
 AB_ONE = 'one'
@@ -106,6 +107,7 @@ TESTNET1 = 'https://api.s1.b.hmny.io'
 TESTADDRESS = 'one18t4yj4fuutj83uwqckkvxp9gfa0568uc48ggj7'
 
 MAINNET0 = 'https://rpc.s0.t.hmny.io'
+MAINNET0B = 'https://a.api.s0.t.hmny.io'#'https://rpc.s0.t.hmny.io'
 MAINNET1 = 'https://rpc.s1.t.hmny.io'
 MAINNET2 = 'https://a.api.s0.t.hmny.io'
 ENDPOINT = 'https://explorer-v2-api.hmny.io/v0/'

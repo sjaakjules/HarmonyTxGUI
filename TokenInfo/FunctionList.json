@@ -122,6 +122,16 @@
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1nzvl9a558tp54qw773xs6yeutkshqg3my5mksz": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1vzw8vmjeplfcjf8w0fdlkt6g26et4tj462sn4n": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0x096c5e1a": {
@@ -233,6 +243,11 @@
             "functionLabel": "Trade",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1nzvl9a558tp54qw773xs6yeutkshqg3my5mksz": {
+            "functionLabel": "Trade",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0x1efedbe5": {
@@ -341,6 +356,16 @@
             "transactionLabels": {}
         },
         "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "Trade",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1nzvl9a558tp54qw773xs6yeutkshqg3my5mksz": {
+            "functionLabel": "Trade",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1vzw8vmjeplfcjf8w0fdlkt6g26et4tj462sn4n": {
             "functionLabel": "Trade",
             "addressLabels": {},
             "transactionLabels": {}
@@ -728,6 +753,16 @@
             "functionLabel": "Trade",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1nzvl9a558tp54qw773xs6yeutkshqg3my5mksz": {
+            "functionLabel": "Trade",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1vzw8vmjeplfcjf8w0fdlkt6g26et4tj462sn4n": {
+            "functionLabel": "Trade",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0x839ed90a": {
@@ -890,6 +925,38 @@
                 "one1yqk9nr5n76wmuwj72urdlwzmm3vchvt0usdf3n": "WAGMI",
                 "one17su3rjze2vhr3jtfacd4nmk28hjkxrlrudf2e6": "WAGMI",
                 "one1t737eqp76mhwvjjjcyqlf75km5dsjwk8xseyhx": "WAGMI",
+                "one1ztwxrar8rrwsp6vnmfuxtks4ar9hzvy5spxrfg": "LP Swap",
+                "one1vkl7a3hqv70ttyfmy5rr42ez3n9tgvtpan8t5e": "LP Swap",
+                "one1027x0jx5kfy28zcdc46kxqrrqyyvkj95qpu6ms": "LP Swap",
+                "one1vld97tl6mhlsv74e6hczt7ypqc6dss5870za8w": "LP Swap",
+                "one172n4j7cu2ava9rax5c0wn4k3snwgvymdafdnfa": "LP Swap",
+                "one19nkser56j9xd53atcmlld70vhrwq34gpr72wp9": "LP Swap"
+            },
+            "transactionLabels": {}
+        },
+        "one1nzvl9a558tp54qw773xs6yeutkshqg3my5mksz": {
+            "functionLabel": "LP Swap",
+            "addressLabels": {
+                "one1mvcxg0r34j0zzgk2qdq76a7sn40en7fy7lytq4": "LP Swap",
+                "one1yqk9nr5n76wmuwj72urdlwzmm3vchvt0usdf3n": "WAGMI Deposit",
+                "one17su3rjze2vhr3jtfacd4nmk28hjkxrlrudf2e6": "WAGMI Deposit",
+                "one1t737eqp76mhwvjjjcyqlf75km5dsjwk8xseyhx": "WAGMI Deposit",
+                "one1ztwxrar8rrwsp6vnmfuxtks4ar9hzvy5spxrfg": "LP Swap",
+                "one1vkl7a3hqv70ttyfmy5rr42ez3n9tgvtpan8t5e": "LP Swap",
+                "one1027x0jx5kfy28zcdc46kxqrrqyyvkj95qpu6ms": "LP Swap",
+                "one1vld97tl6mhlsv74e6hczt7ypqc6dss5870za8w": "LP Swap",
+                "one172n4j7cu2ava9rax5c0wn4k3snwgvymdafdnfa": "LP Swap",
+                "one19nkser56j9xd53atcmlld70vhrwq34gpr72wp9": "LP Swap"
+            },
+            "transactionLabels": {}
+        },
+        "one1vzw8vmjeplfcjf8w0fdlkt6g26et4tj462sn4n": {
+            "functionLabel": "LP Swap",
+            "addressLabels": {
+                "one1mvcxg0r34j0zzgk2qdq76a7sn40en7fy7lytq4": "LP Swap",
+                "one1yqk9nr5n76wmuwj72urdlwzmm3vchvt0usdf3n": "WAGMI Deposit",
+                "one17su3rjze2vhr3jtfacd4nmk28hjkxrlrudf2e6": "WAGMI Deposit",
+                "one1t737eqp76mhwvjjjcyqlf75km5dsjwk8xseyhx": "WAGMI Deposit",
                 "one1ztwxrar8rrwsp6vnmfuxtks4ar9hzvy5spxrfg": "LP Swap",
                 "one1vkl7a3hqv70ttyfmy5rr42ez3n9tgvtpan8t5e": "LP Swap",
                 "one1027x0jx5kfy28zcdc46kxqrrqyyvkj95qpu6ms": "LP Swap",
@@ -1599,6 +1666,16 @@
             "functionLabel": "Transfer",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1nzvl9a558tp54qw773xs6yeutkshqg3my5mksz": {
+            "functionLabel": "Transfer",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1vzw8vmjeplfcjf8w0fdlkt6g26et4tj462sn4n": {
+            "functionLabel": "Transfer",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0x1feed31f": {
@@ -1609,6 +1686,16 @@
             "transactionLabels": {}
         },
         "one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3": {
+            "functionLabel": "WAGMI Claim",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1nzvl9a558tp54qw773xs6yeutkshqg3my5mksz": {
+            "functionLabel": "WAGMI Claim",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1vzw8vmjeplfcjf8w0fdlkt6g26et4tj462sn4n": {
             "functionLabel": "WAGMI Claim",
             "addressLabels": {},
             "transactionLabels": {}
@@ -1641,6 +1728,16 @@
             "functionLabel": "WAGMI",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1nzvl9a558tp54qw773xs6yeutkshqg3my5mksz": {
+            "functionLabel": "WAGMI",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1vzw8vmjeplfcjf8w0fdlkt6g26et4tj462sn4n": {
+            "functionLabel": "WAGMI",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0x7acb7757": {
@@ -1670,6 +1767,11 @@
             "functionLabel": "WAGMI",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1vzw8vmjeplfcjf8w0fdlkt6g26et4tj462sn4n": {
+            "functionLabel": "WAGMI",
+            "addressLabels": {},
+            "transactionLabels": {}
         }
     },
     "0xbd3eaa6f": {
@@ -1685,6 +1787,11 @@
             "transactionLabels": {}
         },
         "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1vzw8vmjeplfcjf8w0fdlkt6g26et4tj462sn4n": {
             "functionLabel": "DFK",
             "addressLabels": {},
             "transactionLabels": {}
@@ -1712,10 +1819,36 @@
             "functionLabel": "Transfer",
             "addressLabels": {},
             "transactionLabels": {}
+        },
+        "one1nzvl9a558tp54qw773xs6yeutkshqg3my5mksz": {
+            "functionLabel": "Transfer",
+            "addressLabels": {
+                "one1phrcc7d5avyqat2ur5t9ty395344sp55z47nzp": "WAGMI",
+                "one1wt93p34l543ym5r77cyqyl3kd0tfqpy0eyd6n0": "DFK"
+            },
+            "transactionLabels": {}
+        },
+        "one1vzw8vmjeplfcjf8w0fdlkt6g26et4tj462sn4n": {
+            "functionLabel": "Transfer",
+            "addressLabels": {
+                "one1phrcc7d5avyqat2ur5t9ty395344sp55z47nzp": "WAGMI",
+                "one1wt93p34l543ym5r77cyqyl3kd0tfqpy0eyd6n0": "DFK"
+            },
+            "transactionLabels": {}
         }
     },
     "0x025e7c27": {
-        "name": "Undefined"
+        "name": "Undefined",
+        "default": {
+            "functionLabel": "Transfer",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1nzvl9a558tp54qw773xs6yeutkshqg3my5mksz": {
+            "functionLabel": "Transfer",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
     },
     "0x96b5a755": {
         "name": "DFK cancelAuction",
@@ -1828,7 +1961,7 @@
             "transactionLabels": {}
         },
         "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
-            "functionLabel": "WAGMI",
+            "functionLabel": "Transfer",
             "addressLabels": {},
             "transactionLabels": {}
         }
@@ -2600,6 +2733,19 @@
         }
     },
     "0x7184c692": {
+        "name": "Undefined",
+        "default": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        },
+        "one1ly6ces9j52u0yrdpah2a8p0z6kd9xu8rlmtayw": {
+            "functionLabel": "DFK",
+            "addressLabels": {},
+            "transactionLabels": {}
+        }
+    },
+    "0x8ea709f3": {
         "name": "Undefined",
         "default": {
             "functionLabel": "DFK",

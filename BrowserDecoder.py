@@ -6,6 +6,7 @@ import time
 import tkinter as tk
 import webbrowser
 from datetime import datetime, timezone
+from inspect import unwrap
 from tkinter import *
 from tkinter import filedialog, simpledialog, ttk
 from tkinter.messagebox import showinfo
@@ -43,6 +44,7 @@ needsFixing = {'0x18cbafe5': 'Not getting wONE. look in input string',
 
                '0xbcf64e05': 'wagmi burn ',
                '0xa0e3d1a0': 'wagmi burn ',
+               '0xde0e9a3e': 'Wagmi unwrap',
 
                '0x23b872dd': 'transfer with 4 inputs. small amoutn unknown...',
                '0x303e6aa4': 'Not sure what is converted. multiple tokens small ammounts...',
@@ -777,8 +779,7 @@ class transactionDownloader:
         self.GUI.addToText(
             f'\n------------------------------------------------\nDownloading receipts for each transaction within {self.oneAddress}.\n')
 
-        self.accountDetails = self.DecodeTransactions(
-            accountDetails=self.accountDetails, functionList=self.functionList, ABIs=None)
+        self.accountDetails = self.DecodeTransactions(accountDetails=self.accountDetails, functionList=self.functionList, ABIs=None)
 
         self.haveFile = True
         self.GUI.progressBar1.stop()
@@ -819,13 +820,31 @@ class transactionDownloader:
         onfileTXCount = 0
         onfileHRC20Count = 0
         fileTxs = {}
-        if C.COUNTS_KEY in accountInfoOut:
+        txList = []
+        hrc20List = []
+        if C.TXLIST in accountInfoOut:
+            txList = accountInfoOut[C.TXLIST][C.T_TX_KEY]
+            hrc20List = accountInfoOut[C.TXLIST][C.T_HRC20_KEY]
+            onfileTXCount = len(txList)
+            onfileHRC20Count = len(hrc20List)
+            fileTxs = accountInfoOut[C.TRANSACTIONS_KEY]
+        elif C.COUNTS_KEY in accountInfoOut:
+            accountInfoOut[C.TXLIST] = {}
             onfileTXCount = accountInfoOut[C.COUNTS_KEY][C.T_TX_KEY]
             onfileHRC20Count = accountInfoOut[C.COUNTS_KEY][C.T_HRC20_KEY]
             fileTxs = accountInfoOut[C.TRANSACTIONS_KEY]
         else:
-            accountInfoOut = {C.COUNTS_KEY: {
-                C.T_TX_KEY: 0, C.T_HRC20_KEY: 0, C.T_FUNCTION_KEY: [0, 0, 0], C.T_RECEIPT_KEY: [0, 0, 0], C.T_DECODED_KEY: [0, 0, 0], C.T_WEB_KEY: [0, 0, 0]}}
+            accountInfoOut = {C.COUNTS_KEY: 
+                                    {C.T_TX_KEY: 0, 
+                                    C.T_HRC20_KEY: 0, 
+                                    C.T_FUNCTION_KEY: [0, 0, 0], 
+                                    C.T_RECEIPT_KEY: [0, 0, 0], 
+                                    C.T_DECODED_KEY: [0, 0, 0], 
+                                    C.T_WEB_KEY: [0, 0, 0]},
+                                C.TXLIST:
+                                    {C.T_TX_KEY: [],
+                                    C.T_HRC20_KEY: []}
+                             }
 
         nAttempts = 10
         pageSize = 100
@@ -835,13 +854,20 @@ class transactionDownloader:
         noOnline = True
         while count < nAttempts and noOnline:
             try:
-                expectedTXs = (account.get_transactions_count(
-                    self.oneAddress, tx_type='ALL', endpoint=C.MAINNET0))
+                expectedTXs = (account.get_transactions_count(self.oneAddress, tx_type='ALL', endpoint=C.MAINNET0))
                 expectedHRC20s = HmyUtil.getHRC20Count(self.oneAddress)
                 noOnline = False
             except BaseException as err:
                 self.GUI.addToText(
                     f"Writing Log Unexpected {err=}, {type(err)=}\n\t{err.with_traceback}")
+        updateTXList = False
+        if len(txList) == 0:
+            updateTXList = True
+
+        updateHRC20List = False
+        if len(hrc20List) == 0:
+            updateHRC20List = True
+
 
         onFileHash = list(fileTxs.keys())
 
@@ -865,15 +891,14 @@ class transactionDownloader:
         newHRC20Count = 0
         skipptedHRC20Count = 0
 
-        if remainingTxCount <= 0 or noOnline:
+        if noOnline:
             'Have all transactions downloaded! can skip'
             skippedTxCount = onfileTXCount
             onFileHash = []
             # self.GUI.addToText(
             #    f"\nHave all transactions on file.\n\t {skippedTxCount + newTxCount}/{expectedTXs} transactions.\n")
         else:
-            self.GUI.progressBar2.grid(
-                column=0, row=4, columnspan=2, padx=10, pady=5)
+            self.GUI.progressBar2.grid(column=0, row=4, columnspan=2, padx=10, pady=5)
             countsTAble = [['Transactions', onfileTXCount, expectedTXs, remainingTxCount], [
                 'HRC20 Tokens', onfileHRC20Count, expectedHRC20s, remainingHRC20Count]]
 
@@ -891,10 +916,15 @@ class transactionDownloader:
                     break
                 try:
                     if txCount <= expectedTXs:
-                        newTxs = account.get_transaction_history(
-                            self.oneAddress, page=pageCount, page_size=pageSize, include_full_tx=True, tx_type='ALL', order='DESC', endpoint=C.MAINNET0)
+                        newTxs = account.get_transaction_history(self.oneAddress, page=pageCount, page_size=pageSize, 
+                                                    include_full_tx=True, tx_type='ALL', order='DESC', endpoint=C.MAINNET0)
 
                         for i, tx in enumerate(newTxs):
+                            if tx['ethHash'] not in txList:
+                                txList.append(tx['ethHash'])
+                            else:
+                                'transaction in list'
+
                             if tx['ethHash'] not in fileTxs:
                                 fileTxs[tx['ethHash']] = {C.T_TX_KEY: tx}
                                 newTxCount += 1
@@ -962,18 +992,22 @@ class transactionDownloader:
                                     f"\nPage {pageCount}/{maxpages}: Downloaded {HRC20Count}/{expectedHRC20s} HRC20 tokens. Added {newHRC20Count}/{remainingHRC20Count} HRC20 tokens. Total {len(fileTxs)} transactions.",
                                     GUI)"""
 
+                            if hrc20['ethHash'] not in hrc20List:
+                                hrc20List.append(hrc20['ethHash'])
+                            else:
+                                'transaction in list'
+
+                            if hrc20['ethHash'] in txList:
+                                print("Have HRC20 in transactions")
+
                             if hrc20['transactionHash'] not in fileTxs:
-                                tempTX = transaction.get_transaction_by_hash(
-                                    hrc20["transactionHash"], endpoint=C.MAINNET0)
+                                tempTX = transaction.get_transaction_by_hash(hrc20["transactionHash"], endpoint=C.MAINNET0)
                                 fileTxs[hrc20['transactionHash']] = {}
-                                fileTxs[hrc20['transactionHash']
-                                        ][C.T_TX_KEY] = tempTX
-                                fileTxs[hrc20['transactionHash']
-                                        ][C.T_HRC20_KEY] = hrc20
+                                fileTxs[hrc20['transactionHash']][C.T_TX_KEY] = tempTX
+                                fileTxs[hrc20['transactionHash']][C.T_HRC20_KEY] = hrc20
                                 newHRC20Count += 1
                             elif C.T_HRC20_KEY not in fileTxs[hrc20['transactionHash']]:
-                                fileTxs[hrc20['transactionHash']
-                                        ][C.T_HRC20_KEY] = hrc20
+                                fileTxs[hrc20['transactionHash']][C.T_HRC20_KEY] = hrc20
                                 newHRC20Count += 1
                             else:
                                 'HRC20 in file.'
@@ -998,17 +1032,16 @@ class transactionDownloader:
             # self.GUI.addToText(
             #    f"\nHRC20 transactions:\n\tDownloaded {HRC20Count}/{expectedHRC20s} HRC20 tokens.\n\tAdded {newHRC20Count}/{remainingHRC20Count} HRC20 tokens.\n\tTotal {skipptedHRC20Count + newHRC20Count}/{expectedHRC20s} HRC20 tokens.\nAll HRC20s Done!\n")
 
-        accountInfoOut[C.COUNTS_KEY][C.T_TX_KEY] = (
-            len(onFileHash) + skippedTxCount+newTxCount)
-        accountInfoOut[C.COUNTS_KEY][C.T_HRC20_KEY] = (
-            skipptedHRC20Count+newHRC20Count)
+        accountInfoOut[C.COUNTS_KEY][C.T_TX_KEY] = (skippedTxCount+newTxCount)
+        accountInfoOut[C.COUNTS_KEY][C.T_HRC20_KEY] = (skipptedHRC20Count+newHRC20Count)
         accountInfoOut[C.TRANSACTIONS_KEY] = fileTxs
+        accountInfoOut[C.TXLIST][C.T_TX_KEY] = txList
+        accountInfoOut[C.TXLIST][C.T_HRC20_KEY] = hrc20List
 
         with open(self.outputJSONFile, 'w', encoding='utf-8') as f:
             json.dump(accountInfoOut, f, ensure_ascii=False, indent=4)
 
-        headers = ['', 'On File', 'Online', 'New',
-                   'Added', 'Skipped', 'Remaining', 'Total']
+        headers = ['', 'On File', 'Online', 'New','Added', 'Skipped', 'Remaining', 'Total']
         counterDisplay = [['Transactions', onfileTXCount, expectedTXs, remainingTxCount, newTxCount, len(onFileHash) + skippedTxCount, duplicateCount-len(onFileHash), len(onFileHash) + skippedTxCount+newTxCount],
                           ['HRC20 Txs', onfileHRC20Count, expectedHRC20s, remainingHRC20Count, newHRC20Count, skipptedHRC20Count, expectedHRC20s-(skipptedHRC20Count+newHRC20Count), skipptedHRC20Count+newHRC20Count]]
         self.GUI.addToText(
@@ -1910,14 +1943,14 @@ def ImportAddress(metaMaskPaths):
         json.dump(addressBook, f, ensure_ascii=False, indent=4)
 
 
-getCoinGeckoHistory()
+#getCoinGeckoHistory()
 # getMarketHistory(coingeckoCoins)
 # sortMarketHistory(coingeckoCoins)
 # getCourseMarketHistory(coingeckoCoins)
 metaMaskPaths = ['./TransactionHistory/Julian MetaMask State Logs.json',
                  './TransactionHistory/Lucas MetaMask State Logs.json']
 
-ImportAddress(metaMaskPaths)
+#ImportAddress(metaMaskPaths)
 
 TransactionOrganiser = MainWindow()
 TransactionOrganiser.mainloop()

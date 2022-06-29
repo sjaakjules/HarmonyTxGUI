@@ -944,7 +944,7 @@
     "0xb938147a4f7a17e0c722eb82b82fb4436ae64d58": {
         "chainID": "harmony-shard-0",
         "contract": "0xb938147a4f7a17e0c722eb82b82fb4436ae64d58",
-        "name": "0xb938147a4f7a17e0c722eb82b82fb4436ae64d58",
+        "name": "PUNK",
         "inCoinGecko": false
     },
     "0xf315803ba9da293765ab163e7db98e8d6df6d361": {
@@ -973,19 +973,19 @@
     },
     "0x202c598e93f69dbe3a5e5706dfb85bdc598bb16f": {
         "chainID": "harmony-shard-0",
-        "contract": "0x202c598e93f69dbe3a5e5706dfb85bdc598bb16f",
+        "contract": "0x0dc78c79b4eb080ead5c1d16559225a46b580694",
         "name": "WAGMI",
         "inCoinGecko": false
     },
     "0xf43911c859532e38c969ee1b59eeca3de5630fe3": {
         "chainID": "harmony-shard-0",
-        "contract": "0xf43911c859532e38c969ee1b59eeca3de5630fe3",
+        "contract": "0x0dc78c79b4eb080ead5c1d16559225a46b580694",
         "name": "WAGMI",
         "inCoinGecko": false
     },
     "0x5fa3ec803ed6eee64a52c101f4fa96dd1b093ac7": {
         "chainID": "harmony-shard-0",
-        "contract": "0x5fa3ec803ed6eee64a52c101f4fa96dd1b093ac7",
+        "contract": "0x0dc78c79b4eb080ead5c1d16559225a46b580694",
         "name": "WAGMI",
         "inCoinGecko": false
     }
