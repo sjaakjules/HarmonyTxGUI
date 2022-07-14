@@ -42,7 +42,6 @@ def getHRC20Count(oneAddy) -> int:
     print(f'Expecting {len(HRC20Counter)} HRC20 transactions.')
     return len(HRC20Counter)
 
-print(getHRC20Count('one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3'))
 
 """
 # Online Python compiler (interpreter) to run Python online.

@@ -10,6 +10,8 @@ from pycoingecko import CoinGeckoAPI
 
 import src.HmyTx_Constants as C
 import src.HmyTx_Utils as HmyUtil
+# used to populate public wallet addresses.
+import TransactionHistory.AccountDetails as Acc
 
 
 class KoinlyTrade():
@@ -1153,13 +1155,5 @@ class KoinlyProcessor():
         else:
             return(0, 0, timestamp)
 
-julianAddy1 = 'one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3'
-julianAddy2 = 'one1nzvl9a558tp54qw773xs6yeutkshqg3my5mksz'
-julianAddy3 = 'one1vzw8vmjeplfcjf8w0fdlkt6g26et4tj462sn4n'
 
-accounts = [julianAddy1,julianAddy2,julianAddy3]
-#KoinlyProcessor(julianAddy1)
-#KoinlyProcessor(julianAddy2)
-#KoinlyProcessor([julianAddy3])
-#KoinlyProcessor('0xf9358cc0b2a2b8f20da1edd5d385e2d59a5370e3')
-#KoinlyProcessor('one1unfc5h5plzf2je2zgr838mlvyuqnq0ucmcr4u3')
+KoinlyProcessor([Acc.julianAddy1])

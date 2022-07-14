@@ -8,7 +8,7 @@ TRANSACTIONS_KEY = 'transactions'
 COUNTS_KEY = 'counts'
 TXLIST = 'txList'
 
-ADDRESSBOOKPATH = './TokenInfo/AddressBook.json'
+ADDRESSBOOKPATH = './TransactionHistory/AddressBook.json'
 AB_ONE = 'one'
 AB_HEX = 'hex'
 AB_NAME = 'name'
